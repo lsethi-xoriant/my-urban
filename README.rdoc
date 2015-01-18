@@ -1,1 +1,1 @@
-This is a master branch of the my-urban project
+﻿This is a dev branch of the my-urban project
