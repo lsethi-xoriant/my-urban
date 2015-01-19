@@ -1,15 +1,20 @@
 <h1>Listing events</h1>
+<div><h1>Ви в проекті my-urban</h1></div>
+
+<div><% if user_signed_in? %>
+    <span>Вітаю, <%= current_user.first_name %> <%= current_user.last_name %></span>
+    <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to 'Вхід', new_user_session_path %> або <%= link_to 'Реєстрація', new_user_registration_path %>
+<% end %></div>
+
+<br>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Adress</th>
-      <th>Description</th>
-      <th>Data</th>
-      <th>Timestart</th>
-      <th>Endtime</th>
-      <th>Photo</th>
+      <th>Event name</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +23,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= event.adress %></td>
-        <td><%= event.description %></td>
-        <td><%= event.data %></td>
-        <td><%= event.timeStart %></td>
-        <td><%= event.endTime %></td>
-        <td><%= event.photo %></td>
+        
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
