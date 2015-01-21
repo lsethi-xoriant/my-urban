@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#CanCan is an authorization library 
+#which restricts what resources a given user is allowed to access
+gem 'cancancan', '~> 1.9'
 # Devise is a flexible authentication solution for Rails based on Warden.
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

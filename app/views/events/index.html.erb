@@ -1,7 +1,13 @@
 <h1>Listing events</h1>
 <div><h1>Ви в проекті my-urban</h1></div>
 
+
+
+
 <div><% if user_signed_in? %>
+
+  <%= User.find_by_id(current_user.id).email %></br>
+
     <span>Вітаю, <%= current_user.first_name %> <%= current_user.last_name %></span>
     <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
 <% else %>
@@ -33,5 +39,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>
+<% if user_signed_in? %>
+<%= link_to 'Створити подію', new_event_path %>
+<% end %>
