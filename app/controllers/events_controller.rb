@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show]
+  before_action :authorize, :only => [:edit, :destroy]
 
   respond_to :html
 
@@ -9,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    respond_with(@event)
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -18,6 +19,8 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+    #unauthorized! if cannot? :edit, @event
   end
 
   def create
@@ -36,12 +39,34 @@ class EventsController < ApplicationController
     respond_with(@event)
   end
 
+  def authorize
+  @event = Event.find(params[:id])
+  if current_user == nil  
+    redirect_to root_path
+  else
+  unless @event.user_id == current_user.id 
+    flash[:notice] = "You are not the creator of this article, therefore you're not permitted to edit or destroy this article"
+    redirect_to root_path # or anything you prefer
+    return false # Important to let rails know that the controller should not be executed
+  end  
+  end
+  
+end
+
   private
     def set_event
       @event = Event.find(params[:id])
     end
 
     def event_params
-      params.require(:event).permit(:name, :adress, :description, :data, :timeStart, :endTime, :photo)
+      params.require(:event).permit(
+        :name, 
+        :adress, 
+        :description, 
+        :data, 
+        :timeStart, 
+        :endTime, 
+        :photo,
+        :user_id)
     end
 end

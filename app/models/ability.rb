@@ -3,9 +3,11 @@ class Ability
 
   def initialize(user)
     if user.nil?
-        can :read, all
+        can :read, Event        
     else
-        can :addevent, all
+        can :manage, Event, :user_id => 3
+        #can [:update, :destroy], Event, Event.user_id => current_user.id
+    end    
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
