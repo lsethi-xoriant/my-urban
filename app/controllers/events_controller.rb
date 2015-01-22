@@ -44,11 +44,11 @@ class EventsController < ApplicationController
   if current_user == nil  
     redirect_to root_path
   else
-  unless @event.user_id == current_user.id 
-    flash[:notice] = "You are not the creator of this article, therefore you're not permitted to edit or destroy this article"
-    redirect_to root_path # or anything you prefer
-    return false # Important to let rails know that the controller should not be executed
-  end  
+    unless @event.user_id == current_user.id 
+      flash[:alert] = "It is not your event"
+      redirect_to root_path # or anything you prefer
+      return false # Important to let rails know that the controller should not be executed
+    end  
   end
   
 end
