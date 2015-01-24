@@ -5,7 +5,12 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
+    if params[:search]
+    @events = Event.search(params[:search]).order("created_at DESC")
+  else
     @events = Event.all
+  end
+    #@events = Event.all
     respond_with(@events)
   end
 
@@ -30,7 +35,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(event_params)
+    @event = Event.find(params[:id])
+    @event.update_attributes(event_params)
     respond_with(@event)
   end
 
@@ -67,6 +73,6 @@ end
         :timeStart, 
         :endTime, 
         :photo,
-        :user_id)
+        :user_id)        
     end
 end
