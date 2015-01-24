@@ -7,4 +7,7 @@ class Event < ActiveRecord::Base
 	validates :timeStart, :endTime, allow_blank: true, format: { with: /\d{2}:\d{2}/,
 	  message: "only allows time format hh:mm" }
 
+	def self.search(query)
+  		where("data like ?", "%#{query}%") 
+	end
 end

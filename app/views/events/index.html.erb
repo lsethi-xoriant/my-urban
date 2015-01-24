@@ -60,7 +60,7 @@
 <% end %>
 </br>
 
-<% if user_signed_in? %>
+<% if can? :create, Event %>
 <%= link_to 'Створити подію', new_event_path %>
 <% end %>
 

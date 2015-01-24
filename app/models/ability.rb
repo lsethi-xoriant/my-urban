@@ -5,7 +5,8 @@ class Ability
     if user.nil?
         can :read, Event        
     else
-        can :manage, Event, :user_id => 3
+        can :manage, Event    
+        can :create, Event 
         #can [:update, :destroy], Event, Event.user_id => current_user.id
     end    
     # Define abilities for the passed in user here. For example:

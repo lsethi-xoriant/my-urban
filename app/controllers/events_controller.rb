@@ -19,8 +19,12 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
-    respond_with(@event)
+    if current_user == nil  
+      redirect_to root_path
+    else
+      @event = Event.new
+      respond_with(@event)
+    end
   end
 
   def edit
@@ -31,7 +35,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save
-    respond_with(@event)
+    respond_with(@event)   
   end
 
   def update
@@ -73,6 +77,6 @@ end
         :timeStart, 
         :endTime, 
         :photo,
-        :user_id)        
+        :user_id)
     end
 end
