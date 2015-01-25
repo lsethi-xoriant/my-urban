@@ -1,5 +1,6 @@
 <h1>Listing categories</h1>
 
+<% if Category.exists? %>
 <table>
   <thead>
     <tr>
@@ -19,7 +20,9 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Category', new_category_path %></br>
+<%= link_to 'Back', events_path %>

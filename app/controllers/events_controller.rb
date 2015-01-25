@@ -28,8 +28,12 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
+    if current_user == nil  
+      redirect_to root_path
+    else
+      @event = Event.find(params[:id])
     #unauthorized! if cannot? :edit, @event
+    end
   end
 
   def create
@@ -49,19 +53,18 @@ class EventsController < ApplicationController
     respond_with(@event)
   end
 
-  def authorize
-  @event = Event.find(params[:id])
-  if current_user == nil  
-    redirect_to root_path
-  else
-    unless @event.user_id == current_user.id 
-      flash[:alert] = "It is not your event"
-      redirect_to root_path # or anything you prefer
-      return false # Important to let rails know that the controller should not be executed
-    end  
+  def authorize  
+    if current_user == nil  
+      redirect_to root_path
+    else
+      unless @event.user_id == current_user.id 
+        flash[:alert] = "It is not your event"
+        redirect_to root_path # or anything you prefer
+        return false # Important to let rails know that the controller should not be executed
+      end 
+        @event = Event.find(params[:id]) 
+    end    
   end
-  
-end
 
   private
     def set_event
@@ -77,6 +80,7 @@ end
         :timeStart, 
         :endTime, 
         :photo,
-        :user_id)
+        :user_id,
+        :category_id)
     end
 end

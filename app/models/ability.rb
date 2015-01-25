@@ -6,7 +6,8 @@ class Ability
         can :read, Event        
     else
         can :manage, Event    
-        can :create, Event 
+        can :create, Event
+        can :create, Category 
         #can [:update, :destroy], Event, Event.user_id => current_user.id
     end    
     # Define abilities for the passed in user here. For example:

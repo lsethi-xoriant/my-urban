@@ -1,23 +1,40 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_category, only: [:show, :edit, :destroy]
+  
   respond_to :html
 
   def index
-    @categories = Category.all
-    respond_with(@categories)
+    if current_user == nil  
+      redirect_to root_path
+    else
+      @categories = Category.all
+      respond_with(@categories)
+    end
   end
 
   def show
-    respond_with(@category)
+    if current_user == nil  
+      redirect_to root_path
+    else
+      respond_with(@category)
+    end
   end
 
   def new
+    if current_user == nil  
+      redirect_to root_path
+    else
     @category = Category.new
     respond_with(@category)
+    end
   end
 
   def edit
+    if current_user == nil  
+      redirect_to root_path
+    else
+      @category = Category.find(params[:id])    
+    end
   end
 
   def create
