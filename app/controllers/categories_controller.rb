@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :destroy]
+  before_action :set_category, only: [:show, :edit, :update,:destroy]
   
   respond_to :html
 
@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
 
   def update
     @category.update(category_params)
-    respond_with(@category)
+    redirect_to categories_path
   end
 
   def destroy
