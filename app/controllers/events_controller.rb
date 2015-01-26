@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show]
-  before_action :authorize, :only => [:edit, :destroy]
+  before_action :authorize, :only => [:edit, :update, :destroy]
 
   respond_to :html
 
@@ -54,6 +54,7 @@ class EventsController < ApplicationController
   end
 
   def authorize  
+    @event = Event.find(params[:id])
     if current_user == nil  
       redirect_to root_path
     else
@@ -61,8 +62,7 @@ class EventsController < ApplicationController
         flash[:alert] = "It is not your event"
         redirect_to root_path # or anything you prefer
         return false # Important to let rails know that the controller should not be executed
-      end 
-        @event = Event.find(params[:id]) 
+      end         
     end    
   end
 
