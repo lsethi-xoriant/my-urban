@@ -4,7 +4,7 @@
 
 
 <div><% if user_signed_in? %>
-    <span>Вітаю, <%= current_user.first_name %> <%= current_user.last_name %></span>
+    <span>Вітаю, <%= current_user.first_name + ' ' + current_user.last_name %></span>
     <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
 <% else %>
     <%= link_to 'Вхід', new_user_session_path %> або <%= link_to 'Реєстрація', new_user_registration_path %>
@@ -36,8 +36,9 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= User.find_by_id(event.user_id).last_name + ' ' + 
-            User.find_by_id(event.user_id).first_name %></td>        
+        <% @user =  User.find_by_id(event.user_id) %>
+        <td><%= @user.last_name + ' ' + 
+            @user.first_name %></td>        
         
 
         <% if can? :read, Event %>
@@ -53,7 +54,7 @@
     <% end %>
   </tbody>
 </table>
-<% end %>
+
 
 </br>
 
@@ -62,6 +63,7 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 </br>
+<% end %>
 
 <% if can? :create, Event %>
 <%= link_to 'Створити подію', new_event_path %>
