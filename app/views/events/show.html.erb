@@ -42,3 +42,16 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+<% if user_signed_in? %>
+  <%if @p.count == 1%>
+    <p>Status: <%=@p.first.status%></p>
+    Change your mind
+  <%end%>
+  <%= simple_form_for @plan do |f| %>
+    <%= f.hidden_field :measure_id,  value: @event.id %>
+    <%= f.submit 'Comming', name: 'comming'%>
+    <%= f.submit 'Maybe', name: 'maybe'%>
+    <%= f.submit 'Not Comming', name: 'not_comming'%>
+  <%end%>
+<% end %>

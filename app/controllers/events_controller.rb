@@ -16,6 +16,16 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    if user_signed_in?
+      @p = Plan.where(member_id: current_user.id, measure_id: @event.id)
+    else
+      @p = 0
+    end
+    if user_signed_in? && @p.count == 0
+      @plan = Plan.new 
+    elsif user_signed_in? && @p.count == 1
+      @plan = @p.first
+    end
   end
 
   def new
