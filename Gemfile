@@ -35,6 +35,10 @@ gem 'pry-nav'
 
 gem 'simple_form'
 
+gem 'haml'
+gem 'html2haml'
+gem "haml-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

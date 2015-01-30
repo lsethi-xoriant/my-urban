@@ -1,0 +1,27 @@
+= form_tag("/filter_events", method: "get") do |f|
+  .field
+    = label_tag :name
+    %br/
+    = text_field_tag :name
+  .field
+    = label_tag :adress
+    %br/
+    = text_field_tag :adress
+  .field
+    = label_tag :description
+    %br/
+    = text_field_tag :description
+  .field
+    = label_tag :data
+    %br/
+    = text_field_tag :data
+  .field
+    = label_tag :timeStart
+    %br/
+    = text_field_tag :timeStart
+  .field
+    = label_tag :endTime
+    %br/
+    = text_field_tag :endTime
+  .actions
+    = submit_tag

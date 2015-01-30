@@ -1,4 +1,9 @@
 class Event < ActiveRecord::Base
+  scope :name_filter, -> (name) { where("name like ?", "%#{name}%")}
+  scope :adress_filter, -> (address) { where("adress like ?", "%#{address}%")}
+  scope :description_filter, -> (description) { where("description like ?", "%#{description}%")}
+
+
   belongs_to :user
   belongs_to :category
 
