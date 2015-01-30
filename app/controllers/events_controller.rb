@@ -76,7 +76,25 @@ class EventsController < ApplicationController
     end    
   end
 
+  def filter
+    
+  end
+
+  def filter_events
+    @events = Event.where(nil)
+    filtering_params(params).each do |key, value|
+      @events = @events.public_send(key+"_filter", value) if value.present?
+      #binding.pry
+    end
+    #binding.pry
+    render text: "#{@events.count}"#'filter'
+  end
+
   private
+
+  def filtering_params(params)
+    params.slice(:name, :adress, :description)
+  end
     def set_event
       @event = Event.find(params[:id])
     end
