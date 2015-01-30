@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title My Urban
+    <!--  Place in <head> to set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  body
+    .main-wrapper
+      .video-wrapper
+        <iframe frameborder="0" height="108%" width="100%" src="https://youtube.com/embed/WFD1zM2Exmw?autoplay=1&loop=1&controls=0&showinfo=0&playlist=WFD1zM2Exmw"></iframe>
+      .content-wrapper
+        header
+          .row
+            .menu
+              = link_to 'Ru', "javascript:void(0);"
+              span |
+              = link_to 'Ua', href="javascript:void(0);"
+              = link_to('Вхід', new_user_session_path, class: "enter-site")
+            .logo
+              = link_to root_path do
+                span 
+                  | My 
+                | Urban
+        div class="content home-content-wrapper"
+          div class="row home-content"
+            .ukraine-map
+              h2 Оберіть вашу область
+              .map
+                span
+            .welcome-div
+              h2 Ласкаво просимо до MyUrban
+              p Це місце де ви можете знайти чим зайнятись у вашому місті сьогодні, на вихідних, будь коли!
+              = link_to('Знайти своє місто', "#", class: "btn-1")

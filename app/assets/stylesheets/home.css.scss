@@ -1,3 +1,168 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-wrapper {
+	height: 100%;
+	font-family: "HouschkaPro";
+	font-weight: 100;
+	color: #FFFFFF;
+
+	h2 {
+		font-family: "HouschkaPro";
+		color: #FFFFFF;
+		font-weight: 800;
+		font-size: 30px;
+		line-height: 30px;
+	}
+
+	p {
+		font-family: "HouschkaPro";
+		font-weight: 400;
+		font-size: 22px;
+		line-height: 25px;
+	}
+
+	a {
+		font-family: "HouschkaPro";
+		font-weight: 100;
+		color: #FFFFFF;
+	}
+}
+
+.video-wrapper {
+	position: fixed;
+	z-index: -99;
+	width: 100%;
+	height: 100%;
+}
+
+.content-wrapper {
+	background: url('b-1.png') no-repeat center top;
+	min-height: 100%;
+	background-size: cover;
+}
+
+header {
+	padding: 20px 0 0;
+}
+
+.menu {
+	float: right;
+
+	a {
+		font-size: 16px;
+		line-height: 30px;
+		margin: 0 5px 0;
+	}
+
+	a:hover {
+		background-color: transparent;
+		text-decoration: underline;
+	}
+
+	a:visited {
+		color: #FFFFFF;
+	}
+
+	.enter-site {
+		background: url("icon-enter.png") no-repeat left center;
+		padding: 0 0 0 20px;
+		margin: 0 0 0 20px;
+	}
+}
+
+.logo {
+	a {
+		font-weight: 800;
+		font-size: 30px;
+		line-height: 30px;
+		letter-spacing: 6px;
+		text-transform: uppercase;
+	}
+
+	a span {
+		color: #0d5ec2;
+	}
+
+	a:hover {
+		opacity: 0.8;
+		background: transparent;
+	}
+
+	a:visited {
+		color: #FFFFFF;
+	}
+}
+
+.btn-1 {
+	background-color: #FFFFFF;
+	display: inline-block;
+	font-size: 18px;
+	line-height: 30px;
+	color: #7da82c;
+	border: 2px solid #7da82c;
+	border-radius: 3px;
+	outline: none;
+	padding: 5px 20px 5px 40px;
+}
+
+.home-content-wrapper {
+	width: 100%;
+	overflow: hidden;
+}
+
+.welcome-div {
+	width: 550px;
+	float: left;
+	transition: margin 1s opacity 1s;
+	padding: 13% 0 0;
+
+	.btn-1 {
+		background: #FFFFFF url("i-m-m-2.png") no-repeat 15px center;
+	}
+}
+
+.btn-1:hover {
+	background-color: #FFFFFF;
+}
+
+.ukraine-map {
+	float: right;
+	margin-right: -650px;
+	text-align: center;
+	transition: margin 1s;
+	position: relative;
+
+	h2 {
+		position: absolute;
+		z-index: 3;
+		bottom: 27%;
+		left: 4%;
+		opacity: 0;
+		transition: opacity 2s;
+	}
+
+	tspan {
+		font-family: "HouschkaPro";
+		font-size: 10px;
+		color: #393939;
+	}
+}
+
+.chose-region {
+	.welcome-div {
+		margin-left: -650px;
+		opacity: 0;
+	}
+
+	.ukraine-map {
+		margin: 0;
+		// float: none;
+		width: 100%;
+	}
+
+	h2 {
+		opacity: 1;
+	}
+}
