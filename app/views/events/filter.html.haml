@@ -12,16 +12,25 @@
     %br/
     = text_field_tag :description
   .field
-    = label_tag :data
+    = label_tag :data, 'Exact date'
     %br/
     = text_field_tag :data
   .field
     = label_tag :timeStart
     %br/
     = text_field_tag :timeStart
+  -#
+    .field
+      = label_tag :endTime
+      %br/
+      = text_field_tag :endTime
   .field
-    = label_tag :endTime
+    = label_tag :start_date
     %br/
-    = text_field_tag :endTime
+    = text_field_tag :start_date
+  .field
+    = label_tag :end_date
+    %br/
+    = text_field_tag :end_date
   .actions
     = submit_tag
