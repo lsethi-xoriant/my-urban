@@ -86,6 +86,7 @@ class EventsController < ApplicationController
       @events = @events.public_send(key+"_filter", value) if value.present?
       #binding.pry
     end
+    @events = @events.filter_by_data(params[:start_date], params[:end_date] ) if params[:end_date].present?||params[:start_date].present?
     #binding.pry
     render text: "#{@events.count}"#'filter'
   end
@@ -93,7 +94,7 @@ class EventsController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:name, :adress, :description)
+    params.slice(:name, :adress, :description, :data, :timeStart)
   end
     def set_event
       @event = Event.find(params[:id])
