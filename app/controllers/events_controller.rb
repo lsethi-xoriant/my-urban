@@ -86,6 +86,7 @@ class EventsController < ApplicationController
       @events = @events.public_send(key+"_filter", value) if value.present?
       #binding.pry
     end
+    #@events = @events.filter_by_count(params[:people_count]) if params[:people_count].present?
     @events = @events.filter_by_data(params[:start_date], params[:end_date] ) if params[:end_date].present?||params[:start_date].present?
     @events = @events.filter_by_time(params[:start_time], params[:end_time] ) if params[:end_time].present?||params[:start_time].present?
     #binding.pry
@@ -95,7 +96,7 @@ class EventsController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:name, :adress, :description, :data, :timeStart)
+    params.slice(:people_count, :category_id, :event_type, :data)#(:name, :adress, :description, :data, :timeStart)
   end
     def set_event
       @event = Event.find(params[:id])
@@ -111,6 +112,8 @@ class EventsController < ApplicationController
         :endTime, 
         :photo,
         :user_id,
-        :category_id)
+        :category_id,
+        :event_type,
+        :people_count)
     end
 end
