@@ -87,6 +87,7 @@ class EventsController < ApplicationController
       #binding.pry
     end
     @events = @events.filter_by_data(params[:start_date], params[:end_date] ) if params[:end_date].present?||params[:start_date].present?
+    @events = @events.filter_by_time(params[:start_time], params[:end_time] ) if params[:end_time].present?||params[:start_time].present?
     #binding.pry
     render text: "#{@events.count}"#'filter'
   end
