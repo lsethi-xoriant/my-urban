@@ -33,4 +33,15 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def self.filter_by_time(start_time, end_time)
+    if start_time.present?&&end_time.present?
+       #binding.pry
+      Event.select{|event| event.timeStart.to_time >= start_time.to_time && event.timeStart.to_time <= end_time.to_time}
+    elsif start_time.present?
+      Event.select{|event| event.timeStart.to_time >= start_time.to_time}
+    elsif end_time.present?
+      Event.select{|event| event.timeStart.to_time <= end_time.to_time}
+    end
+  end
+
 end
