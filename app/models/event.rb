@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   scope :name_filter, -> (name) { where("name like ?", "%#{name}%")}
   scope :adress_filter, -> (address) { where("adress like ?", "%#{address}%")}
   scope :description_filter, -> (description) { where("description like ?", "%#{description}%")}
-  scope :data_filter, -> (data) { where("data like ?", "%#{data}%")}
+  scope :data_filter, -> (data) { select{|event| event.data.to_date == data.to_date} }#where("data like ?", "%#{data}%")}
   scope :timeStart_filter, -> (timestart) { where("timeStart like ?", "#{timestart}")}
 
 
@@ -18,8 +18,30 @@ class Event < ActiveRecord::Base
   validates :timeStart, :endTime, allow_blank: true, format: { with: /\d{2}:\d{2}/,
     message: "only allows time format hh:mm" }
 
+
+  def self.types_of_event
+    [['Open event', 'open'], ['Close type', 'close']]
+  end
+
+
+  def self.counts_of_people
+    [['Little group', 'little'], ['Middle group', 'middle'], ['Great group', 'great']]
+  end
+
   def self.search(query)
     where("data like ?", "%#{query}%") 
+  end
+
+  def self.people_count_filter(count)
+    where("people_count like ?", "%#{count}%")
+  end
+
+  def self.category_id_filter(category)
+    where("category_id like ?", "%#{category}%")
+  end
+
+  def self.event_type_filter(type)
+    where("event_type like ?", "%#{type}%")
   end
 
   def self.filter_by_data(start_date, end_date)

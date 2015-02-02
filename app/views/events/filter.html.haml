@@ -1,44 +1,61 @@
 = form_tag("/filter_events", method: "get") do |f|
-  .field
-    = label_tag :name
-    %br/
-    = text_field_tag :name
-  .field
-    = label_tag :adress
-    %br/
-    = text_field_tag :adress
-  .field
-    = label_tag :description
-    %br/
-    = text_field_tag :description
+  -#
+    .field
+      = label_tag :name
+      %br/
+      = text_field_tag :name
+    .field
+      = label_tag :adress
+      %br/
+      = text_field_tag :adress
+    .field
+      = label_tag :description
+      %br/
+      = text_field_tag :description
+    .field
+      = label_tag :data, 'Exact date'
+      %br/
+      = text_field_tag :data
+    .field
+      = label_tag :timeStart
+      %br/
+      = text_field_tag :timeStart
+    -#
+      .field
+        = label_tag :endTime
+        %br/
+        = text_field_tag :endTime
+    .field
+      = label_tag :start_date
+      %br/
+      = text_field_tag :start_date
+    .field
+      = label_tag :end_date
+      %br/
+      = text_field_tag :end_date
+    .field
+      = label_tag :start_time
+      %br/
+      = text_field_tag :start_time
+    .field
+      = label_tag :end_time
+      %br/
+      = text_field_tag :end_time
   .field
     = label_tag :data, 'Exact date'
     %br/
-    = text_field_tag :data
+    = date_field_tag :data
   .field
-    = label_tag :timeStart
-    %br/
-    = text_field_tag :timeStart
-  -#
-    .field
-      = label_tag :endTime
-      %br/
-      = text_field_tag :endTime
+    = label_tag :category_id 
+    %br
+    = select_tag :category_id, options_for_select( categories_collection), { :include_blank => "All events #{Event.all.count}" }
   .field
-    = label_tag :start_date
-    %br/
-    = text_field_tag :start_date
+    = label_tag :people_count 
+    %br
+    = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Select type' }
   .field
-    = label_tag :end_date
-    %br/
-    = text_field_tag :end_date
-  .field
-    = label_tag :start_time
-    %br/
-    = text_field_tag :start_time
-  .field
-    = label_tag :end_time
-    %br/
-    = text_field_tag :end_time
+    = label_tag :event_type 
+    %br
+    = select_tag :event_type, options_for_select(Event.types_of_event), { :include_blank => 'Choose type: open or close?' }
   .actions
     = submit_tag

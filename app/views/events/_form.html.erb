@@ -46,6 +46,14 @@
     <%= f.label :photo %><br>
     <%= f.text_field :photo %>
   </div>
+  <div class="field">
+    <%= f.label :event_type %><br>
+    <%= f.select :event_type, Event.types_of_event %>
+  </div>
+  <div class="field">
+    <%= f.label :people_count %><br>
+    <%= f.select :people_count, Event.counts_of_people %>
+  </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
   
 
