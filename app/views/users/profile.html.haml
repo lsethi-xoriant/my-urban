@@ -1,0 +1,32 @@
+%title "My Profile"
+%p
+  Username: #{h current_user.first_name}
+%h2 Friends
+%ul
+  -for friendship in current_user.user_friends
+    %li
+      - if friendship.user == current_user
+        =h friendship.friend.first_name
+      - else 
+        =h friendship.user.first_name
+      =link_to 'Remove from friends', friendship, :method => :delete
+%p= link_to "Find Friends", users_path
+
+%h2 Followers
+%ul
+  - for u in current_user.followers
+    %li
+      = h u.first_name
+      - @friendship = current_user.follower_friendships.where(user_id: u.id).first
+      =link_to 'Add to friend', resolve_friendship_path(@friendship, :resolve => 'friend'), :method => :post
+%h2 Followed Users
+%ul
+  - for u in current_user.followed_users
+    %li= h u.first_name
+%h2 Request
+%ul
+  -for friendship in current_user.requests
+    %li
+      =h friendship.user.first_name
+      =link_to 'Add to friend', resolve_friendship_path(friendship, :resolve => 'friend'), :method => :post
+      =link_to 'Leave a Followers', resolve_friendship_path(friendship, :resolve => 'follower'), :method => :post

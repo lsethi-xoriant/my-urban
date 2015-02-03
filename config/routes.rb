@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  resources :friendships do
+    member do
+      post 'resolve'
+    end
+  end
+
   resources :plans
 
   resources :categories
@@ -7,7 +14,12 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  get 'users' => 'users#index'
+  #get 'users_controller/index'
+  get 'profile' => 'users#profile'
+  #get 'users_controller/profile'
   devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
