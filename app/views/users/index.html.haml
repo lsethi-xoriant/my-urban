@@ -1,0 +1,7 @@
+.users
+  - @users.each do |u|
+    - next if u == current_user
+    .user
+      %strong
+        =u.first_name
+      =link_to "Add Friend", friendships_path(:friend_id => u), :method => :post
