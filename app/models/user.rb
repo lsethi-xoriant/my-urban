@@ -42,7 +42,23 @@ class User < ActiveRecord::Base
   end
 =end
 
+  def comming(event)
+    return true if plans.where(measure_id: event, status: 'comming').all.count == 1
+    #puts "HHHHHHHHHH  #{event} #{plans.where(measure_id: event).all.count}"
+    return false if plans.where(measure_id: event, status: 'comming').all.count == 0
+  end
+
+  def confirm_friend(user_id)
+    return true if (friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id) + inverse_friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id)).count == 1
+    return false if (friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id) + inverse_friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id)).count == 0
+  end
+
+
   def user_friends
     friendships.where(status: 'friend') + inverse_friendships.where(status: 'friend')
+  end
+
+  def user_invites
+    plans.where(status: 'invite')
   end
 end

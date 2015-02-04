@@ -42,16 +42,24 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
-
-<% if user_signed_in? %>
+<% if confirm_ability(@event) == 'can'%>
   <%if @p.count == 1%>
     <p>Status: <%=@p.first.status%></p>
     Change your mind
   <%end%>
   <%= simple_form_for @plan do |f| %>
     <%= f.hidden_field :measure_id,  value: @event.id %>
-    <%= f.submit 'Comming', name: 'comming'%>
+    <%if current_user.comming(@plan.measure_id)%>
+      <%= f.submit 'Not_Comming', name: 'not_comming'%>
+    <%elsif !current_user.comming(@plan.measure_id)%>
+    <!--
     <%= f.submit 'Maybe', name: 'maybe'%>
-    <%= f.submit 'Not Comming', name: 'not_comming'%>
+    -->
+    <%= f.submit 'Comming', name: 'comming'%>
+    <%end%>
   <%end%>
+<%elsif confirm_ability(@event) == 'not_friend'%>
+  <p>This event are close, you aren't friend</p>
+<%elsif confirm_ability(@event) == 'not_user'%>
+  <p>Sign in or Sign up</p>
 <% end %>
