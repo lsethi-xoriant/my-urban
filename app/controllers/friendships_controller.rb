@@ -18,11 +18,13 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = current_user.friendships.find(params[:id])
-    if current_user.id == @friendship.user_id
+    @friendship = Friendship.find(params[:id])
+    if (current_user.id == @friendship.friend_id) && @friendship.status == 'follower'
+      @friendship.destroy
+    elsif current_user.id == @friendship.user_id #followed user
       @new_friendship = Friendship.create(:friend_id => current_user.id, :user_id => @friendship.friend_id, status: 'follower')
       @friendship.destroy
-    elsif current_user.id == @friendship.friend_id
+    elsif current_user.id == @friendship.friend_id #follower
       @friendship.status == 'follower'
       @friendship.save
     end

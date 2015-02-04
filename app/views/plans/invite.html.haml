@@ -1,0 +1,34 @@
+-if @user
+  %p Invite #{@user.first_name} to 
+  - if Event.exists?
+    %table
+      %thead
+        %tr
+          %th Event name
+          %th{:colspan => "3"}
+      - if flash[:alert]
+        .notice= flash[:alert]
+      %tbody
+        - current_user.events.each do |event|
+          %tr
+            %td= event.name     |
+            %td= link_to 'Invite to event', create_invite_path(user_id: @user.id, event_id: event.id), method: 'post'
+            -# if can? :read, Event
+              %td= link_to 'Show', create_invite_path(user_id: @user.id, event_id: event.id)
+            -# if can? :manage, Event
+              %td= link_to 'Edit', edit_event_path(event)
+              %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+  - else
+    %p You don't have any event
+-elsif @event
+  .users
+    %h2 Friends
+    %ul
+      -for friendship in current_user.user_friends
+        %li
+          - if friendship.user == current_user
+            =h friendship.friend.first_name
+            = link_to 'Invite to event', create_invite_path(user_id: friendship.friend.id, event_id: @event.id), method: 'post'
+          - else 
+            =h friendship.user.first_name
+            = link_to 'Invite to event', create_invite_path(user_id: friendship.user.id, event_id: @event.id), method: 'post'

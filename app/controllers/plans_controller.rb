@@ -35,6 +35,24 @@ class PlansController < ApplicationController
     redirect_to @event
   end
 
+  def invite 
+    @user = User.find(params[:user_id]) if params[:user_id]
+    @event = Event.find(params[:event_id]) if params[:event_id]
+  end
+
+  def create_invite 
+    @plan = Plan.create(measure_id: params[:event_id], member_id: params[:user_id], status: 'invite')
+    render text: "#{@plan.measure_id} #{@plan.member_id} #{@plan.measure.name} #{@plan.status}"
+  end
+
+  def user_answer
+    @plan = Plan.find(params[:plan_id])
+    @plan.status = 'comming' if params[:answer] == 'comming'
+    @plan.status = 'decline' if params[:answer] == 'decline'
+    @plan.save
+    render text: "#{@plan.inspect}"
+  end
+
   def update
     @plan.update(plan_params)
     if params[:not_comming]

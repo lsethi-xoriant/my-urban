@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'invite' => 'plans#invite'
+  post 'create_invite' => 'plans#create_invite'
+  post 'user_answer' => 'plans#user_answer'
   resources :plans
 
   resources :categories
