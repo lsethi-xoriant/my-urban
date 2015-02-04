@@ -1,9 +1,5 @@
 $(function(){
 
-	$('.welcome-div .btn-1').click(function(){
-		$('.home-content-wrapper').addClass('chose-region');
-	});
-
 	$(".ukraine-map").mapael({
 		map : {
 			width : 900 ,

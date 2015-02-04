@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 a {
-	color: #FFFFFF;
+	font-weight: 100;
 }
 
 a:hover {
@@ -34,7 +34,6 @@ a:hover {
 
 	a {
 		font-family: "HouschkaPro";
-		font-weight: 100;
 	}
 }
 
@@ -53,6 +52,10 @@ a:hover {
 
 header {
 	padding: 20px 0 0;
+
+	a {
+		color: #FFFFFF;
+	}
 }
 
 .menu {
@@ -74,7 +77,7 @@ header {
 	}
 
 	.enter-site {
-		background: url("icon-enter.png") no-repeat left 1px;
+		background: url("i-enter.png") no-repeat left 1px;
 		padding: 0 0 0 21px;
 		margin: 0 0 0 38px;
 	}
