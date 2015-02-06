@@ -12,4 +12,13 @@ module EventsHelper
       return 'not_user'
     end
   end
+
+  def check_for_availability(event_id)
+    @event = Event.find(event_id)
+    if (@event.people_count == 'little' && @event.participations.count <2)||(@event.people_count == 'middle' && @event.participations.count <50)||(@event.people_count == 'great' && @event.participations.count <100)
+      return true 
+    else
+      return false 
+    end
+  end
 end

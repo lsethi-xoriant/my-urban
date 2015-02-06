@@ -24,11 +24,15 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @plan.member_id = current_user.id
     if params[:not_comming]
-      @plan.status = 'not_comming'
+      @plan.destroy
     elsif params[:comming]
       @plan.status = 'comming'
     elsif params[:maybe]
       @plan.status = 'maybe'
+     elsif params[:turn]
+      @plan.status = 'turn'
+      @plan.turn_number = 1
+      @plan.turn_number = Plan.where(status: 'turn').maximum(:turn_number) + 1 if Plan.where(status: 'turn').exists?
     end
     @plan.save
     @event = Event.find(plan_params[:measure_id])
@@ -41,7 +45,9 @@ class PlansController < ApplicationController
   end
 
   def create_invite 
-    @plan = Plan.create(measure_id: params[:event_id], member_id: params[:user_id], status: 'invite')
+    @event = Event.find(params[:event_id])
+    binding.pry
+    #@plan = Plan.create(measure_id: params[:event_id], member_id: params[:user_id], status: 'invite')
     render text: "#{@plan.measure_id} #{@plan.member_id} #{@plan.measure.name} #{@plan.status}"
   end
 
@@ -53,14 +59,21 @@ class PlansController < ApplicationController
     render text: "#{@plan.inspect}"
   end
 
+  def sent_invites
+    binding.pry
+  end
+
   def update
     @plan.update(plan_params)
     if params[:not_comming]
-      @plan.status = 'not_comming'
+      @plan.destroy
     elsif params[:comming]
       @plan.status = 'comming'
     elsif params[:maybe]
       @plan.status = 'maybe'
+     elsif params[:turn]
+      @plan.status = 'turn'
+      @plan.turn_number = Plan.where(status: 'turn').maximum(:turn_number) + 1
     end
     @plan.save
     @event = Event.find(plan_params[:measure_id])

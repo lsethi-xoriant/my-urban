@@ -40,13 +40,29 @@
   <%= @event.photo %>
 </p>
 
+<%if @event.user == current_user%>
+  <%=form_tag(sent_invites_path, method: 'post') do %>
+    <%current_user.user_friends.each do |f|%>
+      <%if current_user == f.friend%>
+        <label class= 'hello'>
+          <%=f.user.first_name%>
+          <%=check_box_tag 'user_ids[]', f.user.id, :id => "#{f.id}"%>
+        </label>
+      <%else%>
+        <!--<%= label_tag(f.id, f.friend.first_name) %>-->
+        <label class= 'hello1'>
+          <%=f.friend.first_name%>
+          <%=check_box_tag 'user_ids[]', f.friend.id,  :id => "#{f.id}"%>
+        </label>
+      <%end%>
+    <%end%>
+    <%=submit_tag%>
+  <%end%>
+<%end%>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
 <% if confirm_ability(@event) == 'can'%>
-  <%if @p.count == 1%>
-    <p>Status: <%=@p.first.status%></p>
-    Change your mind
-  <%end%>
   <%= simple_form_for @plan do |f| %>
     <%= f.hidden_field :measure_id,  value: @event.id %>
     <%if current_user.comming(@plan.measure_id)%>
@@ -55,7 +71,15 @@
     <!--
     <%= f.submit 'Maybe', name: 'maybe'%>
     -->
-    <%= f.submit 'Comming', name: 'comming'%>
+      <%if check_for_availability(@event.id)%>
+        <%= f.submit 'Comming', name: 'comming'%>
+      <%elsif current_user.plans.where(status: 'turn', measure_id: @event.id).exists?%>
+        You are in turn
+        <%= f.submit 'Not_Comming from turn', name: 'not_comming'%>
+      <%else%>
+        All the places are occupied. Go in 
+        <%= f.submit 'Turn', name: 'turn'%>
+      <%end%>
     <%end%>
   <%end%>
 <%elsif confirm_ability(@event) == 'not_friend'%>
