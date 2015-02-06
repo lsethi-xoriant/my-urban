@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     if user_signed_in?
       @p = Plan.where(member_id: current_user.id, measure_id: @event.id)
     else
-      @p = 0
+      @p = Plan.where(reg_type: "nobody")
     end
     if user_signed_in? && @p.count == 0
       @plan = Plan.new 
@@ -114,6 +114,7 @@ class EventsController < ApplicationController
         :user_id,
         :category_id,
         :event_type,
-        :people_count)
+        :people_count,
+        :reg_type)
     end
 end

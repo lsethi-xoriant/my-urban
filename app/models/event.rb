@@ -12,6 +12,9 @@ class Event < ActiveRecord::Base
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
 
+  has_many :relationships, -> { where("status like ? OR status like ?", 'comming', 'turn') }, :class_name => "Plan", :foreign_key => :measure_id
+  has_many :participations, through: :relationships, source: :member 
+
   validates_presence_of :name, :adress, :description, :data, :timeStart, :endTime
   validates :data , allow_blank: true, format: { with: /\d{2}\.\d{2}\.\d{4}/,
     message: "only allows data dd.mm.yyyy" }
@@ -26,6 +29,10 @@ class Event < ActiveRecord::Base
 
   def self.counts_of_people
     [['Little group', 'little'], ['Middle group', 'middle'], ['Great group', 'great']]
+  end
+
+  def self.replenishment
+    [['Manually', 'manually'], ['Automatically', 'automatically']]
   end
 
   def self.search(query)

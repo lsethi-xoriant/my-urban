@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'sent_invites' => 'plans#sent_invites'
   get 'invite' => 'plans#invite'
   post 'create_invite' => 'plans#create_invite'
   post 'user_answer' => 'plans#user_answer'
