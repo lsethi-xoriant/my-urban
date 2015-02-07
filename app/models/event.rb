@@ -12,10 +12,10 @@ class Event < ActiveRecord::Base
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
 
-  has_many :relationships, -> { where("status like ?", 'comming') }, :class_name => "Plan", :foreign_key => :measure_id
+  has_many :relationships, -> { where("status like ?", 'come') }, :class_name => "Plan", :foreign_key => :measure_id
   has_many :participations, through: :relationships, source: :member
 
-  has_many :all_relationships, -> { where("status like ? OR status like ?", 'comming', 'turn') }, :class_name => "Plan", :foreign_key => :measure_id
+  has_many :all_relationships, -> { where("status like ? OR status like ?", 'come', 'turn') }, :class_name => "Plan", :foreign_key => :measure_id
   has_many :all_participations, through: :all_relationships, source: :member 
 
 

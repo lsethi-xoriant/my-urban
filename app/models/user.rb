@@ -42,10 +42,10 @@ class User < ActiveRecord::Base
   end
 =end
 
-  def comming(event)
-    return true if plans.where(measure_id: event, status: 'comming').all.count == 1
+  def come(event)
+    return true if plans.where(measure_id: event, status: 'come').all.count == 1
     #puts "HHHHHHHHHH  #{event} #{plans.where(measure_id: event).all.count}"
-    return false if plans.where(measure_id: event, status: 'comming').all.count == 0
+    return false if plans.where(measure_id: event, status: 'come').all.count == 0
   end
 
   def confirm_friend(user_id)
