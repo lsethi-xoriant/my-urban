@@ -42,21 +42,17 @@
 
 <%if @event.user == current_user%>
   <%=form_tag(sent_invites_path, method: 'post') do %>
-    <%current_user.user_friends.each do |f|%>
-      <%if current_user == f.friend%>
+    <%current_user.user_friendships.each do |f|%>
+      <%friend = current_user.user_friend(f)%>
+      <%unless friend.user_invites.where(measure_id: @event.id).exists?%>
         <label class= 'hello'>
-          <%=f.user.first_name%>
-          <%=check_box_tag 'user_ids[]', f.user.id, :id => "#{f.id}"%>
-        </label>
-      <%else%>
-        <!--<%= label_tag(f.id, f.friend.first_name) %>-->
-        <label class= 'hello1'>
-          <%=f.friend.first_name%>
-          <%=check_box_tag 'user_ids[]', f.friend.id,  :id => "#{f.id}"%>
+          <%=friend.first_name%>
+          <%=check_box_tag 'user_ids[]', friend.id, false%>
+          <%=hidden_field_tag :event_id, @event.id%>
         </label>
       <%end%>
     <%end%>
-    <%=submit_tag%>
+    <%=submit_tag 'Invite to event'%>
   <%end%>
 <%end%>
 
@@ -65,17 +61,17 @@
 <% if confirm_ability(@event) == 'can'%>
   <%= simple_form_for @plan do |f| %>
     <%= f.hidden_field :measure_id,  value: @event.id %>
-    <%if current_user.comming(@plan.measure_id)%>
-      <%= f.submit 'Not_Comming', name: 'not_comming'%>
-    <%elsif !current_user.comming(@plan.measure_id)%>
+    <%if current_user.come(@plan.measure_id)%>
+      <%=button_to 'Uncoming', plan_path(@plan), name: 'do_not_go', :method => :delete%>
+    <%elsif !current_user.come(@plan.measure_id)%>
     <!--
     <%= f.submit 'Maybe', name: 'maybe'%>
     -->
       <%if check_for_availability(@event.id)%>
-        <%= f.submit 'Comming', name: 'comming'%>
+        <%= f.submit 'Come', name: 'come'%>
       <%elsif current_user.plans.where(status: 'turn', measure_id: @event.id).exists?%>
         You are in turn
-        <%= f.submit 'Not_Comming from turn', name: 'not_comming'%>
+        <%=button_to 'Uncoming from turn', plan_path(@plan), name: 'do_not_go_turn', :method => :delete%>
       <%else%>
         All the places are occupied. Go in 
         <%= f.submit 'Turn', name: 'turn'%>

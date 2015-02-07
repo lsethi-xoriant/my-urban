@@ -12,8 +12,12 @@ class Event < ActiveRecord::Base
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
 
-  has_many :relationships, -> { where("status like ? OR status like ?", 'comming', 'turn') }, :class_name => "Plan", :foreign_key => :measure_id
-  has_many :participations, through: :relationships, source: :member 
+  has_many :relationships, -> { where("status like ?", 'come') }, :class_name => "Plan", :foreign_key => :measure_id
+  has_many :participations, through: :relationships, source: :member
+
+  has_many :all_relationships, -> { where("status like ? OR status like ?", 'come', 'turn') }, :class_name => "Plan", :foreign_key => :measure_id
+  has_many :all_participations, through: :all_relationships, source: :member 
+
 
   validates_presence_of :name, :adress, :description, :data, :timeStart, :endTime
   validates :data , allow_blank: true, format: { with: /\d{2}\.\d{2}\.\d{4}/,
@@ -50,6 +54,7 @@ class Event < ActiveRecord::Base
   def self.event_type_filter(type)
     where("event_type like ?", "%#{type}%")
   end
+
 
   def self.filter_by_data(start_date, end_date)
     if start_date.present?&&end_date.present?

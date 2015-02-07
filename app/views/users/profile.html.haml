@@ -3,7 +3,7 @@
   Username: #{h current_user.first_name}
 %h2 Friends
 %ul
-  -for friendship in current_user.user_friends
+  -for friendship in current_user.user_friendships
     %li
       - if friendship.user == current_user
         =h friendship.friend.first_name
@@ -37,7 +37,7 @@
   -for plan in current_user.plans.where(status: 'invite')
     %li
       =h plan.measure.name
-      =link_to 'Accept invite', user_answer_path(:answer => 'comming', :plan_id => plan.id), :method => :post
+      =link_to 'Accept invite', user_answer_path(:answer => 'come', :plan_id => plan.id), :method => :post
       =link_to 'Decline invite', user_answer_path(:answer => 'decline', :plan_id => plan.id), :method => :post
       -#
         =link_to 'Add to friend', resolve_friendship_path(friendship, :resolve => 'friend'), :method => :post
