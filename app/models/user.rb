@@ -54,8 +54,18 @@ class User < ActiveRecord::Base
   end
 
 
-  def user_friends
+  def user_friendships
     friendships.where(status: 'friend') + inverse_friendships.where(status: 'friend')
+  end
+
+  def user_friend(friendship)
+    @user = nil
+    if friendship.user_id == self.id
+      @user = friendship.friend
+    elsif friendship.friend_id == self.id
+      @user = friendship.user
+    end
+    return @user
   end
 
   def user_invites

@@ -60,7 +60,12 @@ class PlansController < ApplicationController
   end
 
   def sent_invites
-    binding.pry
+    @event = Event.find_by("id = ?",params[:event_id])
+    @users = User.find(params[:user_ids])
+    @users.each do |u|
+      u.plans.create(measure_id: @event.id, status: 'invite')
+    end
+    #binding.pry
   end
 
   def update

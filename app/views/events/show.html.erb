@@ -42,21 +42,17 @@
 
 <%if @event.user == current_user%>
   <%=form_tag(sent_invites_path, method: 'post') do %>
-    <%current_user.user_friends.each do |f|%>
-      <%if current_user == f.friend%>
+    <%current_user.user_friendships.each do |f|%>
+      <%friend = current_user.user_friend(f)%>
+      <%unless friend.user_invites.where(measure_id: @event.id).exists?%>
         <label class= 'hello'>
-          <%=f.user.first_name%>
-          <%=check_box_tag 'user_ids[]', f.user.id, :id => "#{f.id}"%>
-        </label>
-      <%else%>
-        <!--<%= label_tag(f.id, f.friend.first_name) %>-->
-        <label class= 'hello1'>
-          <%=f.friend.first_name%>
-          <%=check_box_tag 'user_ids[]', f.friend.id,  :id => "#{f.id}"%>
+          <%=friend.first_name%>
+          <%=check_box_tag 'user_ids[]', friend.id, false%>
+          <%=hidden_field_tag :event_id, @event.id%>
         </label>
       <%end%>
     <%end%>
-    <%=submit_tag%>
+    <%=submit_tag 'Invite to event'%>
   <%end%>
 <%end%>
 

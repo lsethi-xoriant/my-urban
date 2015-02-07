@@ -24,7 +24,7 @@
   .users
     %h2 Friends
     %ul
-      -for friendship in current_user.user_friends
+      -for friendship in current_user.user_friendships
         %li
           - if friendship.user == current_user
             =h friendship.friend.first_name
