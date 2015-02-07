@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+#for pagination
+gem 'kaminari'
 #CanCan is an authorization library 
 #which restricts what resources a given user is allowed to access
 gem 'cancancan', '~> 1.9'

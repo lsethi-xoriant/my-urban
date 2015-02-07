@@ -6,9 +6,9 @@ class EventsController < ApplicationController
 
   def index
     if params[:search]
-    @events = Event.search(params[:search]).order("created_at DESC")
+    @events = Event.search(params[:search]).order(:created_at).page(params[:page])
   else
-    @events = Event.all
+    @events = Event.order(:created_at).page(params[:page])
   end
     #@events = Event.all
     respond_with(@events)

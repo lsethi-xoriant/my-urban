@@ -20,4 +20,5 @@
 //= require map
 
 //= require turbolinks
+//= require jquery.infinitescroll
 //= require_tree .

@@ -35,11 +35,13 @@
     <%= render @events %>
   </tbody>
 </table>
-
+<div id="scroll" style="display: none;">
+<%= paginate @events %>
+</div>
 </br>
 
 <%= form_tag(@event, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Event by date" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Event by title" %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 </br>
@@ -63,7 +65,7 @@
     <%if user_signed_in?%>
       <% current_user.events.each do |event| %>
         <tr>
-          <td><%= event.name %></td>    
+          <td><h1><%= event.name %></h1></td>    
           
 
           <% if can? :read, Event %>

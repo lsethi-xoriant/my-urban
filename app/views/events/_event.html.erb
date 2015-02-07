@@ -1,5 +1,5 @@
 <tr class="event">
-        <td><h2><%= event.name %></h2></td>
+        <td><h1><%= event.name %></h1></td>
         <% @user =  User.find_by_id(event.user_id) %>
         <td><%= @user.last_name + ' ' + 
             @user.first_name %></td>        

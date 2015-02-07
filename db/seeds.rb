@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+(1..30).each do |i|
+  Event.create!(name: "Event swim #{i}", adress: "adress event #{i}",
+  	description: "description event {i}", data: "02.02.2015",
+  	timeStart: "10:20", endTime: "15:00", user_id: "1")
+end
