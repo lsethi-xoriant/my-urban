@@ -7,8 +7,8 @@ class CategoriesController < ApplicationController
     if current_user == nil  
       redirect_to root_path
     else
-      @categories = Category.all
-      respond_with(@categories)
+      @categories = Category.order(:created_at).page(params[:page]).per(10)
+      #respond_with(@categories)
     end
   end
 
