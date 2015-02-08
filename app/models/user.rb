@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :followed_friendships, -> { where status: 'follower' }, :class_name => "Friendship"
   has_many :followed_users, :through => :followed_friendships, :source => :friend
 
+  has_many :active_friends, -> { where(friendships: { status: 'friend'}) }, :through => :friendships, :source => :friend 
+  has_many :passive_friends, -> { where(friendships: { status: 'friend'}) }, :through => :inverse_friendships, :source => :user
+
   validates :first_name, presence: {message: "can't be blank!!!"}
   validates :first_name, allow_blank: true, format: { with: /\A[a-zA-Zа-яА-ЯіІїЇєЄ]+\z/,
     message: "only allows letters" }
@@ -48,6 +51,11 @@ class User < ActiveRecord::Base
     return false if plans.where(measure_id: event, status: 'come').all.count == 0
   end
 
+  def in_turn(event_id)
+    return true if plans.where(status: 'turn', measure_id: event_id).exists?
+    return false unless plans.where(status: 'turn', measure_id: event_id).exists?
+  end
+
   def confirm_friend(user_id)
     return true if (friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id) + inverse_friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id)).count == 1
     return false if (friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id) + inverse_friendships.where(status: 'friend').where("user_id = ? OR friend_id = ?", user_id, user_id)).count == 0
@@ -66,6 +74,10 @@ class User < ActiveRecord::Base
       @user = friendship.user
     end
     return @user
+  end
+
+  def user_friends
+    active_friends | passive_friends
   end
 
   def user_invites

@@ -55,7 +55,6 @@
     <%=submit_tag 'Invite to event'%>
   <%end%>
 <%end%>
-
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
 <% if confirm_ability(@event) == 'can'%>
@@ -63,15 +62,12 @@
     <%= f.hidden_field :measure_id,  value: @event.id %>
     <%if current_user.come(@plan.measure_id)%>
       <%=button_to 'Uncoming', plan_path(@plan), name: 'do_not_go', :method => :delete%>
+    <%elsif current_user.in_turn(@event.id)%>
+      You are in turn
+      <%=button_to 'Uncoming from turn', plan_path(@plan), name: 'do_not_go_turn', :method => :delete%>
     <%elsif !current_user.come(@plan.measure_id)%>
-    <!--
-    <%= f.submit 'Maybe', name: 'maybe'%>
-    -->
       <%if check_for_availability(@event.id)%>
         <%= f.submit 'Come', name: 'come'%>
-      <%elsif current_user.plans.where(status: 'turn', measure_id: @event.id).exists?%>
-        You are in turn
-        <%=button_to 'Uncoming from turn', plan_path(@plan), name: 'do_not_go_turn', :method => :delete%>
       <%else%>
         All the places are occupied. Go in 
         <%= f.submit 'Turn', name: 'turn'%>
