@@ -1,51 +1,91 @@
 .main-wrapper
-  .video-wrapper
-    <iframe frameborder="0" height="108%" width="100%" src="https://youtube.com/embed/WFD1zM2Exmw?autoplay=1&loop=1&controls=0&showinfo=0&playlist=WFD1zM2Exmw"></iframe>
   .content-wrapper
-    header
-      .row
-        .menu
-          = link_to 'Ru', "javascript:void(0);"
-          span |
-          = link_to 'Ua', "javascript:void(0);"
-          = link_to('Вхід', new_user_session_path, class: "enter-site")
-        .logo
-          = link_to root_path do
-            span 
-              | My 
-            | Urban
-    div class="content home-content-wrapper"
-      div class="row home-content"
-        .ukraine-map
-          = link_to('Житомир', "http://en.wikipedia.org/wiki/Ukraine", class: "Zhytomyr")
-          = link_to('Запоріжжя', "http://en.wikipedia.org/wiki/Ukraine", class: "Zaporizhia")
-          = link_to('Ужгород', "http://en.wikipedia.org/wiki/Ukraine", class: "Zakarpattia")
-          = link_to('Луцьк', "http://en.wikipedia.org/wiki/Ukraine", class: "Volyn")
-          = link_to('Вінниця', "http://en.wikipedia.org/wiki/Ukraine", class: "Vinnytsia")
-          = link_to('Івано-Франківськ', "http://en.wikipedia.org/wiki/Ukraine", class: "Ivano-Frankivsk")
-          = link_to('Суми', "http://en.wikipedia.org/wiki/Ukraine", class: "Sumy")
-          = link_to('Сімферополь', "http://en.wikipedia.org/wiki/Ukraine", class: "Simferopol")
-          = link_to('Рівне', "http://en.wikipedia.org/wiki/Ukraine", class: "Rivne")
-          = link_to('Тернопіль', "http://en.wikipedia.org/wiki/Ukraine", class: "Ternopil")
-          = link_to('Полтава', "http://en.wikipedia.org/wiki/Ukraine", class: "Poltava")
-          = link_to('Одеса', "http://en.wikipedia.org/wiki/Ukraine", class: "Odessa")
-          = link_to('Миколаїв', "http://en.wikipedia.org/wiki/Ukraine", class: "Mykolaiv")
-          = link_to('Львів', "http://en.wikipedia.org/wiki/Ukraine", class: "Lviv")
-          = link_to('Луганськ', "http://en.wikipedia.org/wiki/Ukraine", class: "Luhansk")
-          = link_to('Кіровоград', "http://en.wikipedia.org/wiki/Ukraine", class: "Kirovohrad")
-          = link_to('Київ', "http://en.wikipedia.org/wiki/Ukraine", class: "Kiev")
-          = link_to('Хмельницьк', "http://en.wikipedia.org/wiki/Ukraine", class: "Khmelnytskyi")
-          = link_to('Херсон', "http://en.wikipedia.org/wiki/Ukraine", class: "Kherson")
-          = link_to('Харків', "http://en.wikipedia.org/wiki/Ukraine", class: "Kharkiv")
-          = link_to('Донецьк', "http://en.wikipedia.org/wiki/Ukraine", class: "Donetsk")
-          = link_to('Дніпропетровськ', "http://en.wikipedia.org/wiki/Ukraine", class: "Dnipropetrovsk")
-          = link_to('Чернівці', "http://en.wikipedia.org/wiki/Ukraine", class: "Chernivtsi")
-          = link_to('Чернігів', "http://en.wikipedia.org/wiki/Ukraine", class: "Chernihiv")
-          = link_to('Черкаси', "http://en.wikipedia.org/wiki/Ukraine", class: "Cherkasy")
-          h2 Оберіть вашу область
-          .map
-            span
-        .welcome-div
-          h2 Ласкаво просимо до MyUrban
-          p Це місце де ви можете знайти чим зайнятись у вашому місті сьогодні, на вихідних, будь коли!
-          = link_to('Знайти своє місто', "javascript:void(0);", class: "btn-1")
+    = render "partials/header"
+    div class="content events"
+      .events-img
+        = image_tag "events-backgr.jpg"
+      div class="row search"
+        .region-info
+          h1 Івано-Франківська область
+          p
+            span 45 
+            |  подій цього тижня
+        = form_tag(@event, :method => "get", id: "search-form") do
+          = submit_tag "Search", :name => nil
+          = text_field_tag :search, params[:search], placeholder: "Пошук подій..."
+
+
+      div class="row"
+        | sss
+
+
+
+
+
+
+
+
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    div
+      h1
+        | Ви в проекті my-urban
+    div
+      - if user_signed_in?
+        span
+          | Вітаю, 
+          = current_user.first_name
+          = current_user.last_name
+        = link_to 'Вийти', destroy_user_session_path, :method => :delete
+      - else
+        = link_to 'Вхід', new_user_session_path
+        |  або 
+        = link_to 'Реєстрація', new_user_registration_path
+    - if can? :create, Category
+      = link_to 'Категорії', categories_path
+    h1
+      | Список подій
+    - if Event.exists?
+      table
+        thead
+          tr
+            th
+              | Event name
+            th
+              | Хто створив
+            th[colspan="3"]
+        - if flash[:alert]
+          .notice
+            = flash[:alert]
+        tbody
+          - @events.each do |event|
+            tr
+              td
+                = event.name
+              td
+                = User.find_by_id(event.user_id).last_name + ' ' + User.find_by_id(event.user_id).first_name
+              - if can? :read, Event
+                td
+                  = link_to 'Show', event
+              - if can? :manage, Event
+                td
+                  = link_to 'Edit', edit_event_path(event)
+                td
+                  = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+    = form_tag(@event, :method => "get", id: "search-form") do
+      = text_field_tag :search, params[:search], placeholder: "Search Event by date"
+      = submit_tag "Search", :name => nil
+    - if can? :create, Event
+      = link_to 'Створити подію', new_event_path

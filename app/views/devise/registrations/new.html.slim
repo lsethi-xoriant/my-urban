@@ -1,19 +1,8 @@
 .main-wrapper
   .video-wrapper
-    / <iframe frameborder="0" height="108%" width="100%" src="https://youtube.com/embed/WFD1zM2Exmw?autoplay=1&loop=1&controls=0&showinfo=0&playlist=WFD1zM2Exmw"></iframe>
+    <iframe frameborder="0" height="108%" width="100%" src="https://youtube.com/embed/WFD1zM2Exmw?autoplay=1&loop=1&controls=0&showinfo=0&playlist=WFD1zM2Exmw"></iframe>
   .content-wrapper
-    header
-      .row
-        .menu
-          = link_to 'Ru', "javascript:void(0);"
-          span |
-          = link_to 'Ua', "javascript:void(0);"
-          = link_to('Вхід', new_user_session_path, class: "enter-site")
-        .logo
-          = link_to root_path do
-            span 
-              | My 
-            | Urban
+    = render "partials/header"
     div class="content registration-wrapper"
       .row
         / = render "devise/shared/links"
