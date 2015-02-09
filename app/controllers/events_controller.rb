@@ -4,14 +4,15 @@ class EventsController < ApplicationController
 
   respond_to :html
 
-  def index
+  def index 
     if params[:search]
     @events = Event.search(params[:search]).order(:created_at).page(params[:page]).per(10)
   else
     @events = Event.order(:created_at).page(params[:page]).per(10)
   end
     #@events = Event.all
-    respond_with(@events)
+    #respond_with(@events) 
+    render 'index1'
   end
 
   def show
