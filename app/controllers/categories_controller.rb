@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
       redirect_to root_path
     else
       @categories = Category.order(:created_at).page(params[:page]).per(16)
-      respond_with(@categories)
+      #respond_with(@categories)
     end
   end
 
