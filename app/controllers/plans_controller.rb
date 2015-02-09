@@ -59,7 +59,14 @@ class PlansController < ApplicationController
     @event = Event.find_by("id = ?",params[:event_id])
     @users = User.find(params[:user_ids])
     @users.each do |u|
-      u.plans.create(measure_id: @event.id, status: 'invite')
+      if u.plans.where(measure_id: @event.id, status: 'turn').exists?
+        @plan = u.plans.where(measure_id: @event.id, status: 'turn').first
+        @plan.status = 'come'
+        @plan.turn_number = nil
+        @plan.save
+      else
+        u.plans.create(measure_id: @event.id, status: 'invite')
+      end
     end
     #binding.pry
   end
