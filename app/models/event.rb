@@ -40,7 +40,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.search(query)
-    where("data like ?", "%#{query}%") 
+    where("name like ?", "%#{query}%") 
   end
 
   def self.people_count_filter(count)

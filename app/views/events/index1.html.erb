@@ -17,7 +17,7 @@
 <h1>Список подій</h1>
 
 <% if Event.exists? %>
-<table>
+<table id="events">
   <thead>
     <tr>
       <th>Event name</th>
@@ -31,33 +31,18 @@
         <div class="notice"><%= flash[:alert] %></div>
     <% end %>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <% @user =  User.find_by_id(event.user_id) %>
-        <td><%= @user.last_name + ' ' + 
-            @user.first_name %></td>        
-        
-
-        <% if can? :read, Event %>
-        <td><%= link_to 'Show', event %></td>
-        <% end %>
-        
-        <% if can? :manage, Event %>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    
-        <% end %>
-      </tr>
-    <% end %>
+  <tbody class="page">
+    <%= render @events %>
   </tbody>
 </table>
 
+<div id="scroll" style="display: none;">
+<%= paginate @events, :remote => true %>
+</div>
 </br>
 
 <%= form_tag(@event, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Event by date" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Event by title" %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 </br>
@@ -81,7 +66,7 @@
     <%if user_signed_in?%>
       <% current_user.events.each do |event| %>
         <tr>
-          <td><%= event.name %></td>    
+          <td><h1><%= event.name %></h1></td>    
           
 
           <% if can? :read, Event %>

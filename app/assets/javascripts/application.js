@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require jquery.mousewheel.min
 //= require raphael-min
 //= require jquery.mapael
 //= require ukraine
 //= require map
-
+//= require jquery.turbolinks
 //= require turbolinks
+//= require jquery.infinitescroll
 //= require_tree .
+

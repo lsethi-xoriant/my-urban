@@ -1,0 +1,17 @@
+<tr class="event">
+    <td><h1><%= event.name %></h1></td>
+    <% @user =  User.find_by_id(event.user_id) %>
+    <td><%= @user.last_name + ' ' + 
+        @user.first_name %></td>        
+    
+
+    <% if can? :read, Event %>
+        <td><%= link_to 'Show', event %></td>
+    <% end %>
+    
+    <% if can? :manage, Event %>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, 
+        data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+</tr>

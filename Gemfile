@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
+#jQuery plugin for drop-in fix binded events problem
+gem 'jquery-turbolinks', '2.1.0'
+#for pagination
+gem 'kaminari', '0.16.1'
 #CanCan is an authorization library 
 #which restricts what resources a given user is allowed to access
-gem 'cancancan', '~> 1.9'
+gem 'cancancan', '1.9.2'
 # Devise is a flexible authentication solution for Rails based on Warden.
-gem 'devise'
+gem 'devise', '3.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use mysql as the database for Active Record
