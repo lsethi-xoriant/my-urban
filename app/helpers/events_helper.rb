@@ -29,4 +29,12 @@ module EventsHelper
       end
     end
   end
+
+  def user_check_for_availability(event_id)
+    if (@event.people_count == 'little' && @event.all_participations.count <2)||(@event.people_count == 'middle' && @event.all_participations.count <50)||(@event.people_count == 'great' && @event.all_participations.count <100)
+      return true 
+    else
+      return false 
+    end
+  end
 end
