@@ -69,6 +69,9 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.2)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
@@ -165,15 +168,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cancancan (~> 1.9)
+  cancancan (= 1.9.2)
   coffee-rails (~> 4.0.0)
-  devise
+  devise (= 3.4.1)
   haml
   haml-rails
   html2haml
   jbuilder (~> 2.0)
   jquery-rails
-  kaminari
+  jquery-turbolinks (= 2.1.0)
+  kaminari (= 0.16.1)
   mysql2
   pry
   pry-nav

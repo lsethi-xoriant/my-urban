@@ -1,5 +1,5 @@
 <h1>Listing categories</h1>
-
+<%= link_to 'New Category', new_category_path %></br>
 <% if Category.exists? %>
 <table>
   <thead>
@@ -12,7 +12,7 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.title %></td>
+        <td><h1><%= category.title %></h1></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,8 +21,5 @@
   </tbody>
 </table>
 <% end %>
-
 <br>
-
-<%= link_to 'New Category', new_category_path %></br>
 <%= link_to 'Back', events_path %>
