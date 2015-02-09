@@ -10,13 +10,18 @@
   </thead>
 
   <tbody class="page">
-    <%= render @categories %>
+    <%= render @categories %>   
   </tbody>
+
 </table>
-<%= paginate @categories %>
+ <div id="scroll" style="display: none;">
+    <%= paginate @categories %>
+  </div>
+
+<br>
+<%= link_to 'Back', events_path %>
 <% end %>
 
 
 
-<br>
-<%= link_to 'Back', events_path %>
+
