@@ -1,0 +1,137 @@
+
+.registration-wrapper {
+	max-width: 454px;
+	margin: 0 auto;
+	padding: 20px 0 0;
+}
+
+.back {
+	padding: 0 0 0 20px;
+	background: url("i-back.png") no-repeat left center;
+	font-size: 18px;
+	line-height: 25px;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+.form-wrapper {
+	background: #FFFFFF;
+	border-radius: 5px;
+	margin: 20px auto 20px;
+	padding: 36px 54px 25px;
+	color: #121212;
+
+	h2 {
+		text-align: center;
+		font-size: 30px;
+		line-height: 30px;
+		font-weight: 800;
+		color: #121212;
+		margin-bottom: 34px;
+	}
+
+	#error_explanation h2 {
+		font-size: 16px;
+		line-height: 20px;
+		margin-bottom: 5px;
+	}
+
+	p {
+		text-align: center;
+		font-size: 12px;
+		line-height: 15px;
+		font-weight: 400;
+		color: #A2A2A2;
+		margin: 0;
+	}
+
+	label {
+		font-size: 14px;
+		line-height: 30px;
+		font-weight: 800;
+		color: #121212;
+		margin: 0;
+	}
+
+	em {
+		font-size: 12px;
+		line-height: 18px;
+		font-weight: 400;
+		color: #121212;
+		margin: 0;
+		display: none;
+	}
+
+	ul {
+		line-height: 18px;
+	}
+
+	.upload {
+		text-align: center;
+		margin: 20px auto 29px;
+	}
+
+	.upload-img {
+		text-align: center;
+		background: #F4F4F4 url("i-upload.png") no-repeat center center;
+		border: 1px solid #DDDDDD;
+		// background-size: contain;
+		border-radius: 50%;
+		width: 134px;
+		height: 134px;
+		margin: 10px auto 13px;
+
+		input {
+			height: 134px;
+			border: none;
+			margin: 0;
+			cursor: pointer;
+			border-radius: 50%;
+			box-sizing: border-box;
+			padding: 60px 0 0;
+			outline: none;
+			opacity: 0.1;
+		}
+	}
+
+	input, textarea {
+		background: #F4F4F4;
+		border-radius: 5px;
+		border: 1px solid #DEDEDE;
+		height: 41px;
+		margin: 0 0 18px 0;
+	}
+
+	textarea {
+		resize: none;
+		height: 90px;
+	}
+
+	input:hover, textarea:hover {
+		background: #F9F9F9;
+	}
+}
+
+.btn-2, .form-wrapper input[type="submit"] {
+	background: #FF7900;
+	border: none;
+	outline: none;
+	border-radius: 30px;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 40px;
+	color: #FFFFFF;
+	font-weight: 400;
+	font-size: 15px;
+	margin: 25px 0 0;
+}
+
+.btn-2:hover {
+	opacity: 0.85;
+}
+
+.btn-2:active {
+	opacity: 0.7;
+}
+

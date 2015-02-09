@@ -1,3 +1,72 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.search, .content .search {
+	margin-top: -90px;
+	min-height: 90px;
+	z-index: 3;
+	position: relative;
+}
+
+.region-info {
+	float: left;
+
+	h1 {
+		font-size: 25px;
+		line-height: 30px;
+		font-weight: 800;
+		color: #FFFFFF;
+		padding: 0;
+		margin: 0;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 30px;
+		font-weight: 400;
+		color: #FFFFFF;
+		padding: 0;
+		margin: 0;
+
+		span {
+			color: #8fc731;
+		}
+	}
+}
+
+#search-form {
+	float: right;
+
+	input[type="text"] {
+		background: #FFFFFF;
+		border-radius: 30px;
+		width: 400px;
+		height: 40px;
+		box-sizing: border-box;
+		font-size: 14px;
+		line-height: 14px;
+		color: #4f4f4f;
+		padding: 2px 15px 0 50px;
+		border: 1px solid #dfdfdf;
+		margin: 0 0 0 -15px;
+	}
+
+	input[type="submit"] {
+	float: left;
+	margin: 1px -50px 0 0;
+	text-indent: -9999px;
+	width: 38px;
+	height: 38px;
+	background: transparent url("i-search.png") no-repeat center;
+	border: none;
+	outline: none;
+	padding: 0;
+	}
+
+	input[type="submit"]:hover {
+		opacity: 0.7;
+	}
+}
+

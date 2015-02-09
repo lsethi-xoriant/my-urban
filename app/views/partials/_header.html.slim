@@ -1,0 +1,21 @@
+    header
+      .row
+        .menu
+          = link_to 'Ru', "javascript:void(0);"
+          span |
+          = link_to 'Ua', "javascript:void(0);"
+          - if user_signed_in?
+            span
+              | Вітаю, 
+              = current_user.first_name
+              = current_user.last_name
+            = link_to 'Вийти', destroy_user_session_path, :method => :delete
+          - else
+            = link_to 'Вхід', new_user_session_path, class: "enter-site"
+            / |  або 
+            / = link_to 'Реєстрація', new_user_registration_path
+        .logo
+          = link_to root_path do
+            span 
+              | My 
+            | Urban
