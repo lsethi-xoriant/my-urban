@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'HouschkaPro';
+    src: url('fonts/HouschkaProLight.eot');
+    src: url('fonts/HouschkaProLight.eot') format('embedded-opentype'),
+         url('fonts/HouschkaProLight.woff2') format('woff2'),
+         url('fonts/HouschkaProLight.woff') format('woff'),
+         url('fonts/HouschkaProLight.ttf') format('truetype'),
+         url('fonts/HouschkaProLight.svg#HouschkaPro') format('svg');
+	font-style: normal;
+	font-weight: 100;
+}
+
+@font-face {
+    font-family: 'HouschkaPro';
+    src: url('fonts/HouschkaProMedium.eot');
+    src: url('fonts/HouschkaProMedium.eot') format('embedded-opentype'),
+         url('fonts/HouschkaProMedium.woff2') format('woff2'),
+         url('fonts/HouschkaProMedium.woff') format('woff'),
+         url('fonts/HouschkaProMedium.ttf') format('truetype'),
+         url('fonts/HouschkaProMedium.svg#HouschkaPro') format('svg');
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+    font-family: 'HouschkaPro';
+    src: url('fonts/HouschkaProBold.eot');
+    src: url('fonts/HouschkaProBold.eot') format('embedded-opentype'),
+         url('fonts/HouschkaProBold.woff2') format('woff2'),
+         url('fonts/HouschkaProBold.woff') format('woff'),
+         url('fonts/HouschkaProBold.ttf') format('truetype'),
+         url('fonts/HouschkaProBold.svg#HouschkaPro') format('svg');
+	font-style: normal;
+	font-weight: 800;
+}

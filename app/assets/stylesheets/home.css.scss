@@ -1,3 +1,340 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+	font-weight: 100;
+}
+
+a:hover {
+	color: #FFFFFF;
+}
+
+p {
+	font-family: "HouschkaPro";
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 25px;
+}
+
+.main-wrapper {
+	height: 100%;
+	font-family: "HouschkaPro";
+	font-weight: 100;
+	color: #FFFFFF;
+
+	h2 {
+		font-family: "HouschkaPro";
+		color: #FFFFFF;
+		font-weight: 800;
+		font-size: 30px;
+		line-height: 30px;
+		margin-bottom: 30px;
+	}
+
+	a {
+		font-family: "HouschkaPro";
+	}
+}
+
+.video-wrapper {
+	position: fixed;
+	z-index: -99;
+	width: 100%;
+	height: 100%;
+}
+
+.content-wrapper {
+	background: url('b-1.png') no-repeat center top;
+	min-height: 100%;
+	background-size: cover;
+}
+
+header {
+	padding: 20px 0 0;
+
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.menu {
+	float: right;
+
+	a {
+		font-size: 16px;
+		line-height: 30px;
+		margin: 0 7px 0;
+	}
+
+	a:hover {
+		background-color: transparent;
+		text-decoration: underline;
+	}
+
+	a:visited {
+		color: #FFFFFF;
+	}
+
+	.enter-site {
+		background: url("i-enter.png") no-repeat left 1px;
+		padding: 0 0 0 21px;
+		margin: 0 0 0 38px;
+	}
+}
+
+.logo {
+	a {
+		font-weight: 800;
+		font-size: 30px;
+		line-height: 30px;
+		letter-spacing: 7px;
+		text-transform: uppercase;
+	}
+
+	a span {
+		color: #0d5ec2;
+	}
+
+	a:hover {
+		opacity: 0.8;
+		background: transparent;
+	}
+
+	a:visited {
+		color: #FFFFFF;
+	}
+}
+
+.btn-1 {
+	background-color: #FFFFFF;
+	display: inline-block;
+	font-size: 18px;
+	line-height: 30px;
+	color: #7da82c;
+	border: 2px solid #7da82c;
+	border-radius: 3px;
+	outline: none;
+	padding: 6px 15px 6px 40px;
+	margin: 35px 0 0 0;
+}
+
+.btn-1:hover, .welcome-div .btn-1:hover {
+	background: #E1ECD0 url("i-m-m-2.png") no-repeat 15px center;
+	color: #7da82c;
+}
+
+.home-content-wrapper {
+	width: 100%;
+	overflow: hidden;
+}
+
+.welcome-div {
+	width: 550px;
+	float: left;
+	transition: margin 1s, opacity 1.5s;
+	padding: 15% 0 0;
+
+	.btn-1 {
+		background: #FFFFFF url("i-m-m-2.png") no-repeat 15px center;
+	}
+}
+
+.ukraine-map {
+	float: right;
+	margin-right: -650px;
+	text-align: center;
+	transition: margin 1s;
+	position: relative;
+	width: 100%;
+
+	h2 {
+		position: absolute;
+		z-index: 3;
+		bottom: 27%;
+		left: 4%;
+		opacity: 0;
+		transition: opacity 2s;
+	}
+
+	tspan {
+		font-family: "HouschkaPro";
+		font-weight: 400;
+		font-size: 9px;
+		color: #393939;
+	}
+}
+
+.ukraine-map {
+	position: relative;
+
+	a {
+		position: absolute;
+		display: inline-block;
+		z-index: 10;
+		top: 10%;
+		left: 10%;
+		font-family: "HouschkaPro";
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 12px;
+		color: #393939;
+	}
+
+	a:after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		z-index: 10;
+		width: 12px;
+		height: 14px;
+		bottom: -15px;
+		left: 37%;
+		background: url('i-m-m.png') no-repeat center top;
+	}
+
+	.Zhytomyr {
+		top: 28%;
+		left: 37%;
+	}
+
+	.Zaporizhia {
+		top: 54%;
+		left: 67%;
+	}
+
+	.Zakarpattia {
+		top: 45%;
+		left: 9%;
+	}
+
+	.Volyn {
+		top: 21%;
+		left: 23%;
+	}
+
+	.Vinnytsia {
+		top: 39%;
+		left: 37%;
+	}
+
+	.Ivano-Frankivsk {
+		top: 43%;
+		left: 17%;
+	}
+
+	.Sumy {
+		top: 20%;
+		left: 66%;
+	}
+
+	.Simferopol {
+		top: 84%;
+		left: 61%;
+	}
+
+	.Rivne {
+		top: 23%;
+		left: 27%;
+	}
+
+	.Ternopil {
+		top: 34%;
+		left: 23%;
+	}
+
+	.Poltava {
+		top: 35%;
+		left: 64%;
+	}
+
+	.Odessa {
+		top: 69%;
+		left: 47%;
+	}
+
+	.Mykolaiv {
+		top: 63%;
+		left: 52%;
+	}
+
+	.Lviv {
+		top: 32%;
+		left: 17%;
+	}
+
+	.Luhansk {
+		top: 46%;
+		left: 86%;
+	}
+
+	.Kirovohrad {
+		top: 47%;
+		left: 54%;
+	}
+
+	.Kiev {
+		top: 25%;
+		left: 47%;
+	}
+
+	.Khmelnytskyi {
+		top: 36%;
+		left: 29%;
+	}
+
+	.Kherson {
+		top: 67%;
+		left: 56%;
+	}
+
+	.Kharkiv {
+		top: 30%;
+		left: 72%;
+	}
+
+	.Donetsk {
+		top: 53%;
+		left: 79%;
+	}
+
+	.Dnipropetrovsk {
+		top: 47%;
+		left: 65%;
+	}
+
+	.Chernivtsi {
+		top: 49%;
+		left: 25%;
+	}
+
+	.Chernihiv {
+		top: 15%;
+		left: 49%;
+	}
+
+	.Cherkasy {
+		top: 37%;
+		left: 53%;
+	}
+
+
+
+}
+
+.chose-region {
+	.welcome-div {
+		margin-left: -650px;
+		opacity: 0;
+	}
+
+	.ukraine-map {
+		margin: 0;
+		// float: none;
+		width: 100%;
+	}
+
+	h2 {
+		opacity: 1;
+	}
+}

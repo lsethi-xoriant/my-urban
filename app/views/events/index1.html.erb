@@ -2,7 +2,6 @@
 
 
 
-
 <div><% if user_signed_in? %>
     <span>Вітаю, <%= current_user.first_name + ' ' + current_user.last_name %></span>
     <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
