@@ -3,6 +3,18 @@ module EventsHelper
     Category.all.map {|c| ["#{c.title} #{Event.where(category_id: c.id).count}", c.id]}
   end
 
+  def number_format_people_count(event_id)
+    @event = Event.find(event_id)
+    if @event.people_count == 'little'
+      return 15
+    elsif @event.people_count == 'middle'
+      return 150
+    else @event.people_count == 'great'
+      return 250
+    end
+  end
+    
+  
   def confirm_ability(event)
     if (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&current_user.confirm_friend(event.user.id))))
       return 'can'

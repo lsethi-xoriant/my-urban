@@ -4,18 +4,19 @@ class EventsController < ApplicationController
 
   respond_to :html
 
-  def index
+  def index 
     if params[:search]
     @events = Event.search(params[:search]).order(:created_at).page(params[:page]).per(10)
   else
     @events = Event.order(:created_at).page(params[:page]).per(10)
   end
     #@events = Event.all
-    respond_with(@events)
+    #respond_with(@events) 
+    render 'index1'
   end
 
   def show
-    @event = Event.find(params[:id])
+    #@event = Event.find(params[:id])
     if user_signed_in?
       @p = Plan.where(member_id: current_user.id, measure_id: @event.id)
     else
@@ -98,23 +99,23 @@ class EventsController < ApplicationController
   def filtering_params(params)
     params.slice(:people_count, :category_id, :event_type, :data)#(:name, :adress, :description, :data, :timeStart)
   end
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  def set_event
+    @event = Event.find(params[:id])    
+  end
 
-    def event_params
-      params.require(:event).permit(
-        :name, 
-        :adress, 
-        :description, 
-        :data, 
-        :timeStart, 
-        :endTime, 
-        :photo,
-        :user_id,
-        :category_id,
-        :event_type,
-        :people_count,
-        :reg_type)
-    end
+  def event_params
+    params.require(:event).permit(
+      :name, 
+      :adress, 
+      :description, 
+      :data, 
+      :timeStart, 
+      :endTime, 
+      :photo,
+      :user_id,
+      :category_id,
+      :event_type,
+      :people_count,
+      :reg_type)
+  end
 end
