@@ -1,22 +1,220 @@
 .main-wrapper
-  .content-wrapper
+  div class="content-wrapper not-main"
     = render "partials/header"
     div class="content events"
-      .events-img
+      .ev-img
         = image_tag "events-backgr.jpg"
       div class="row search"
         .region-info
           h1 Івано-Франківська область
           p
-            span 45 
+            span 45
             |  подій цього тижня
         = form_tag(@event, :method => "get", id: "search-form") do
           = submit_tag "Search", :name => nil
           = text_field_tag :search, params[:search], placeholder: "Пошук подій..."
 
+      .row
+        div class="large-4 medium-4 small-12 columns ev-filter"
+          #datepicker
+          .ev-type 
+            h3 Тип події
+            sel-wr
+              select
+                option Всі події (234)
+                option Опція 2
+                option Опція 3
+          .reg-type
+            h3 Тип реєестрації
+            p
+              = radio_button_tag 'ev_type', '1'
+              = label_tag(:ev_type_1, 'Не має значення')
+            p
+              = radio_button_tag 'ev_type', '2'
+              = label_tag(:ev_type_2, 'Відкрита')
+            p
+              = radio_button_tag 'ev_type', '3'
+              = label_tag(:ev_type_3, 'Закрита')
 
-      div class="row"
-        | sss
+          .ev-count
+            h3 Кількість учасників
+            sel-wr
+              select
+                option Маленька (8-15 чол)
+                option Опція 2
+                option Опція 3
+
+        div class="large-8 medium-8 small-12 columns ev-list"
+          .ev-list-date
+            h5 4 події
+            h4 Понеділок, 12.12.2014
+          .ev-list-item.ev-close
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+          .ev-list-item
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+          .ev-list-item
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+          .ev-list-item.ev-close
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+
+          .ev-list-date
+            h5 4 події
+            h4 Понеділок, 12.12.2014
+          .ev-list-item.ev-close
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+          .ev-list-item.ev-close
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+          .ev-list-item
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+          .ev-list-item.ev-close
+            = image_tag "ev-list-img.jpg"
+            div class="ev-list-type ev-party"
+            .ev-list-info
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h4 
+                | Час:
+                span 12:20
+              h4 
+                | Учасників:
+                span 12 / 23
+              h4.organizer
+                = image_tag "ev-list-user.jpg"
+                | Організатор:
+                span Олексій Петренко
+      .row
+        .reg-ev
+          .reg-ev-title
+            h3 Івано-Франківська область
+            p
+              span 15
+              |  подій сьогодні
+            p
+              span 245
+              |  подій цього тижня
+          .reg-ev-list
+            = link_to "Богородчанський район", "javascript:void(0);"
+            = link_to "Болехів", "javascript:void(0);"
+            = link_to "Верховинський район", "javascript:void(0);"
+            = link_to "Галицький район", "javascript:void(0);"
+            = link_to "Городенківський район", "javascript:void(0);"
+            = link_to "Долинський район", "javascript:void(0);"
+            = link_to "Івано-Франківськ", "javascript:void(0);"
+            = link_to "Калуський район", "javascript:void(0);"
+            = link_to "Коломийський район", "javascript:void(0);"
+            = link_to "Косівський район", "javascript:void(0);"
+            = link_to "Надвірнянський район", "javascript:void(0);"
+            = link_to "Рогатинський район", "javascript:void(0);"
+            = link_to "Рожнятівський район", "javascript:void(0);"
+            = link_to "Снятинський район", "javascript:void(0);"
+            = link_to "Тисменицький район", "javascript:void(0);"
+            = link_to "Тлумацький район", "javascript:void(0);"
+            = link_to "Яремче", "javascript:void(0);"
+
+
+
+
+
+
+
+
+
+
+    = render "partials/footer"
+          
+
+
+
 
 
 
