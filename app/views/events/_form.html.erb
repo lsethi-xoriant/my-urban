@@ -36,11 +36,12 @@
   </div>
   <div class="field">
     <%= f.label :timeStart %><br>
-    <%= f.text_field :timeStart %>
+    <%= f.time_select :timeStart, :minute_step => 5, prompt: {hour: 'Choose hour', minute: 'Choose minute'} %>
   </div>
   <div class="field">
     <%= f.label :endTime %><br>
-    <%= f.text_field :endTime %>
+    <%= f.time_select :endTime, :minute_step => 5, 
+    prompt: {hour: 'Choose hour', minute: 'Choose minute'} %>
   </div>
   <div class="field">
     <%= f.label :photo %><br>

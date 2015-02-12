@@ -9,8 +9,10 @@ module EventsHelper
       return 15
     elsif @event.people_count == 'middle'
       return 150
-    else @event.people_count == 'great'
+    elsif @event.people_count == 'great'
       return 250
+    else 
+      return nil
     end
   end
     

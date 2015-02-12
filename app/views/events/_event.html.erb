@@ -5,7 +5,7 @@
         event.user.first_name %></td> 
     <td><%= event.participations.count %></td>
     <td><%= number_format_people_count(event.id) %></td> 
-    <td><%= event.timeStart %></td>
+    <td><%= event.timeStart.strftime('%H:%M') %></td>
     <td><%= event.data %></td>    
     
 
@@ -19,3 +19,4 @@
         data: { confirm: 'Are you sure?' } %></td>
     <% end %>
 </tr>
+
