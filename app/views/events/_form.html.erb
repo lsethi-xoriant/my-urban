@@ -32,11 +32,13 @@
   </div>
   <div class="field">
     <%= f.label :data %><br>
-    <%= f.text_field :data %>
+    <%= f.date_select :data, 
+    {:use_month_names => ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад','Грудень']}  %>
   </div>
   <div class="field">
     <%= f.label :timeStart %><br>
-    <%= f.time_select :timeStart, :minute_step => 5, prompt: {hour: 'Choose hour', minute: 'Choose minute'} %>
+    <%= f.time_select :timeStart, :minute_step => 5, 
+    prompt: {hour: 'Choose hour', minute: 'Choose minute'} %>
   </div>
   <div class="field">
     <%= f.label :endTime %><br>
