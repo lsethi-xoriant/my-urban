@@ -22,17 +22,17 @@
 
 <p>
   <strong>Data:</strong>
-  <%= @event.data %>
+  <%= @event.data.strftime('%d.%m.%Y') %>
 </p>
 
 <p>
   <strong>Timestart:</strong>
-  <%= @event.timeStart %>
+  <%= @event.timeStart.strftime('%H:%M') %>
 </p>
 
 <p>
   <strong>Endtime:</strong>
-  <%= @event.endTime %>
+  <%= @event.endTime.strftime('%H:%M') %>
 </p>
 
 <p>
