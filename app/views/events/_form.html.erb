@@ -42,7 +42,7 @@
   </div>
   <div class="field">
     <%= f.label :endTime %><br>
-    <%= f.time_select :endTime, :minute_step => 5, 
+    <%= f.time_select :endTime, :minute_step => 5, :default => nil,
     prompt: {hour: 'Choose hour', minute: 'Choose minute'} %>
   </div>
   <div class="field">
