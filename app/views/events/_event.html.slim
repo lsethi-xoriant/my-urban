@@ -6,7 +6,7 @@ tr.event
               td
                 = event.participations.count
               td
-                = event.people_count
+                = number_format_people_count(event.id)
               td
                 = event.timeStart.strftime('%H:%M')
               td
