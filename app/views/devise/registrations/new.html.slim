@@ -1,6 +1,6 @@
 .main-wrapper
   .video-wrapper
-    <iframe frameborder="0" height="108%" width="100%" src="https://youtube.com/embed/WFD1zM2Exmw?autoplay=1&loop=1&controls=0&showinfo=0&playlist=WFD1zM2Exmw"></iframe>
+    / <iframe frameborder="0" height="108%" width="100%" src="https://youtube.com/embed/WFD1zM2Exmw?autoplay=1&loop=1&controls=0&showinfo=0&playlist=WFD1zM2Exmw"></iframe>
   .content-wrapper
     = render "partials/header"
     div class="content registration-wrapper"
@@ -20,10 +20,10 @@
               p Максимальний розмір - 2MB
 
             .field
-              = f.label "Ім'я*"
+              = f.label :first_name, "Ім'я*"
               = f.text_field :first_name, :autofocus => true
             .field
-              = f.label "Прізвище*"
+              = f.label :last_name, "Прізвище*"
               = f.text_field :last_name
             .field
               = f.label "Місто*"
@@ -32,7 +32,7 @@
               = f.label "Email*"
               = f.email_field :email
             .field
-              = f.label "Пароль*"
+              = f.label :password, "Пароль*"
               - if @validatable
                 em
                   | (мін 
@@ -40,10 +40,10 @@
                   |  символів)
               = f.password_field :password, autocomplete: "off"
             .field
-              = f.label "Підтвердження паролю*"
+              = f.label :password_confirmation, "Підтвердження паролю*"
               = f.password_field :password_confirmation, autocomplete: "off"
             .field
-              = f.label "Коротко про себе"
+              = f.label :about_user, "Коротко про себе"
               = f.text_area :about_user, rows: 5
             .actions
               = f.submit "Зареєструватись", class:"btn-2"

@@ -48,11 +48,13 @@
           .ev-list-date
             h5 4 події
             h4 Понеділок, 12.12.2014
+            h6 Сьогодні
           .ev-list-item.ev-close
             = image_tag "ev-list-img.jpg"
             div class="ev-list-type ev-party"
             .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
+              h2 
+                = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
               h4 
                 | Час:
                 span 12:20

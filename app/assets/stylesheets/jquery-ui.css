@@ -930,7 +930,7 @@ body .ui-tooltip {
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #75D731;
+	border: 1px solid #784A83;
 	/*background: #ffffff url("ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;*/
 	font-weight: bold;
 	color: #121212;
@@ -947,8 +947,8 @@ body .ui-tooltip {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid #75D732;
-	background: #75D732;
+	border: 1px solid #784A83;
+	background: #784A83;
 	color: #FFFFFF;
 }
 .ui-state-highlight a,

@@ -125,6 +125,19 @@
 		color: #8e8e8e;
 		font-size: 18px;
 		line-height: 30px;
+		float: left;
+	}
+
+	h6 {
+		float: left;
+		background: #784A83;
+		border-radius: 30px;
+		padding: 4px 15px 4px;
+		color: #FFFFFF;
+		font-size: 14px;
+		line-height: 14px;
+		font-weight: 400;
+		margin: 6px 0 0 15px;
 	}
 }
 
@@ -135,6 +148,7 @@
 	font-weight: 400;
 	background: #FFFFFF;
 	margin: 0 0 22px;
+	clear: both;
 
 	.ev-list-info {
 		float: left;
@@ -147,7 +161,7 @@
 		margin: 0 40px 0 0;
 	}
 	
-	h2 {
+	h2, a {
 		color: #4f4f4f;
 		font-size: 24px;
 		line-height: 30px;
@@ -168,7 +182,7 @@
 
 		span {
 			display: block;
-			color: #8fc731;
+			color: #725784;
 			font-size: 14px;
 			line-height: 18px;
 		}
@@ -233,7 +247,7 @@
 	}
 
 	span {
-		color: #8fc731;
+		color: #725784;
 		font-size: 14px;
 		line-height: 30px;
 	}
