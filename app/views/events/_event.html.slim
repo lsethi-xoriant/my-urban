@@ -6,9 +6,13 @@ tr.event
               td
                 = event.participations.count
               td
+                = event.people_count
+              td
                 = event.timeStart.strftime('%H:%M')
               td
                 = event.data.strftime('%d.%m.%Y')
+              td
+                = event.event_type
 
               - if can? :read, Event
                 td
