@@ -14,6 +14,11 @@
 	color: #FFFFFF;
 }
 
+.back:hover {
+	color: #FFFFFF;
+	opacity: 0.8;
+}
+
 .form-wrapper {
 	background: #FFFFFF;
 	border-radius: 5px;
@@ -66,6 +71,19 @@
 		line-height: 18px;
 	}
 
+	a {
+		float: right;
+		color: #8fc731;
+		font-size: 14px;
+		line-height: 30px;
+		font-weight: 400;
+		margin: 0;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
 	.upload {
 		text-align: center;
 		margin: 20px auto 29px;
@@ -110,6 +128,13 @@
 	input:hover, textarea:hover {
 		background: #F9F9F9;
 	}
+
+	input[type="checkbox"] {
+		float: left;
+		margin: 0 0 0 0;
+		line-height: 24px;
+		height: 29px;
+	}
 }
 
 .btn-2, .form-wrapper input[type="submit"] {
@@ -127,11 +152,21 @@
 	margin: 25px 0 0;
 }
 
-.btn-2:hover {
+.btn-2:hover, .form-wrapper input[type="submit"]:hover {
 	opacity: 0.85;
+	color: #FFFFFF;
 }
 
 .btn-2:active {
 	opacity: 0.7;
 }
 
+.btn-3 {
+	float: right;
+	display: inline-block;
+	width: auto;
+	margin: -3px 0 0;
+	line-height: 18px;
+	height: auto;
+	padding: 7px 30px 6px;
+}

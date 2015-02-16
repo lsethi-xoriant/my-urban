@@ -1,0 +1,103 @@
+@import "foundation";
+@import "normalize";
+@import "jquery-ui";
+
+@import "home";
+@import "registration";
+@import "events";
+
+.not-main {
+	background: #F4F4F4;
+	color: #121212;
+
+	header {
+		background: #784A83;
+		padding: 20px 0 20px;
+	}
+
+	.logo a {
+		font-size: 19px;
+	}
+}
+
+header {
+	padding: 20px 0 0;
+
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.menu {
+	float: right;
+
+	a {
+		font-size: 16px;
+		line-height: 30px;
+		margin: 0 7px 0;
+	}
+
+	a:hover {
+		background-color: transparent;
+		text-decoration: underline;
+		color: #FFFFFF;
+	}
+
+	a:visited {
+		color: #FFFFFF;
+	}
+
+	.enter-site {
+		background: url("i-enter.png") no-repeat left 1px;
+		padding: 0 0 0 21px;
+		margin: 0 0 0 38px;
+	}
+}
+
+.logo {
+	a {
+		font-weight: 800;
+		font-size: 30px;
+		line-height: 30px;
+		letter-spacing: 7px;
+		text-transform: uppercase;
+	}
+
+	a span {
+		color: #0d5ec2;
+	}
+
+	a:hover {
+		opacity: 0.8;
+		background: transparent;
+	}
+
+	a:visited {
+		color: #FFFFFF;
+	}
+}
+
+footer {
+	background: #e0e0e0;
+	margin: 43px 0 0;
+	padding: 16px 0;
+
+	h4 {
+		float: right;
+	}
+
+	p, h4, a {
+		font-size: 14px;
+		line-height: 30px;
+		font-weight: 100;
+		color: #000000;
+		margin: 0;
+	}
+
+	a {
+		margin: 0 0 0 20px;
+	}
+
+}
+
+

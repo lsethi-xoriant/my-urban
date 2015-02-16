@@ -11,6 +11,6 @@
  * file per style scope.
  *
  *= require fonts
- *= require styles
+ *= require 'styles'
  *= require_self
  */

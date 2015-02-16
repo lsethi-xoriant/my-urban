@@ -6,10 +6,6 @@ a {
 	font-weight: 100;
 }
 
-a:hover {
-	color: #FFFFFF;
-}
-
 p {
 	font-family: "HouschkaPro";
 	font-weight: 400;
@@ -50,62 +46,6 @@ p {
 	background-size: cover;
 }
 
-header {
-	padding: 20px 0 0;
-
-	a {
-		color: #FFFFFF;
-	}
-}
-
-.menu {
-	float: right;
-
-	a {
-		font-size: 16px;
-		line-height: 30px;
-		margin: 0 7px 0;
-	}
-
-	a:hover {
-		background-color: transparent;
-		text-decoration: underline;
-	}
-
-	a:visited {
-		color: #FFFFFF;
-	}
-
-	.enter-site {
-		background: url("i-enter.png") no-repeat left 1px;
-		padding: 0 0 0 21px;
-		margin: 0 0 0 38px;
-	}
-}
-
-.logo {
-	a {
-		font-weight: 800;
-		font-size: 30px;
-		line-height: 30px;
-		letter-spacing: 7px;
-		text-transform: uppercase;
-	}
-
-	a span {
-		color: #0d5ec2;
-	}
-
-	a:hover {
-		opacity: 0.8;
-		background: transparent;
-	}
-
-	a:visited {
-		color: #FFFFFF;
-	}
-}
-
 .btn-1 {
 	background-color: #FFFFFF;
 	display: inline-block;
@@ -122,6 +62,10 @@ header {
 .btn-1:hover, .welcome-div .btn-1:hover {
 	background: #E1ECD0 url("i-m-m-2.png") no-repeat 15px center;
 	color: #7da82c;
+}
+
+.home-content {
+	width: 1000px;
 }
 
 .home-content-wrapper {
@@ -317,8 +261,6 @@ header {
 		top: 37%;
 		left: 53%;
 	}
-
-
 
 }
 
