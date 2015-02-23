@@ -6,13 +6,14 @@ class EventsController < ApplicationController
 
   def index 
     if params[:search]
-    @events = Event.search(params[:search]).order(:created_at).page(params[:page]).per(10)
-  else
-    @events = Event.order(:created_at).page(params[:page]).per(10)
-  end
+      @events = Event.search(params[:search]).order(:created_at).page(params[:page]).per(5)
+    else
+      @events = Event.order(:created_at).page(params[:page]).per(5)
+    end
+    @event_days = @events.map{|e| e.data.to_date}.uniq
     #@events = Event.all
     #respond_with(@events) 
-    
+    #binding.pry
     render 'index1'
   end
 
