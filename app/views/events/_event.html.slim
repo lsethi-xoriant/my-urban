@@ -1,9 +1,7 @@
 tr.event
   td
-    ='session[:last_date]
-    =event.data
-    - if session[:last_date] != event.data
-      =session[:last_date]
+    - if @last_date.nil? || @last_date.to_date != event.data.to_date
+      =event.data.to_date
 tr.event
   td
     h1 = event.name

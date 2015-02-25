@@ -38,11 +38,9 @@
     <% end %>
 
   <tbody class="page">
-    <%@i = 0%>
     <%@events.each do |event| %>
       <%=render partial: 'event', locals: {event: event}%>
-      <%session[:last_date] = event.data%>
-      <%#@i = @i + 1%>
+      <%@last_date = event.data%>
     <%end%>
   </tbody>
 </table>

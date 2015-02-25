@@ -10,10 +10,7 @@ class EventsController < ApplicationController
     else
       @events = Event.order(:created_at).page(params[:page]).per(5)
     end
-    @event_days = @events.map{|e| e.data.to_date}.uniq
-    #@events = Event.all
-    #respond_with(@events) 
-    #binding.pry
+    @last_date = Event.order(:created_at).page((params[:page].to_i - 1).to_s).per(5).last.data if params[:page].present?
     render 'index1'
   end
 
