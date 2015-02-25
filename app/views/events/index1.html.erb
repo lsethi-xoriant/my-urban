@@ -38,7 +38,10 @@
     <% end %>
 
   <tbody class="page">
-    <%= render @events %>
+    <%@events.each do |event| %>
+      <%=render partial: 'event', locals: {event: event}%>
+      <%@last_date = event.data%>
+    <%end%>
   </tbody>
 </table>
 
@@ -54,6 +57,7 @@
 </br>
 <% end %>
 
+<!--
 <h1>Список моїх подій</h1>
 <table>
   <thead>
@@ -94,6 +98,7 @@
 <% if can? :create, Event %>
 <%= link_to 'Створити подію', new_event_path %>
 <% end %>
+-->
 
 
 
