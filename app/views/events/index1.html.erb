@@ -14,7 +14,11 @@
 <%= link_to 'Категорії', categories_path %>
 <% end %></br>
 
-<%= @m %>
+<%= form_tag(@event, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Event by title" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+</br>
 
 <h1>Список подій</h1>
 
@@ -50,11 +54,7 @@
 </div>
 </br>
 
-<%= form_tag(@event, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Event by title" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-</br>
+
 <% end %>
 
 <!--
