@@ -9,7 +9,8 @@ class EventsController < ApplicationController
       @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)
     else
       @nowDate = Date.today
-    @events = Event.where("data >= ?", @nowDate).order(:data, :timeStart).page(params[:page]).per(5)
+    #@events = Event.where("data >= ?", @nowDate).order(:data, :timeStart).page(params[:page]).per(5)
+    @events = Event.page(params[:page]).per(5)
     end
     @last_date = Event.order(:data, :timeStart).page((params[:page].to_i - 1).to_s).per(5).last.data if params[:page].present?
     render 'index1'

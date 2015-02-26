@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
+  belongs_to :city
 
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
