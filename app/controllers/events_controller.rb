@@ -5,14 +5,21 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index 
+    @events = Event.where(nil)
+    filtering_params(params).each do |key, value|
+      @events = @events.public_send(key+"_filter", value) if value.present?
+    end
+    binding.pry
+    @events = Event.all if !@event.blank?
     if params[:search]
       @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)
     else
       @nowDate = Date.today
-    #@events = Event.where("data >= ?", @nowDate).order(:data, :timeStart).page(params[:page]).per(5)
-    @events = Event.page(params[:page]).per(5)
+      #@events = Event.where("data >= ?", @nowDate).order(:data, :timeStart).page(params[:page]).per(5)
+      @events = Event.order(:data, :timeStart).page(params[:page]).per(5)
     end
     @last_date = Event.order(:data, :timeStart).page((params[:page].to_i - 1).to_s).per(5).last.data if params[:page].present?
+    #binding.pry
     render 'index1'
   end
 
@@ -92,13 +99,13 @@ class EventsController < ApplicationController
     @events = @events.filter_by_data(params[:start_date], params[:end_date] ) if params[:end_date].present?||params[:start_date].present?
     @events = @events.filter_by_time(params[:start_time], params[:end_time] ) if params[:end_time].present?||params[:start_time].present?
     #binding.pry
-    render text: "#{@events.count}"#'filter'
+    render 'index'#text: "#{@events.count}"#'filter'
   end
 
   private
 
   def filtering_params(params)
-    params.slice(:people_count, :category_id, :event_type, :data)#(:name, :adress, :description, :data, :timeStart)
+    params.slice(:state_id, :people_count, :category_id, :event_type, :data)#(:name, :adress, :description, :data, :timeStart)
   end
   def set_event
     @event = Event.find(params[:id])    

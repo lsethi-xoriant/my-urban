@@ -42,6 +42,10 @@
       %br/
       = text_field_tag :end_time
   .field
+    = label_tag :state_id 
+    %br
+    = select_tag :state_id, options_from_collection_for_select(State.all, :id, :name), { :include_blank => 'Select your state' }
+  .field
     = label_tag :data, 'Exact date'
     %br/
     = date_field_tag :data

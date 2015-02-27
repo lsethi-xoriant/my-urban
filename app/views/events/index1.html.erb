@@ -19,6 +19,37 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 </br>
+<%= form_tag("/events", method: "get") do |f| %>
+  <div class="field">
+    <%= label_tag :state_id  %>
+    <br/>
+    <%= select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) %>
+  </div>
+  <div class="field">
+    <%= label_tag :data, 'Exact date' %>
+    <br/>
+    <%= date_field_tag :data %>
+  </div>
+  <div class="field">
+    <%= label_tag :category_id  %>
+    <br/>
+    <%= select_tag :category_id, options_for_select( categories_collection), { :include_blank => "All events #{Event.all.count}" } %>
+  </div>
+  <div class="field">
+    <%= label_tag :people_count  %>
+    <br/>
+    <%= select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Select type' } %>
+  </div>
+  <div class="field">
+    <%= label_tag :event_type  %>
+    <br/>
+    <%= select_tag :event_type, options_for_select(Event.types_of_event), { :include_blank => 'Choose type: open or close?' } %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
 
 <h1>Список подій</h1>
 
