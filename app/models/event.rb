@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
+  belongs_to :city
 
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
@@ -53,6 +54,11 @@ class Event < ActiveRecord::Base
 
   def self.event_type_filter(type)
     where("event_type like ?", "%#{type}%")
+  end
+
+  def self.state_id_filter(state_id)
+    State.find(state_id).events
+    #where("state_id like ?", "%#{city_id}%")
   end
 
 

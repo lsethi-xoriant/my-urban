@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :cities
+
+  resources :states
+
   resources :friendships do
     member do
       post 'resolve'
