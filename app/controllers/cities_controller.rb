@@ -36,6 +36,21 @@ class CitiesController < ApplicationController
     respond_with(@city)
   end
 
+  def autocomplete
+    respond_to do |format|
+      format.js do
+        index = request.env["HTTP_REFERER"].index('state_id') + 9
+        state_id = request.env["HTTP_REFERER"][index]
+        #binding.pry
+        cities = []
+        City.where(state_id: state_id).each do |city|
+          cities << city.en_name
+        end
+        render json: cities
+      end
+    end
+  end
+
   private
     def set_city
       @city = City.find(params[:id])

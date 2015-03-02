@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'autocomplete' => 'cities#autocomplete'
+
   post 'sent_invites' => 'plans#sent_invites'
   get 'invite' => 'plans#invite'
   post 'create_invite' => 'plans#create_invite'

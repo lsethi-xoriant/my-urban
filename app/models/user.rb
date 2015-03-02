@@ -25,14 +25,27 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name
   validates :last_name, allow_blank: true, format: { with: /\A[a-zA-Zа-яА-ЯіІїЇєЄ]+\z/,
     message: "only allows letters" }
-  validates_presence_of :city
-  
+  #validates_presence_of :city
+  belongs_to :city
+  #validates_associated :city
+
+  before_validation :ensure_than_city_exists
   
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def ensure_than_city_exists
+    unless City.where(en_name: self.urban).exists?
+      self.errors[:urban] << 'You inputed inscorrect city'
+    else
+      city = City.where(en_name: self.urban).first
+      self.city_id = city.id
+    end
+  end
 
   def requests
     inverse_friendships.where(status: 'request')

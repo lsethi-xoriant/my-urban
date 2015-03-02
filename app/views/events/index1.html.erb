@@ -25,10 +25,20 @@
     <br/>
     <%= select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) %>
   </div>
-  <div class="field">
-    <%= label_tag :city_id  %>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+<%= form_tag("/events", method: "get", remote: true) do |f| %>
+  <div style="display:none">
+    <%= label_tag :state_id  %>
     <br/>
-    <%= select_tag :city_id, options_from_collection_for_select(City.where(state_id: params[:state_id]), :id, :en_name, :selected => params[:state_id]) %>
+    <%= select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) %>
+  </div>
+  <div class="field">
+    <%= label_tag :urban  %>
+    <br/>
+    <%= text_field_tag :urban, nil, id: 'user_city' %>
   </div>
   <div class="field">
     <%= label_tag :data, 'Exact date' %>
@@ -86,7 +96,7 @@
 </table>
 
 <div id="scroll" style="display: none;">
-<%= paginate @events, :remote => true %>
+<%= paginate @events, :remote => true, params.merge %>
 </div>
 </br>
 

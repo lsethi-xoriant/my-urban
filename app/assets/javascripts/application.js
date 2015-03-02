@@ -22,3 +22,19 @@
 //= require jquery.infinitescroll
 //= require_tree .
 
+
+  function getAutoCompleteCities() {
+    $.get('/autocomplete.js', function( data ) {
+      clients = JSON.parse(data);
+      $('input#user_city').autocomplete({ 
+        source: clients 
+      })
+    })
+  }
+
+
+$(document).ready(function(){
+  $('input#user_city').keydown(function(){
+    getAutoCompleteCities();
+  })
+});
