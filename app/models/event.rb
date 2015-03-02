@@ -61,6 +61,10 @@ class Event < ActiveRecord::Base
     #where("state_id like ?", "%#{city_id}%")
   end
 
+  def self.city_id_filter(city_id)
+    where(city_id: city_id)
+    #where("state_id like ?", "%#{city_id}%")
+  end
 
   def self.filter_by_data(start_date, end_date)
     if start_date.present?&&end_date.present?
