@@ -45,6 +45,18 @@
                 option Опція 3
 
         div class="large-8 medium-8 small-12 columns ev-list"
+          h1
+            | Список подій
+          - if Event.exists?
+              - if flash[:alert]
+                .notice
+                  = flash[:alert]
+              .page
+                = render @events
+
+
+
+
           .ev-list-date
             h5 4 події
             h4 Понеділок, 12.12.2014

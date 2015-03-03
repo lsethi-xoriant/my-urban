@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
     #@events = Event.all
     #respond_with(@events) 
-    render 'index1'
+    render 'index'
   end
 
   def show
