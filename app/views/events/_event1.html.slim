@@ -1,0 +1,18 @@
+            .ev-list-item.ev-close
+              = image_tag "ev-list-img.jpg"
+              div class="ev-list-type ev-party"
+              .ev-list-info
+                h2 
+                  = link_to 
+                    = event.name
+                h4 
+                  | Час:
+                  span = event.timeStart.strftime('%H:%M')
+                  span = event.data.strftime('%d.%m.%Y')
+                h4 
+                  | Учасників:
+                  span = event.participations.count
+                h4.organizer
+                  = image_tag "ev-list-user.jpg"
+                  | Організатор:
+                  span = User.find_by_id(event.user_id).last_name + ' ' + User.find_by_id(event.user_id).first_name

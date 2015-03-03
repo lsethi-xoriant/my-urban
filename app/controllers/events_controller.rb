@@ -18,7 +18,7 @@ class EventsController < ApplicationController
       @events = Event.order(:data, :timeStart).page(params[:page]).per(5)
     end
     @last_date = Event.order(:data, :timeStart).page((params[:page].to_i - 1).to_s).per(5).last.data if params[:page].present?
-    render 'index1'
+    render 'index'
   end
 
   def show
