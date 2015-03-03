@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212170150) do
+ActiveRecord::Schema.define(version: 20150226154300) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "en_name"
+    t.string   "ua_name"
+    t.string   "ru_name"
+    t.integer  "state_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150212170150) do
     t.string   "event_type"
     t.string   "people_count"
     t.string   "reg_type"
+    t.integer  "city_id"
   end
 
   create_table "friendships", force: true do |t|
@@ -53,6 +63,12 @@ ActiveRecord::Schema.define(version: 20150212170150) do
     t.integer  "turn_number"
   end
 
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -70,6 +86,7 @@ ActiveRecord::Schema.define(version: 20150212170150) do
     t.string   "last_name"
     t.string   "about_user"
     t.string   "city"
+    t.integer  "city_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

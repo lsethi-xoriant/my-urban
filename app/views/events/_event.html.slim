@@ -1,18 +1,29 @@
-            .ev-list-item.ev-close
-              = image_tag "ev-list-img.jpg"
-              div class="ev-list-type ev-party"
-              .ev-list-info
-                h2 
-                  = link_to 
-                    = event.name
-                h4 
-                  | Час:
-                  span = event.timeStart.strftime('%H:%M')
-                  span = event.data.strftime('%d.%m.%Y')
-                h4 
-                  | Учасників:
-                  span = event.participations.count
-                h4.organizer
-                  = image_tag "ev-list-user.jpg"
-                  | Організатор:
-                  span = User.find_by_id(event.user_id).last_name + ' ' + User.find_by_id(event.user_id).first_name
+tr.event
+  td
+    - if @last_date.nil? || @last_date.to_date != event.data.to_date
+      =event.data.to_date
+tr.event
+  td
+    h1 = event.name
+  td
+    = User.find_by_id(event.user_id).last_name + ' ' + User.find_by_id(event.user_id).first_name
+  td
+    = event.participations.count
+  td
+    = number_format_people_count(event.id)
+  td
+    = event.timeStart.strftime('%H:%M')
+  td
+    = event.data.strftime('%d.%m.%Y')
+  td
+    = event.event_type
+
+ 
+  - if can? :read, Event
+    td
+      = link_to 'Show', event
+  - if can? :manage, Event
+    td
+      = link_to 'Edit', edit_event_path(event)
+    td
+      = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }

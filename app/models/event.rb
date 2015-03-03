@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
+  belongs_to :city
 
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
@@ -19,7 +20,7 @@ class Event < ActiveRecord::Base
   has_many :all_participations, through: :all_relationships, source: :member 
 
 
-  validates_presence_of :category_id, :name, :adress, :description, :data, :timeStart, :endTime
+  validates_presence_of :category_id, :name#, :adress, :description, :data, :timeStart, :endTime
   #validates :data , allow_blank: true, format: { with: /\d{2}\.\d{2}\.\d{4}/,
    # message: "only allows data dd.mm.yyyy" }
   #validates :timeStart, :endTime, allow_blank: true, format: { with: /\d{2}:\d{2}/,
@@ -55,6 +56,15 @@ class Event < ActiveRecord::Base
     where("event_type like ?", "%#{type}%")
   end
 
+  def self.state_id_filter(state_id)
+    State.find(state_id).events
+    #where("state_id like ?", "%#{city_id}%")
+  end
+
+  def self.city_id_filter(city_id)
+    where(city_id: city_id)
+    #where("state_id like ?", "%#{city_id}%")
+  end
 
   def self.filter_by_data(start_date, end_date)
     if start_date.present?&&end_date.present?

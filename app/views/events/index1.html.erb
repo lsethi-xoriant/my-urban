@@ -14,7 +14,47 @@
 <%= link_to 'Категорії', categories_path %>
 <% end %></br>
 
-<%= @m %>
+<%= form_tag(@event, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Event by title" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+</br>
+<%= form_tag("/events", method: "get") do |f| %>
+  <div class="field">
+    <%= label_tag :state_id  %>
+    <br/>
+    <%= select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) %>
+  </div>
+  <div class="field">
+    <%= label_tag :city_id  %>
+    <br/>
+    <%= select_tag :city_id, options_from_collection_for_select(City.where(state_id: params[:state_id]), :id, :en_name, :selected => params[:state_id]) %>
+  </div>
+  <div class="field">
+    <%= label_tag :data, 'Exact date' %>
+    <br/>
+    <%= date_field_tag :data %>
+  </div>
+  <div class="field">
+    <%= label_tag :category_id  %>
+    <br/>
+    <%= select_tag :category_id, options_for_select( categories_collection), { :include_blank => "All events #{Event.all.count}" } %>
+  </div>
+  <div class="field">
+    <%= label_tag :people_count  %>
+    <br/>
+    <%= select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Select type' } %>
+  </div>
+  <div class="field">
+    <%= label_tag :event_type  %>
+    <br/>
+    <%= select_tag :event_type, options_for_select(Event.types_of_event), { :include_blank => 'Choose type: open or close?' } %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
 
 <h1>Список подій</h1>
 
@@ -28,7 +68,8 @@
       <th>max Учасників</th>
       <th>Година</th>
       <th>Дата</th>
-      <th colspan="6"></th>
+      <th>Тип події</th>
+      <th colspan="7"></th>
     </tr>
   </thead>
    
@@ -37,7 +78,10 @@
     <% end %>
 
   <tbody class="page">
-    <%= render @events %>
+    <%@events.each do |event| %>
+      <%=render partial: 'event', locals: {event: event}%>
+      <%@last_date = event.data%>
+    <%end%>
   </tbody>
 </table>
 
@@ -46,13 +90,10 @@
 </div>
 </br>
 
-<%= form_tag(@event, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Event by title" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-</br>
+
 <% end %>
 
+<!--
 <h1>Список моїх подій</h1>
 <table>
   <thead>
@@ -93,6 +134,7 @@
 <% if can? :create, Event %>
 <%= link_to 'Створити подію', new_event_path %>
 <% end %>
+-->
 
 
 
