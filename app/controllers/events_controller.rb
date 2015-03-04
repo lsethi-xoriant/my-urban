@@ -24,10 +24,16 @@ class EventsController < ApplicationController
     #binding.pry
     @events = @events.paginate(:page => params[:page], :per_page => 5)
     @last_date = Event.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 5).last.data if params[:page].present?
+    if params[:page]
+      page = 'index.js.erb'
+    else
+      page = 'index_ajax.js.erb'
+    end
     respond_to do |format|
       format.html { render 'index1' }
-      format.js   { render 'index.js.erb'}
-    end   
+      format.js   { render page}
+    end 
+    #binding.pry  
   end
 
   def show
