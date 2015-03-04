@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
+  adapter: mysql2 
   database: myurban_production
+  host: localhost
   username: myurban
-  password: <%= ENV['MYURBAN_DATABASE_PASSWORD'] %>
+  password: "utLQ+\}ZV,"
