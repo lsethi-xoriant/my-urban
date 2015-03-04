@@ -25,7 +25,7 @@ class FriendshipsController < ApplicationController
       @new_friendship = Friendship.create(:friend_id => current_user.id, :user_id => @friendship.friend_id, status: 'follower')
       @friendship.destroy
     elsif current_user.id == @friendship.friend_id #follower
-      @friendship.status == 'follower'
+      @friendship.status = 'follower'
       @friendship.save
     end
     flash[:notice] = "Removed friendship."
