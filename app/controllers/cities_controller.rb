@@ -39,12 +39,18 @@ class CitiesController < ApplicationController
   def autocomplete
     respond_to do |format|
       format.js do
-        index = request.env["HTTP_REFERER"].index('state_id') + 9
-        state_id = request.env["HTTP_REFERER"][index]
-        #binding.pry
         cities = []
-        City.where(state_id: state_id).each do |city|
-          cities << city.en_name
+        if request.env["HTTP_REFERER"].index('state_id')
+          index = request.env["HTTP_REFERER"].index('state_id') + 9
+          state_id = request.env["HTTP_REFERER"][index]
+          state_id = request.env["HTTP_REFERER"][index..(index+1)] unless request.env["HTTP_REFERER"][index+1] == '&'
+          City.where(state_id: state_id).each do |city|
+            cities << city.en_name
+          end
+        else
+          City.all.each do |city|
+            cities << city.en_name
+          end
         end
         render json: cities
       end
