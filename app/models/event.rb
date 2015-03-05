@@ -61,8 +61,9 @@ class Event < ActiveRecord::Base
     #where("state_id like ?", "%#{city_id}%")
   end
 
-  def self.city_id_filter(city_id)
-    where(city_id: city_id)
+  def self.urban_filter(city_id)
+    @city = City.where(en_name: city_id).first
+    where(city_id: @city.id)
     #where("state_id like ?", "%#{city_id}%")
   end
 

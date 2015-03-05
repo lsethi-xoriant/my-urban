@@ -6,10 +6,13 @@ class EventsController < ApplicationController
 
   def index 
     @events = Event.where(nil)
+    params[:state_id] = State.where(:name => params[:state]) if params[:state]
     filtering_params(params).each do |key, value|
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
     @events = Event.all if !@event.blank?
+    #binding.pry
+=begin
     if params[:search]
       @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)
     else
@@ -17,8 +20,20 @@ class EventsController < ApplicationController
       #@events = Event.where("data >= ?", @nowDate).order(:data, :timeStart).page(params[:page]).per(5)
       @events = Event.order(:data, :timeStart).page(params[:page]).per(5)
     end
-    @last_date = Event.order(:data, :timeStart).page((params[:page].to_i - 1).to_s).per(5).last.data if params[:page].present?
-    render 'index'
+=end
+    #binding.pry
+    @events = @events.paginate(:page => params[:page], :per_page => 5)
+    @last_date = Event.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 5).last.data if params[:page].present?
+    if params[:page]
+      page = 'index.js.erb'
+    else
+      page = 'index_ajax.js.erb'
+    end
+    respond_to do |format|
+      format.html { render 'index1' }
+      format.js   { render page}
+    end 
+    #binding.pry  
   end
 
   def show
@@ -103,7 +118,7 @@ class EventsController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:state_id, :people_count, :category_id, :event_type, :data, :city_id)#(:name, :adress, :description, :data, :timeStart)
+    params.slice(:state_id, :people_count, :category_id, :event_type, :data, :urban)#(:name, :adress, :description, :data, :timeStart)
   end
   def set_event
     @event = Event.find(params[:id])    

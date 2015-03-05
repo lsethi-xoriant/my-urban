@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 #jQuery plugin for drop-in fix binded events problem
 gem 'jquery-turbolinks', '2.1.0'
 #for pagination
-gem 'kaminari', '0.16.1'
+gem 'will_paginate', '~> 3.0.7'
 #CanCan is an authorization library 
 #which restricts what resources a given user is allowed to access
 gem 'cancancan', '1.9.2'

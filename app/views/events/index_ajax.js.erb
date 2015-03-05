@@ -1,0 +1,2 @@
+$('#posts').html("<%= escape_javascript render('list_events') %>");
+$('.pagination').html('<%= escape_javascript will_paginate(@events) %>');

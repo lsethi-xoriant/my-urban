@@ -22,3 +22,32 @@
 //= require jquery.infinitescroll
 //= require_tree .
 
+
+  function getAutoCompleteCities() {
+    $.get('/autocomplete.js', function( data ) {
+      clients = JSON.parse(data);
+      $('input#user_city').autocomplete({ 
+        source: clients 
+      })
+    })
+  }
+
+
+$(document).ready(function(){
+  $('input#user_city').keydown(function(){
+    getAutoCompleteCities();
+  })
+});
+
+$(document).ready(function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').text("Please Wait...");
+        return $.getScript(url);
+      }
+    });
+    return $(window).scroll();
+  }
+});
