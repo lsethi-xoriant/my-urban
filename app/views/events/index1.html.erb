@@ -68,84 +68,14 @@
 
 <h1>Список подій</h1>
 
-<div id='tex'>
-<% if Event.exists? %>
-<table id="events">
-  <thead>
-    <tr>
-      <th>Event name</th>
-      <th>Хто створив</th>
-      <th>Учасники</th>
-      <th>max Учасників</th>
-      <th>Година</th>
-      <th>Дата</th>
-      <th>Тип події</th>
-      <th colspan="7"></th>
-    </tr>
-  </thead>
-   
-    <% if flash[:alert] %>
-        <div class="notice"><%= flash[:alert] %></div>
-    <% end %>
-
-  <tbody class="page">
-    <%@events.each do |event| %>
-      <%=render partial: 'event', locals: {event: event}%>
-      <%@last_date = event.data%>
-    <%end%>
-  </tbody>
-</table>
-
-<div id="scroll" style="display: none;">
-<%= paginate @events, :remote => true%>
+<div id="posts">
+  <h1>Posts</h1>
+  <%= render @events %>
 </div>
-</br>
+<%= will_paginate @events %>
 
 
-<% end %>
-</div>
-<!--
-<h1>Список моїх подій</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Event name</th>
-      
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-   
-    <% if flash[:alert] %>
-        <div class="notice"><%= flash[:alert] %></div>
-    <% end %>
 
-  <tbody>
-    <%if user_signed_in?%>
-      <% current_user.events.each do |event| %>
-        <tr>
-          <td><h1><%= event.name %></h1></td>    
-          
-
-          <% if can? :read, Event %>
-          <td><%= link_to 'Show', event %></td>
-          <% end %>
-          
-          <% if can? :manage, Event %>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'Invite user to event',invite_path(:event_id => event.id) %></td>
-      
-          <% end %>
-        </tr>
-      <% end %>
-    <%end%>
-  </tbody>
-</table>
-
-<% if can? :create, Event %>
-<%= link_to 'Створити подію', new_event_path %>
-<% end %>
--->
 
 
 

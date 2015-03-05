@@ -1,29 +1,4 @@
-tr.event
-  td
-    - if @last_date.nil? || @last_date.to_date != event.data.to_date
-      =event.data.to_date
-tr.event
-  td
-    h1 = event.name
-  td
-    = User.find_by_id(event.user_id).last_name + ' ' + User.find_by_id(event.user_id).first_name
-  td
-    = event.participations.count
-  td
-    = number_format_people_count(event.id)
-  td
-    = event.timeStart.strftime('%H:%M')
-  td
-    = event.data.strftime('%d.%m.%Y')
-  td
-    = event.event_type
+div.post
+  h2= event.name
 
- 
-  - if can? :read, Event
-    td
-      = link_to 'Show', event
-  - if can? :manage, Event
-    td
-      = link_to 'Edit', edit_event_path(event)
-    td
-      = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+
