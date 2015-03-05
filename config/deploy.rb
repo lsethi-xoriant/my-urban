@@ -9,7 +9,7 @@ set :rvm_ruby_string, 'ree'
 
 set :scm, :git
 set :repository,  "https://github.com/coaxsoft/my-urban"
-set :branch, "master"
+set :branch, "dev"
 set :deploy_via, :remote_cache
 
 role :web, domain
