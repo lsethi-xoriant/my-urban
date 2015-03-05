@@ -1,2 +1,2 @@
-$('#posts').replaceWith('<%= escape_javascript render(@events) %>');
-$('.pagination').replaceWith('<%= escape_javascript will_paginate(@events) %>');
+$('#posts').html("<%= escape_javascript render('list_events') %>");
+$('.pagination').html('<%= escape_javascript will_paginate(@events) %>');

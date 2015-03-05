@@ -69,8 +69,7 @@
 <h1>Список подій</h1>
 
 <div id="posts">
-  <h1>Posts</h1>
-  <%= render @events %>
+  <%=render 'list_events'%>
 </div>
 <%= will_paginate @events %>
 

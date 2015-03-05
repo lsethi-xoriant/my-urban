@@ -11,6 +11,7 @@ class EventsController < ApplicationController
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
     @events = Event.all if !@event.blank?
+    puts "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH #{@events.count}"
     #binding.pry
 =begin
     if params[:search]
