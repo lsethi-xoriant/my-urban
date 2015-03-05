@@ -5,7 +5,7 @@ pid "/home/deploy/myurban.com.ua/shared/pids/unicorn.pid"
 stderr_path "/home/deploy/myurban.com.ua/shared/log/unicorn.log"
 stdout_path "/home/deploy/myurban.com.ua/shared/log/unicorn.log"
 
-listen "/tmp/unicorn.myurban.sock"
+listen "/home/deploy/myurban.com.ua/shared/system/unicorn.myurban.sock"
 
 worker_processes 2
 
