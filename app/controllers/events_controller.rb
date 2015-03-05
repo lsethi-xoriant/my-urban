@@ -11,6 +11,8 @@ class EventsController < ApplicationController
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
     @events = Event.all if !@event.blank?
+    #binding.pry
+=begin
     if params[:search]
       @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)
     else
@@ -18,8 +20,14 @@ class EventsController < ApplicationController
       #@events = Event.where("data >= ?", @nowDate).order(:data, :timeStart).page(params[:page]).per(5)
       @events = Event.order(:data, :timeStart).page(params[:page]).per(5)
     end
+=end
+    #binding.pry
+    @events = @events.page(params[:page]).per(5)
     @last_date = Event.order(:data, :timeStart).page((params[:page].to_i - 1).to_s).per(5).last.data if params[:page].present?
-    render 'index'
+    respond_to do |format|
+      format.html { render 'index1' }
+      format.js   { render 'index.js.erb'}
+    end   
   end
 
   def show
