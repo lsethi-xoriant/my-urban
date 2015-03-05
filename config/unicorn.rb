@@ -1,9 +1,9 @@
-working_directory "/home/deploy/my-urban"
+working_directory "/home/deploy/myurban.com.ua/current"
 
-pid "/home/deploy/my-urban/shared/pids/unicorn.pid"
+pid "/home/deploy/myurban.com.ua/shared/pids/unicorn.pid"
 
-stderr_path "/home/deploy/my-urban/shared/log/unicorn.log"
-stdout_path "/home/deploy/my-urban/shared/log/unicorn.log"
+stderr_path "/home/deploy/myurban.com.ua/shared/log/unicorn.log"
+stdout_path "/home/deploy/myurban.com.ua/shared/log/unicorn.log"
 
 listen "/tmp/unicorn.myurban.sock"
 
