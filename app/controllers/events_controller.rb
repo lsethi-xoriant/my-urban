@@ -22,8 +22,10 @@ class EventsController < ApplicationController
     end
 =end
     #binding.pry
-    @events = @events.paginate(:page => params[:page], :per_page => 17)
-    @last_date = Event.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 17).last.data if params[:page].present?
+    @all_events = @events
+    @events = @events.order(:data, :timeStart).paginate(:page => params[:page], :per_page => 2)
+    @last_date = @all_events.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 2).last.data if params[:page].present?
+    binding.pry
     if params[:page]
       page = 'index.js.erb'
     else

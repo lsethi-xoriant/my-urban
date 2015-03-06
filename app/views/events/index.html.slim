@@ -16,33 +16,39 @@
 
       .row
         div class="large-4 medium-4 small-12 columns ev-filter"
-          #datepicker
-          .ev-type 
-            h3 Тип події
-            sel-wr
-              select
-                option Всі події (234)
-                option Опція 2
-                option Опція 3
-          .reg-type
-            h3 Тип реєестрації
-            p
-              = radio_button_tag 'ev_type', '1'
-              = label_tag(:ev_type_1, 'Не має значення')
-            p
-              = radio_button_tag 'ev_type', '2'
-              = label_tag(:ev_type_2, 'Відкрита')
-            p
-              = radio_button_tag 'ev_type', '3'
-              = label_tag(:ev_type_3, 'Закрита')
+          = form_tag("/events", method: "get") do |f| 
+            div class="field"
+              = select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) 
+            div class="actions"
+              = submit_tag 
+          = form_tag("/events", method: "get", remote: true) do |f| 
+            #datepicker
+            .ev-type 
+              h3 Тип події
+              sel-wr
+                = select_tag :category_id, options_for_select( categories_collection), { :include_blank => "All events #{Event.all.count}" } 
+            .reg-type
+              h3 Тип реєестрації
+              p
+                = radio_button_tag :event_type, ''
+                = label_tag(:ev_type_1, 'Не має значення')
+              p
+                = radio_button_tag :event_type, 'open'
+                = label_tag(:ev_type_2, 'Відкрита')
+              p
+                = radio_button_tag :event_type, 'close'
+                = label_tag(:ev_type_3, 'Закрита')
 
-          .ev-count
-            h3 Кількість учасників
-            sel-wr
-              select
-                option Маленька (8-15 чол)
-                option Опція 2
-                option Опція 3
+            .ev-count
+              h3 Кількість учасників
+              sel-wr
+                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Default' }
+            .ev-count
+              h3 Виберіть місто
+              sel-wr
+                = text_field_tag :urban, nil, id: 'user_city'
+
+                = submit_tag 
 
         div class="large-8 medium-8 small-12 columns ev-list"
           /
@@ -56,6 +62,8 @@
                   = render @events
           div id="posts"
             =render 'list_events'
+          div style="display:none"
+            = will_paginate @events
 
       .row
         .reg-ev
