@@ -6,7 +6,7 @@
         = image_tag "events-backgr.jpg"
       div class="row search"
         .region-info
-          h1 Івано-Франківська область
+          h1 =State.find(params[:state_id]).name
           p
             span 45
             |  подій цього тижня
@@ -45,147 +45,18 @@
                 option Опція 3
 
         div class="large-8 medium-8 small-12 columns ev-list"
-          h1
-            | Список подій
-          - if Event.exists?
-              - if flash[:alert]
-                .notice
-                  = flash[:alert]
-              .page
-                = render @events
+          /
+            h1
+              | Список подій
+            - if Event.exists?
+                - if flash[:alert]
+                  .notice
+                    = flash[:alert]
+                .page
+                  = render @events
+          div id="posts"
+            =render 'list_events'
 
-
-
-
-          .ev-list-date
-            h5 4 події
-            h4 Понеділок, 12.12.2014
-            h6 Сьогодні
-          .ev-list-item.ev-close
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 
-                = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
-          .ev-list-item
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
-          .ev-list-item
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
-          .ev-list-item.ev-close
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
-
-          .ev-list-date
-            h5 4 події
-            h4 Понеділок, 12.12.2014
-          .ev-list-item.ev-close
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
-          .ev-list-item.ev-close
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
-          .ev-list-item
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
-          .ev-list-item.ev-close
-            = image_tag "ev-list-img.jpg"
-            div class="ev-list-type ev-party"
-            .ev-list-info
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              h4 
-                | Час:
-                span 12:20
-              h4 
-                | Учасників:
-                span 12 / 23
-              h4.organizer
-                = image_tag "ev-list-user.jpg"
-                | Організатор:
-                span Олексій Петренко
       .row
         .reg-ev
           .reg-ev-title
@@ -226,78 +97,3 @@
 
     = render "partials/footer"
           
-
-
-
-
-
-
-
-
-
-
-
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
-    div
-      h1
-        | Ви в проекті my-urban
-    div
-      - if user_signed_in?
-        span
-          | Вітаю, 
-          = current_user.first_name
-          = current_user.last_name
-        = link_to 'Вийти', destroy_user_session_path, :method => :delete
-      - else
-        = link_to 'Вхід', new_user_session_path
-        |  або 
-        = link_to 'Реєстрація', new_user_registration_path
-    - if can? :create, Category
-      = link_to 'Категорії', categories_path
-    h1
-      | Список подій
-    - if Event.exists?
-      table
-        thead
-          tr
-            th
-              | Event name
-            th
-              | Хто створив
-            th[colspan="3"]
-        - if flash[:alert]
-          .notice
-            = flash[:alert]
-        tbody
-          - @events.each do |event|
-            tr
-              td
-                = event.name
-              td
-                = User.find_by_id(event.user_id).last_name + ' ' + User.find_by_id(event.user_id).first_name
-              - if can? :read, Event
-                td
-                  = link_to 'Show', event
-              - if can? :manage, Event
-                td
-                  = link_to 'Edit', edit_event_path(event)
-                td
-                  = link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
-    = form_tag(@event, :method => "get", id: "search-form") do
-      = text_field_tag :search, params[:search], placeholder: "Search Event by date"
-      = submit_tag "Search", :name => nil
-    - if can? :create, Event
-      = link_to 'Створити подію', new_event_path
