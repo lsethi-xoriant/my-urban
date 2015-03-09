@@ -8,10 +8,6 @@
       = event.data.strftime("%A, %d.%e.%Y")
       /12.12.2014
     h6 Сьогодні
-- unless @last_date.nil?
-  ='@last_date.to_date != event.data.to_date
-  ='@last_date.to_date
-='event.data.to_date
 .ev-list-item.ev-close
   = image_tag "ev-list-img.jpg"
   div class="ev-list-type ev-party"
@@ -35,6 +31,6 @@
       = image_tag "ev-list-user.jpg"
       | Організатор:
       span  =event.user.first_name + ' ' + event.user.last_name
-- @last_date = event.data
+
 
 

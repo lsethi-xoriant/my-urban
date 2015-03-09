@@ -11,7 +11,7 @@ class EventsController < ApplicationController
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
     @events = Event.all if !@event.blank?
-    #binding.pry
+    binding.pry
 =begin
     if params[:search]
       @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)
@@ -25,7 +25,6 @@ class EventsController < ApplicationController
     @all_events = @events
     @events = @events.order(:data, :timeStart).paginate(:page => params[:page], :per_page => 2)
     @last_date = @all_events.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 2).last.data if params[:page].present?
-    binding.pry
     if params[:page]
       page = 'index.js.erb'
     else
