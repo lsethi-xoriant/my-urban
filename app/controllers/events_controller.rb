@@ -10,7 +10,8 @@ class EventsController < ApplicationController
     filtering_params(params).each do |key, value|
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
-    @events = Event.all if !@event.blank?
+    #binding.pry
+    #@events = Event.all if @event.blank?
 =begin
     if params[:search]
       @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)

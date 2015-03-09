@@ -23,6 +23,7 @@
               = submit_tag 
           = form_tag("/events", method: "get", remote: true) do |f| 
             #datepicker
+            =text_field_tag :data, Date.today, class: 'filter_date'
             .ev-type 
               h3 Тип події
               sel-wr
