@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   scope :name_filter, -> (name) { where("name like ?", "%#{name}%")}
   scope :adress_filter, -> (address) { where("adress like ?", "%#{address}%")}
   scope :description_filter, -> (description) { where("description like ?", "%#{description}%")}
-  scope :data_filter, -> (data) { select{|event| event.data.to_date == data.to_date} }#where("data like ?", "%#{data}%")}
+  scope :data_filter, -> (data) { where("date(data) = ?", "#{data.to_date}")}#{|event| event.data.to_date == data.to_date} }#where("data like ?", "%#{data}%")}
   scope :timeStart_filter, -> (timestart) { where("timeStart like ?", "#{timestart}")}
 
 
@@ -63,7 +63,11 @@ class Event < ActiveRecord::Base
 
   def self.urban_filter(city_id)
     @city = City.where(en_name: city_id).first
-    where(city_id: @city.id)
+    if @city.nil?
+      where(nil)
+    else
+      where(city_id: @city.id)
+    end
     #where("state_id like ?", "%#{city_id}%")
   end
 

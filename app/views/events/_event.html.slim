@@ -1,4 +1,36 @@
-div.post
-  h2= event.name
+- if @last_date.nil? || @last_date.to_date != event.data.to_date
+  /=event.data.to_date
+  .ev-list-date
+    h5 
+      ='Event.where(data: event.data).count 
+      |подій
+    h4 
+      = event.data.strftime("%A, %d.%m.%Y")
+      /12.12.2014
+    h6 Сьогодні
+.ev-list-item.ev-close
+  = image_tag "ev-list-img.jpg"
+  div class="ev-list-type ev-party"
+  .ev-list-info
+    h2 
+      /= link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
+      = link_to event.name, event_path(event)
+    h4 
+      | Час:
+      span 
+        /12:20
+        =event.timeStart.strftime("%H:%M")
+    h4 
+      | Учасників:
+      span 
+        /12 / 23
+        = event.all_relationships.count
+        | /
+        = number_format_people_count(event.id)
+    h4.organizer
+      = image_tag "ev-list-user.jpg"
+      | Організатор:
+      span  =event.user.first_name + ' ' + event.user.last_name
+
 
 

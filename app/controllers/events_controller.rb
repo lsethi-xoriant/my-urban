@@ -10,8 +10,8 @@ class EventsController < ApplicationController
     filtering_params(params).each do |key, value|
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
-    @events = Event.all if !@event.blank?
     #binding.pry
+    #@events = Event.all if @event.blank?
 =begin
     if params[:search]
       @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)
@@ -22,15 +22,16 @@ class EventsController < ApplicationController
     end
 =end
     #binding.pry
-    @events = @events.paginate(:page => params[:page], :per_page => 5)
-    @last_date = Event.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 5).last.data if params[:page].present?
+    @all_events = @events
+    @events = @events.order(:data, :timeStart).paginate(:page => params[:page], :per_page => 5)
+    @last_date = @all_events.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 5).last.data if params[:page].present?
     if params[:page]
       page = 'index.js.erb'
     else
       page = 'index_ajax.js.erb'
     end
     respond_to do |format|
-      format.html { render 'index1' }
+      format.html { render 'index' }
       format.js   { render page}
     end 
     #binding.pry  

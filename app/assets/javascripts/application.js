@@ -51,3 +51,9 @@ $(document).ready(function() {
     return $(window).scroll();
   }
 });
+
+function inputDate(selected,evnt){
+  $(".filter_date").val(selected);
+  
+}
+
