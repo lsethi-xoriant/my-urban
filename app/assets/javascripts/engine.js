@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
 		}
 	});
 
-	$( "#datepicker" ).datepicker({ onSelect: inputDate});
+	$( "#datepicker" ).datepicker({dateFormat: 'dd-mm-yy', onSelect: inputDate});
 
 	$('.city-dr-dwn > a').hover(function(){
 		$('.city-dr-dwn-cont-wr').slideDown(300);

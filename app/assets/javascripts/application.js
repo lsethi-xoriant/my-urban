@@ -50,10 +50,29 @@ $(document).ready(function() {
     });
     return $(window).scroll();
   }
+
 });
+
+
+$(document).ready(function() {
+
+ $("input.filter_input").change(function(){
+    $("input.filter_input").closest('form').submit();
+  });
+
+ $("input.filter_input").keydown(function(e){
+        if (e.keyCode === 13) {
+          $(this).closest('form').submit();
+        }
+  });
+
+});
+
 
 function inputDate(selected,evnt){
   $(".filter_date").val(selected);
   
 }
+
+
 

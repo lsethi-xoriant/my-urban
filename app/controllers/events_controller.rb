@@ -7,21 +7,13 @@ class EventsController < ApplicationController
   def index 
     @events = Event.where(nil)
     params[:state_id] = State.where(:name => params[:state]) if params[:state]
+
     filtering_params(params).each do |key, value|
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
-    #binding.pry
-    #@events = Event.all if @event.blank?
-=begin
-    if params[:search]
-      @events = Event.search(params[:search]).order(:data, :timeStart).page(params[:page]).per(5)
-    else
-      @nowDate = Date.today
-      #@events = Event.where("data >= ?", @nowDate).order(:data, :timeStart).page(params[:page]).per(5)
-      @events = Event.order(:data, :timeStart).page(params[:page]).per(5)
-    end
-=end
-    #binding.pry
+
+    @events = @events.where("date(data) >= ?", "#{1.day.ago.to_date}") unless params[:data]
+
     @all_events = @events
     @events = @events.order(:data, :timeStart).paginate(:page => params[:page], :per_page => 5)
     @last_date = @all_events.order(:data, :timeStart).paginate(:page => (params[:page].to_i - 1).to_s, :per_page => 5).last.data if params[:page].present?
@@ -33,8 +25,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { render 'index' }
       format.js   { render page}
-    end 
-    #binding.pry  
+    end   
   end
 
   def show

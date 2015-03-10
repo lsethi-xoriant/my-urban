@@ -23,7 +23,7 @@
               = submit_tag 
           = form_tag("/events", method: "get", remote: true) do |f| 
             #datepicker
-            =text_field_tag :data, Date.today, class: 'filter_date'
+            =hidden_field_tag :data, Date.today, class: 'filter_date'
             .ev-type 
               h3 Тип події
               sel-wr
@@ -43,13 +43,13 @@
             .ev-count
               h3 Кількість учасників
               sel-wr
-                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Default' }
+                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Default', class: "filter_input" }
             .ev-count
               h3 Виберіть місто
               sel-wr
-                = text_field_tag :urban, nil, id: 'user_city'
+                = text_field_tag :urban, nil, id: 'user_city', class: "filter_input" 
 
-                = submit_tag 
+                = submit_tag
 
         div class="large-8 medium-8 small-12 columns ev-list"
           /
