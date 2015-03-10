@@ -2,7 +2,7 @@
   /=event.data.to_date
   .ev-list-date
     h5 
-      ='Event.where(data: event.data).count 
+      ='Event.where("date(data) = ?", "#{event.data.to_date}").count 
       |подій
     h4 
       = event.data.strftime("%A, %d.%m.%Y")
