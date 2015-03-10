@@ -1,0 +1,88 @@
+          = form_for(@event) do |f|
+            - if @event.errors.any?
+              #error_explanation
+                h2
+                  = pluralize(@event.errors.count, "error")
+                  |  prohibited this event from being saved:
+                ul
+                  - @event.errors.full_messages.each do |message|
+                    li
+                      = message
+            = f.select :event_type, Event.types_of_event
+            h1
+              | Створити нову подію
+            .new-ev-form
+              .field-category
+                = f.label :category_id, 'Оберіть категорію'
+                = f.collection_select :category_id, Category.all, :id, :title, :prompt => "Категорія"
+              .field-name
+                = f.label :name, 'Назва події *'
+                = f.text_field :name
+              .field-address
+                = f.label :adress, 'Адреса *'
+                = f.text_field :adress
+              .field
+                = f.label :description, 'Опис *'
+                = f.text_field :description
+              .field-data
+                = f.label :data, 'Дата *'
+                = f.date_select :data, {:use_month_names => ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад','Грудень']}
+              .field-start
+                = f.label :timeStart, 'Час початку *'
+                = f.time_select :timeStart, :minute_step => 5, prompt: {hour: '', minute: ''}
+              .field-end
+                = f.label :endTime, 'Час закінчення *'
+                = f.time_select :endTime, :minute_step => 5, :default => nil, prompt: {hour: '', minute: ''}
+              .field
+                = f.label :photo, 'Фото події *'
+                = f.text_field :photo
+              .field-count
+                = f.label :people_count, 'Кількість учасників *'
+                = f.select :people_count, Event.counts_of_people
+              .invite-fr
+                p Запросити друзів:
+                .invite-fr-links
+                  = link_to 'Ваші друзі', 'javascript:void(0);', :class => 'active'
+                  = link_to 'Запросити з Facebook', 'javascript:void(0);'
+                .invite-fr-list
+                  .invite-fr-list-item.invited
+                    = link_to 'javascript:void(0);' do
+                      = image_tag "user-sm-1.jpg"
+                    = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                  .invite-fr-list-item
+                    = link_to 'javascript:void(0);' do
+                      = image_tag "user-sm-2.jpg"
+                    = link_to 'Василина Петренко', 'javascript:void(0);'
+                  .invite-fr-list-item.invited
+                    = link_to 'javascript:void(0);' do
+                      = image_tag "user-sm-3.jpg"
+                    = link_to 'Стефанія Франко', 'javascript:void(0);'
+                  .invite-fr-list-item.invited
+                    = link_to 'javascript:void(0);' do
+                      = image_tag "user-sm-4.jpg"
+                    = link_to 'Петрунеля Іваненко', 'javascript:void(0);'
+                  .invite-fr-list-item
+                    = link_to 'javascript:void(0);' do
+                      = image_tag "user-sm-1.jpg"
+                    = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                  .invite-fr-list-item
+                    = link_to 'javascript:void(0);' do
+                      = image_tag "user-sm-2.jpg"
+                    = link_to 'Василина Петренко', 'javascript:void(0);'
+                  .invite-fr-list-item
+                    = link_to 'javascript:void(0);' do
+                      = image_tag "user-sm-3.jpg"
+                    = link_to 'Стефанія Франко', 'javascript:void(0);'
+
+
+
+
+
+              .field
+                = f.label :reg_type
+                = f.select :reg_type, Event.replenishment
+
+
+              = f.hidden_field :user_id, :value => current_user.id
+              .actions
+                = f.submit 'Створити подію', :class => 'btn-2 btn-3'

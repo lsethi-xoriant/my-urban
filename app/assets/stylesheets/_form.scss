@@ -1,0 +1,80 @@
+.btn-1 {
+	background-color: #FFFFFF;
+	display: inline-block;
+	font-size: 18px;
+	line-height: 30px;
+	color: #7da82c;
+	border: 2px solid #7da82c;
+	border-radius: 3px;
+	outline: none;
+	padding: 6px 15px 6px 40px;
+	margin: 35px 0 0 0;
+}
+
+.btn-1:hover, .welcome-div .btn-1:hover {
+	background: #E1ECD0 url("i-m-m-2.png") no-repeat 15px center;
+	color: #7da82c;
+}
+
+.btn-2, .form-wrapper input[type="submit"] {
+	background: #FF7900;
+	border: none;
+	outline: none;
+	border-radius: 30px;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 40px;
+	color: #FFFFFF;
+	font-weight: 400;
+	font-size: 15px;
+	margin: 25px 0 0;
+}
+
+.btn-2:hover, .form-wrapper input[type="submit"]:hover {
+	opacity: 0.85;
+	color: #FFFFFF;
+}
+
+.btn-2:active {
+	opacity: 0.7;
+}
+
+.btn-3 {
+	float: right;
+	display: inline-block;
+	width: auto;
+	margin: -3px 0 0;
+	line-height: 18px;
+	height: auto;
+	padding: 7px 30px 6px;
+}
+
+.btn-4, .menu .btn-4 {
+	background: #91DE57;
+	border: none;
+	outline: none;
+	border-radius: 30px;
+	display: inline-block;
+	box-sizing: border-box;
+	height: 36px;
+	color: #708d3e;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 37px;
+	padding: 0 15px 0;
+	margin: -3px 0 0 8px;
+	text-align: center;
+	float: right;
+}
+
+.btn-4:hover, .menu .btn-4:hover {
+	background: #91DE57;
+	color: #708d3e;
+	text-decoration: none;
+	opacity: 0.8;
+}
+
+.btn-4:focus, .menu .btn-4:focus {
+	opacity: 0.7;
+}

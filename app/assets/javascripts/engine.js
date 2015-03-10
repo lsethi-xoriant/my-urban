@@ -19,4 +19,23 @@ jQuery(document).ready(function() {
 
 	$( "#datepicker" ).datepicker({ onSelect: inputDate});
 
+	$('.city-dr-dwn > a').hover(function(){
+		$('.city-dr-dwn-cont-wr').slideDown(300);
+	},function(){
+		// $('.city-dr-dwn-cont-wr').fadeOut(200);
+	
+		$('.city-dr-dwn-cont-wr').hover(function(){
+
+		},function(){
+			$('.city-dr-dwn-cont-wr').fadeOut(200);
+		});
+
+	});
+
+	// $('.city-dr-dwn-cont-wr').hover(function(){
+
+	// },function(){
+	// 	// $('.city-dr-dwn-cont-wr').fadeOut(200);
+	// });
+
 });

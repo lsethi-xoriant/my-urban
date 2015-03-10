@@ -8,7 +8,7 @@
       = event.data.strftime("%A, %d.%m.%Y")
       /12.12.2014
     h6 Сьогодні
-.ev-list-item.ev-close
+div class=["ev-list-item", event.event_type]
   = image_tag "ev-list-img.jpg"
   div class="ev-list-type ev-party"
   .ev-list-info
@@ -31,6 +31,5 @@
       = image_tag "ev-list-user.jpg"
       | Організатор:
       span  =event.user.first_name + ' ' + event.user.last_name
-
 
 
