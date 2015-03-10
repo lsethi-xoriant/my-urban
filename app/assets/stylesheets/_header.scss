@@ -1,0 +1,179 @@
+
+header {
+	padding: 20px 0 0;
+
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.menu {
+	float: right;
+
+	a {
+		font-size: 16px;
+		line-height: 30px;
+		margin: 0 7px 0;
+		font-weight: 400;
+	}
+
+	a:hover {
+		text-decoration: underline;
+		color: #FFFFFF;
+	}
+
+	.enter-site {
+		background: url("i-enter.png") no-repeat left 1px;
+		padding: 0 0 0 21px;
+		margin: 0 0 0 38px;
+	}
+
+	span:last-of-type {
+		font-weight: 700;
+		color: #FFFFFF;
+	}
+}
+
+.logo {
+	float: left;
+
+	a {
+		font-weight: 800;
+		font-size: 30px;
+		line-height: 30px;
+		letter-spacing: 7px;
+		text-transform: uppercase;
+	}
+
+	a span {
+		color: #a9d55b;
+	}
+
+	a:hover {
+		opacity: 0.8;
+		background: transparent;
+	}
+
+	a:visited {
+		color: #FFFFFF;
+	}
+}
+
+body .not-main {
+	background: #F4F4F4;
+	color: #121212;
+
+	header {
+		background: #784A83;
+		padding: 20px 0 0;
+		height: 70px;
+		box-sizing: border-box;
+	}
+
+	.logo a {
+		font-size: 21px;
+	}
+
+	.city-dr-dwn {
+		display: block;
+	}
+}
+
+.city-dr-dwn {
+	float: left;
+	position: static;
+	display: none;
+
+	a:hover {
+		color: #FFFFFF;
+	}
+}
+
+.city-dr-dwn > a {
+	font-weight: 400;
+	background: url(i-dr-dwn.png) no-repeat right 11px;
+	background-size: 9px 5px;
+	padding: 1px 18px 0 22px;
+	display: inline-block;
+	box-sizing: border-box;
+	height: 52px;
+	margin: 0 0 -2px;
+}
+
+.city-dr-dwn-cont-wr {
+	position: absolute;
+	left: 0;
+	top: 70px;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 0 0;
+	display: none;
+	z-index: 10;
+
+  	a:hover {
+		color: #4f4f4f;
+	}
+}
+
+.city-dr-dwn-cont {
+	background: rgba(255,255,255,.94);
+	color: #4f4f4f;
+	line-height: 30px;
+	padding: 53px 0 33px;
+	box-shadow: 0px 5px 25px -1px #bbbbbb;
+
+	.city-dr-dwn-title {
+		h2 {
+			line-height: 30px;
+			font-size: 25px;
+			color: #4f4f4f;
+			margin: 0;
+		}
+		p {
+			line-height: 30px;
+			font-size: 14px;
+			color: #4f4f4f;
+			margin: 0;
+			font-weight: 400;
+		}
+		span {
+			color: #8fc731;
+		}
+	}
+
+	.row {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0;
+		margin-bottom: 0;
+		max-width: 70rem;
+	}
+}
+
+.city-dr-dwn-cities {
+    -webkit-column-count: 4; /* Chrome, Safari, Opera */
+    -moz-column-count: 4; /* Firefox */
+    column-count: 4;
+    -webkit-column-gap: 38px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 38px; /* Firefox */
+    column-gap: 38px;
+
+	a {
+		display: block;
+		color: #4f4f4f;
+		line-height: 30px;
+		font-size: 14px;
+		margin: 0;
+		font-weight: 100;
+		span {
+			float: right;
+			color: #8fc731;
+		}
+	}
+
+	a:hover {
+		color: #000000;
+		font-weight: 400;
+	}
+}

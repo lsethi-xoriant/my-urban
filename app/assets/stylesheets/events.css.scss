@@ -39,6 +39,10 @@
 	}
 }
 
+.ev-img {
+	text-align: center;
+}
+
 #search-form {
 	float: right;
 
@@ -201,6 +205,14 @@
 }
 
 .ev-close {
+	h2 {
+		background: url("i-close.png") no-repeat left 7px;
+		background-size: 10px 13px;
+		padding: 0 0 0 25px;
+	}
+}
+
+.close {
 	h2 {
 		background: url("i-close.png") no-repeat left 7px;
 		background-size: 10px 13px;
