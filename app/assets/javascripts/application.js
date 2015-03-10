@@ -53,11 +53,11 @@ $(document).ready(function() {
 
 });
 
-
+//filter ajax sending
 $(document).ready(function() {
 
- $("input.filter_input").change(function(){
-    $("input.filter_input").closest('form').submit();
+ $("select.filter_select").change(function(){
+    $(this).closest('form').submit();
   });
 
  $("input.filter_input").keydown(function(e){
@@ -66,12 +66,21 @@ $(document).ready(function() {
         }
   });
 
+ $("body").on("click", ".ui-autocomplete li", function(){
+  $("input.filter_date").closest('form').submit();
+ });
+
+ $("body").on("click", ".filter_radio", function(){
+  $("input.filter_date").closest('form').submit();
+ });
+
+
 });
 
 
 function inputDate(selected,evnt){
   $(".filter_date").val(selected);
-  
+  $("input.filter_date").closest('form').submit();
 }
 
 
