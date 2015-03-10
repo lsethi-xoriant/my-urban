@@ -50,10 +50,38 @@ $(document).ready(function() {
     });
     return $(window).scroll();
   }
+
 });
+
+//filter ajax sending
+$(document).ready(function() {
+
+ $("select.filter_select").change(function(){
+    $(this).closest('form').submit();
+  });
+
+ $("input.filter_input").keydown(function(e){
+        if (e.keyCode === 13) {
+          $(this).closest('form').submit();
+        }
+  });
+
+ $("body").on("click", ".ui-autocomplete li", function(){
+  $("input.filter_date").closest('form').submit();
+ });
+
+ $("body").on("click", ".filter_radio", function(){
+  $("input.filter_date").closest('form').submit();
+ });
+
+
+});
+
 
 function inputDate(selected,evnt){
   $(".filter_date").val(selected);
-  
+  $("input.filter_date").closest('form').submit();
 }
+
+
 

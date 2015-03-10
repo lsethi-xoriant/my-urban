@@ -12,7 +12,7 @@
 		7.times do
 	  Event.create!(
 	    :name => "My event #{SecureRandom.hex(2)}",
-	    :data => Date.today,
+	    :data => Date.tomorrow,
 	    :category_id => 1,
 	    :user_id => 1,
 	    :timeStart => Time.now,

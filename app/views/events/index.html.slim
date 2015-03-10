@@ -23,33 +23,33 @@
               = submit_tag 
           = form_tag("/events", method: "get", remote: true) do |f| 
             #datepicker
-            =text_field_tag :data, Date.today, class: 'filter_date'
+            =hidden_field_tag :data, Date.today, class: 'filter_date filter_input'
             .ev-type 
               h3 Тип події
               sel-wr
-                = select_tag :category_id, options_for_select( categories_collection), { :include_blank => "All events #{Event.all.count}" } 
+                = select_tag :category_id, options_for_select( categories_collection), { :include_blank => "All events #{Event.all.count}", class: 'filter_select' } 
             .reg-type
               h3 Тип реєестрації
               p
-                = radio_button_tag :event_type, ''
-                = label_tag(:ev_type_1, 'Не має значення')
+                = radio_button_tag :event_type, '', true, {class: 'filter_radio', id: 'not_metter'}
+                = label_tag(:not_metter, 'Не має значення')
               p
-                = radio_button_tag :event_type, 'open'
-                = label_tag(:ev_type_2, 'Відкрита')
+                = radio_button_tag :event_type, 'open', false, {class: 'filter_radio', id: 'open_type'}
+                = label_tag(:open_type, 'Відкрита')
               p
-                = radio_button_tag :event_type, 'close'
-                = label_tag(:ev_type_3, 'Закрита')
+                = radio_button_tag :event_type, 'close', false, {class: 'filter_radio', id: 'close_type'}
+                = label_tag(:close_type, 'Закрита')
 
             .ev-count
               h3 Кількість учасників
               sel-wr
-                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Default' }
+                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Default', class: "filter_select" }
             .ev-count
               h3 Виберіть місто
               sel-wr
-                = text_field_tag :urban, nil, id: 'user_city'
-
-                = submit_tag 
+                = text_field_tag :urban, nil, id: 'user_city', class: "filter_input" 
+              div style='display:none'
+                = submit_tag
 
         div class="large-8 medium-8 small-12 columns ev-list"
           /
