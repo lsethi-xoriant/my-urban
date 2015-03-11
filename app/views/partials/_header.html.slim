@@ -19,74 +19,24 @@
             span 
               | My
             | Urban
-        .city-dr-dwn
-          = link_to 'Івано-Франківська область', 'javascript:void(0);'
-          .city-dr-dwn-cont-wr
-            div class="city-dr-dwn-cont"
-              .row
-                div class="city-dr-dwn-title medium-4 small-12 columns"
-                  h2 Івано-Франківська область
-                  p 
-                    span 45 
-                    | подій цього тижня
-                div class="city-dr-dwn-cities medium-8 small-12 columns"
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 5 
-                    | Богородчани
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 15 
-                    | Болехів
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 27 
-                    | Галич
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 2 
-                    | Городенка
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 5 
-                    | Івано-Франківськ
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 15 
-                    | Калуш
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 5 
-                    | Коломия
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 5 
-                    | Богородчани
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 15 
-                    | Болехів
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 27 
-                    | Галич
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 2 
-                    | Городенка
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 5 
-                    | Івано-Франківськ
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 15 
-                    | Калуш
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 5 
-                    | Коломия
-                  = link_to "javascript:void(0);" do
-                    span 
-                      | 5 
-                    | Богородчани
+        - if params[:controller] == 'events' && params[:action] == 'index'
+          .city-dr-dwn
+            = link_to @state.name + ' oblast', 'javascript:void(0);'
+            .city-dr-dwn-cont-wr
+              div class="city-dr-dwn-cont"
+                .row
+                  div class="city-dr-dwn-title medium-4 small-12 columns"
+                    h2 
+                      ='@state.name 
+                      |область
+                    p 
+                      span
+                        ='@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+                      | подій цього тижня
+                  div class="city-dr-dwn-cities medium-8 small-12 columns"
+                    -State.where.not(id: @state.id).each do |state|
+                      = link_to "/events?state_id=" + state.id.to_s do
+                        span 
+                          =state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+                        =state.name
+

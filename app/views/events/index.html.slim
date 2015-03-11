@@ -10,20 +10,23 @@
           p
             span 45
             |  подій цього тижня
-        = form_tag(@event, :method => "get", id: "search-form") do
+        = form_tag("/events", :method => "get", id: "search-form", remote: true) do
           = submit_tag "Search", :name => nil
-          = text_field_tag :search, params[:search], placeholder: "Пошук подій..."
+          =hidden_field_tag :state_id, params[:state_id]
+          = text_field_tag :search, params[:search], placeholder: "Пошук подій...", class: "ajax_send"
 
       .row
         div class="large-4 medium-4 small-12 columns ev-filter"
-          = form_tag("/events", method: "get") do |f| 
-            div class="field"
-              = select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) 
-            div class="actions"
-              = submit_tag 
+          /
+            = form_tag("/events", method: "get") do |f| 
+              div class="field"
+                = select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) 
+              div class="actions"
+                = submit_tag
           = form_tag("/events", method: "get", remote: true) do |f| 
             #datepicker
             =hidden_field_tag :data, Date.today, class: 'filter_date filter_input'
+            =hidden_field_tag :state_id, params[:state_id]
             .ev-type 
               h3 Тип події
               sel-wr
