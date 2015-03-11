@@ -39,6 +39,12 @@ $(document).ready(function(){
   })
 });
 
+$(document).ready(function(){
+  $("body").on("keyup", "input.ajax_send", function(){
+    $(this).closest('form').submit();
+   });
+});
+
 $(document).ready(function() {
   if ($('.pagination').length) {
     $(window).scroll(function() {
