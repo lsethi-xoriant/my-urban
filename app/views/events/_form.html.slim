@@ -45,34 +45,37 @@
                   = link_to 'Ваші друзі', 'javascript:void(0);', :class => 'active'
                   = link_to 'Запросити з Facebook', 'javascript:void(0);'
                 .invite-fr-list
-                  .invite-fr-list-item.invited
-                    = link_to 'javascript:void(0);' do
-                      = image_tag "user-sm-1.jpg"
-                    = link_to 'Оксана Михайлів', 'javascript:void(0);'
-                  .invite-fr-list-item
-                    = link_to 'javascript:void(0);' do
-                      = image_tag "user-sm-2.jpg"
-                    = link_to 'Василина Петренко', 'javascript:void(0);'
-                  .invite-fr-list-item.invited
-                    = link_to 'javascript:void(0);' do
-                      = image_tag "user-sm-3.jpg"
-                    = link_to 'Стефанія Франко', 'javascript:void(0);'
-                  .invite-fr-list-item.invited
-                    = link_to 'javascript:void(0);' do
-                      = image_tag "user-sm-4.jpg"
-                    = link_to 'Петрунеля Іваненко', 'javascript:void(0);'
-                  .invite-fr-list-item
-                    = link_to 'javascript:void(0);' do
-                      = image_tag "user-sm-1.jpg"
-                    = link_to 'Оксана Михайлів', 'javascript:void(0);'
-                  .invite-fr-list-item
-                    = link_to 'javascript:void(0);' do
-                      = image_tag "user-sm-2.jpg"
-                    = link_to 'Василина Петренко', 'javascript:void(0);'
-                  .invite-fr-list-item
-                    = link_to 'javascript:void(0);' do
-                      = image_tag "user-sm-3.jpg"
-                    = link_to 'Стефанія Франко', 'javascript:void(0);'
+                  -current_user.user_friends.each do |friend|
+                    .invite-fr-list-item
+                      = link_to 'javascript:void(0);' do
+                        = image_tag "user-sm-1.jpg", class: 'user_for_invite'
+                      = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
+                      = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
+                  /
+                    .invite-fr-list-item
+                      = link_to 'javascript:void(0);' do
+                        = image_tag "user-sm-2.jpg"
+                      = link_to 'Василина Петренко', 'javascript:void(0);'
+                    .invite-fr-list-item.invited
+                      = link_to 'javascript:void(0);' do
+                        = image_tag "user-sm-3.jpg"
+                      = link_to 'Стефанія Франко', 'javascript:void(0);'
+                    .invite-fr-list-item.invited
+                      = link_to 'javascript:void(0);' do
+                        = image_tag "user-sm-4.jpg"
+                      = link_to 'Петрунеля Іваненко', 'javascript:void(0);'
+                    .invite-fr-list-item
+                      = link_to 'javascript:void(0);' do
+                        = image_tag "user-sm-1.jpg"
+                      = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                    .invite-fr-list-item
+                      = link_to 'javascript:void(0);' do
+                        = image_tag "user-sm-2.jpg"
+                      = link_to 'Василина Петренко', 'javascript:void(0);'
+                    .invite-fr-list-item
+                      = link_to 'javascript:void(0);' do
+                        = image_tag "user-sm-3.jpg"
+                      = link_to 'Стефанія Франко', 'javascript:void(0);'
 
 
 

@@ -64,8 +64,18 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
-    respond_with(@event)   
+    @users = User.find(params[:invites])
+    if @event.save
+      @users.each do |u|
+        u.plans.create(measure_id: @event.id, status: 'invite')
+      end
+      respond_with(@event)
+    else
+      render 'new'
+    end
+    #binding.pry
+    #@event.save
+    #respond_with(@event)   
   end
 
   def update

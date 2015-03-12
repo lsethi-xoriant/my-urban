@@ -84,6 +84,24 @@ $(document).ready(function() {
 });
 
 
+$(document).ready(function(){
+  $(".user_for_invite").click(function(){
+    //alert($(this).hasClass('invited'));
+    if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
+      $(this).closest('.invite-fr-list-item').removeClass('invited');
+      $(this).closest('.invite-fr-list-item').children().last().prop("checked", false);
+    }
+    else{
+      $(this).closest('.invite-fr-list-item').addClass('invited');
+      $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
+
+      //$(this '#invetes_')
+    }
+    //$(this).addClass("invited");
+  })
+})
+
+
 function inputDate(selected,evnt){
   $(".filter_date").val(selected);
   $("input.filter_date").closest('form').submit();
