@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :active_friends, -> { where(friendships: { status: 'friend'}) }, :through => :friendships, :source => :friend 
   has_many :passive_friends, -> { where(friendships: { status: 'friend'}) }, :through => :inverse_friendships, :source => :user
 
-  validates :first_name, presence: {message: "can't be blank!!!"}
+  validates :first_name, presence: {message: I18n.t('activerecord.errors.models.user.attributes.first_name.presence')}
   validates :first_name, allow_blank: true, format: { with: /\A[a-zA-Zа-яА-ЯіІїЇєЄ]+\z/,
     message: "only allows letters" }
   validates_presence_of :last_name
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   def ensure_than_city_exists
     unless City.where(en_name: self.urban).exists?
-      self.errors[:urban] << 'You inputed inscorrect city'
+      self.errors[:urban] << I18n.t('my_errors.messages.incorrect_city')
     else
       city = City.where(en_name: self.urban).first
       self.city_id = city.id
