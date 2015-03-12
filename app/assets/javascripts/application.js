@@ -94,12 +94,10 @@ $(document).ready(function(){
     else{
       $(this).closest('.invite-fr-list-item').addClass('invited');
       $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
-
-      //$(this '#invetes_')
     }
-    //$(this).addClass("invited");
   })
 })
+
 
 
 function inputDate(selected,evnt){

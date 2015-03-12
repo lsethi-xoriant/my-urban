@@ -8,7 +8,13 @@
                   - @event.errors.full_messages.each do |message|
                     li
                       = message
-            = f.select :event_type, Event.types_of_event
+
+            .radio_event_type
+              = f.radio_button :event_type, 'open', class: 'no_displaying'
+              = f.label :event_type_open, I18n.t('event_type.open'), class: 'radio_type right_radio_type active'
+              
+              = f.radio_button :event_type, 'close', class: 'no_displaying'
+              = f.label :event_type_close, I18n.t('event_type.close'), class: 'radio_type left_radio_type'
             h1
               | Створити нову подію
             .new-ev-form
