@@ -288,3 +288,6 @@ uk:
   my_errors: 
     messages: 
       incorrect_city: "вибрано неправильно"
+  event_type:
+    open: 'Відкрита'
+    close: "Закрита"
