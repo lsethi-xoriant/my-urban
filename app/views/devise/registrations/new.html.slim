@@ -26,7 +26,7 @@
               = f.label :last_name, "Прізвище*"
               = f.text_field :last_name
             .field
-              = f.label "Місто*"
+              = f.label :urban, I18n.t('activerecord.attributes.user.urban') + '*'
               = f.text_field :urban, id: 'user_city'
             .field
               = f.label "Email*"
