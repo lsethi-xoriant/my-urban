@@ -20,11 +20,15 @@ class Event < ActiveRecord::Base
   has_many :all_participations, through: :all_relationships, source: :member 
 
 
+
   validates_presence_of :category_id, :name#, :adress, :description, :data, :timeStart, :endTime
   #validates :data , allow_blank: true, format: { with: /\d{2}\.\d{2}\.\d{4}/,
    # message: "only allows data dd.mm.yyyy" }
   #validates :timeStart, :endTime, allow_blank: true, format: { with: /\d{2}:\d{2}/,
    # message: "only allows time format hh:mm" }
+
+  geocoded_by :adress   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
 
 
   def self.types_of_event
@@ -90,6 +94,15 @@ class Event < ActiveRecord::Base
       Event.select{|event| event.timeStart.to_time >= start_time.to_time}
     elsif end_time.present?
       Event.select{|event| event.timeStart.to_time <= end_time.to_time}
+    end
+  end
+
+  def ensure_than_city_for_event_exists(name)
+    unless City.where(en_name: name).exists?
+      self.errors[:adress] << I18n.t('my_errors.messages.incorrect_city')
+    else
+      city = City.where(en_name: name).first
+      self.city_id = city.id
     end
   end
 

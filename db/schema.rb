@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302130426) do
+ActiveRecord::Schema.define(version: 20150313174251) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20150302130426) do
     t.string   "people_count"
     t.string   "reg_type"
     t.integer  "city_id"
+    t.string   "street_number"
+    t.string   "street_name"
+    t.string   "city_name"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "country"
+    t.float    "latitude",      limit: 24
+    t.float    "longitude",     limit: 24
   end
 
   create_table "friendships", force: true do |t|
