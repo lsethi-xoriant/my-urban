@@ -42,6 +42,10 @@ class EventsController < ApplicationController
     elsif user_signed_in? && @p.count == 1
       @plan = @p.first
     end
+    @hash = Gmaps4rails.build_markers(@event) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+    end
   end
 
   def new
@@ -64,16 +68,18 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @users = User.find(params[:invites])
+    @event.ensure_than_city_for_event_exists(@event.city_name)
+    @users = User.find(params[:invites]) if params[:invites]
     if @event.save
-      @users.each do |u|
-        u.plans.create(measure_id: @event.id, status: 'invite')
+      unless @users.blank? 
+        @users.each do |u|
+          u.plans.create(measure_id: @event.id, status: 'invite')
+        end
       end
       respond_with(@event)
     else
       render 'new'
     end
-    #binding.pry
     #@event.save
     #respond_with(@event)   
   end
@@ -141,6 +147,6 @@ class EventsController < ApplicationController
       :category_id,
       :event_type,
       :people_count,
-      :reg_type)
+      :reg_type, :street_number, :street_name, :city_name, :state, :zip_code, :country)
   end
 end

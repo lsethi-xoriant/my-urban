@@ -1,3 +1,4 @@
+          script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
           = form_for(@event) do |f|
             - if @event.errors.any?
               #error_explanation
@@ -26,7 +27,29 @@
                 = f.text_field :name
               .field-address
                 = f.label :adress, 'Адреса *'
-                = f.text_field :adress
+                = f.text_field :adress, id: 'autocomplete'
+                table#address
+                  tr
+                    td.label Street address
+                    td.slimField
+                      input#street_number.field name='event[street_number]' disabled="true" /
+                    td.wideField colspan="2" 
+                      input#route.field name='event[street_name]' disabled="true" /
+                  tr
+                    td.label City
+                    td.wideField colspan="3" 
+                      input#locality.field name='event[city_name]' disabled="true" /
+                  tr
+                    td.label State
+                    td.slimField
+                      input#administrative_area_level_1.field name='event[state]'disabled="true" /
+                    td.label Zip code
+                    td.wideField
+                      input#postal_code.field name='event[zip_code]' disabled="true" /
+                  tr
+                    td.label Country
+                    td.wideField colspan="3" 
+                      input#country.field name='event[country]' disabled="true" /
               .field
                 = f.label :description, 'Опис *'
                 = f.text_field :description

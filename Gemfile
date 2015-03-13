@@ -56,3 +56,7 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'slim-rails'
+
+gem "geocoder"
+gem 'gmaps4rails'
+gem 'underscore-rails'
