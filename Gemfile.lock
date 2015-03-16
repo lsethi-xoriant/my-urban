@@ -49,6 +49,9 @@ GEM
     erubis (2.7.0)
     execjs (2.3.0)
     geocoder (1.2.7)
+    globalize (4.0.3)
+      activemodel (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
     gmaps4rails (2.1.2)
     haml (4.0.6)
       tilt
@@ -181,6 +184,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (= 3.4.1)
   geocoder
+  globalize (~> 4.0.3)
   gmaps4rails
   haml
   haml-rails

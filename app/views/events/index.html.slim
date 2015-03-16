@@ -10,7 +10,7 @@
           p
             span 45
             |  подій цього тижня
-        = form_tag("/events", :method => "get", id: "search-form", remote: true) do
+        = form_tag(events_path, :method => "get", id: "search-form", remote: true) do
           = submit_tag "Search", :name => nil
           =hidden_field_tag :state_id, params[:state_id]
           = text_field_tag :search, params[:search], placeholder: "Пошук подій...", class: "ajax_send"
@@ -23,7 +23,7 @@
                 = select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) 
               div class="actions"
                 = submit_tag
-          = form_tag("/events", method: "get", remote: true) do |f| 
+          = form_tag(events_path, method: "get", remote: true) do |f| 
             #datepicker
             =hidden_field_tag :data, Date.today, class: 'filter_date filter_input'
             =hidden_field_tag :state_id, params[:state_id]
