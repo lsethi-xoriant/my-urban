@@ -1,3 +1,10 @@
+=I18n.locale
+/= link_to 'Ru', "javascript:void(0);"
+= link_to "Ru",  params.merge({:locale => :ru})
+span |
+= link_to "Ua",  params.merge({:locale => :uk})
+span |
+= link_to "En",   params.merge({:locale => :en})
 h1 Editing city
 
 == render 'form'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316122755) do
+ActiveRecord::Schema.define(version: 20150316134617) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20150316122755) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "city_translations", force: true do |t|
+    t.integer  "city_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "en_name"
+  end
+
+  add_index "city_translations", ["city_id"], name: "index_city_translations_on_city_id", using: :btree
+  add_index "city_translations", ["locale"], name: "index_city_translations_on_locale", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name"

@@ -43,6 +43,7 @@ class CitiesController < ApplicationController
         if request.env["HTTP_REFERER"].index('state_id')
           index = request.env["HTTP_REFERER"].index('state_id') + 9
           state_id = request.env["HTTP_REFERER"][index]
+          puts "HHHHHHHHHHHHHH #{I18n.locale}"
           state_id = request.env["HTTP_REFERER"][index..(index+1)] unless request.env["HTTP_REFERER"][index+1] == '&'
           City.where(state_id: state_id).each do |city|
             cities << city.en_name
