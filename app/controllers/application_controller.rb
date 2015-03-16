@@ -14,11 +14,17 @@ class ApplicationController < ActionController::Base
   protected
 
     def set_locale
-      I18n.locale = params[:locale] if params[:locale].present?
+      if user_signed_in?&&params[:locale].present?
+        current_user.language = params[:locale]
+        current_user.save
+        I18n.locale = current_user.language
+      elsif params[:locale].present?
+        I18n.locale = params[:locale]
+      end       
     end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :about_user, :urban) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :about_user, :urban, :language) }
     #devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :about_user, :city) }
   end

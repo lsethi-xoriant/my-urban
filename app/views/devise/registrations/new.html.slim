@@ -45,5 +45,8 @@
             .field
               = f.label :about_user, "Коротко про себе"
               = f.text_area :about_user, rows: 5
+            .field
+              = f.label :language, "Мова"
+              = f.select :language, ['uk', 'ru']
             .actions
               = f.submit "Зареєструватись", class:"btn-2"
