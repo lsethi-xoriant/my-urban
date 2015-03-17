@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+
+gem "mini_magick"
+
 #jQuery plugin for drop-in fix binded events problem
 gem 'jquery-turbolinks', '2.1.0'
 #for pagination
