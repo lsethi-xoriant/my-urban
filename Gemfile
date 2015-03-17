@@ -4,6 +4,8 @@ gem 'carrierwave'
 
 gem "mini_magick"
 
+gem 'carrierwave-crop'
+
 #jQuery plugin for drop-in fix binded events problem
 gem 'jquery-turbolinks', '2.1.0'
 #for pagination

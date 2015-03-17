@@ -22,8 +22,19 @@ class AvatarsController < ApplicationController
 
   def create
     @avatar = Avatar.new(avatar_params)
-    @avatar.save
-    respond_with(@avatar)
+    if @avatar.save
+      format.html {
+        if params[:avatar][:avatar].present?
+          render :crop  ## Render the view for cropping
+        else
+          redirect_to @avatar, notice: 'User was successfully created.'
+        end
+      }
+      format.json { render action: 'show', status: :created, location: @avatar }
+    else
+      format.html { render action: 'new' }
+      format.json { render json: @avatar.errors, status: :unprocessable_entity }
+    end
   end
 
   def update
@@ -42,6 +53,6 @@ class AvatarsController < ApplicationController
     end
 
     def avatar_params
-      params.require(:avatar).permit(:avatar)
+      params.require(:avatar).permit(:avatar,:avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h)
     end
 end

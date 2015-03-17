@@ -9,12 +9,13 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
 
-  version :thumb do
-    process resize_to_fill: [200,200]
+  version :jumbo do
+    resize_to_limit(600,600)
   end
 
-  version :large do
-    process resize_to_fill: [800,800]
+  version :thumb do
+    process crop: :avatar  ## Crops this version based on original image
+    resize_to_limit(100,100)
   end
   # storage :fog
 

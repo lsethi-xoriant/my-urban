@@ -1,6 +1,10 @@
 h1 Editing avatar
 
-== render 'form'
+= form_for @avatar do |f| 
+  = f.cropbox :avatar 
+  = f.previewbox :avatar 
+  = f.submit 'Crop' 
+
 
 = link_to 'Show', @avatar
 '|

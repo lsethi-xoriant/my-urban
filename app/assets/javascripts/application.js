@@ -22,6 +22,8 @@
 //= require jquery.infinitescroll
 //= require underscore
 //= require gmaps/google
+//= require jquery
+//= require jquery.jcrop
 //= require_tree .
 
 
