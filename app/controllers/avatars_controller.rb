@@ -22,18 +22,21 @@ class AvatarsController < ApplicationController
 
   def create
     @avatar = Avatar.new(avatar_params)
-    if @avatar.save
-      format.html {
-        if params[:avatar][:avatar].present?
-          render :crop  ## Render the view for cropping
-        else
-          redirect_to @avatar, notice: 'User was successfully created.'
-        end
-      }
-      format.json { render action: 'show', status: :created, location: @avatar }
-    else
-      format.html { render action: 'new' }
-      format.json { render json: @avatar.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @avatar.save
+        format.html {
+          if params[:avatar][:avatar].present?
+            render :crop  ## Render the view for cropping
+          else
+            redirect_to @avatar, notice: 'User was successfully created.'
+          end
+          }
+        format.js {render 'avatar.js.erb'}
+        format.json { render action: 'show', status: :created, location: @avatar }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @avatar.errors, status: :unprocessable_entity }
+      end
     end
   end
 

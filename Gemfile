@@ -6,6 +6,8 @@ gem "mini_magick"
 
 gem 'carrierwave-crop'
 
+gem 'remotipart', '~> 1.0'
+
 #jQuery plugin for drop-in fix binded events problem
 gem 'jquery-turbolinks', '2.1.0'
 #for pagination

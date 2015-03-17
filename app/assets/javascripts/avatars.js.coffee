@@ -3,7 +3,7 @@ jQuery ->
 
 class CarrierWaveCropper
   constructor: ->
-    $('#avatar_avatar_cropbox').Jcrop
+    $('#avatar_avatar_cropbox ').Jcrop
       aspectRatio: 1
       setSelect: [0, 0, 200, 200]
       onSelect: @update

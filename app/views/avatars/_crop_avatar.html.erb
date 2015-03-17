@@ -1,0 +1,13 @@
+<%= form_for @avatar do |f| %>
+  <%= f.cropbox :avatar %>
+  <%= f.previewbox :avatar %>
+  <%= f.submit 'Crop' %>
+<%end%>
+<script>
+    $('#avatar_avatar_cropbox').Jcrop({
+      aspectRatio: 1,
+      setSelect: [0, 0, 200, 200],
+      onSelect: this.update,
+      onChange: this.update
+    });
+</script>
