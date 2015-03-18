@@ -1,5 +1,5 @@
 <%= form_for @avatar, remote: true  do |f| %>
-  <%= f.cropbox :avatar %>
+  <%= f.cropbox :avatar, version: :jumbo %>
   <%= f.submit 'Crop' %>
 <%end%>
 <script>
