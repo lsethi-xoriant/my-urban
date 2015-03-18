@@ -42,7 +42,18 @@ class AvatarsController < ApplicationController
 
   def update
     @avatar.update(avatar_params)
-    respond_with(@avatar)
+    respond_to do |format|
+      format.html {
+        if params[:avatar][:avatar].present?
+          render :crop  ## Render the view for cropping
+        else
+          redirect_to @avatar, notice: 'User was successfully created.'
+        end
+        }
+      format.js {render 'crop_result.js.erb'}
+      format.json { render action: 'show', status: :created, location: @avatar }
+    end
+    #respond_with(@avatar)
   end
 
   def destroy
