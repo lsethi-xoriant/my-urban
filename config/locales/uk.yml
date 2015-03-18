@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 uk:
+  city_name: 
+    i_f: "Івано-Франківська"
+    ternopil: "Тернопільська"
   activerecord:
     models: 
       user: 'Користувач'

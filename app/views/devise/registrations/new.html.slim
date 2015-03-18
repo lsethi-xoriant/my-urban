@@ -37,6 +37,7 @@
             .field
               = f.label "Email*"
               = f.email_field :email
+              = f.text_field :avatar_id
             .field
               = f.label :password, "Пароль*"
               - if @validatable
