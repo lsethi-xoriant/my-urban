@@ -68,7 +68,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.ensure_than_city_for_event_exists(@event.city_name)
+    #@event.ensure_than_city_for_event_exists(@event.city_name)
     @users = User.find(params[:invites]) if params[:invites]
     if @event.save
       unless @users.blank? 
@@ -128,7 +128,7 @@ class EventsController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:state_id, :people_count, :category_id, :event_type, :data, :urban)#(:name, :adress, :description, :data, :timeStart)
+    params.slice( :people_count, :category_id, :event_type, :data, :urban)#(:name, :adress, :description, :data, :timeStart)
   end
   def set_event
     @event = Event.find(params[:id])    

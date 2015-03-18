@@ -1,0 +1,2 @@
+$('.upload-img').html("<%= escape_javascript image_tag @avatar.avatar_url(:thumb).to_s %>");
+$('#user_avatar_id').val("<%=@avatar.id%>")

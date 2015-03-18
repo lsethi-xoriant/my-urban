@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+
+gem "mini_magick"
+
+gem 'carrierwave-crop'
+
+gem 'remotipart', '~> 1.0'
+
 #jQuery plugin for drop-in fix binded events problem
 gem 'jquery-turbolinks', '2.1.0'
 #for pagination
@@ -60,3 +68,4 @@ gem 'slim-rails'
 gem "geocoder"
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'globalize', '~> 4.0.3'

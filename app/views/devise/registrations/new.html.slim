@@ -10,6 +10,12 @@
         .form-wrapper
           h2
             | Реєстрація
+          = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
+
+            .field
+              = f.label :avatar
+              = f.file_field :avatar
+            .actions = f.submit
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = devise_error_messages!
             .upload
@@ -31,6 +37,7 @@
             .field
               = f.label "Email*"
               = f.email_field :email
+              = f.text_field :avatar_id
             .field
               = f.label :password, "Пароль*"
               - if @validatable
@@ -45,5 +52,10 @@
             .field
               = f.label :about_user, "Коротко про себе"
               = f.text_area :about_user, rows: 5
+            .field
+              = f.label :language, "Мова"
+              = f.select :language, ['uk', 'ru']
             .actions
               = f.submit "Зареєструватись", class:"btn-2"
+#avatar_edit
+  

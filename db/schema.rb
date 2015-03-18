@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313174251) do
+ActiveRecord::Schema.define(version: 20150317195118) do
+
+  create_table "avatars", force: true do |t|
+    t.string   "avatar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -27,6 +33,17 @@ ActiveRecord::Schema.define(version: 20150313174251) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "city_translations", force: true do |t|
+    t.integer  "city_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "en_name"
+  end
+
+  add_index "city_translations", ["city_id"], name: "index_city_translations_on_city_id", using: :btree
+  add_index "city_translations", ["locale"], name: "index_city_translations_on_locale", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -71,6 +88,17 @@ ActiveRecord::Schema.define(version: 20150313174251) do
     t.integer  "turn_number"
   end
 
+  create_table "state_translations", force: true do |t|
+    t.integer  "state_id",   null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "state_translations", ["locale"], name: "index_state_translations_on_locale", using: :btree
+  add_index "state_translations", ["state_id"], name: "index_state_translations_on_state_id", using: :btree
+
   create_table "states", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -95,6 +123,12 @@ ActiveRecord::Schema.define(version: 20150313174251) do
     t.string   "about_user"
     t.string   "urban"
     t.integer  "city_id"
+    t.string   "language"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "avatar_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

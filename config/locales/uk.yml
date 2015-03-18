@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 uk:
+  city_name: 
+    i_f: "Івано-Франківська"
+    ternopil: "Тернопільська"
   activerecord:
     models: 
       user: 'Користувач'
@@ -60,14 +63,15 @@ uk:
     - лист.
     - груд.
     day_names:
-    - неділя
-    - понеділок
-    - вівторок
-    - середа
-    - четвер
-    - п'ятниця
-    - субота
+    - Неділя
+    - Понеділок
+    - Вівторок
+    - Середа
+    - Четвер
+    - П'ятниця
+    - Субота
     formats:
+      event: "%A, %d.%m.%Y"
       default: "%d.%m.%Y"
       long: "%d %B %Y"
       short: "%d %b"

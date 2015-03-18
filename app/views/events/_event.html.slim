@@ -5,7 +5,8 @@
       ='Event.where("date(data) = ?", "#{event.data.to_date}").count 
       |подій
     h4 
-      = event.data.strftime("%A, %d.%m.%Y")
+      = I18n.l event.data.to_date, :format => :event
+      /.strftime("%A, %d.%m.%Y")
       /12.12.2014
     h6 Сьогодні
 div class=["ev-list-item", event.event_type]

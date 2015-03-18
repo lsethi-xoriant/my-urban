@@ -1,9 +1,15 @@
     header
       .row
         .menu
-          = link_to 'Ru', "javascript:void(0);"
+          =I18n.locale
+          /= link_to 'Ru', "javascript:void(0);"
+          = link_to "Ru",  params.merge({:locale => :ru})
           span |
-          = link_to 'Ua', "javascript:void(0);"
+          = link_to "Ua",  params.merge({:locale => :uk})
+          span |
+          = link_to "En",   params.merge({:locale => :en})
+          /url_for(:locale => 'en', :state_id => params[:state_id])
+          /= link_to 'Ua', "javascript:void(0);"
           - if user_signed_in?
             span
               | Вітаю, 

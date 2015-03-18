@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Avatar:
+  = @avatar.avatar
+
+= link_to 'Edit', edit_avatar_path(@avatar)
+'|
+= link_to 'Back', avatars_path

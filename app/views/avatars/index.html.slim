@@ -1,0 +1,21 @@
+h1 Listing avatars
+
+table
+  thead
+    tr
+      th Avatar
+      th
+      th
+      th
+
+  tbody
+    - @avatars.each do |avatar|
+      tr
+        td = avatar.avatar
+        td = link_to 'Show', avatar
+        td = link_to 'Edit', edit_avatar_path(avatar)
+        td = link_to 'Destroy', avatar, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Avatar', new_avatar_path

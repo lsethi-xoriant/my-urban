@@ -1,0 +1,21 @@
+<%= form_for @avatar, remote: true  do |f| %>
+  <%= f.cropbox :avatar, version: :jumbo %>
+  <%= f.submit 'Crop' %>
+<%end%>
+<script>
+    $('#avatar_avatar_cropbox').Jcrop({
+      aspectRatio: 1,
+      setSelect: [0, 0, 200, 200],
+      onSelect: this.update,
+      onChange: this.update
+    });
+    function update (coords) {
+      $('#avatar_avatar_crop_x').val(coords.x);
+      $('#avatar_avatar_crop_y').val(coords.y);
+      $('#avatar_avatar_crop_w').val(coords.w);
+      $('#avatar_avatar_crop_h').val(coords.h);
+    };
+
+
+
+</script>

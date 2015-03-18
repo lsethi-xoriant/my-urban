@@ -27,6 +27,8 @@ class Event < ActiveRecord::Base
   #validates :timeStart, :endTime, allow_blank: true, format: { with: /\d{2}:\d{2}/,
    # message: "only allows time format hh:mm" }
 
+  before_validation :ensure_than_city_for_event_exists
+
   geocoded_by :adress   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
 
@@ -97,11 +99,11 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def ensure_than_city_for_event_exists(name)
-    unless City.where(en_name: name).exists?
+  def ensure_than_city_for_event_exists
+    unless City.where(en_name: self.city_name).exists?
       self.errors[:adress] << I18n.t('my_errors.messages.incorrect_city')
     else
-      city = City.where(en_name: name).first
+      city = City.where(en_name: self.city_name).first
       self.city_id = city.id
     end
   end

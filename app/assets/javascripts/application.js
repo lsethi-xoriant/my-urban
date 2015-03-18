@@ -22,6 +22,9 @@
 //= require jquery.infinitescroll
 //= require underscore
 //= require gmaps/google
+//= require jquery
+//= require jquery.jcrop
+//= require jquery.remotipart
 //= require_tree .
 
 
@@ -106,6 +109,13 @@ function inputDate(selected,evnt){
   $(".filter_date").val(selected);
   $("input.filter_date").closest('form').submit();
 }
+
+// AVATAR
+$(document).ready(function(){
+  $("body").on("change", "#avatar_avatar", function(){
+    $(this).closest('form').submit();
+   });
+});
 
 
 var placeSearch, autocomplete;
