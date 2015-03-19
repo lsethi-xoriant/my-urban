@@ -20,7 +20,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   version :medium_image do
     process crop: [:avatar, 600, 600]  ## Crops this version based on original image
-    resize_to_limit(194,153)
+    resize_to_fill(194,153)
   end
   # storage :fog
 
