@@ -24,6 +24,9 @@ class AvatarsController < ApplicationController
     @avatar = Avatar.new(avatar_params)
     respond_to do |format|
       if @avatar.save
+        page = 'avatar.js.erb' if params[:user_page] == 'sign_up'
+        page = 'event_image.js.erb' if params[:user_page] == 'new_event'
+        #binding.pry
         format.html {
           if params[:avatar][:avatar].present?
             render :crop  ## Render the view for cropping
@@ -31,7 +34,7 @@ class AvatarsController < ApplicationController
             redirect_to @avatar, notice: 'User was successfully created.'
           end
           }
-        format.js {render 'avatar.js.erb'}
+        format.js {render page}
         format.json { render action: 'show', status: :created, location: @avatar }
       else
         format.html { render action: 'new' }
@@ -42,6 +45,9 @@ class AvatarsController < ApplicationController
 
   def update
     @avatar.update(avatar_params)
+    page = 'crop_result.js.erb' if params[:user_page] == 'sign_up'
+    page = 'image_crop.js.erb' if params[:user_page] == 'new_event'
+    #page = 'event_image.js.erb' if params[:user_page] == 'new_event'
     respond_to do |format|
       format.html {
         if params[:avatar][:avatar].present?
@@ -50,7 +56,7 @@ class AvatarsController < ApplicationController
           redirect_to @avatar, notice: 'User was successfully created.'
         end
         }
-      format.js {render 'crop_result.js.erb'}
+      format.js {render page}
       format.json { render action: 'show', status: :created, location: @avatar }
     end
     #respond_with(@avatar)
