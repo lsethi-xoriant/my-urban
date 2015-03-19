@@ -26,6 +26,7 @@
               | Створити нову подію
             .new-ev-form
               .field-category
+                = f.text_field :avatar_id
                 = f.label :category_id, 'Оберіть категорію'
                 = f.collection_select :category_id, Category.all, :id, :title, :prompt => "Категорія"
               .field-name
