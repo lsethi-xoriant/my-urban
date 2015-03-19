@@ -1,4 +1,10 @@
           script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
+          = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
+            .field
+              = hidden_field_tag :user_page, 'new_event'
+              = f.label :avatar
+              = f.file_field :avatar
+            .actions = f.submit
           = form_for(@event) do |f|
             - if @event.errors.any?
               #error_explanation
@@ -20,6 +26,7 @@
               | Створити нову подію
             .new-ev-form
               .field-category
+                = f.text_field :avatar_id
                 = f.label :category_id, 'Оберіть категорію'
                 = f.collection_select :category_id, Category.all, :id, :title, :prompt => "Категорія"
               .field-name
@@ -62,9 +69,6 @@
               .field-end
                 = f.label :endTime, 'Час закінчення *'
                 = f.time_select :endTime, :minute_step => 5, :default => nil, prompt: {hour: '', minute: ''}
-              .field
-                = f.label :photo, 'Фото події *'
-                = f.text_field :photo
               .field-count
                 = f.label :people_count, 'Кількість учасників *'
                 = f.select :people_count, Event.counts_of_people
@@ -118,3 +122,4 @@
               = f.hidden_field :user_id, :value => current_user.id
               .actions
                 = f.submit 'Створити подію', :class => 'btn-2 btn-3'
+          #image_edit

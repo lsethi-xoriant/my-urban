@@ -13,6 +13,7 @@
           = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
 
             .field
+              = hidden_field_tag :user_page, 'sign_up'
               = f.label :avatar
               = f.file_field :avatar
             .actions = f.submit

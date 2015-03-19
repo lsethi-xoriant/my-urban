@@ -110,7 +110,7 @@ function inputDate(selected,evnt){
   $("input.filter_date").closest('form').submit();
 }
 
-// AVATAR
+// AVATAR&& EVENT_IMAGE
 $(document).ready(function(){
   $("body").on("change", "#avatar_avatar", function(){
     $(this).closest('form').submit();

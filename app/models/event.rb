@@ -100,12 +100,15 @@ class Event < ActiveRecord::Base
   end
 
   def ensure_than_city_for_event_exists
+    locale = I18n.locale 
+    I18n.locale = :en
     unless City.where(en_name: self.city_name).exists?
       self.errors[:adress] << I18n.t('my_errors.messages.incorrect_city')
     else
       city = City.where(en_name: self.city_name).first
       self.city_id = city.id
     end
+    I18n.locale = locale
   end
 
 end

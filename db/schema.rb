@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317195118) do
+ActiveRecord::Schema.define(version: 20150319210857) do
 
   create_table "avatars", force: true do |t|
     t.string   "avatar"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150317195118) do
     t.string   "country"
     t.float    "latitude",      limit: 24
     t.float    "longitude",     limit: 24
+    t.integer  "avatar_id"
   end
 
   create_table "friendships", force: true do |t|

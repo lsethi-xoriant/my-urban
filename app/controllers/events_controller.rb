@@ -147,6 +147,6 @@ class EventsController < ApplicationController
       :category_id,
       :event_type,
       :people_count,
-      :reg_type, :street_number, :street_name, :city_name, :state, :zip_code, :country)
+      :reg_type, :street_number, :street_name, :city_name, :state, :zip_code, :country, :avatar_id)
   end
 end
