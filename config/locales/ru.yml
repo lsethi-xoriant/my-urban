@@ -28,6 +28,11 @@ ru:
     about_us: "О нас"
     contacts: "Контакты"
     copyright: "Все права защищены"
+  events:
+    time_start: "Время:"
+    members: "Участников:"
+    organizer: "Организатор:"
+    today: "Сегодня"
   city_name: 
     i_f: "Ивано-Франковская"
     ternopil: "Тернопольская"

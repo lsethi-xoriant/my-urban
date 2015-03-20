@@ -12,7 +12,7 @@
 		7.times do
 	  Event.create!(
 	    :name => "My event #{SecureRandom.hex(2)}",
-	    :data => Date.tomorrow,
+	    :data => Date.today,
 	    :category_id => 1,
 	    :user_id => 1,
 	    :timeStart => Time.now,
@@ -30,10 +30,10 @@ states = State.create([
 	{name: 'Ternopil\'s\'ka'}
 ])
 =end
-5.times do
+1.times do
 	  Event.create!(
 	    :name => "My event #{SecureRandom.hex(2)}",
-	    :data => Date.tomorrow,
+	    :data => Date.today,
 	    :category_id => 1,
 	    :user_id => 1,
 	    :timeStart => Time.now,

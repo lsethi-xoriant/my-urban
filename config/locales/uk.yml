@@ -29,6 +29,11 @@ uk:
     about_us: "Про нас"
     contacts: "Контакти"
     copyright: "Всі права захищено"
+  events:
+    time_start: "Час:"
+    members: "Учасників:"
+    organizer: "Організатор:"
+    today: "Сьогодні"
   city_name: 
     i_f: "Івано-Франківська"
     ternopil: "Тернопільська"

@@ -8,7 +8,8 @@
       = I18n.l event.data.to_date, :format => :event
       /.strftime("%A, %d.%m.%Y")
       /12.12.2014
-    h6 Сьогодні
+
+    h6 =t('events.today') if event.data == Date.today
 div class=["ev-list-item", event.event_type]
   /= image_tag Avatar.last.avatar_url(:medium_image)
   = image_tag "ev-list-img.jpg"
@@ -18,12 +19,14 @@ div class=["ev-list-item", event.event_type]
       /= link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
       = link_to event.name, event_path(event)
     h4 
-      | Час:
+      |
+      =t("events.time_start")
       span 
         /12:20
         =event.timeStart.strftime("%H:%M")
     h4 
-      | Учасників:
+      | 
+      =t('events.members')
       span 
         /12 / 23
         = event.all_relationships.count
@@ -32,7 +35,8 @@ div class=["ev-list-item", event.event_type]
     h4.organizer
       = image_tag "ev-list-user.jpg"
       /= image_tag Avatar.last.avatar_url(:small)
-      | Організатор:
+      | 
+      =t('events.organizer')
       span  =event.user.first_name + ' ' + event.user.last_name
 
 
