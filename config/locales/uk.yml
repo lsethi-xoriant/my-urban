@@ -28,7 +28,8 @@ uk:
       user: 'Користувач'
     attributes:
       user:
-        first_name: 'Фамілія'
+        first_name: "Ім\'я"
+        last_name: 'Фамілія'
         urban: 'Місто'
         password: 'Пароль'
         email: 'Емейл'
