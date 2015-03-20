@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 uk:
+  header:
+    enter: "Вхід"
+    exit: "Вихід"
+    create_event: "Створити подію"
+    week_events: "подій цього тижня"
   city_name: 
     i_f: "Івано-Франківська"
     ternopil: "Тернопільська"

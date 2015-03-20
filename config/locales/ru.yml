@@ -19,6 +19,11 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 ru:
+  header:
+    enter: "Вход"
+    exit: "Выход"
+    create_event: "Создать событие"
+    week_events: "событий на этой неделе"
   city_name: 
     i_f: "Ивано-Франковская"
     ternopil: "Тернопольская"
