@@ -25,6 +25,10 @@ uk:
     exit: "Вихід"
     create_event: "Створити подію"
     week_events: "подій цього тижня"
+  footer:
+    about_us: "Про нас"
+    contacts: "Контакти"
+    copyright: "Всі права захищено"
   city_name: 
     i_f: "Івано-Франківська"
     ternopil: "Тернопільська"

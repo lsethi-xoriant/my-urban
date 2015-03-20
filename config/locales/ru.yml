@@ -24,6 +24,10 @@ ru:
     exit: "Выход"
     create_event: "Создать событие"
     week_events: "событий на этой неделе"
+  footer:
+    about_us: "О нас"
+    contacts: "Контакты"
+    copyright: "Все права защищены"
   city_name: 
     i_f: "Ивано-Франковская"
     ternopil: "Тернопольская"
