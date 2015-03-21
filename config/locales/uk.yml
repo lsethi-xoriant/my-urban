@@ -29,6 +29,13 @@ uk:
     about_us: "Про нас"
     contacts: "Контакти"
     copyright: "Всі права захищено"
+  sessions:
+    registration: "Реєстрація"
+    back: "Назад"
+    entrance: "Вхід"
+    forgot_password: "Забули пароль?"
+    remember_me: "Запамятати мене"
+    entrance: "Вхід"
   registration:
     label: "Реєстрація"
     name: "Ім\'я*"

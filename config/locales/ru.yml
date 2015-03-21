@@ -28,11 +28,14 @@ ru:
     about_us: "О нас"
     contacts: "Контакты"
     copyright: "Все права защищены"
-  events:
-    time_start: "Время:"
-    members: "Участников:"
-    organizer: "Организатор:"
-    today: "Сегодня"
+  sessions:
+    registration: "Регистрация"
+    back: "Назад"
+    entrance: "Вход"
+    forgot_password: "Забыли пароль?"
+    remember_me: "Запомнить меня"
+    entrance: "Вход"
+
   registration:
     label: "Регистрация"
     name: "Имя*"
@@ -43,6 +46,12 @@ ru:
     about_user: "Коротко о себе"
     lang: "Язык"
     btn: "Зарегистрироваться"
+
+  events:
+    time_start: "Время:"
+    members: "Участников:"
+    organizer: "Организатор:"
+    today: "Сегодня"
   city_name: 
     i_f: "Ивано-Франковская"
     ternopil: "Тернопольская"
