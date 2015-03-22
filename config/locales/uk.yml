@@ -29,6 +29,39 @@ uk:
     about_us: "Про нас"
     contacts: "Контакти"
     copyright: "Всі права захищено"
+  home:
+    choose_region: "Оберіть вашу область"
+    congratulation: "Ласкаво просимо до "
+    description: "Це місце де ви можете знайти чим зайнятись у вашому місті сьогодні, на вихідних, будь коли!"
+    find_city: "Знайти своє місто"
+
+  city:
+    zhytomyr: 'Житомир'
+    zaporizhia: 'Запоріжжя'
+    zakarpattia: 'Ужгород'
+    volyn: 'Луцьк'
+    vinnytsia: 'Вінниця'
+    ivano_frankivsk: 'Івано-Франківськ'
+    sumy: 'Суми'
+    simferopol: 'Сімферополь'
+    rivne: 'Рівне'
+    ternopil: 'Тернопіль'
+    poltava: 'Полтава'
+    odessa: 'Одеса'
+    mykolaiv: 'Миколаїв'
+    lviv: 'Львів'
+    luhansk: 'Луганськ'
+    kirovohrad: 'Кіровоград'
+    kiev: 'Київ'
+    khmelnytskyi: 'Хмельницьк'
+    kherson: 'Херсон'
+    kharkiv: 'Харків'
+    donetsk: 'Донецьк'
+    dnipropetrovsk: 'Дніпропетровськ'
+    chernivtsi: 'Чернівці'
+    chernihiv: 'Чернігів'
+    cherkasy: 'Черкаси'
+
   sessions:
     registration: "Реєстрація"
     back: "Назад"

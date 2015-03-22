@@ -28,6 +28,40 @@ ru:
     about_us: "О нас"
     contacts: "Контакты"
     copyright: "Все права защищены"
+
+  home:
+    congratulation: "Добро пожаловать в "
+    description: "Это место, где вы можете найти чем заняться в вашем городе сегодня, на выходных, в любое время!"
+    choose_region: "Выберите вашу область"
+    find_city: "Найти свой город"
+
+  city:
+    zhytomyr: 'Житомир'
+    zaporizhia: 'Запорожье'
+    zakarpattia: 'Ужгород'
+    volyn: 'Луцк'
+    vinnytsia: 'Винница'
+    ivano_frankivsk: 'Ивано-Франковск'
+    sumy: 'Сумы'
+    simferopol: 'Симферополь'
+    rivne: 'Ровно'
+    ternopil: 'Тернополь'
+    poltava: 'Полтава'
+    odessa: 'Одесса'
+    mykolaiv: 'Николаев'
+    lviv: 'Львов'
+    luhansk: 'Луганск'
+    kirovohrad: 'Кировоград'
+    kiev: 'Киев'
+    khmelnytskyi: 'Хмельницкий'
+    kherson: 'Херсон'
+    kharkiv: 'Харьков'
+    donetsk: 'Донецк'
+    dnipropetrovsk: 'Днепропетровск'
+    chernivtsi: 'Черновцы'
+    chernihiv: 'Чернигов'
+    cherkasy: 'Черкассы'
+
   sessions:
     registration: "Регистрация"
     back: "Назад"
