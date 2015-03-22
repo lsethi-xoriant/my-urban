@@ -21,6 +21,7 @@
 
 uk:
   header:
+    greeting: 'Вітаю'
     enter: "Вхід"
     exit: "Вихід"
     create_event: "Створити подію"

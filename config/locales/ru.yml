@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 ru:
   header:
+    greeting: 'Приветствую'
     enter: "Вход"
     exit: "Выход"
     create_event: "Создать событие"

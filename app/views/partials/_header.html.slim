@@ -12,8 +12,9 @@
           /= link_to 'Ua', "javascript:void(0);"
           - if user_signed_in?
             span
-              | Вітаю, 
-              = current_user.first_name
+              | 
+              =t('header.greeting').to_s + ', ' 
+              = current_user.first_name.to_s + ' '
               = current_user.last_name
             = link_to t('header.exit'), destroy_user_session_path, :method => :delete
           - else
