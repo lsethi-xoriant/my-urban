@@ -93,11 +93,23 @@
 		text-align: center;
 		background: #F4F4F4 url("i-upload.png") no-repeat center center;
 		border: 1px solid #DDDDDD;
-		// background-size: contain;
 		border-radius: 50%;
 		width: 134px;
 		height: 134px;
 		margin: 10px auto 13px;
+		overflow: hidden;
+		position: relative;
+
+		form {
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 5;
+		}
+
+		img {
+			width: 100%;
+		}
 
 		input {
 			height: 134px;
@@ -108,7 +120,7 @@
 			box-sizing: border-box;
 			padding: 60px 0 0;
 			outline: none;
-			opacity: 0.1;
+			opacity: 0;
 		}
 	}
 
@@ -126,7 +138,7 @@
 	}
 
 	input:hover, textarea:hover {
-		background: #F9F9F9;
+		// background: #F9F9F9;
 	}
 
 	input[type="checkbox"] {
@@ -137,3 +149,25 @@
 	}
 }
 
+.jcrop-holder {
+	margin: 0 auto;
+}
+
+.avatar-crop-btn, .edit_avatar .avatar-crop-btn {
+	background: #FF7900;
+	border: none;
+	outline: none;
+	border-radius: 30px;
+	display: block;
+	box-sizing: border-box;
+	padding: 0 30px 0;
+	height: 40px;
+	color: #FFFFFF;
+	font-weight: 400;
+	font-size: 18px;
+	margin: 25px auto 0;
+}
+
+.avatar-crop-btn:hover, .edit_avatar .avatar-crop-btn:hover {
+	opacity: 0.8;
+}
