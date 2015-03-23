@@ -81,6 +81,7 @@ uk:
     lang: "Мова"
     btn: "Зареєструватись"
   events:
+    event_label: "подій"
     time_start: "Час:"
     members: "Учасників:"
     organizer: "Організатор:"

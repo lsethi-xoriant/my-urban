@@ -83,6 +83,7 @@ ru:
     btn: "Зарегистрироваться"
 
   events:
+    event_label: "событий"
     time_start: "Время:"
     members: "Участников:"
     organizer: "Организатор:"

@@ -3,10 +3,11 @@
   .ev-list-date
     h5 
       ='Event.where("date(data) = ?", "#{event.data.to_date}").count 
-      |подій
+      | 
+      =t('events.event_label')
     h4 
       = I18n.l event.data.to_date, :format => :event
-      /.strftime("%A, %d.%m.%Y")
+      /.strftime("%A, %d.%m.%Y")=t('events.event_label')
       /12.12.2014
 
     h6 =t('events.today') if event.data == Date.today
