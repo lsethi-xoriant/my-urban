@@ -85,6 +85,16 @@ uk:
     members: "Учасників:"
     organizer: "Організатор:"
     today: "Сьогодні"
+    this_week: "цього тижня"
+    find: "Пошук подій..."
+    type: "Тип події"
+    all: "Всіх подій"
+    reg_type: "Тип реєстрації"
+    reg_dontcare: 'Не має значення'
+    reg_open: "Відкрита"
+    reg_close: "Закрита"
+    members_number: "Кількість учасників"
+    choose_city: "Виберіть місто"
   city_name: 
     i_f: "Івано-Франківська"
     ternopil: "Тернопільська"
