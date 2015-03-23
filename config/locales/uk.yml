@@ -20,6 +20,103 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 uk:
+  header:
+    greeting: 'Вітаю'
+    enter: "Вхід"
+    exit: "Вихід"
+    create_event: "Створити подію"
+    week_events: "подій цього тижня"
+  footer:
+    about_us: "Про нас"
+    contacts: "Контакти"
+    copyright: "Всі права захищено"
+  home:
+    choose_region: "Оберіть вашу область"
+    congratulation: "Ласкаво просимо до "
+    description: "Це місце де ви можете знайти чим зайнятись у вашому місті сьогодні, на вихідних, будь коли!"
+    find_city: "Знайти своє місто"
+
+  city:
+    zhytomyr: 'Житомир'
+    zaporizhia: 'Запоріжжя'
+    zakarpattia: 'Ужгород'
+    volyn: 'Луцьк'
+    vinnytsia: 'Вінниця'
+    ivano_frankivsk: 'Івано-Франківськ'
+    sumy: 'Суми'
+    simferopol: 'Сімферополь'
+    rivne: 'Рівне'
+    ternopil: 'Тернопіль'
+    poltava: 'Полтава'
+    odessa: 'Одеса'
+    mykolaiv: 'Миколаїв'
+    lviv: 'Львів'
+    luhansk: 'Луганськ'
+    kirovohrad: 'Кіровоград'
+    kiev: 'Київ'
+    khmelnytskyi: 'Хмельницьк'
+    kherson: 'Херсон'
+    kharkiv: 'Харків'
+    donetsk: 'Донецьк'
+    dnipropetrovsk: 'Дніпропетровськ'
+    chernivtsi: 'Чернівці'
+    chernihiv: 'Чернігів'
+    cherkasy: 'Черкаси'
+
+  sessions:
+    registration: "Реєстрація"
+    back: "Назад"
+    entrance: "Вхід"
+    forgot_password: "Забули пароль?"
+    remember_me: "Запамятати мене"
+    entrance: "Вхід"
+  registration:
+    label: "Реєстрація"
+    load_photo: "Завантажити фото"
+    max_photo_size: "Максимальний розмір - 2MB"
+    name: "Ім\'я*"
+    surname: "Прізвище*" 
+    email: "Email*"
+    password: "Пароль*"
+    password_confirmation: "Підтвердження паролю*" 
+    about_user: "Коротко про себе"
+    lang: "Мова"
+    btn: "Зареєструватись"
+  events:
+    event_label: "подій"
+    time_start: "Час:"
+    members: "Учасників:"
+    organizer: "Організатор:"
+    today: "Сьогодні"
+    this_week: "цього тижня"
+    find: "Пошук подій..."
+    type: "Тип події"
+    all: "Всіх подій"
+    reg_type: "Тип реєстрації"
+    reg_dontcare: 'Не має значення'
+    reg_open: "Відкрита"
+    reg_close: "Закрита"
+    members_number: "Кількість учасників"
+    choose_city: "Виберіть місто"
+    news: "Новини"
+    info: "Інформація"
+    message: "Повідомлення"
+    friends: "Друзі"
+    photo_reports: "Фотозвіти"
+    events: "Події"
+    settings: "Налаштування"
+    create_label: "Створити нову подію"
+    choose_category: "Оберіть категорію"
+    category: "Категорія"
+    name: 'Назва події *'
+    address: 'Адреса *'
+    description: 'Опис *'
+    start_time: 'Час початку *'
+    end_time: 'Час закінчення *'
+    participants_group: 'Кількість учасників *'
+    your_friends: 'Ваші друзі'
+    invite_from_facebook: 'Запросити з Facebook'
+
   city_name: 
     i_f: "Івано-Франківська"
     ternopil: "Тернопільська"
@@ -28,7 +125,8 @@ uk:
       user: 'Користувач'
     attributes:
       user:
-        first_name: 'Фамілія'
+        first_name: "Ім\'я"
+        last_name: 'Прізвище'
         urban: 'Місто'
         password: 'Пароль'
         email: 'Емейл'
@@ -188,7 +286,7 @@ uk:
         few: занадто короткий (мінімум %{count} знаки)
         many: занадто короткий (мінімум %{count} знаків)
         one: занадто короткий (мінімум %{count} знак)
-        other: занадто короткий (мінімум %{count} знаку)
+        other: занадто короткий (мінімум %{count} знаків)
       wrong_length:
         few: неправильна довжина (має бути %{count} знаки)
         many: неправильна довжина (має бути %{count} знаків)

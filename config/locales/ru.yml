@@ -19,8 +19,120 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 ru:
+  header:
+    greeting: 'Приветствую'
+    enter: "Вход"
+    exit: "Выход"
+    create_event: "Создать событие"
+    week_events: "событий на этой неделе"
+  footer:
+    about_us: "О нас"
+    contacts: "Контакты"
+    copyright: "Все права защищены"
+
+  home:
+    congratulation: "Добро пожаловать в "
+    description: "Это место, где вы можете найти чем заняться в вашем городе сегодня, на выходных, в любое время!"
+    choose_region: "Выберите вашу область"
+    find_city: "Найти свой город"
+
+  city:
+    zhytomyr: 'Житомир'
+    zaporizhia: 'Запорожье'
+    zakarpattia: 'Ужгород'
+    volyn: 'Луцк'
+    vinnytsia: 'Винница'
+    ivano_frankivsk: 'Ивано-Франковск'
+    sumy: 'Сумы'
+    simferopol: 'Симферополь'
+    rivne: 'Ровно'
+    ternopil: 'Тернополь'
+    poltava: 'Полтава'
+    odessa: 'Одесса'
+    mykolaiv: 'Николаев'
+    lviv: 'Львов'
+    luhansk: 'Луганск'
+    kirovohrad: 'Кировоград'
+    kiev: 'Киев'
+    khmelnytskyi: 'Хмельницкий'
+    kherson: 'Херсон'
+    kharkiv: 'Харьков'
+    donetsk: 'Донецк'
+    dnipropetrovsk: 'Днепропетровск'
+    chernivtsi: 'Черновцы'
+    chernihiv: 'Чернигов'
+    cherkasy: 'Черкассы'
+
+  sessions:
+    registration: "Регистрация"
+    back: "Назад"
+    entrance: "Вход"
+    forgot_password: "Забыли пароль?"
+    remember_me: "Запомнить меня"
+    entrance: "Вход"
+
+  registration:
+    label: "Регистрация"
+    load_photo: "Загрузить фото"
+    max_photo_size: "Максимальный размер - 2MB"
+    name: "Имя*"
+    surname: "Фамилия*"
+    email: "Email*"
+    password: "Пароль*"
+    password_confirmation: "Подтверждение пароля*"
+    about_user: "Коротко о себе"
+    lang: "Язык"
+    btn: "Зарегистрироваться"
+
+  events:
+    event_label: "событий"
+    time_start: "Время:"
+    members: "Участников:"
+    organizer: "Организатор:"
+    today: "Сегодня"
+    this_week: "на этой неделе"
+    find: "Поиск событий ..."
+    type: "Тип события"
+    all: "Всех событий"
+    reg_type: "Тип регистрации"
+    reg_dontcare: "Не имеет значения"
+    reg_open: "Открытая"
+    reg_close: "Закрытая"
+    members_number: "Количество участников"
+    choose_city: "Выберите город"
+    news: "Новости"
+    info: "Информация"
+    message: "Сообщение"
+    friends: "Друзья"
+    photo_reports: "Фотоотчеты"
+    events: "События"
+    settings: "Настройка"
+    create_label: "Создать новое событие"
+    choose_category: "Выберите категорию"
+    category: "Категория"
+    name: "Название события *"
+    address: "Адрес *"
+    description: 'Описание *'
+    start_time: 'Время начала *'
+    end_time: "Время окончания *"
+    participants_group: 'Количество участников *'
+    your_friends: "Ваши друзья"
+    invite_from_facebook: 'Пригласить с Facebook'
+
   city_name: 
     i_f: "Ивано-Франковская"
+    ternopil: "Тернопольская"
+  activerecord:
+    models: 
+      user: 'Пользователь'
+    attributes:
+      user:
+        first_name: "Имя"
+        last_name: 'Фамилия'
+        urban: 'Город'
+        password: 'Пароль'
+        email: 'Емейл'
+        password_confirmation: 'Проверка пароля'
   date:
     abbr_day_names:
     - Вс
@@ -45,31 +157,32 @@ ru:
     - нояб.
     - дек.
     day_names:
-    - воскресенье
-    - понедельник
-    - вторник
-    - среда
-    - четверг
-    - пятница
-    - суббота
+    - Воскресенье
+    - Понедельник
+    - Вторник
+    - Среда
+    - Четверг
+    - Пятница
+    - Суббота
     formats:
+      event: "%A, %d.%m.%Y"
       default: "%d.%m.%Y"
       long: "%-d %B %Y"
       short: "%-d %b"
     month_names:
     - 
-    - января
-    - февраля
-    - марта
-    - апреля
-    - мая
-    - июня
-    - июля
-    - августа
-    - сентября
-    - октября
-    - ноября
-    - декабря
+    - Января
+    - Февраля
+    - Марта
+    - Апреля
+    - Мая
+    - Июня
+    - Июля
+    - Августа
+    - Сентября
+    - Октября
+    - Ноября
+    - Декабря
     order:
     - :day
     - :month
@@ -145,7 +258,7 @@ ru:
       accepted: нужно подтвердить
       blank: не может быть пустым
       present: нужно оставить пустым
-      confirmation: не совпадает со значением поля %{attribute}
+      confirmation: не совпадает с подтверждением
       empty: не может быть пустым
       equal_to: может иметь лишь значение, равное %{count}
       even: может иметь лишь нечетное значение
@@ -173,7 +286,7 @@ ru:
         few: недостаточной длины (не может быть меньше %{count} символов)
         many: недостаточной длины (не может быть меньше %{count} символов)
         one: недостаточной длины (не может быть меньше %{count} символа)
-        other: недостаточной длины (не может быть меньше %{count} символа)
+        other: недостаточной длины (минимум %{count} символов)
       wrong_length:
         few: неверной длины (может быть длиной ровно %{count} символа)
         many: неверной длины (может быть длиной ровно %{count} символов)
@@ -276,3 +389,9 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  my_errors: 
+    messages: 
+      incorrect_city: "выбрано неправильно"
+  event_type:
+    open: 'Открытая'
+    close: "Закрытая"

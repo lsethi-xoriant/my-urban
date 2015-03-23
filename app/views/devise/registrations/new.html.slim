@@ -9,7 +9,8 @@
         = link_to 'Назад', events_path, class:"back"
         .form-wrapper
           h2
-            | Реєстрація
+            | 
+            =t('registration.label')
           .upload
             .upload-img
               = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
@@ -17,8 +18,8 @@
                 = f.file_field(:avatar, class:"ddd", 'data-reveal-id' => "firstModal")
                 .hide 
                   =f.submit
-            p Завантажити фото
-            p Максимальний розмір - 2MB
+            p =t('registration.load_photo')
+            p =t('registration.max_photo_size')
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = devise_error_messages!
 
@@ -28,20 +29,20 @@
               #avatar_edit
 
             .field
-              = f.label :first_name, "Ім'я*"
+              = f.label :first_name, t('registration.name')
               = f.text_field :first_name, :autofocus => true
             .field
-              = f.label :last_name, "Прізвище*"
+              = f.label :last_name, t('registration.surname')
               = f.text_field :last_name
             .field
               = f.label :urban, I18n.t('activerecord.attributes.user.urban') + '*'
               = f.text_field :urban, id: 'user_city'
             .field
-              = f.label "Email*"
+              = f.label t('registration.email')
               = f.email_field :email
               = f.text_field :avatar_id
             .field
-              = f.label :password, "Пароль*"
+              = f.label :password, t('registration.password')
               - if @validatable
                 em
                   | (мін 
@@ -49,15 +50,14 @@
                   |  символів)
               = f.password_field :password, autocomplete: "off"
             .field
-              = f.label :password_confirmation, "Підтвердження паролю*"
+              = f.label :password_confirmation, t('registration.password_confirmation')
               = f.password_field :password_confirmation, autocomplete: "off"
             .field
-              = f.label :about_user, "Коротко про себе"
+              = f.label :about_user, t('registration.about_user')
               = f.text_area :about_user, rows: 5
             .field
-              = f.label :language, "Мова"
+              = f.label :language, t('registration.lang')
               = f.select :language, ['uk', 'ru']
             .actions
-              = f.submit "Зареєструватись", class:"btn-2"
-
+              = f.submit t('registration.btn'), class:"btn-2"
   

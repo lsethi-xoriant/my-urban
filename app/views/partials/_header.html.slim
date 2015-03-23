@@ -12,14 +12,15 @@
           /= link_to 'Ua', "javascript:void(0);"
           - if user_signed_in?
             span
-              | Вітаю, 
-              = current_user.first_name
+              | 
+              =t('header.greeting').to_s + ', ' 
+              = current_user.first_name.to_s + ' '
               = current_user.last_name
-            = link_to 'Вийти', destroy_user_session_path, :method => :delete
+            = link_to t('header.exit'), destroy_user_session_path, :method => :delete
           - else
-            = link_to 'Вхід', new_user_session_path, class: "enter-site"
+            = link_to t('header.enter'), new_user_session_path, class: "enter-site"
           - if can? :create, Event
-            = link_to 'Створити подію', new_event_path, class: "btn-4"
+            = link_to t('header.create_event'), new_event_path, class: "btn-4"
         .logo
           = link_to root_path do
             span 
@@ -27,7 +28,7 @@
             | Urban
         - if params[:controller] == 'events' && params[:action] == 'index'
           .city-dr-dwn
-            = link_to @state.name + ' oblast', 'javascript:void(0);'
+            = link_to @state.name + ' область', 'javascript:void(0);'
             .city-dr-dwn-cont-wr
               div class="city-dr-dwn-cont"
                 .row
@@ -38,7 +39,8 @@
                     p 
                       span
                         ='@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
-                      | подій цього тижня
+                      | 
+                      = t("header.week_events")
                   div class="city-dr-dwn-cities medium-8 small-12 columns"
                     -State.where.not(id: @state.id).each do |state|
                       = link_to "/events?state_id=" + state.id.to_s do

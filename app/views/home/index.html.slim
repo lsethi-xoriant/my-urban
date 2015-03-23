@@ -6,35 +6,35 @@
     div class="content home-content-wrapper"
       div class="row home-content"
         .ukraine-map
-          = link_to('Житомир', "http://en.wikipedia.org/wiki/Ukraine", class: "Zhytomyr")
-          = link_to('Запоріжжя', "http://en.wikipedia.org/wiki/Ukraine", class: "Zaporizhia")
-          = link_to('Ужгород', "http://en.wikipedia.org/wiki/Ukraine", class: "Zakarpattia")
-          = link_to('Луцьк', "http://en.wikipedia.org/wiki/Ukraine", class: "Volyn")
-          = link_to('Вінниця', "http://en.wikipedia.org/wiki/Ukraine", class: "Vinnytsia")
-          = link_to('Івано-Франківськ', events_path(:state_id => State.where(name: I18n.t('city_name.i_f') ).first.id), class: "Ivano-Frankivsk")
-          = link_to('Суми', "http://en.wikipedia.org/wiki/Ukraine", class: "Sumy")
-          = link_to('Сімферополь', "http://en.wikipedia.org/wiki/Ukraine", class: "Simferopol")
-          = link_to('Рівне', "http://en.wikipedia.org/wiki/Ukraine", class: "Rivne")
-          = link_to('Тернопіль', events_path(:state_id => State.where(name: I18n.t('city_name.ternopil')  ).first.id), class: "Ternopil")
-          = link_to('Полтава', "http://en.wikipedia.org/wiki/Ukraine", class: "Poltava")
-          = link_to('Одеса', "http://en.wikipedia.org/wiki/Ukraine", class: "Odessa")
-          = link_to('Миколаїв', "http://en.wikipedia.org/wiki/Ukraine", class: "Mykolaiv")
-          = link_to('Львів', "http://en.wikipedia.org/wiki/Ukraine", class: "Lviv")
-          = link_to('Луганськ', "http://en.wikipedia.org/wiki/Ukraine", class: "Luhansk")
-          = link_to('Кіровоград', "http://en.wikipedia.org/wiki/Ukraine", class: "Kirovohrad")
-          = link_to('Київ', "http://en.wikipedia.org/wiki/Ukraine", class: "Kiev")
-          = link_to('Хмельницьк', "http://en.wikipedia.org/wiki/Ukraine", class: "Khmelnytskyi")
-          = link_to('Херсон', "http://en.wikipedia.org/wiki/Ukraine", class: "Kherson")
-          = link_to('Харків', "http://en.wikipedia.org/wiki/Ukraine", class: "Kharkiv")
-          = link_to('Донецьк', "http://en.wikipedia.org/wiki/Ukraine", class: "Donetsk")
-          = link_to('Дніпропетровськ', "http://en.wikipedia.org/wiki/Ukraine", class: "Dnipropetrovsk")
-          = link_to('Чернівці', "http://en.wikipedia.org/wiki/Ukraine", class: "Chernivtsi")
-          = link_to('Чернігів', "http://en.wikipedia.org/wiki/Ukraine", class: "Chernihiv")
-          = link_to('Черкаси', "http://en.wikipedia.org/wiki/Ukraine", class: "Cherkasy")
-          h2 Оберіть вашу область
+          = link_to t('city.zhytomyr'), "http://en.wikipedia.org/wiki/Ukraine", class: "Zhytomyr"
+          = link_to t('city.zaporizhia'), "http://en.wikipedia.org/wiki/Ukraine", class: "Zaporizhia"
+          = link_to t('city.zakarpattia'), "http://en.wikipedia.org/wiki/Ukraine", class: "Zakarpattia"
+          = link_to t('city.volyn'), "http://en.wikipedia.org/wiki/Ukraine", class: "Volyn"
+          = link_to t('city.vinnytsia'), "http://en.wikipedia.org/wiki/Ukraine", class: "Vinnytsia"
+          = link_to t('city.ivano_frankivsk'), events_path(:state_id => State.where(name: I18n.t('city_name.i_f') ).first.id), class: "Ivano-Frankivsk"
+          = link_to t('city.sumy'), "http://en.wikipedia.org/wiki/Ukraine", class: "Sumy"
+          = link_to t('city.simferopol'), "http://en.wikipedia.org/wiki/Ukraine", class: "Simferopol"
+          = link_to t('city.rivne'), "http://en.wikipedia.org/wiki/Ukraine", class: "Rivne"
+          = link_to t('city.ternopil'), events_path(:state_id => State.where(name: I18n.t('city_name.ternopil')  ).first.id), class: "Ternopil"
+          = link_to(t('city.poltava'), "http://en.wikipedia.org/wiki/Ukraine", class: "Poltava")
+          = link_to t('city.odessa'), "http://en.wikipedia.rg/wiki/Ukraine", class: "Odessa"
+          = link_to t('city.mykolaiv'), "http://en.wikipedia.org/wiki/Ukraine", class: "Mykolaiv"
+          = link_to t('city.lviv'), "http://en.wikipedia.org/wiki/Ukraine", class: "Lviv"
+          = link_to t('city.luhansk'), "http://en.wikipedia.org/wiki/Ukraine", class: "Luhansk"
+          = link_to t('city.kirovohrad'), "http://en.wikipedia.org/wiki/Ukraine", class: "Kirovohrad"
+          = link_to t('city.kiev'), "http://en.wikipedia.org/wiki/Ukraine", class: "Kiev"
+          = link_to t('city.khmelnytskyi'), "http://en.wikipedia.org/wiki/Ukraine", class: "Khmelnytskyi"
+          = link_to t('city.kherson'), "http://en.wikipedia.org/wiki/Ukraine", class: "Kherson"
+          = link_to t('city.kharkiv'), "http://en.wikipedia.org/wiki/Ukraine", class: "Kharkiv"
+          = link_to t('city.donetsk'), "http://en.wikipedia.org/wiki/Ukraine", class: "Donetsk"
+          = link_to t('city.dnipropetrovsk'), "http://en.wikipedia.org/wiki/Ukraine", class: "Dnipropetrovsk"
+          = link_to t('city.chernivtsi'), "http://en.wikipedia.org/wiki/Ukraine", class: "Chernivtsi"
+          = link_to t('city.chernihiv'), "http://en.wikipedia.org/wiki/Ukraine", class: "Chernihiv"
+          = link_to t('city.cherkasy'), "http://en.wikipedia.org/wiki/Ukraine", class: "Cherkasy"
+          h2 = t('home.choose_region')
           .map
             span
         .welcome-div
-          h2 Ласкаво просимо до MyUrban
-          p Це місце де ви можете знайти чим зайнятись у вашому місті сьогодні, на вихідних, будь коли!
-          = link_to('Знайти своє місто', "javascript:void(0);", class: "btn-1")
+          h2 =t('home.congratulation').to_s + 'MyUrban'
+          p =t('home.description')
+          = link_to(t('home.find_city'), "javascript:void(0);", class: "btn-1")
