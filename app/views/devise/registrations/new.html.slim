@@ -9,7 +9,8 @@
         = link_to 'Назад', events_path, class:"back"
         .form-wrapper
           h2
-            | Реєстрація
+            | 
+            =t('registration.label')
           .upload
             .upload-img
               = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
