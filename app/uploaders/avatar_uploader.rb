@@ -10,17 +10,17 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
 
   version :jumbo do
-    resize_to_limit(600,600)
+    resize_to_limit(800,800)
   end
 
   version :thumb do
-    process crop: [:avatar, 600, 600]  ## Crops this version based on original image
+    process crop: [:avatar, 800, 800]  ## Crops this version based on original image
     resize_to_limit(100,100)
   end
 
 
   version :small do
-    process crop: [:avatar, 600, 600]  ## Crops this version based on original image
+    process crop: [:avatar, 800, 800]  ## Crops this version based on original image
     resize_to_limit(34,34)
   end
 
