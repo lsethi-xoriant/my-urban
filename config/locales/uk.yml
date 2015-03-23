@@ -72,6 +72,8 @@ uk:
     entrance: "Вхід"
   registration:
     label: "Реєстрація"
+    load_photo: "Завантажити фото"
+    max_photo_size: "Максимальний розмір - 2MB"
     name: "Ім\'я*"
     surname: "Прізвище*" 
     email: "Email*"
