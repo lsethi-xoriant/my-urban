@@ -96,6 +96,25 @@ uk:
     reg_close: "Закрита"
     members_number: "Кількість учасників"
     choose_city: "Виберіть місто"
+    news: "Новини"
+    info: "Інформація"
+    message: "Повідомлення"
+    friends: "Друзі"
+    photo_reports: "Фотозвіти"
+    events: "Події"
+    settings: "Налаштування"
+    create_label: "Створити нову подію"
+    choose_category: "Оберіть категорію"
+    category: "Категорія"
+    name: 'Назва події *'
+    address: 'Адреса *'
+    description: 'Опис *'
+    start_time: 'Час початку *'
+    end_time: 'Час закінчення *'
+    participants_group: 'Кількість учасників *'
+    your_friends: 'Ваші друзі'
+    invite_from_facebook: 'Запросити з Facebook'
+
   city_name: 
     i_f: "Івано-Франківська"
     ternopil: "Тернопільська"

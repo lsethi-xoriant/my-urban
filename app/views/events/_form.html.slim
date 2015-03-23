@@ -1,4 +1,4 @@
-          script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
+          script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&language=en"
           = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
             .field
               = hidden_field_tag :user_page, 'new_event'
@@ -23,17 +23,18 @@
               = f.radio_button :event_type, 'close', class: 'no_displaying'
               = f.label :event_type_close, I18n.t('event_type.close'), class: 'radio_type left_radio_type'
             h1
-              | Створити нову подію
+              | 
+              =t('events.create_label')
             .new-ev-form
               .field-category
                 = f.text_field :avatar_id
-                = f.label :category_id, 'Оберіть категорію'
-                = f.collection_select :category_id, Category.all, :id, :title, :prompt => "Категорія"
+                = f.label :category_id, t('events.choose_category')
+                = f.collection_select :category_id, Category.all, :id, :title, :prompt => t('events.category')
               .field-name
-                = f.label :name, 'Назва події *'
+                = f.label :name, t('events.name')
                 = f.text_field :name
               .field-address
-                = f.label :adress, 'Адреса *'
+                = f.label :adress, t('events.address')
                 = f.text_field :adress, id: 'autocomplete'
                 table#address
                   tr
@@ -58,25 +59,25 @@
                     td.wideField colspan="3" 
                       input#country.field name='event[country]' disabled="true" /
               .field
-                = f.label :description, 'Опис *'
+                = f.label :description, t('events.description')
                 = f.text_field :description
               .field-data
                 = f.label :data, 'Дата *'
-                = f.date_select :data, {:use_month_names => ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад','Грудень']}
+                = f.date_select :data, {:use_month_names => I18n.t('date.month_names')}
               .field-start
-                = f.label :timeStart, 'Час початку *'
-                = f.time_select :timeStart, :minute_step => 5, prompt: {hour: '', minute: ''}
+                = f.label :timeStart, t('events.start_time')
+                = f.time_select :timeStart, :minute_step => 5
               .field-end
-                = f.label :endTime, 'Час закінчення *'
-                = f.time_select :endTime, :minute_step => 5, :default => nil, prompt: {hour: '', minute: ''}
+                = f.label :endTime, t('events.end_time')
+                = f.time_select :endTime, :minute_step => 5, :default => nil
               .field-count
-                = f.label :people_count, 'Кількість учасників *'
+                = f.label :people_count, t('events.participants_group')
                 = f.select :people_count, Event.counts_of_people
               .invite-fr
                 p Запросити друзів:
                 .invite-fr-links
-                  = link_to 'Ваші друзі', 'javascript:void(0);', :class => 'active'
-                  = link_to 'Запросити з Facebook', 'javascript:void(0);'
+                  = link_to t('events.your_friends'), 'javascript:void(0);', :class => 'active'
+                  = link_to t('events.invite_from_facebook'), 'javascript:void(0);'
                 .invite-fr-list
                   -current_user.user_friends.each do |friend|
                     .invite-fr-list-item
@@ -121,5 +122,5 @@
 
               = f.hidden_field :user_id, :value => current_user.id
               .actions
-                = f.submit 'Створити подію', :class => 'btn-2 btn-3'
+                = f.submit t('header.create_event'), :class => 'btn-2 btn-3'
           #image_edit
