@@ -29,6 +29,16 @@ uk:
     about_us: "Про нас"
     contacts: "Контакти"
     copyright: "Всі права захищено"
+  registration:
+    label: "Реєстрація"
+    name: "Ім\'я*"
+    surname: "Прізвище*" 
+    email: "Email*"
+    password: "Пароль*"
+    password_confirmation: "Підтвердження паролю*" 
+    about_user: "Коротко про себе"
+    lang: "Мова"
+    btn: "Зареєструватись"
   events:
     time_start: "Час:"
     members: "Учасників:"
@@ -43,7 +53,7 @@ uk:
     attributes:
       user:
         first_name: "Ім\'я"
-        last_name: 'Фамілія'
+        last_name: 'Прізвище'
         urban: 'Місто'
         password: 'Пароль'
         email: 'Емейл'
@@ -203,7 +213,7 @@ uk:
         few: занадто короткий (мінімум %{count} знаки)
         many: занадто короткий (мінімум %{count} знаків)
         one: занадто короткий (мінімум %{count} знак)
-        other: занадто короткий (мінімум %{count} знаку)
+        other: занадто короткий (мінімум %{count} знаків)
       wrong_length:
         few: неправильна довжина (має бути %{count} знаки)
         many: неправильна довжина (має бути %{count} знаків)

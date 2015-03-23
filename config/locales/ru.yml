@@ -33,9 +33,30 @@ ru:
     members: "Участников:"
     organizer: "Организатор:"
     today: "Сегодня"
+  registration:
+    label: "Регистрация"
+    name: "Имя*"
+    surname: "Фамилия*"
+    email: "Email*"
+    password: "Пароль*"
+    password_confirmation: "Подтверждение пароля*"
+    about_user: "Коротко о себе"
+    lang: "Язык"
+    btn: "Зарегистрироваться"
   city_name: 
     i_f: "Ивано-Франковская"
     ternopil: "Тернопольская"
+  activerecord:
+    models: 
+      user: 'Пользователь'
+    attributes:
+      user:
+        first_name: "Имя"
+        last_name: 'Фамилия'
+        urban: 'Город'
+        password: 'Пароль'
+        email: 'Емейл'
+        password_confirmation: 'Проверка пароля'
   date:
     abbr_day_names:
     - Вс
@@ -161,7 +182,7 @@ ru:
       accepted: нужно подтвердить
       blank: не может быть пустым
       present: нужно оставить пустым
-      confirmation: не совпадает со значением поля %{attribute}
+      confirmation: не совпадает с подтверждением
       empty: не может быть пустым
       equal_to: может иметь лишь значение, равное %{count}
       even: может иметь лишь нечетное значение
@@ -189,7 +210,7 @@ ru:
         few: недостаточной длины (не может быть меньше %{count} символов)
         many: недостаточной длины (не может быть меньше %{count} символов)
         one: недостаточной длины (не может быть меньше %{count} символа)
-        other: недостаточной длины (не может быть меньше %{count} символа)
+        other: недостаточной длины (минимум %{count} символов)
       wrong_length:
         few: неверной длины (может быть длиной ровно %{count} символа)
         many: неверной длины (может быть длиной ровно %{count} символов)
@@ -292,3 +313,9 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  my_errors: 
+    messages: 
+      incorrect_city: "выбрано неправильно"
+  event_type:
+    open: 'Открытая'
+    close: "Закрытая"
