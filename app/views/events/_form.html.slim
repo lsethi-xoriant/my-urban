@@ -27,7 +27,7 @@
               =t('events.create_label')
             .new-ev-form
               .field-category
-                = f.text_field :avatar_id
+                = f.hidden_field :avatar_id
                 = f.label :category_id, t('events.choose_category')
                 = f.collection_select :category_id, Category.all, :id, :title, :prompt => t('events.category')
               .field-name
