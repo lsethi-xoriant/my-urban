@@ -119,9 +119,33 @@ ru:
     your_friends: "Ваши друзья"
     invite_from_facebook: 'Пригласить с Facebook'
 
-  city_name: 
-    i_f: "Ивано-Франковская"
-    ternopil: "Тернопольская"
+  state_name: 
+    vinnytska: "Винницкая"
+    volynska: "Волынская"
+    dnipropetrovsk: "Днепропетровская"
+    donetsk: "Донецкая"
+    zhytomyrska: "Житомирская"
+    zakarpatska: "Закарпатская"
+    zaporizka: "Запорожская"
+    ivano_frankivska: "Ивано-Франковская"
+    kyivska: "Киевская"
+    kirovohradska: "Кировоградская"
+    luhanska: "Луганская"
+    lviv: "Львовская"
+    mykolaivska: "Николаевская"
+    odessa: "Одесская"
+    poltavska: "Полтавская"
+    rivnenska: "Ровенская"
+    sumska: "Сумская"
+    ternopilska: "Тернопольская"
+    kharkiv: "Харьковская"
+    khersonska: "Херсонская"
+    khmelnytska: "Хмельницкая"
+    cherkaska: "Черкасская"
+    chernihivska: "Черниговская"
+    chernivetska: "Черновицкая"
+    crimea: "Крым"
+
   activerecord:
     models: 
       user: 'Пользователь'
