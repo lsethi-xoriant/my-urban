@@ -20,7 +20,30 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en: 
-  city_name: 
-    i_f: "Ivano-Frankivs\'ka"
-    ternopil: "Ternopil\'s\'ka"
+  state_name: 
+    vinnytska: "Vinnyts\'ka"
+    volynska: "Volyns\'ka"
+    dnipropetrovsk: "Dnipropetrovsk"
+    donetsk: "Donetsk"
+    zhytomyrska: "Zhytomyrs\'ka"
+    zakarpatska: "Zakarpats\'ka"
+    zaporizka: "Zaporiz\'ka"
+    ivano_frankivska: "Ivano-Frankivs\'ka"
+    kyivska: "Kyivs\'ka"
+    kirovohradska: "Kirovohrads\'ka"
+    luhanska: "Luhans\'ka"
+    lviv: "Lviv"
+    mykolaivska: "Mykolaivs\'ka"
+    odessa: "Odessa"
+    poltavska: "Poltavs\'ka"
+    rivnenska: "Rivnens\'ka"
+    sumska: "Sums\'ka"
+    ternopilska: "Ternopil\'s\'ka"
+    kharkiv: "Kharkiv"
+    khersonska: "Khersons\'ka"
+    khmelnytska: "Khmel\'nyts\'ka"
+    cherkaska: "Cherkas\'ka"
+    chernihivska: "Chernihivs\'ka"
+    chernivetska: "Chernivets\'ka"
+    crimea: "Crimea"
 
