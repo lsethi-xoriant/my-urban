@@ -1,3 +1,5 @@
+jQuery(document).ready(function() {
+
 $(function(){
 
 	$(".ukraine-map").mapael({
@@ -330,4 +332,6 @@ $(function(){
 		}
 	});
 	
+});
+
 });
