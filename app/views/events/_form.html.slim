@@ -17,7 +17,7 @@
                       = message
 
             .radio_event_type
-              = f.radio_button :event_type, 'open', class: 'no_displaying'
+              = f.radio_button(:event_type, 'open', class: 'no_displaying', 'checked' => "checked")
               = f.label :event_type_open, I18n.t('event_type.open'), class: 'radio_type right_radio_type active'
               
               = f.radio_button :event_type, 'close', class: 'no_displaying'
@@ -60,7 +60,7 @@
                       input#country.field name='event[country]' disabled="true" /
               .field
                 = f.label :description, t('events.description')
-                = f.text_field :description
+                = f.text_area :description
               .field-data
                 = f.label :data, 'Дата *'
                 = f.date_select :data, {:use_month_names => I18n.t('date.month_names')}

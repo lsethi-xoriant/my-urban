@@ -1,3 +1,61 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-p {
+	padding: 65px 0 0;
+	color: #4f4f4f;
+
+	h1 {
+		font-size: 25px;
+		line-height: 48px;
+		margin: 0 0 0;
+		font-weight: 800;
+	}
+
+	h2 {
+		font-size: 25px;
+		line-height: 48px;
+		margin: 0 0 0;
+		font-weight: 400;
+		color: #4f4f4f;
+	}
+
+	.date {
+		float: right;
+		margin: 10px 24px 0 0;
+	}
+}
+
+.user-p-content {
+	padding-left: 7px;
+	padding-right: 0;
+}
+
+.user-p-content-item {
+	background: #FFFFFF;
+	padding: 25px 40px 45px 45px;
+	margin: 0 0 20px;
+}
+
+.user-p-content-item:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.ev-item-photos {
+	margin: 0 -20px 0 0;
+
+	img {
+		display: inline-block;
+		width: 157px;
+		height: 125px;
+		margin: 0 10px 10px 0;
+	}
+
+	h2 {
+		padding: 0 0 15px;
+	}
+
+}
