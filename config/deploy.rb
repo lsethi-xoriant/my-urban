@@ -1,5 +1,5 @@
 set :application, "myurban.com.ua"
-set :domain, "deploy@myurban.com.ua"
+set :domain, "deploy@mhttp://178.62.246.19/"
 set :deploy_to, "/home/deploy/#{application}"
 set :use_sudo, false
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"

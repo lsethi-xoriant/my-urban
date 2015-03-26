@@ -55,7 +55,9 @@ gem "haml-rails"
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-gem 'unicorn'
+
+gem 'capistrano', '2.15.2', group: :development
+gem 'unicorn', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
