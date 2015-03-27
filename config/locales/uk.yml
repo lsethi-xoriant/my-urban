@@ -117,6 +117,10 @@ uk:
     your_friends: 'Ваші друзі'
     invite_from_facebook: 'Запросити з Facebook'
 
+    
+  users:
+    view_event: "Переглянути подію"
+
   state_name: 
     ternopil: "Тернопільська"
     vinnytska: "Вінницька"

@@ -119,6 +119,10 @@ ru:
     your_friends: "Ваши друзья"
     invite_from_facebook: 'Пригласить с Facebook'
 
+    
+  users:
+    view_event: "Посмотреть событие"
+
   state_name: 
     vinnytska: "Винницкая"
     volynska: "Волынская"
