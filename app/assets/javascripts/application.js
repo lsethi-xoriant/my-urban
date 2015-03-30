@@ -20,10 +20,13 @@
 //= require foundation.min
 //= require jquery.infinitescroll
 //= require underscore
+//= require private_pub
 //= require gmaps/google
 //= require jquery
 //= require jquery.jcrop
 //= require jquery.remotipart
+//= require chat
+//= require users
 //= require_tree .
 
 

@@ -9,3 +9,5 @@
       - if !current_user.confirm_friend(u.id)
         =link_to "Add Friend", friendships_path(:friend_id => u), :method => :post
       =link_to "Invite to Event", invite_path(:user_id => u.id), :method => :get
+      = link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation", |
+        "data-sid" => current_user.id, "data-rip" => u.id    

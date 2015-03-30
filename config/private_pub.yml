@@ -1,0 +1,10 @@
+development:
+  server: "http://localhost:9292/faye/faye"
+  secret_token: "secret"
+test:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+production:
+  server: "http://myurban.com.ua/faye/faye"
+  secret_token: "fae68c4752927cc93f116dc6b33e959d7cb275804728da3e8e2e3be8d6e18ed1"
+  signature_expiration: 3600 # one hour

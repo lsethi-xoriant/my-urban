@@ -41,6 +41,16 @@ Rails.application.routes.draw do
   get 'filter' => 'events#filter'
   get 'filter_events' => 'events#filter_events'
 
+  unauthenticated :user do
+    devise_scope :user do
+      get "/" => "devise/sessions#new"
+    end
+  end
+ 
+  resources :conversations do
+    resources :messages
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

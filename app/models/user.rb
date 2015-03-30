@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
   belongs_to :avatar
+  belongs_to :city
+
+
+  has_many :conversations, :foreign_key => :sender_id
+
   has_many :events, dependent: :destroy
 
   has_many :plans, :foreign_key => :member_id
@@ -20,6 +25,9 @@ class User < ActiveRecord::Base
   has_many :active_friends, -> { where(friendships: { status: 'friend'}) }, :through => :friendships, :source => :friend 
   has_many :passive_friends, -> { where(friendships: { status: 'friend'}) }, :through => :inverse_friendships, :source => :user
 
+
+
+
   validates :first_name, presence: {message: I18n.t('activerecord.errors.models.user.attributes.first_name.presence')}
   validates :first_name, allow_blank: true, format: { with: /\A[a-zA-Zа-яА-ЯіІїЇєЄ]+\z/,
     message: "only allows letters" }
@@ -27,7 +35,7 @@ class User < ActiveRecord::Base
   validates :last_name, allow_blank: true, format: { with: /\A[a-zA-Zа-яА-ЯіІїЇєЄ]+\z/,
     message: "only allows letters" }
   #validates_presence_of :city
-  belongs_to :city
+  
   #validates_associated :city
 
   before_validation :ensure_than_city_exists

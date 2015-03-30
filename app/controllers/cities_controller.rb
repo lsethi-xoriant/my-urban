@@ -48,6 +48,7 @@ class CitiesController < ApplicationController
             cities << city.en_name
           end
         else
+          #binding.pry
           City.all.each do |city|
             cities << city.en_name
           end

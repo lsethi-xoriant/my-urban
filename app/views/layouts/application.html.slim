@@ -6,6 +6,9 @@ html
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    meta[content="#{user_signed_in? ? current_user.id : "" }" name='user-id']
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' 
+
     = csrf_meta_tags
   body onload="initialize()"
     = yield
