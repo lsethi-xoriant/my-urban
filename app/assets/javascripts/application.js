@@ -18,8 +18,6 @@
 //= require ukraine
 //= require map
 //= require foundation.min
-//= require jquery.turbolinks
-//= require turbolinks
 //= require jquery.infinitescroll
 //= require underscore
 //= require gmaps/google
