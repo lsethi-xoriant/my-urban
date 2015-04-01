@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  
+  get 'pictures/create'
+
+  resources :pictures
+
+
   resources :avatars
 
   resources :cities
