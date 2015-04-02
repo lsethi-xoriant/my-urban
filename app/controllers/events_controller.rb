@@ -131,6 +131,7 @@ class EventsController < ApplicationController
   end
 
 
+
   def filter_blank_time
     if params[:event]['timeStart(4i)'].blank?
         params[:event]['timeStart(1i)'] = ""
@@ -149,6 +150,7 @@ class EventsController < ApplicationController
 end
 
 
+
   def upload_picture
     @event = Event.find(params[:id])    
     if params[:commit] == 'Picture'
@@ -161,6 +163,9 @@ end
     end
     render "pictures/create"
   end
+
+
+  
 
   private
 

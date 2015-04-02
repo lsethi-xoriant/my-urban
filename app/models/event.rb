@@ -20,9 +20,12 @@ class Event < ActiveRecord::Base
   has_many :all_relationships, -> { where("status like ? OR status like ?", 'come', 'invite') }, :class_name => "Plan", :foreign_key => :measure_id
   has_many :all_participations, through: :all_relationships, source: :member 
 
+
+
+
   # Album has many photos
   has_many :pictures, :dependent => :destroy
-  # enable nested attributes for photos through event class
+  # enable nested attributes for photos through eventa class
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
 
