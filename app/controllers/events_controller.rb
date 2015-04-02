@@ -154,7 +154,7 @@ end
   def upload_picture
     @event = Event.find(params[:id])    
     if params[:commit] == 'Picture'
-      # to handle multiple images upload on create      
+      # to handle multiple images upload on create    
       if params[:pictures]
         params[:pictures].each { |picture|
           @event.pictures.create(picture: picture)
@@ -165,7 +165,7 @@ end
   end
 
 
-  
+
 
   private
 

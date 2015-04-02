@@ -15,7 +15,7 @@ class PictureUploader < CarrierWave::Uploader::Base
     # returns a 150x150 image
     process :resize_to_fill => [800, 800]
   end
-  version :medium_avatar do
+  version :medium_picture do
     # returns a 50x50 image
     process :resize_to_fill => [250, 250]
   end

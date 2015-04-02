@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   
-  get 'pictures/create'
+  post 'events/upload_picture'
 
   resources :pictures
 

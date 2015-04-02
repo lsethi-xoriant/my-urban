@@ -1,0 +1,5 @@
+= form_for @event, url: { :action => :upload_picture, :controller => :events}, :method => "post" , :html => {:multipart => true} do |f|
+	= f.label :picture
+	= text_field_tag(:id, @event.id)
+	= file_field_tag "pictures[]", type: :file, multiple: true
+	= f.submit
