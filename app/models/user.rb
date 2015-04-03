@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   belongs_to :avatar
+
+  has_many :conversations, :foreign_key => :sender_id
+  
   has_many :events, dependent: :destroy
 
   has_many :plans, :foreign_key => :member_id

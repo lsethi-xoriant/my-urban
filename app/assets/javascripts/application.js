@@ -19,6 +19,7 @@
 //= require map
 //= require foundation.min
 //= require jquery.infinitescroll
+//= require chat
 //= require underscore
 //= require gmaps/google
 //= require jquery
