@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  post 'chat/pub'
+
+  get 'chat/sub'
+  get 'chat/index'
+  get 'chat/events'
+
   resources :avatars
 
   resources :cities

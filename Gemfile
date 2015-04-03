@@ -8,6 +8,7 @@ gem 'carrierwave-crop'
 
 gem 'remotipart', '~> 1.0'
 
+gem 'redis'
 #jQuery plugin for drop-in fix binded events problem
 
 #for pagination
@@ -57,7 +58,8 @@ gem "haml-rails"
 # Use unicorn as the app server
 
 gem 'capistrano', '2.15.2', group: :development
-gem 'unicorn', group: :production
+#gem 'unicorn', group: :production
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

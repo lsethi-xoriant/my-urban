@@ -1,0 +1,5 @@
+ <%= form_tag 'pub', method: :get do %>
+    <%= text_field_tag :message, params[:query], class: "form-control", id: "message",
+        placeholder: 'Search' %>
+    <%=submit_tag 'submit', id: 'send'%>
+  <% end %>
