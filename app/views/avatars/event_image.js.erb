@@ -1,1 +1,6 @@
 $('#image_edit').html("<%= escape_javascript render('crop_image') %>");
+$('#ImageModal').foundation('reveal', 'open');
+
+$('.avatar-crop-btn').click(function(){
+  $('#ImageModal').foundation('reveal', 'close');
+});

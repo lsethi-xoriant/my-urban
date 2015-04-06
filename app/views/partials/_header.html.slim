@@ -34,11 +34,11 @@
                 .row
                   div class="city-dr-dwn-title medium-4 small-12 columns"
                     h2 
-                      ='@state.name 
+                      =@state.name 
                       |область
                     p 
                       span
-                        ='@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+                        =@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
                       | 
                       = t("header.week_events")
                   div class="city-dr-dwn-cities medium-8 small-12 columns"
