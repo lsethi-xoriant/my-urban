@@ -59,3 +59,86 @@
 	}
 
 }
+
+
+// BEGIN of page with friends list
+
+.container-right {
+	background: #FFFFFF;
+	color: #4f4f4f;
+	padding: 12px 45px 50px 35px;
+	line-height: 30px;
+
+}
+
+.user-friends-list {
+
+	h1 {
+		span {
+			font-weight: 400;
+			color: #8fc731;
+		}
+	}
+
+	a:hover {
+		opacity: 0.8;
+	}
+}
+
+.ch-gr-gr {
+	background: #F4F4F4;
+	border-radius: 30px;
+	float: right;
+	overflow: hidden;
+	line-height: 25px;
+	margin: 12px 0 0;
+
+	a {
+		color: #8e8e8e;
+		width: auto;
+		padding: 0 20px 0;
+		text-align: center;
+		display: inline-block;
+		font-size: 14px;
+	}
+
+	a:hover {
+		opacity: 0.8;
+		color: #000000;
+	}
+
+	a.active {
+		background: #95E459;
+		color: #6d893d;
+	}
+}
+
+.ev-item-friends-container {
+	line-height: 60px;
+	padding: 40px 0 0 10px;
+
+	a {
+		color: #8fc731;
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	img {
+		width: 34px;
+		border-radius: 50%;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+
+	.columns {
+		border-bottom: 1px solid #F4F4F4;
+	}
+
+	.columns:after {
+		content: "";
+		display: block;
+
+	}
+}
+
+// END of page with friends list

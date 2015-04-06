@@ -1,0 +1,98 @@
+.main-wrapper
+  .content-wrapper.not-main
+    = render "partials/header"
+    .content.user-p
+      .row
+        .large-4.medium-4.small-12.columns.user-sidebar
+          .user-backgr
+            = image_tag "user-backgr-1.jpg"
+          .user-img
+            = image_tag "user-1.jpg"
+          h3 Оксана Іваненко
+          h4 Івано-Франківськ
+          .user-links
+            p
+              = link_to t('events.news'), 'javascript:void(0);'
+              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.info'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.message'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.friends'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.photo_reports'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.events'), 'javascript:void(0);'
+              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.settings'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+
+        .medium-8.small-12.columns.user-p-content
+          .container-right.user-friends-list
+            .ch-gr-gr
+              = link_to t('Всі друзі'), 'javascript:void(0);', :class => 'active'
+              = link_to t('Спільні друзі'), 'javascript:void(0);'
+            h1 
+              | Друзі 
+              span 
+                | (152)
+            .ev-item-friends-container
+              .row
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to t('Оксана Михайлів'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to t('Оксана Михайлів'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to t('Оксана Михайлів'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-2.jpg"
+                  = link_to t('Василина Петренко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-2.jpg"
+                  = link_to t('Василина Петренко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-2.jpg"
+                  = link_to t('Василина Петренко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to t('Стефанія Франко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to t('Стефанія Франко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to t('Стефанія Франко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to t('Петрунеля Іваненко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to t('Петрунеля Іваненко'), 'javascript:void(0);'
+                .medium-4.columns
+                  = link_to 'javascript:void(0);' do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to t('Петрунеля Іваненко'), 'javascript:void(0);'
+
+
+
+    = render "partials/footer"
