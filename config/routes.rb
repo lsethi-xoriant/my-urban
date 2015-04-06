@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'profile' => 'users#profile'
   #get 'users_controller/profile'
   get 'friends' => 'users#friends'
+  get 'user-info' => 'users#user-info'
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

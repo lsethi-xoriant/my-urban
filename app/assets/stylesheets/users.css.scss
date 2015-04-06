@@ -65,7 +65,7 @@
 }
 
 
-// BEGIN of page with friends list
+// BEGIN of user page with friends list
 
 .container-right {
 	background: #FFFFFF;
@@ -117,7 +117,7 @@
 	}
 }
 
-.ev-item-friends-container {
+.user-friends-container {
 	line-height: 60px;
 	padding: 40px 0 0 10px;
 
@@ -145,4 +145,35 @@
 	}
 }
 
-// END of page with friends list
+// END of user page with friends list
+
+// BEGIN of user info
+
+.user-info-container {
+	padding: 30px 0 20px;
+
+	p {
+		font-size: 12px;
+		line-height: 18px;
+		font-weight: 400;
+		color: #8e8e8e;
+		padding: 0 0 18px;
+		margin: 0;
+	}
+
+	.row > div:first-child {
+		p {
+			font-size: 14px;
+			line-height: 18px;
+			font-weight: 100;
+			color: #0D0D0D;
+			padding: 0 0 18px;
+			margin: 0;
+		}
+	}
+
+}
+
+// END of user info
+
+
