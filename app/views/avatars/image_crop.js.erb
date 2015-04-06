@@ -1,1 +1,2 @@
-$('#event_avatar_id').val("<%=@avatar.id%>")
+$('#event_avatar_id').val("<%=@avatar.id%>");
+$('.upload-img').html("<%= escape_javascript render('image_crop_result') %>");

@@ -47,7 +47,7 @@ p
             = check_box_tag 'user_ids[]', user.id, false
             = hidden_field_tag :event_id, @event.id
         = submit_tag 'Push to event'
-=' link_to 'Edit', edit_event_path(@event)
+= link_to 'Edit', edit_event_path(@event)
 = link_to 'Back', events_path
 - if confirm_ability(@event) == 'can'
   = simple_form_for @plan do |f|

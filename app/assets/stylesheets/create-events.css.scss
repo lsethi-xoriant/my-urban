@@ -86,7 +86,7 @@
 	padding: 25px 0 10px 7px;
 
 	h1 {
-		padding: 0 0 5px 35px;
+		  padding: 0 0 20px;
 	}
 
 	input[type="text"], select, textarea {
@@ -130,6 +130,46 @@
 		font-size: 14px;
 		padding: 0 0 4px;
 		margin: 0;
+	}
+}
+
+.invite-fr {
+	clear: left;
+}
+
+.upload-img {
+	clear: both;
+	img {
+	margin: 0 0 30px;
+		width: 100%
+	}
+}
+
+.new_avatar {
+	float: left;
+	position: relative;
+position: relative;
+padding: 3px 0 0;
+
+	.btn-4 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #4d4d4d;
+  font-size: 14px;
+  height: auto;
+  line-height: 25px;
+	}
+
+	input {
+opacity: 0;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 155px;
+  height: 37px;
+  margin: 0;
 	}
 }
 
@@ -264,7 +304,7 @@
 
 .radio_event_type {
 	float: right;
-	margin: 11px 45px 0 0;
+	margin: 0 0 30px;
 
 	input[type="radio"] {
 		display: none;
