@@ -32,15 +32,17 @@ class ChatController < ApplicationController
     end
 
     def pub
+        puts "HHHHHHHHHHHHH #{params[:chat_data]}"
         $redis.publish 'chat_event', params[:chat_data].to_json
         render json: {}, status: 200
     end
 
     def sub
+        puts "HHHHHHHHHH #{params}"
         response.headers["Content-Type"] = "text/event-stream"
 
         redis = Redis.new
-        redis.subscribe(['chat_event', 'heartbeat']) do |on|
+        redis.subscribe(['chat_event' + params[:id], 'heartbeat']) do |on|
             on.message do |event, data|
                 response.stream.write "event: #{event}\ndata: #{data}\n\n"
             end

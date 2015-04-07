@@ -2,9 +2,13 @@ Rails.application.routes.draw do
 
   post 'chat/pub'
 
-  get 'chat/sub'
+  get 'chat/sub/:id' => "chat#sub"
   get 'chat/index'
   get 'chat/events'
+
+  resources :conversations do
+    resources :messages
+  end
 
   resources :avatars
 

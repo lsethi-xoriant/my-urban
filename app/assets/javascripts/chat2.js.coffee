@@ -12,6 +12,7 @@ $(document).ready ->
             data: {
                 chat_data: {
                     message: $("input#message").val(),
+                    reciever_id: $('meta[name=user-id]').attr("content"),
                     timestamp: $.now()
                 }
             }
