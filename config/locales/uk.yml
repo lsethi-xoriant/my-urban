@@ -116,6 +116,10 @@ uk:
     participants_group: 'Кількість учасників *'
     your_friends: 'Ваші друзі'
     invite_from_facebook: 'Запросити з Facebook'
+    little_group: 'Маленька(8-15 чол)'
+    middle_group: 'Середня(16-25 чол)'
+    great_group: 'Велика(26-50 чол)'
+    choose_event_image: 'Вибрати зображення події'
 
     
   users:

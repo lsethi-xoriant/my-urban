@@ -39,7 +39,7 @@ class Event < ActiveRecord::Base
 
 
   def self.counts_of_people
-    [['Little group', 'little'], ['Middle group', 'middle'], ['Great group', 'great']]
+    [[I18n.t('events.little_group'), 'little'], [I18n.t('events.middle_group'), 'middle'], [I18n.t('events.great_group'), 'great']]
   end
 
   def self.replenishment
