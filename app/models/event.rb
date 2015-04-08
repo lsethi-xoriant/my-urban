@@ -9,7 +9,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   belongs_to :city
-
+  belongs_to :avatar
+  
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
 
@@ -102,6 +103,8 @@ class Event < ActiveRecord::Base
   def ensure_than_city_for_event_exists
     locale = I18n.locale 
     I18n.locale = :en
+    I18n.locale = 'en'
+    self.city_name = 'Ivano-Frankivsk' if self.city_name == 'Ivano-Frankivs\'k'
     unless City.where(en_name: self.city_name).exists?
       self.errors[:adress] << I18n.t('my_errors.messages.incorrect_city')
     else

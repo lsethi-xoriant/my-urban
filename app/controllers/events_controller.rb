@@ -6,8 +6,11 @@ class EventsController < ApplicationController
 
   def index 
     @events = Event.where(nil)
-    @state = State.find(params[:state_id])
+    @state = State.find(params[:state_id]) if params[:state_id]
     params[:state_id] = State.where(:name => params[:state]) if params[:state]
+    cities_id = @state.cities.map{|c| c.id}#.pluck[:id]
+    @events = Event.where(city_id: cities_id)
+    #binding.pry
     filtering_params(params).each do |key, value|
       @events = @events.public_send(key+"_filter", value) if value.present?
     end

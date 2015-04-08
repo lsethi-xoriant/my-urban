@@ -13,8 +13,10 @@
         h6 =t('events.today') 
     end
 div class=["ev-list-item", event.event_type]
-  /= image_tag Avatar.last.avatar_url(:medium_image)
-  = image_tag "ev-list-img.jpg"
+  - if  event.avatar && event.avatar.avatar_url(:medium_image)
+    = image_tag event.avatar.avatar_url(:medium_image)
+  -else
+    = image_tag "ev-list-img.jpg"
   div class="ev-list-type ev-party"
   .ev-list-info
     h2 
