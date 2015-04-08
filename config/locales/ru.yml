@@ -118,6 +118,10 @@ ru:
     participants_group: 'Количество участников *'
     your_friends: "Ваши друзья"
     invite_from_facebook: 'Пригласить с Facebook'
+    little_group: 'Маленькая(8-15 чел)'
+    middle_group: 'Средняя(16-25 чел)'
+    great_group: 'Большая(26-50чел)'
+    choose_event_image: 'Выбрать изображение события'
 
     
   users:
