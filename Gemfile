@@ -72,4 +72,6 @@ gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'globalize', '~> 4.0.3'
 
+gem 'execjs'
 
+gem 'therubyracer'
