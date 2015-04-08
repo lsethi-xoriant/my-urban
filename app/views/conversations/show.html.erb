@@ -23,9 +23,27 @@
 </div>
 <script type="text/javascript">
   var conversation_id = <%=@conversation.id%>
-  var source =  new EventSource('/chat/sub/' + conversation_id);
+  var source =  new EventSource('chat/sub/' + conversation_id);
   console.log(conversation_id);
-  source.addEventListener('chat_event/'+ conversation_id, function(e) {
+  source.addEventListener('chat_event_'+ conversation_id, function(e) {
     console.log(e.data);
+    var message =JSON.parse(e.data).message
+    if (parseInt(message.user_id) !== parseInt($('meta[name=user-id]').attr("content"))){
+
+      var id = message.conversation_id
+      var chatbox = $("#chatbox_" + id + " .chatboxcontent");
+      var sender_id = message.user_id
+      var reciever_id = $('meta[name=user-id]').attr("content");
+   
+      chatbox.append('<li class="<%=  self_or_other_1(' + message.id+ ') %>"><div class="avatar"><img src="http://placehold.it/50x50" /></div><div class="chatboxmessagecontent"><p>'+message.body+'</p></div></li>');
+      chatbox.scrollTop(chatbox[0].scrollHeight);
+   
+      if(sender_id != reciever_id){
+        chatBox.chatWith(id);
+          chatbox.children().last().removeClass("self").addClass("other");        
+        chatbox.scrollTop(chatbox[0].scrollHeight);
+          chatBox.notify();
+      }
+    }
   });
 </script>

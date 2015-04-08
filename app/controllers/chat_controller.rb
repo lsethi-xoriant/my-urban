@@ -33,7 +33,8 @@ class ChatController < ApplicationController
 
     def pub
         puts "HHHHHHHHHHHHH #{params[:chat_data]}"
-        $redis.publish 'chat_event', params[:chat_data].to_json
+        $redis.publish 'chat_event_1', params[:chat_data].to_json
+        $redis.publish "chat_event_1", {hello: 'hello'}.to_json
         render json: {}, status: 200
     end
 
@@ -41,8 +42,9 @@ class ChatController < ApplicationController
         puts "HHHHHHHHHH #{params}"
         response.headers["Content-Type"] = "text/event-stream"
 
+
         redis = Redis.new
-        redis.subscribe(['chat_event' + params[:id], 'heartbeat']) do |on|
+        redis.subscribe(["chat_event_#{params[:id]}", 'heartbeat']) do |on|
             on.message do |event, data|
                 response.stream.write "event: #{event}\ndata: #{data}\n\n"
             end

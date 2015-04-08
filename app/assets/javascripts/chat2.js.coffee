@@ -2,9 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
-    source = new EventSource('/chat/sub')
-    source.addEventListener 'chat_event', (e) ->
-        console.log('h' + e.data)
     $('#send').click (e) ->
         e.preventDefault()
         $.ajax '/chat/pub',

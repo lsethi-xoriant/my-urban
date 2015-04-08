@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get 'chat/events'
 
   resources :conversations do
-    resources :messages
+    get 'sub'#, on: :collection
+    resources :messages do
+      get 'pub'
+    end
   end
 
   resources :avatars

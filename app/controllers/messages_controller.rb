@@ -11,8 +11,9 @@ class MessagesController < ApplicationController
     @message.save!
  
     @path = conversation_path(@conversation)
-    $redis.publish "chat_event/params[:conversation_id]}", 'hello'#params[:chat_data].to_json
+    $redis.publish "chat_event_#{params[:conversation_id]}", {message: @message}.to_json#params[:chat_data].to_json
   end
+
  
   private
  
