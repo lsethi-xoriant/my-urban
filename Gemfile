@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'carrierwave'
+gem 'carrierwave', '~>0.10.0'
 
 gem "mini_magick"
 
@@ -71,3 +71,7 @@ gem "geocoder"
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'globalize', '~> 4.0.3'
+
+gem 'execjs'
+
+gem 'therubyracer'
