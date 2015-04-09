@@ -7,6 +7,13 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  body onload="initialize()"
-    = yield
-    = yield :scripts
+  /TODO make all states on home page availible
+  /OPTIMIZE case of translate of event word 
+  - if params[:controller] == 'events' && (params[:action] == 'new'||params[:action] == 'create')
+    body onload="initialize()"
+      = yield
+      = yield :scripts
+  -else 
+    body
+      = yield
+      = yield :scripts

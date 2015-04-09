@@ -128,8 +128,16 @@ var componentForm = {
 };
 
 function initialize() {
+  $('#autocomplete').val('');
   // Create the autocomplete object, restricting the search
   // to geographical location types.
+  $(window).keydown(function(event){
+
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
   autocomplete = new google.maps.places.Autocomplete(
       /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
       { types: ['geocode'] });
