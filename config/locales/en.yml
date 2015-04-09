@@ -74,6 +74,10 @@ en:
     chernivtsi: 'Chernivtsi'
     simferopol: 'Simferopol'
 
+  my_errors: 
+    messages: 
+      incorrect_city: "вибрано неправильно"
+
 
 
 
