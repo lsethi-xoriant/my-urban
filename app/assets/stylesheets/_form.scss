@@ -79,14 +79,16 @@
 	opacity: 0.7;
 }
 
-.view-more-btn {
+.view-more-btn, .container-right .view-more-btn {
 	float: right;
-	padding: 0 26px 0 0;
-	margin: 25px 27px 0 0;
+	padding: 2px 26px 0 0;
+	margin: 15px 0 10px 0;
 	background: url(i-view-more.png) no-repeat right center;
 	background-size: 18px auto;
 	color: #ff8106;
-	line-height: 30px;
+	font-size: 15px;
+	line-height: 22px;
+	font-weight: 400;
 }
 
 .view-more-btn:hover {

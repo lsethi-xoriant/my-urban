@@ -12,7 +12,6 @@
 		margin: 0 0 0;
 		font-weight: 800;
 	}
-
 	h2 {
 		font-size: 25px;
 		line-height: 48px;
@@ -20,7 +19,6 @@
 		font-weight: 400;
 		color: #4f4f4f;
 	}
-
 	.date {
 		float: right;
 		margin: 10px 24px 0 0;
@@ -54,25 +52,31 @@
 		height: 125px;
 		margin: 0 10px 10px 0;
 	}
-
 	h2 {
 		padding: 0 0 15px;
 	}
-
 	&:last-child {
 		margin-bottom: 0;
 	}
+	.view-more-btn {
+	  margin-right: 20px;
+	}
 }
-
 
 // BEGIN of user page with friends list
 
 .container-right {
 	background: #FFFFFF;
 	color: #4f4f4f;
-	padding: 12px 45px 50px 35px;
+	padding: 25px 45px 20px 35px;
 	line-height: 30px;
+	margin: 0 0 20px;
 
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 }
 
 .user-friends-list {
@@ -83,7 +87,6 @@
 			color: #8fc731;
 		}
 	}
-
 	a:hover {
 		opacity: 0.8;
 	}
@@ -98,19 +101,18 @@
 	margin: 12px 0 0;
 
 	a {
-		color: #8e8e8e;
-		width: auto;
-		padding: 0 20px 0;
-		text-align: center;
-		display: inline-block;
-		font-size: 14px;
+	  color: #8e8e8e;
+	  padding: 0;
+	  width: 116px;
+	  text-align: center;
+	  display: inline-block;
+	  font-size: 14px;
+	  line-height: 26px;
 	}
-
 	a:hover {
 		opacity: 0.8;
 		color: #000000;
 	}
-
 	a.active {
 		background: #95E459;
 		color: #6d893d;
@@ -119,29 +121,31 @@
 
 .user-friends-container {
 	line-height: 60px;
-	padding: 40px 0 0 10px;
+	padding: 20px 0 0 0;
+
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
 
 	a {
 		color: #8fc731;
 		font-size: 14px;
 		font-weight: 400;
 	}
-
 	img {
 		width: 34px;
 		border-radius: 50%;
 		margin-right: 10px;
 		vertical-align: middle;
 	}
-
 	.columns {
 		border-bottom: 1px solid #F4F4F4;
 	}
-
 	.columns:after {
 		content: "";
 		display: block;
-
 	}
 }
 
@@ -150,30 +154,61 @@
 // BEGIN of user info
 
 .user-info-container {
-	padding: 30px 0 20px;
+	padding: 20px 0 0;
 
 	p {
 		font-size: 12px;
 		line-height: 18px;
 		font-weight: 400;
 		color: #8e8e8e;
-		padding: 0 0 18px;
+		padding: 0 0 15px;
 		margin: 0;
 	}
-
 	.row > div:first-child {
 		p {
 			font-size: 14px;
 			line-height: 18px;
 			font-weight: 100;
 			color: #0D0D0D;
-			padding: 0 0 18px;
 			margin: 0;
 		}
 	}
+}
 
+span.tag {
+	border: 1px solid #b5b5b5;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 0 5px 0;
 }
 
 // END of user info
 
+// END of user events
 
+.user-events {
+  padding: 25px 0 0;
+
+	.ev-list-item {
+		position: relative;
+	}
+  .ev-list-item h2, .ev-list-item a {
+	  color: #4f4f4f;
+	  font-size: 24px;
+	  line-height: 30px;
+	  font-weight: 400;
+	  clear: right;
+	  margin: 0 0 11px;
+	}
+	.ev-list-type {
+	  float: right;
+	  width: 22px;
+	  height: 22px;
+	  position: absolute;
+	  right: 0;
+	  margin: 0;
+	}
+}
+
+// END of user events
