@@ -44,7 +44,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.replenishment
-    [['Manually', 'manually'], ['Automatically', 'automatically']]
+    [[I18n.t('events.manually'), 'manually'], [I18n.t('events.automatically'), 'automatically']]
   end
 
   def self.search(query)

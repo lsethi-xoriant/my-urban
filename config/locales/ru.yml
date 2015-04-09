@@ -127,6 +127,8 @@ ru:
     middle_group: 'Средняя(16-25 чел)'
     great_group: 'Большая(26-50чел)'
     choose_event_image: 'Выбрать изображение события'
+    manually: 'Вручную'
+    automatically: 'Автоматически'
 
     
   users:

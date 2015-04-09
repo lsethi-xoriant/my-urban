@@ -125,6 +125,8 @@ uk:
     middle_group: 'Середня(16-25 чол)'
     great_group: 'Велика(26-50 чол)'
     choose_event_image: 'Вибрати зображення події'
+    manually: 'Вручну'
+    automatically: 'Автоматично'
 
     
   users:
