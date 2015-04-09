@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 	
   def index
     @users = User.all
+    render 'user_list'
   end
 
   def profile
-    render 'user-events'
   end
 
   def user_events
