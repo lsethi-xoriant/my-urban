@@ -95,3 +95,14 @@
 	color: #ff8106;
 	opacity: 0.8;
 }
+
+.field_with_errors {
+	input {
+		border-color: red !important;
+		background-color: #FFF6F6 !important; 
+	}
+}
+
+#error_explanation {
+	display: none !important; 
+}
