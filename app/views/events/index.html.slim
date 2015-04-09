@@ -8,7 +8,10 @@
         .region-info
           h1 =State.find(params[:state_id]).name
           p
-            span 45
+            span 
+              =@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count
+            |  
+            =case_of_event(@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count)
             |  
             =t('events.this_week')
         = form_tag(events_path, :method => "get", id: "search-form", remote: true) do
@@ -73,31 +76,40 @@
       .row
         .reg-ev
           .reg-ev-title
-            h3 Івано-Франківська область
+            h3 
+              =@state.name
+              |  область
             p
-              span 15
-              |  подій сьогодні
+              span 
+                =@state.events.where('data = ?', Date.today).count
+              |  
+              =case_of_event(@state.events.where('data = ?', Date.today).count) 
+              |  сьогодні
             p
-              span 245
-              |  подій цього тижня
-          .reg-ev-list
-            = link_to "Богородчанський район", "javascript:void(0);"
-            = link_to "Болехів", "javascript:void(0);"
-            = link_to "Верховинський район", "javascript:void(0);"
-            = link_to "Галицький район", "javascript:void(0);"
-            = link_to "Городенківський район", "javascript:void(0);"
-            = link_to "Долинський район", "javascript:void(0);"
-            = link_to "Івано-Франківськ", "javascript:void(0);"
-            = link_to "Калуський район", "javascript:void(0);"
-            = link_to "Коломийський район", "javascript:void(0);"
-            = link_to "Косівський район", "javascript:void(0);"
-            = link_to "Надвірнянський район", "javascript:void(0);"
-            = link_to "Рогатинський район", "javascript:void(0);"
-            = link_to "Рожнятівський район", "javascript:void(0);"
-            = link_to "Снятинський район", "javascript:void(0);"
-            = link_to "Тисменицький район", "javascript:void(0);"
-            = link_to "Тлумацький район", "javascript:void(0);"
-            = link_to "Яремче", "javascript:void(0);"
+              span 
+                =@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+              |  
+              =case_of_event(@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count)
+              |  цього тижня
+          /
+            .reg-ev-list
+              = link_to "Богородчанський район", "javascript:void(0);"
+              = link_to "Болехів", "javascript:void(0);"
+              = link_to "Верховинський район", "javascript:void(0);"
+              = link_to "Галицький район", "javascript:void(0);"
+              = link_to "Городенківський район", "javascript:void(0);"
+              = link_to "Долинський район", "javascript:void(0);"
+              = link_to "Івано-Франківськ", "javascript:void(0);"
+              = link_to "Калуський район", "javascript:void(0);"
+              = link_to "Коломийський район", "javascript:void(0);"
+              = link_to "Косівський район", "javascript:void(0);"
+              = link_to "Надвірнянський район", "javascript:void(0);"
+              = link_to "Рогатинський район", "javascript:void(0);"
+              = link_to "Рожнятівський район", "javascript:void(0);"
+              = link_to "Снятинський район", "javascript:void(0);"
+              = link_to "Тисменицький район", "javascript:void(0);"
+              = link_to "Тлумацький район", "javascript:void(0);"
+              = link_to "Яремче", "javascript:void(0);"
 
 
 
