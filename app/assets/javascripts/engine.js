@@ -32,7 +32,7 @@ jQuery(document).ready(function() {
 
 	});
 
-	$('.field_with_errors input').focus(function(){
+	$('.field_with_errors input').keydown(function(){
 		$(this).parents('.field_with_errors').removeClass('field_with_errors');
 	});
 
