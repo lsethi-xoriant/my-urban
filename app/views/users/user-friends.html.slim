@@ -34,54 +34,6 @@
               / = link_to '', 'javascript:void(0);', class: "user-links-couner"
 
         .medium-8.small-12.columns.user-p-content
-          .container-right
-            h1 
-              | Особиста сторінка 
-            .user-info-container
-              .row
-                .medium-3.columns
-                  p Місто:
-                .medium-9.columns
-                  p Івано-Франківськ
-              .row
-                .medium-3.columns
-                  p День Народження:
-                .medium-9.columns
-                  p 12,01,1989 року (25 років)
-              .row
-                .medium-3.columns
-                  p Стать:
-                .medium-9.columns
-                  p Чоловік
-              .row
-                .medium-3.columns
-                  p Освіта:
-                .medium-9.columns
-                  p Львівський національний медичний університет імені Данила Галицького
-              .row
-                .medium-3.columns
-                  p Інтереси:
-                .medium-9.columns
-                  p
-                    span.tag #Сайт 
-                    span.tag #рыба 
-                    span.tag #текст 
-                    span.tag #поможет 
-                    span.tag #дизайнеру 
-                    span.tag #верстальщику 
-                    span.tag #вебмастеру 
-                    span.tag #сгенерировать 
-                    span.tag #несколько 
-                    span.tag #абзацев 
-                    span.tag #более 
-                    span.tag #менее 
-              .row
-                .medium-3.columns
-                  p Місце роботи:
-                .medium-9.columns
-                  p Студент
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
-
           .container-right.user-friends-list
             .ch-gr-gr
               = link_to t('Всі друзі'), 'javascript:void(0);', :class => 'active'
@@ -140,68 +92,7 @@
                   = link_to 'javascript:void(0);' do
                     = image_tag "user-sm-4.jpg"
                   = link_to t('Петрунеля Іваненко'), 'javascript:void(0);'
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
 
-          .container-right
-            h1 Фотозвіти
-            .ev-item-photos
-              .date
-                | 12 травня 2012
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              = image_tag "ev-photos/ev-ph-1.jpg"
-              = image_tag "ev-photos/ev-ph-2.jpg"
-              = image_tag "ev-photos/ev-ph-3.jpg"
-              = image_tag "ev-photos/ev-ph-4.jpg"
-              = image_tag "ev-photos/ev-ph-5.jpg"
-              = image_tag "ev-photos/ev-ph-6.jpg"
-              = image_tag "ev-photos/ev-ph-7.jpg"
-              = image_tag "ev-photos/ev-ph-8.jpg"
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
-
-          .container-right
-            .ch-gr-gr
-              = link_to t('Учасник'), 'javascript:void(0);', :class => 'active'
-              = link_to t('Організатор'), 'javascript:void(0);'
-            h1 
-              | Події 
-            .user-events
-              div class=["ev-list-item", "event.event_type"]
-                = image_tag "ev-list-img.jpg"
-                div class="ev-list-type ev-party"
-                .ev-list-info
-                  h2 
-                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-                  h4 
-                    | Час
-                    span 
-                      | 12:20
-                  h4 
-                    | Учасників
-                    span 
-                      | 12 / 23
-                  h4.organizer
-                    = image_tag "ev-list-user.jpg"
-                    | Організатор
-                    span  Олексій Петренко
-              div class=["ev-list-item", "close"]
-                = image_tag "ev-list-img.jpg"
-                div class="ev-list-type ev-party"
-                .ev-list-info
-                  h2 
-                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-                  h4 
-                    | Час
-                    span 
-                      | 12:20
-                  h4 
-                    | Учасників
-                    span 
-                      | 12 / 23
-                  h4.organizer
-                    = image_tag "ev-list-user.jpg"
-                    | Організатор
-                    span  Олексій Петренко
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
 
 
     = render "partials/footer"

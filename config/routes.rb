@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   #get 'users_controller/index'
   get 'profile' => 'users#profile'
   #get 'users_controller/profile'
+  get 'user-friends' => 'users#user-friends'
+  get 'user-info' => 'users#user-info'
+  get 'user-events' => 'users#user-events'
+  get 'user-photo' => 'users#user-photo'
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
