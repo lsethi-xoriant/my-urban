@@ -25,7 +25,7 @@ uk:
     enter: "Вхід"
     exit: "Вихід"
     create_event: "Створити подію"
-    week_events: "подій цього тижня"
+    week_events: " цього тижня"
   footer:
     about_us: "Про нас"
     contacts: "Контакти"
@@ -35,6 +35,11 @@ uk:
     congratulation: "Ласкаво просимо до "
     description: "Це місце де ви можете знайти чим зайнятись у вашому місті сьогодні, на вихідних, будь коли!"
     find_city: "Знайти своє місто"
+
+  case_of_event:
+    one: 'подія'
+    few: 'події'
+    many: 'подій'
 
   city:
     vinnytsia: 'Вінниця'

@@ -24,11 +24,16 @@ ru:
     enter: "Вход"
     exit: "Выход"
     create_event: "Создать событие"
-    week_events: "событий на этой неделе"
+    week_events: " на этой неделе"
   footer:
     about_us: "О нас"
     contacts: "Контакты"
     copyright: "Все права защищены"
+
+  case_of_event:
+    one: 'событие'
+    few: 'события'
+    many: 'событий'
 
   home:
     congratulation: "Добро пожаловать в "

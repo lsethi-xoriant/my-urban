@@ -1,4 +1,15 @@
 module EventsHelper
+
+  def case_of_event(count)
+    if count == 1
+      t('case_of_event.one')
+    elsif count<=4&&count>1
+      t('case_of_event.few')
+    else
+      t('case_of_event.many') 
+    end
+  end
+
   def categories_collection
     Category.all.map {|c| ["#{c.title} #{Event.where(category_id: c.id).count}", c.id]}
   end
