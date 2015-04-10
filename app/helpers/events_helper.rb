@@ -5,8 +5,14 @@ module EventsHelper
       t('case_of_event.one')
     elsif count<=4&&count>1
       t('case_of_event.few')
+    elsif count>=5&&count<21
+      t('case_of_event.many')
+    elsif count>=21&&count%10 == 1
+      t('case_of_event.one')
+    elsif count>=22&&(count%10 == 2 || count%10 == 3 || count%10 == 4)
+      t('case_of_event.few')    
     else
-      t('case_of_event.many') 
+      t('case_of_event.many')
     end
   end
 
