@@ -1,0 +1,55 @@
+.main-wrapper
+  .content-wrapper.not-main
+    = render "partials/header"
+    .content.user-p
+      .row
+        .large-4.medium-4.small-12.columns.user-sidebar
+          .user-backgr
+            = image_tag "user-backgr-1.jpg"
+          .user-img
+            = image_tag "user-1.jpg"
+          h3 Оксана Іваненко
+          h4 Івано-Франківськ
+          .user-links
+            p
+              = link_to t('events.news'), 'javascript:void(0);'
+              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.info'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.message'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.friends'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.photo_reports'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.events'), 'javascript:void(0);'
+              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.settings'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+
+        .medium-8.small-12.columns.user-p-content
+          .container-right.user-friends-list
+            h1 
+              | Інформація 
+            .user-info-container
+              .row
+                .medium-3.columns
+                  p День Народження:
+                .medium-9.columns
+                  p 12,01,1989 року
+              .row
+                .medium-3.columns
+                  p Інформація про мене:
+                .medium-9.columns
+                  p Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
+                  p По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
+
+
+
+    = render "partials/footer"

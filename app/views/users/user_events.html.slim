@@ -1,0 +1,101 @@
+.main-wrapper
+  .content-wrapper.not-main
+    = render "partials/header"
+    .content.user-p
+      .row
+        .large-4.medium-4.small-12.columns.user-sidebar
+          .user-backgr
+            = image_tag "user-backgr-1.jpg"
+          .user-img
+            = image_tag "user-1.jpg"
+          h3 Оксана Іваненко
+          h4 Івано-Франківськ
+          .user-links
+            p
+              = link_to t('events.news'), 'javascript:void(0);'
+              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.info'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.message'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.friends'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.photo_reports'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.events'), 'javascript:void(0);'
+              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.settings'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+
+        .medium-8.small-12.columns.user-p-content
+          .container-right
+            .ch-gr-gr
+              = link_to t('Учасник'), 'javascript:void(0);', :class => 'active'
+              = link_to t('Організатор'), 'javascript:void(0);'
+            h1 
+              | Події 
+            .user-events
+              div class=["ev-list-item", "event.event_type"]
+                = image_tag "ev-list-img.jpg"
+                div class="ev-list-type ev-party"
+                .ev-list-info
+                  h2 
+                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
+                  h4 
+                    | Час
+                    span 
+                      | 12:20
+                  h4 
+                    | Учасників
+                    span 
+                      | 12 / 23
+                  h4.organizer
+                    = image_tag "ev-list-user.jpg"
+                    | Організатор
+                    span  Олексій Петренко
+              div class=["ev-list-item", "close"]
+                = image_tag "ev-list-img.jpg"
+                div class="ev-list-type ev-party"
+                .ev-list-info
+                  h2 
+                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
+                  h4 
+                    | Час
+                    span 
+                      | 12:20
+                  h4 
+                    | Учасників
+                    span 
+                      | 12 / 23
+                  h4.organizer
+                    = image_tag "ev-list-user.jpg"
+                    | Організатор
+                    span  Олексій Петренко
+              div class=["ev-list-item", "event.event_type"]
+                = image_tag "ev-list-img.jpg"
+                div class="ev-list-type ev-party"
+                .ev-list-info
+                  h2 
+                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
+                  h4 
+                    | Час
+                    span 
+                      | 12:20
+                  h4 
+                    | Учасників
+                    span 
+                      | 12 / 23
+                  h4.organizer
+                    = image_tag "ev-list-user.jpg"
+                    | Організатор
+                    span  Олексій Петренко
+
+
+
+    = render "partials/footer"

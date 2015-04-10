@@ -1,0 +1,75 @@
+.main-wrapper
+  .content-wrapper.not-main
+    = render "partials/header"
+    .content.user-p
+      .row
+        .large-4.medium-4.small-12.columns.user-sidebar
+          .user-backgr
+            = image_tag "user-backgr-1.jpg"
+          .user-img
+            = image_tag "user-1.jpg"
+          h3 Оксана Іваненко
+          h4 Івано-Франківськ
+          .user-links
+            p
+              = link_to t('events.news'), 'javascript:void(0);'
+              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.info'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.message'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.friends'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.photo_reports'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.events'), 'javascript:void(0);'
+              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.settings'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+
+        .medium-8.small-12.columns.user-p-content
+          .container-right
+            h1 Фотозвіти
+            .ev-item-photos
+              .date
+                | 12 травня 2012
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              = image_tag "ev-photos/ev-ph-1.jpg"
+              = image_tag "ev-photos/ev-ph-2.jpg"
+              = image_tag "ev-photos/ev-ph-3.jpg"
+              = image_tag "ev-photos/ev-ph-4.jpg"
+              = image_tag "ev-photos/ev-ph-5.jpg"
+              = image_tag "ev-photos/ev-ph-6.jpg"
+              = image_tag "ev-photos/ev-ph-7.jpg"
+              = image_tag "ev-photos/ev-ph-8.jpg"
+              = image_tag "ev-photos/ev-ph-9.jpg"
+              = image_tag "ev-photos/ev-ph-10.jpg"
+              = image_tag "ev-photos/ev-ph-11.jpg"
+              = image_tag "ev-photos/ev-ph-12.jpg"
+              = link_to "Переглянути подію", 'javascript:void(0);', class:"view-more-btn"
+
+            .ev-item-photos
+              .date
+                | 12 травня 2012
+              h2 Вечірка в Парк Готелі - "Диско 80х"
+              = image_tag "ev-photos/ev-ph-1.jpg"
+              = image_tag "ev-photos/ev-ph-2.jpg"
+              = image_tag "ev-photos/ev-ph-3.jpg"
+              = image_tag "ev-photos/ev-ph-4.jpg"
+              = image_tag "ev-photos/ev-ph-5.jpg"
+              = image_tag "ev-photos/ev-ph-6.jpg"
+              = image_tag "ev-photos/ev-ph-7.jpg"
+              = image_tag "ev-photos/ev-ph-8.jpg"
+              = image_tag "ev-photos/ev-ph-9.jpg"
+              = image_tag "ev-photos/ev-ph-10.jpg"
+              = image_tag "ev-photos/ev-ph-11.jpg"
+              = image_tag "ev-photos/ev-ph-12.jpg"
+              = link_to "Переглянути подію", 'javascript:void(0);', class:"view-more-btn"
+
+    = render "partials/footer"

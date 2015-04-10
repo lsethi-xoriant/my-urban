@@ -32,10 +32,8 @@ jQuery(document).ready(function() {
 
 	});
 
-	// $('.city-dr-dwn-cont-wr').hover(function(){
-
-	// },function(){
-	// 	// $('.city-dr-dwn-cont-wr').fadeOut(200);
-	// });
+	$('.field_with_errors input').keydown(function(){
+		$(this).parents('.field_with_errors').removeClass('field_with_errors');
+	});
 
 });
