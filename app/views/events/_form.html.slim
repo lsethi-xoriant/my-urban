@@ -33,13 +33,13 @@
               .field-category
                 = f.hidden_field :avatar_id
                 = f.label :category_id, t('events.choose_category')
-                = f.collection_select :category_id, Category.all, :id, :title, :prompt => t('events.category'), selected: Category.first
+                = f.collection_select :category_id , Category.all, :id, :title,  :prompt => ' '
               .field-name
                 = f.label :name, t('events.name')
                 = f.text_field :name
               .field-address
                 = f.label :adress, t('events.address')
-                = f.text_field :adress, id: 'autocomplete'
+                = f.text_field :adress, :placeholder => '', id: 'autocomplete'
                 table#address.hide
                   tr
                     td.label Street address
@@ -67,16 +67,16 @@
                 = f.text_area :description
               .field-data
                 = f.label :data, 'Дата *'
-                = f.date_select :data, {:use_month_names => I18n.t('date.month_names')}
+                = f.date_select :data, :prompt => ' '
               .field-start
                 = f.label :timeStart, t('events.start_time')
-                = f.time_select :timeStart, :minute_step => 5
+                = f.time_select :timeStart, prompt: ' ', :minute_step => 5
               .field-end
                 = f.label :endTime, t('events.end_time')
-                = f.time_select :endTime, :minute_step => 5, :default => nil
+                = f.time_select :endTime, prompt: ' ', :minute_step => 5
               .field-count
                 = f.label :people_count, t('events.participants_group')
-                = f.select :people_count, Event.counts_of_people
+                = f.select :people_count, Event.counts_of_people, :prompt => ' '
               .invite-fr
                 p Запросити друзів:
                 .invite-fr-links
@@ -121,7 +121,7 @@
 
               .field
                 = f.label :reg_type, t('events.reg_type')
-                = f.select :reg_type, Event.replenishment
+                = f.select :reg_type, Event.replenishment, :prompt => ' '
 
 
                 = f.hidden_field :user_id, :value => current_user.id

@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show]
   before_action :authorize, :only => [:edit, :update, :destroy]
 
+  before_filter :filter_blank_time, only: [:create, :update]
+
   respond_to :html
 
   def index 
@@ -127,6 +129,23 @@ class EventsController < ApplicationController
     #binding.pry
     render 'index'#text: "#{@events.count}"#'filter'
   end
+
+  def filter_blank_time
+    if params[:event]['timeStart(4i)'].blank?
+        params[:event]['timeStart(1i)'] = ""
+        params[:event]['timeStart(2i)'] = ""
+        params[:event]['timeStart(3i)'] = ""
+        params[:event]['timeStart(4i)'] = ""
+        params[:event]['timeStart(5i)'] = ""
+    end
+    if params[:event]['endTime(4i)'].blank?
+        params[:event]['endTime(1i)'] = ""
+        params[:event]['endTime(2i)'] = ""
+        params[:event]['endTime(3i)'] = ""
+        params[:event]['endTime(4i)'] = ""
+        params[:event]['endTime(5i)'] = ""
+    end
+end
 
   private
 
