@@ -125,6 +125,12 @@ uk:
     middle_group: 'Середня(16-25 чол)'
     great_group: 'Велика(26-50 чол)'
     choose_event_image: 'Вибрати зображення події'
+    date_day: 'День'
+    date_month: 'Місяць'
+    date_years: 'Рік'
+    time_hours: 'Год'
+    time_minute: 'Хв'
+    participants: 'Оберіть групу'
     manually: 'Вручну'
     automatically: 'Автоматично'
 

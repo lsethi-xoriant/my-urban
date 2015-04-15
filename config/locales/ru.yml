@@ -127,11 +127,17 @@ ru:
     middle_group: 'Средняя(16-25 чел)'
     great_group: 'Большая(26-50чел)'
     choose_event_image: 'Выбрать изображение события'
+    date_day: 'День'
+    date_month: 'Месяц'
+    date_years: 'Год'
+    time_hours: 'Ч'
+    time_minute: 'Мин'
+    participants: 'Выберите групу'
     manually: 'Вручную'
     automatically: 'Автоматически'
 
     
-  users:
+  usДrs:
     view_event: "Посмотреть событие"
 
   state_name: 
