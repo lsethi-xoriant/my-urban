@@ -3,6 +3,9 @@ p#notice = notice
 p
   strong En name:
   = @city.en_name
+p
+  strong Region:
+  = State.find_by_id(@city.state_id).name
 
 = link_to 'Edit', edit_city_path(@city)
 '|
