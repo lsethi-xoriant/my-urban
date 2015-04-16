@@ -38,6 +38,12 @@
               = f.label :urban, I18n.t('activerecord.attributes.user.urban') + '*'
               = f.text_field :urban, id: 'user_city'
             .field
+              = f.label :gender, t('registration.gender')
+              = f.select :gender, User.user_gender, :prompt => ' '
+            .field
+              = f.label :birthday, t('registration.birthday')
+              = f.date_select :birthday, :start_year => 1940, :end_year => Date.today.year, :prompt => ' '
+            .field
               = f.label t('registration.email')
               = f.email_field :email
               = f.hidden_field :avatar_id

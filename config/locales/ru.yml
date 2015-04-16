@@ -78,6 +78,10 @@ ru:
     entrance: "Вход"
 
   registration:
+    gender: "Пол*"
+    man: "Мужчина"
+    woman: "Женщина"
+    birthday: "Дата рождения*"
     label: "Регистрация"
     load_photo: "Загрузить фото"
     max_photo_size: "Максимальный размер - 2MB"
