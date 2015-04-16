@@ -77,6 +77,10 @@ uk:
     remember_me: "Запамятати мене"
     entrance: "Вхід"
   registration:
+    gender: "Стать*"
+    man: "Чоловік"
+    woman: "Жінка"
+    birthday: "Дата народження*"
     label: "Реєстрація"
     load_photo: "Завантажити фото"
     max_photo_size: "Максимальний розмір - 2MB"
