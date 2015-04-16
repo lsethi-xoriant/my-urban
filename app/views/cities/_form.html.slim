@@ -9,10 +9,6 @@
   .field
     = f.label :en_name
     = f.text_field :en_name
-  .field
-    = f.label :ua_name
-    = f.text_field :ua_name
-  .field
-    = f.label :ru_name
-    = f.text_field :ru_name
+    = f.label :state_id, I18n.t('city.choose_state')
+    = f.collection_select :state_id , State.all, :id, :name, :prompt => ' '
   .actions = f.submit

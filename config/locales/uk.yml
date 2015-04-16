@@ -42,6 +42,7 @@ uk:
     many: 'подій'
 
   city:
+    choose_state: 'Оберіть область'
     vinnytsia: 'Вінниця'
     lutsk: 'Луцьк'
     dnepropetrovsk: 'Дніпропетровськ'

@@ -4,11 +4,8 @@ p
   strong En name:
   = @city.en_name
 p
-  strong Ua name:
-  = @city.ua_name
-p
-  strong Ru name:
-  = @city.ru_name
+  strong Region:
+  = State.find_by_id(@city.state_id).name
 
 = link_to 'Edit', edit_city_path(@city)
 '|

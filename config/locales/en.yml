@@ -48,6 +48,7 @@ en:
     crimea: "Crimea"
 
   city:
+    choose_state: 'Choose region'
     vinnytsia: 'Vinnytsia'
     lutsk: "Lutsk"
     dnepropetrovsk: "Dnepropetrovsk"

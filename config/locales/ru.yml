@@ -42,6 +42,7 @@ ru:
     find_city: "Найти свой город"
 
   city:
+    choose_state: 'Выберите область'
     vinnytsia: 'Винница'
     lutsk: 'Луцк'
     dnepropetrovsk: 'Днепропетровск'

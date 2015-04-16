@@ -3,9 +3,7 @@ h1 Listing cities
 table
   thead
     tr
-      th En name
-      th Ua name
-      th Ru name
+      th En name      
       th
       th
       th
@@ -13,9 +11,7 @@ table
   tbody
     - @cities.each do |city|
       tr
-        td = city.en_name
-        td = city.ua_name
-        td = city.ru_name
+        td = city.en_name        
         td = link_to 'Show', city
         td = link_to 'Edit', edit_city_path(city)
         td = link_to 'Destroy', city, data: {:confirm => 'Are you sure?'}, :method => :delete
