@@ -97,10 +97,12 @@
 }
 
 .field_with_errors {
-	input {
+	input, select, textarea {
 		border-color: red !important;
 		background-color: #FFF6F6 !important; 
+		}
 	}
-}
 
-
+#error_explanation {
+	display: none !important;
+	}
