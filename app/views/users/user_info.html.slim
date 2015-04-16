@@ -37,6 +37,7 @@
           .container-right.user-friends-list
             h1 
               | Інформація 
+              = User.find_by_id(params[:id]).last_name
             .user-info-container
               .row
                 .medium-3.columns

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     render 'user_list'
   end
 
-  def profile
+  def profile    
   end
 
   def user_events
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def user_info
+    @user = User.find(params[:id])    
   end
 
   def user_photo
