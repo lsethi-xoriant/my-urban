@@ -141,7 +141,9 @@ ru:
     manually: 'Вручную'
     automatically: 'Автоматически'
 
-    
+  user_info:
+    birthday: "День рождения"
+
   usДrs:
     view_event: "Посмотреть событие"
 

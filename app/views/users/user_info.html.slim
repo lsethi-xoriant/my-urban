@@ -8,8 +8,8 @@
             = image_tag "user-backgr-1.jpg"
           .user-img
             = image_tag "user-1.jpg"
-          h3 Оксана Іваненко
-          h4 Івано-Франківськ
+          h3 = @user.first_name + ' ' + @user.last_name
+          h4 = City.find_by_id(@user.city_id).en_name
           .user-links
             p
               = link_to t('events.news'), 'javascript:void(0);'
@@ -37,11 +37,11 @@
           .container-right.user-friends-list
             h1 
               | Інформація 
-              = User.find_by_id(params[:id]).last_name
+
             .user-info-container
               .row
                 .medium-3.columns
-                  p День Народження:
+                  p = I18n.t('user_info.birthday')
                 .medium-9.columns
                   p 12,01,1989 року
               .row
