@@ -70,7 +70,10 @@ uk:
     simferopol: 'Сімферополь'
 
   user_info:
-    birthday: "День народження"
+    info_label: "Інформація"
+    birthday: "День народження:"
+    birthday_year: "року"
+    about_user: "Інформація про мене:"
 
   sessions:
     registration: "Реєстрація"

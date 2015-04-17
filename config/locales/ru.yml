@@ -142,7 +142,10 @@ ru:
     automatically: 'Автоматически'
 
   user_info:
-    birthday: "День рождения"
+    info_label: "Информация"
+    birthday: "День рождения:"
+    birthday_year: "года"
+    about_user: "Информация обо мне:"
 
   usДrs:
     view_event: "Посмотреть событие"
