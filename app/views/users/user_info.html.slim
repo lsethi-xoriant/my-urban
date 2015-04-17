@@ -7,9 +7,9 @@
           .user-backgr
             = image_tag "user-backgr-1.jpg"
           .user-img
-            = image_tag "user-1.jpg"
-          h3 Оксана Іваненко
-          h4 Івано-Франківськ
+            =image_tag @user.avatar.avatar_url(:thumb) if @user.avatar_id
+          h3 = @user.first_name + ' ' + @user.last_name
+          h4 = City.find_by_id(@user.city_id).en_name 
           .user-links
             p
               = link_to t('events.news'), 'javascript:void(0);'
@@ -36,20 +36,20 @@
         .medium-8.small-12.columns.user-p-content
           .container-right.user-friends-list
             h1 
-              | Інформація 
+              | 
+              =I18n.t("user_info.info_label") 
+
             .user-info-container
               .row
                 .medium-3.columns
-                  p День Народження:
+                  p = I18n.t('user_info.birthday')
                 .medium-9.columns
-                  p 12,01,1989 року
+                  p = @user.birthday.strftime("%d.%m.%Y") + ' ' + I18n.t('user_info.birthday_year')
               .row
                 .medium-3.columns
-                  p Інформація про мене:
+                  p = I18n.t('user_info.about_user')
                 .medium-9.columns
-                  p Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
-                  p По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
-
+                  p = @user.about_user if @user.about_user
 
 
     = render "partials/footer"

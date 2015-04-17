@@ -3,7 +3,7 @@
     - next if u == current_user
     .user
       %strong
-        =u.first_name
+        =link_to u.first_name, {:action => "user_info", :controller => "users", :id => u.id}
         - if u.avatar
           =image_tag u.avatar.avatar_url(:thumb)
       - if !current_user.confirm_friend(u.id)
