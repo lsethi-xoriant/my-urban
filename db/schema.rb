@@ -80,13 +80,6 @@ ActiveRecord::Schema.define(version: 20150416095359) do
     t.datetime "updated_at"
   end
 
-  create_table "pictures", force: true do |t|
-    t.integer  "event_id"
-    t.string   "picture"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "plans", force: true do |t|
     t.string   "status"
     t.integer  "member_id"
@@ -131,10 +124,6 @@ ActiveRecord::Schema.define(version: 20150416095359) do
     t.string   "about_user"
     t.string   "urban"
     t.integer  "city_id"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "language"
     t.integer  "avatar_id"
     t.datetime "birthday"

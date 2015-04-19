@@ -1,69 +1,177 @@
-p#notice= notice
-p
-  strong Категорія:
-  = Category.find_by_id(@event.category_id).title
-p
-  strong Name:
-  = @event.name
-p
-  strong Adress:
-  = @event.adress
-p
-  strong Description:
-  = @event.description
-p
-  strong Data:
-  = @event.data
-p
-  strong Timestart:
-  = @event.timeStart
-p
-  strong Endtime:
-  = @event.endTime
-p
-  strong Photo:
-  = @event.photo
-- if @event.user == current_user 
-  - if user_check_for_availability(@event.id)
-    = form_tag(sent_invites_path, method: 'post') do
-      - current_user.user_friends.each do |friend|
-        - unless friend.are_participation(@event.id)
+.main-wrapper
+  .content-wrapper.not-main
+    = render "partials/header"
+    .content.events.event-single
+      .ev-img
+        .ev-img-shadow
+        = image_tag "event-item-backgr.jpg"
+      .row
+        .ev-title
+          .come-to-ev
+            - if confirm_ability(@event) == 'can'
+              = simple_form_for @plan do |f|
+                = f.hidden_field :measure_id,  value: @event.id
+                - if current_user.come(@plan.measure_id)
+                  = button_to 'Uncoming', plan_path(@plan), name: 'do_not_go', :method => :delete, :class => "btn-5"
+                - elsif current_user.in_turn(@event.id)
+                  | You are in turn 
+                  = button_to 'Uncoming from turn', plan_path(@plan), name: 'do_not_go_turn', :method => :delete, :class => "btn-5"
+                - elsif !current_user.come(@plan.measure_id)
+                  - if check_for_availability(@event.id)
+                    = f.submit 'Зареєструватись на подію', name: 'come', :class => "btn-5"
+                  - else
+                    ' All the places are occupied. Go in
+                    = f.submit 'Turn', name: 'turn'
+            - elsif confirm_ability(@event) == 'not_friend'
+              p This event are close, you aren't friend
+            - elsif confirm_ability(@event) == 'not_user'
+              p Sign in or Sign up
+          h1 = @event.name
+          p.ev-start
+            | Початок: 
+            = @event.timeStart
+            |, 
+            = @event.data
+      .row.ev-single-info
+        .medium-4.small-12.columns.ev-single-main-info
+          .ev-category.ev-list-type.ev-party
+            = Category.find_by_id(@event.category_id).title
+          .ev-address
+            = @event.adress
+          h4.organizer
+            = image_tag "ev-list-user.jpg"
+            | Організатор:
+            span  Олеся Петренко
+          .ev-members
+            | Учасників:
+            span  34 / 50
+            .ev-members-items
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-1.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-2.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-3.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-4.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-5.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-6.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-1.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-2.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-3.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-4.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-5.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-6.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-1.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-2.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-3.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-4.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-5.jpg"
+              = link_to 'javascript:void(0);' do
+                = image_tag "user-sm-6.jpg"
+            = link_to 'Решта 12 учасники', 'javascript:void(0);'
+
+        .medium-8.small-12.columns.ev-single-descr-info
+          .ev-description
+            p = @event.description
+            p Про це заявив журналістам заступник мера Харкова з питань розвитку та забезпечення життєдіяльності міста Ігор Терехов, повідомляють "Українські новини".
+            p "Звичайно, можна звинувачувати всіх у всьому. Але я впевнений на 100%, що ніхто з міськради до цього відношення не має, знаючи позицію цих людей", – заявив Терехов.
+          .map-wr
+            <iframe src="https://www.google.com/maps/d/embed?mid=zH1Kux_8dkoI.kBRyPRvPmxUQ&z=16" width="100%" height="300"></iframe>
+
+    = render "partials/footer"
+
+
+
+
+
+
+
+
+    p#notice
+      = notice
+    script[src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"]
+    script[src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript"]
+    div[style="width: 800px;"]
+      #map[style="width: 800px; height: 400px;"]
+    - content_for :scripts do
+      script
+        |  handler = Gmaps.build('Google'); handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){ markers = handler.addMarkers(<ruby code="=raw @hash.to_json"></ruby>); handler.bounds.extendWith(markers); handler.fitMapToBounds(); }); 
+    p
+      strong
+        | Категорія:
+      = Category.find_by_id(@event.category_id).title
+    p
+      strong
+        | Name:
+      = @event.name
+    p
+      strong
+        | Adress:
+      = @event.adress
+    p
+      strong
+        | Description:
+      = @event.description
+    p
+      strong
+        | Data:
+      = @event.data.strftime('%d.%m.%Y')
+    p
+      strong
+        | Timestart:
+      = @event.timeStart.strftime('%H:%M')
+    p
+      strong
+        | Endtime:
+      = @event.endTime.strftime('%H:%M')
+    p
+      strong
+        | Photo:
+      = @event.photo
+    - if @event.user == current_user
+      =form_tag(sent_invites_path, method: 'post') do
+        - current_user.user_friendships.each do |f|
+          - friend = current_user.user_friend(f)
+          - unless friend.user_invites.where(measure_id: @event.id).exists?
           label.hello
-            = friend.first_name
-            = check_box_tag 'user_ids[]', friend.id, false
-            = hidden_field_tag :event_id, @event.id
-      = submit_tag 'Invite to event'
-  -else 
-    | All Places are occupied. You can't invite friend
-    br
-  - if user_check_for_availability(@event.id) && @event.reg_type == 'manually' && @event.plans.where(status: 'turn').exists?
-      ' People are in the turn. Add to event :
-      br
-       = form_tag(sent_invites_path, method: 'post') do
-        - @event.plans.where(status: 'turn').each do |plan|
-          - user = plan.member
-          label.hello
-            = user.first_name
-            = check_box_tag 'user_ids[]', user.id, false
-            = hidden_field_tag :event_id, @event.id
-        = submit_tag 'Push to event'
-= link_to 'Edit', edit_event_path(@event)
-= link_to 'Back', events_path
-- if confirm_ability(@event) == 'can'
-  = simple_form_for @plan do |f|
-    = f.hidden_field :measure_id,  value: @event.id
-    - if current_user.come(@plan.measure_id)
-      = button_to 'Uncoming', plan_path(@plan), name: 'do_not_go', :method => :delete
-    - elsif current_user.in_turn(@event.id)
-      | You are in turn 
-      = button_to 'Uncoming from turn', plan_path(@plan), name: 'do_not_go_turn', :method => :delete
-    - elsif !current_user.come(@plan.measure_id)
-      - if check_for_availability(@event.id)
-        = f.submit 'Come', name: 'come'
-      - else
-        ' All the places are occupied. Go in
-        = f.submit 'Turn', name: 'turn'
-- elsif confirm_ability(@event) == 'not_friend'
-  p This event are close, you aren't friend
-- elsif confirm_ability(@event) == 'not_user'
-  p Sign in or Sign up
+            =friend.first_name
+            =check_box_tag 'user_ids[]', friend.id, false
+            =hidden_field_tag :event_id, @event.id
+      =submit_tag 'Invite to event'
+    = link_to 'Edit', edit_event_path(@event)
+    |  | 
+    = link_to 'Back', events_path
+    - if confirm_ability(@event) == 'can'
+      = simple_form_for @plan do |f|
+        = f.hidden_field :measure_id,  value: @event.id
+        - if current_user.come(@plan.measure_id)
+          =button_to 'Uncoming', plan_path(@plan), name: 'do_not_go', :method => :delete
+        - elsif current_user.in_turn(@event.id)
+          |  You are in turn 
+          =button_to 'Uncoming from turn', plan_path(@plan), name: 'do_not_go_turn', :method => :delete
+        - elsif !current_user.come(@plan.measure_id)
+          - if check_for_availability(@event.id)
+            = f.submit 'Come', name: 'come'
+          - else
+            |  All the places are occupied. Go in 
+            = f.submit 'Turn', name: 'turn'
+    - elsif confirm_ability(@event) == 'not_friend'
+      p
+        | This event are close, you aren't friend
+    - elsif confirm_ability(@event) == 'not_user'
+      p
+        | Sign in or Sign up
