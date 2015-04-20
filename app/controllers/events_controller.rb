@@ -191,11 +191,7 @@ end
       :category_id,
       :event_type,
       :people_count,
-<<<<<<< HEAD
       :reg_type, :street_number, :street_name, :city_name, :state, :zip_code, :country, :avatar_id, :picture)
-=======
-      :reg_type, :street_number, :street_name, :city_name, :state, :zip_code, :country, :avatar_id, :event_id, :pictures[])
->>>>>>> added multipicture loading
   end
 
 end
