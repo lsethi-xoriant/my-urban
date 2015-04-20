@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   get 'user_info' => 'users#user_info'
   get 'user_events/:id' => 'users#user_events', as: 'user_events'
   get 'user_photo' => 'users#user_photo'
+
+  get 'user_event' => 'users#user_event'
+
   devise_for :users
 
 

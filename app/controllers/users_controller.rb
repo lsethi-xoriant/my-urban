@@ -29,6 +29,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])    
   end
 
+  def user_event
+    @user = User.find(params[:id])
+    #@user_event = Event.where(user_id: @user).all
+    @user_event = Event.all.where(:user_id => @user.id)
+  end
+
   def user_photo
   end
 

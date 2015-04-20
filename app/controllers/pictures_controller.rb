@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
   end
 
   def index
-  	@event = Event.first
+  	@event = Event.find(params[:id])
   	render 'show'
   end
 end
