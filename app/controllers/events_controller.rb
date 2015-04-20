@@ -159,9 +159,7 @@ end
         params[:pictures].each { |picture|
           @event.pictures.create(picture: picture)
         }
-
       end
-
     end
     render "pictures/create"
   end
