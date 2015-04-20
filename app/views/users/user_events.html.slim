@@ -37,12 +37,12 @@
           .container-right
             .ch-gr-gr
               = link_to t('Учасник'), 'javascript:void(0);', :class => 'active'
-              = link_to t('Організатор'), 'javascript:void(0);'
+              = link_to t('Організатор'), user_events_path(:status => 'organizer'), remote: true
             h1 
               | Події 
             .user-events
           div id="posts"
-            =render 'events/list_events'
+            =render 'list_events'
           div style="display:none"
             = will_paginate @events
 

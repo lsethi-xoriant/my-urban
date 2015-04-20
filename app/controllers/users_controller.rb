@@ -9,7 +9,15 @@ class UsersController < ApplicationController
   end
 
   def user_events
-    @events = Event.all.order(:data, :timeStart).paginate(:page => params[:page], :per_page => 5)
+    @events = current_user.intent_measures.paginate(:page => params[:page], :per_page => 2)
+    if params[:status] == 'organizer'
+      @events = current_user.events.paginate(:page => params[:page], :per_page => 2)
+      @status = 'organizer'
+    end
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end  
   end
 
   def user_friends

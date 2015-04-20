@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_many :plans, :foreign_key => :member_id
   has_many :measures, through: :plans, source: :measure
 
+  has_many :intents, -> { where('status =? OR status = ? OR status = ?', 'come', 'turn', 'invite') }, :class_name => "Plan", :foreign_key => :member_id
+  has_many :intent_measures, through: :intents, source: :measure
+
   has_many :friendships
   has_many :friends, :through => :friendships
 
