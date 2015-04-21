@@ -36,65 +36,15 @@
         .medium-8.small-12.columns.user-p-content
           .container-right
             .ch-gr-gr
-              = link_to t('Учасник'), 'javascript:void(0);', :class => 'active'
-              = link_to t('Організатор'), 'javascript:void(0);'
+              = link_to t('Учасник'), user_events_path(:status => 'participation', id: current_user.id), remote: true, :class => 'active participation'
+              = link_to t('Організатор'), user_events_path(:status => 'organizer', id: current_user.id), remote: true, :class => 'organizer'
             h1 
               | Події 
             .user-events
-              div class=["ev-list-item", "event.event_type"]
-                = image_tag "ev-list-img.jpg"
-                div class="ev-list-type ev-party"
-                .ev-list-info
-                  h2 
-                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-                  h4 
-                    | Час
-                    span 
-                      | 12:20
-                  h4 
-                    | Учасників
-                    span 
-                      | 12 / 23
-                  h4.organizer
-                    = image_tag "ev-list-user.jpg"
-                    | Організатор
-                    span  Олексій Петренко
-              div class=["ev-list-item", "close"]
-                = image_tag "ev-list-img.jpg"
-                div class="ev-list-type ev-party"
-                .ev-list-info
-                  h2 
-                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-                  h4 
-                    | Час
-                    span 
-                      | 12:20
-                  h4 
-                    | Учасників
-                    span 
-                      | 12 / 23
-                  h4.organizer
-                    = image_tag "ev-list-user.jpg"
-                    | Організатор
-                    span  Олексій Петренко
-              div class=["ev-list-item", "event.event_type"]
-                = image_tag "ev-list-img.jpg"
-                div class="ev-list-type ev-party"
-                .ev-list-info
-                  h2 
-                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-                  h4 
-                    | Час
-                    span 
-                      | 12:20
-                  h4 
-                    | Учасників
-                    span 
-                      | 12 / 23
-                  h4.organizer
-                    = image_tag "ev-list-user.jpg"
-                    | Організатор
-                    span  Олексій Петренко
+              div id="posts"
+                =render 'list_events'
+              div style="display:none"
+                = will_paginate @events
 
 
 

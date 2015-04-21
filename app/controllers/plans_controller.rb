@@ -42,8 +42,7 @@ class PlansController < ApplicationController
 
   def create_invite 
     @event = Event.find(params[:event_id])
-    binding.pry
-    #@plan = Plan.create(measure_id: params[:event_id], member_id: params[:user_id], status: 'invite')
+    @plan = Plan.create(measure_id: params[:event_id], member_id: params[:user_id], status: 'invite')
     render text: "#{@plan.measure_id} #{@plan.member_id} #{@plan.measure.name} #{@plan.status}"
   end
 
