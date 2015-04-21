@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:user_events]
 	
   def index
     @users = User.all
@@ -9,10 +10,10 @@ class UsersController < ApplicationController
   end
 
   def user_events
-    @events = current_user.intent_measures.paginate(:page => params[:page], :per_page => 3)
+    @events = @user.intent_measures.paginate(:page => params[:page], :per_page => 3)
     @status = 'participation'
     if params[:status] == 'organizer'
-      @events = current_user.events.paginate(:page => params[:page], :per_page => 3)
+      @events = @user.events.paginate(:page => params[:page], :per_page => 3)
       @status = 'organizer'
     end
     respond_to do |format|
@@ -30,4 +31,9 @@ class UsersController < ApplicationController
 
   def user_photo
   end
+
+  private 
+    def set_user
+      @user = User.find(params[:id])
+    end
 end

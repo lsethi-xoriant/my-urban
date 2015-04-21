@@ -26,15 +26,18 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+
   get 'users' => 'users#index'
   #get 'users_controller/index'
   get 'profile' => 'users#profile'
   #get 'users_controller/profile'
   get 'user_friends' => 'users#user_friends'
   get 'user_info' => 'users#user_info'
-  get 'user_events' => 'users#user_events'
+  get 'user_events/:id' => 'users#user_events', as: 'user_events'
   get 'user_photo' => 'users#user_photo'
   devise_for :users
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
