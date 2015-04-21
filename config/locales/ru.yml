@@ -148,8 +148,12 @@ ru:
     birthday_year: "года"
     about_user: "Информация обо мне:"
 
+  user_photo:
+    report_lable:  'Фотоотчеты'
+
   users:
     view_event: "Посмотреть событие"
+    photo_reports: "Фотоотчеты"
 
   state_name: 
     vinnytska: "Винницкая"

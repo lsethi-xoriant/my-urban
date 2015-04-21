@@ -7,31 +7,19 @@
           .user-backgr
             = image_tag "user-backgr-1.jpg"
           .user-img
-            =image_tag @user.avatar.avatar_url(:thumb) if @user.avatar_id
+            = image_tag @user.avatar.avatar_url(:thumb) if @user.avatar_id
           h3 = @user.first_name + ' ' + @user.last_name
           h4 = City.find_by_id(@user.city_id).en_name 
           .user-links
             p
-              = link_to t('events.news'), 'javascript:void(0);'
-              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+              = link_to I18n.t('events.friends'), 'javascript:void(0);'               
+              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"            
+            p              
+              = link_to I18n.t('users.photo_reports'), {:action => "user_photo", :controller => "users", :id => @user.id}
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"            
             p
-              = link_to t('events.info'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.message'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.friends'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.photo_reports'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.events'), 'javascript:void(0);'
-              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.settings'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+              = link_to I18n.t('events.events'), {:action => "user_event", :controller => "users", :id => @user.id}
+              = link_to '35', 'javascript:void(0);', class: "user-links-couner"            
 
         .medium-8.small-12.columns.user-p-content
           .container-right.user-friends-list

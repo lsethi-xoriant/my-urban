@@ -1,5 +1,8 @@
 = label :event, @user.last_name + " " + @user.first_name + " events"
 /= Event.where(:user_id => @user.id).last.name
 - @user_event.each do |t|
-	= link_to t.name, {:action => "index", :controller => "pictures", :id => t.id} 
+	= t.name + " | "
+	= link_to "Photo report", {:action => "user_photo", :controller => "users", :id => @user.id} 
+	= " | "
+	= link_to "Add photos", {:action => "index", :controller => "pictures", :id => t.id} 
 	br

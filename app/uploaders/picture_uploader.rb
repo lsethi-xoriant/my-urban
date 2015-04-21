@@ -17,7 +17,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
   version :medium_picture do
     # returns a 50x50 image
-    process :resize_to_fill => [250, 250]
+     process :resize_to_fill(194,153)
   end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
