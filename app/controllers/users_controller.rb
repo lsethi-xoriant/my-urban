@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def user_events
+    @events = Event.all.order(:data, :timeStart).paginate(:page => params[:page], :per_page => 5)
   end
 
   def user_friends

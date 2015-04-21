@@ -1,0 +1,44 @@
+- if @last_date.nil? || @last_date.to_date != event.data.to_date
+  /=event.data.to_date
+  .ev-list-date
+    h5 
+      =Event.where("date(data) = ?", "#{event.data.to_date}").count 
+      | 
+      =t('events.event_label')
+    h4 
+      = I18n.l event.data.to_date, :format => :event
+      /.strftime("%A, %d.%m.%Y")=t('events.event_label')
+      /12.12.2014
+    - if event.data == Date.today
+        h6 =t('events.today') 
+    end
+div class=["ev-list-item", event.event_type]
+  - if  event.avatar && event.avatar.avatar_url(:medium_image)
+    = image_tag event.avatar.avatar_url(:medium_image)
+  -else
+    = image_tag "ev-list-img.jpg"
+  div class="ev-list-type ev-party"
+  .ev-list-info
+    h2 
+      /= link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
+      = link_to event.name, event_path(event)
+    h4 
+      |
+      =t("events.time_start")
+      span 
+        /12:20
+        =event.timeStart.strftime("%H:%M")
+    h4 
+      | 
+      =t('events.members')
+      span 
+        /12 / 23
+        = event.all_relationships.count
+        | /
+        = number_format_people_count(event.id)
+    h4.organizer
+      = image_tag "ev-list-user.jpg"
+      /= image_tag Avatar.last.avatar_url(:small)
+      | 
+      =t('events.organizer')
+      span  =event.user.first_name + ' ' + event.user.last_name
