@@ -1,2 +1,14 @@
-$('#posts').append("<%= escape_javascript render('list_events') %>");
-$('.pagination').replaceWith('<%= escape_javascript will_paginate(@events) %>');
+if ( ( $(".participation").hasClass('active') )&&(<%=@status == 'participation' %>) || ( $(".organizer").hasClass('active') )&&(<%=@status == 'organizer'%>) ) {
+  $('#posts').append("<%= escape_javascript render('list_events') %>");
+  $('.pagination').replaceWith('<%= escape_javascript will_paginate(@events) %>');
+} else if ( ( $(".participation").hasClass('active') )&&(<%=@status == 'organizer'%>) ){ 
+  $('#posts').html("<%= escape_javascript render('list_events') %>");
+  $('.pagination').replaceWith('<%= escape_javascript will_paginate(@events) %>');
+  $(".organizer").addClass('active');
+  $(".participation").removeClass('active');
+} else if ( ( $(".organizer").hasClass('active') )&&(<%=@status == 'participation'%>) ){ 
+  $('#posts').html("<%= escape_javascript render('list_events') %>");
+  $('.pagination').replaceWith('<%= escape_javascript will_paginate(@events) %>');
+  $(".organizer").removeClass('active');
+  $(".participation").addClass('active');
+} 
