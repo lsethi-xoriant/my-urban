@@ -1,3 +1,4 @@
+=begin
 vinnytska_st = State.new
 language = [:en, :uk, :ru]
 language.each do |l|
@@ -473,3 +474,18 @@ crimea_st.save
 									simferopol.state_id = crimea_st.id
 								end
 								simferopol.save
+=end
+	require 'securerandom'
+	7.times do
+		user = User.new
+		user.email = "test@example#{SecureRandom.hex(3)}.com"
+		user.urban = 'Івано-Франківськ'
+		user.password = 'valid_password'
+		user.password_confirmation = 'valid_password'
+		user.first_name = 'new'
+		user.last_name = 'new'
+		user.gender = 'чоловіча'
+		user.avatar_id = Avatar.last.id
+		user.save!
+		user.plans.create(measure_id: 8, status: 'come')
+	end
