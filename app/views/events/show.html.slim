@@ -28,10 +28,11 @@
               p Sign in or Sign up
           h1 = @event.name
           p.ev-start
-            | Початок: 
-            = @event.timeStart
+            =t('header.begin')
+            |:  
+            = I18n.l @event.timeStart, :format => :single_event
             |, 
-            = @event.data
+            = I18n.l @event.data.to_date, :format => :single_event
       .row.ev-single-info
         .medium-4.small-12.columns.ev-single-main-info
           .ev-category.ev-list-type.ev-party
@@ -53,42 +54,47 @@
               | /
               = number_format_people_count(@event.id)
             .ev-members-items
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-1.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-2.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-3.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-4.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-5.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-6.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-1.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-2.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-3.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-4.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-5.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-6.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-1.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-2.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-3.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-4.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-5.jpg"
-              = link_to 'javascript:void(0);' do
-                = image_tag "user-sm-6.jpg"
+              -@event.all_participations.each do |u|
+                = link_to 'javascript:void(0);' do
+                  - if u.avatar
+                    = image_tag u.avatar.avatar_url(:small)
+                  - else
+                    = image_tag "user-sm-2.jpg"
+              /
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-2.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-3.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-4.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-5.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-6.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-1.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-2.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-3.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-4.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-5.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-6.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-1.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-2.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-3.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-4.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-5.jpg"
+                = link_to 'javascript:void(0);' do
+                  = image_tag "user-sm-6.jpg"
             = link_to 'Решта 12 учасники', 'javascript:void(0);'
 
         .medium-8.small-12.columns.ev-single-descr-info

@@ -26,6 +26,7 @@ uk:
     exit: "Вихід"
     create_event: "Створити подію"
     week_events: " цього тижня"
+    begin: 'Початок'
   footer:
     about_us: "Про нас"
     contacts: "Контакти"
@@ -231,6 +232,7 @@ uk:
       default: "%d.%m.%Y"
       long: "%d %B %Y"
       short: "%d %b"
+      single_event: "%e %B %Y"
     month_names:
     - 
     - Січня
@@ -444,6 +446,7 @@ uk:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
+      single_event: "%H:%M"
     pm: по полудні
   my_errors: 
     messages: 
