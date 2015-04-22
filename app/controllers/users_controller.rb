@@ -36,11 +36,12 @@ class UsersController < ApplicationController
   end
 
   def user_photo
-     @user = User.find(params[:id])
+    #@count_picture = 1
+    @user = User.find(params[:id])
   end
 
   private 
     def set_user
-      @user = User.find(params[:id])
+       @user = User.find(params[:id])
     end
 end

@@ -12,60 +12,62 @@
           h4 = City.find_by_id(@user.city_id).en_name
           .user-links
             p
-              = link_to t('events.news'), 'javascript:void(0);'
-              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+              = link_to I18n.t('events.info'), {:action => "user_info", :controller => "users", :id => @user.id}
             p
-              = link_to t('events.info'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+              = link_to I18n.t('events.friends'), 'javascript:void(0);'               
+              /= link_to '+99', 'javascript:void(0);', class: "user-links-couner"            
+            p              
+              = link_to I18n.t('users.photo_reports'), {:action => "user_photo", :controller => "users", :id => @user.id}
+              /= link_to '1', 'javascript:void(0);', class: "user-links-couner"            
             p
-              = link_to t('events.message'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.friends'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.photo_reports'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.events'), 'javascript:void(0);'
-              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.settings'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+              = link_to I18n.t('events.events'), {:action => "user_event", :controller => "users", :id => @user.id}
+              /= link_to '35', 'javascript:void(0);', class: "user-links-couner"   
 
         .medium-8.small-12.columns.user-p-content
           .container-right
             h1 = I18n.t('users.photo_reports')
             .ev-item-photos
-            - @user.events.each do |e|
-              .date
-                | 
-                /for i18n to date format
-                = l(e.data, :format =>'%d %B %Y') 
-              h2 = e.name
-              - e.pictures.each do |p|
-                = image_tag p.picture_url(:medium_picture)
-                /= p.event_id
-              
+              - @user.events.each do |e|
+                .date
+                  | 
+                  /for i18n to date format
+                  = l(e.data, :format =>'%d %B %Y') 
+                  
+                h2 = e.name
+                -count_picture = 0 
+                - e.pictures.each do |p|
+                  = image_tag p.picture_url(:medium_picture) 
+                  
+                  -count_picture = count_picture + 1
+                  -break if count_picture == 12 
+                  /=count_picture            
+                br
+                /= e.pictures.count
+                = link_to I18n.t('events.show_event'), {:action=>"show", :controller=>"events", :id => e.id}, class:"view-more-btn"
+                br
+                br
+
+
+            
              
               
 
-            .ev-item-photos
-              .date
-                | 12 травня 2012
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              = image_tag "ev-photos/ev-ph-1.jpg"
-              = image_tag "ev-photos/ev-ph-2.jpg"
-              = image_tag "ev-photos/ev-ph-3.jpg"
-              = image_tag "ev-photos/ev-ph-4.jpg"
-              = image_tag "ev-photos/ev-ph-5.jpg"
-              = image_tag "ev-photos/ev-ph-6.jpg"
-              = image_tag "ev-photos/ev-ph-7.jpg"
-              = image_tag "ev-photos/ev-ph-8.jpg"
-              = image_tag "ev-photos/ev-ph-9.jpg"
-              = image_tag "ev-photos/ev-ph-10.jpg"
-              = image_tag "ev-photos/ev-ph-11.jpg"
-              = image_tag "ev-photos/ev-ph-12.jpg"
-              = link_to "Переглянути подію", 'javascript:void(0);', class:"view-more-btn"
+/            .ev-item-photos
+/              .date
+/                | 12 травня 2012
+/              h2 Вечірка в Парк Готелі - "Диско 80х"
+/              = image_tag "ev-photos/ev-ph-1.jpg"
+/              = image_tag "ev-photos/ev-ph-2.jpg"
+/              = image_tag "ev-photos/ev-ph-3.jpg"
+/              = image_tag "ev-photos/ev-ph-4.jpg"
+/              = image_tag "ev-photos/ev-ph-5.jpg"
+/              = image_tag "ev-photos/ev-ph-6.jpg"
+/              = image_tag "ev-photos/ev-ph-7.jpg"
+/              = image_tag "ev-photos/ev-ph-8.jpg"
+/              = image_tag "ev-photos/ev-ph-9.jpg"
+/              = image_tag "ev-photos/ev-ph-10.jpg"
+/              = image_tag "ev-photos/ev-ph-11.jpg"
+/              = image_tag "ev-photos/ev-ph-12.jpg"
+/              = link_to "Переглянути подію", 'javascript:void(0);', class:"view-more-btn"
 
     = render "partials/footer"

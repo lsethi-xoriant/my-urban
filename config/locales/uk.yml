@@ -145,6 +145,7 @@ uk:
     participants: 'Оберіть групу'
     manually: 'Вручну'
     automatically: 'Автоматично'
+    show_event: 'Переглянути подію'
 
   
   users:
