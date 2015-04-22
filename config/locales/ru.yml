@@ -25,6 +25,7 @@ ru:
     exit: "Выход"
     create_event: "Создать событие"
     week_events: " на этой неделе"
+    begin: 'Начало'
   footer:
     about_us: "О нас"
     contacts: "Контакты"
@@ -224,6 +225,7 @@ ru:
       default: "%d.%m.%Y"
       long: "%-d %B %Y"
       short: "%-d %b"
+      single_event: "%e %B %Y"
     month_names:
     - 
     - Января
@@ -443,6 +445,7 @@ ru:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
+      single_event: "%H:%M"
     pm: вечера
   my_errors: 
     messages: 
