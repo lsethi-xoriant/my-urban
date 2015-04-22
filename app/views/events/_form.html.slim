@@ -119,9 +119,10 @@
 
 
 
-              .field
-                = f.label :reg_type, t('events.reg_type')
-                = f.select :reg_type, Event.replenishment, :prompt => ' '
+                .field.hide
+                  = f.label :reg_type, t('events.reg_type')
+                  = f.select :reg_type, Event.replenishment, selected: Event.replenishment[1]
+                  /  :prompt => ' '
 
 
                 = f.hidden_field :user_id, :value => current_user.id

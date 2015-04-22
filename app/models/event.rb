@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 
 
 
-  validates_presence_of :name, :category_id, :description, :adress, :data, :timeStart, :endTime, :people_count, :reg_type
+  validates_presence_of :name, :category_id, :description, :adress, :data, :timeStart, :endTime, :people_count#, :reg_type
   #validates :data , allow_blank: true, format: { with: /\d{2}\.\d{2}\.\d{4}/,
    # message: "only allows data dd.mm.yyyy" }
   #validates :timeStart, :endTime, allow_blank: true, format: { with: /\d{2}:\d{2}/,
