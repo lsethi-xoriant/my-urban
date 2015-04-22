@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name
   validates :last_name, allow_blank: true, format: { with: /\A[a-zA-Zа-яА-ЯіІїЇєЄ]+\z/,
     message: "only allows letters" }
-  #validates_presence_of :gender, :birthday, :password_confirmation 
+  validates_presence_of :gender, :birthday, :password_confirmation 
   #validates_presence_of :city
   belongs_to :city
   #validates_associated :city
