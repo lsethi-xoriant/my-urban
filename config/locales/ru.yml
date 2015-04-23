@@ -42,6 +42,9 @@ ru:
     choose_region: "Выберите вашу область"
     find_city: "Найти свой город"
 
+  friends:
+    name: 'Друзья'
+
   city:
     choose_state: 'Выберите область'
     vinnytsia: 'Винница'

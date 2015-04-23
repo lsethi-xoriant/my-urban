@@ -1,0 +1,19 @@
+.container-right.user-friends-list
+  .ch-gr-gr
+    = link_to t('Всі друзі'), user_friends_path(:status => 'all_friends', id: @user.id), remote: true, :class => 'active all_friends'
+    = link_to t('Спільні друзі'), user_friends_path(:status => 'common', id: @user.id), remote: true, :class => 'common'
+  h1 
+    = t('friends.name')
+    |  
+    span 
+      ="(#{@friends.count})"
+  .user-friends-container
+    .row
+      -@friends.each do |f|
+        .medium-4.columns
+          = link_to 'javascript:void(0);' do
+            - if f.avatar
+              = image_tag f.avatar.avatar_url(:small)
+            - else
+              = image_tag "user-sm-2.jpg"
+          = link_to t('Оксана Михайлів'), 'javascript:void(0);'

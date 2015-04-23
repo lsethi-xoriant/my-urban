@@ -1,3 +1,4 @@
+=begin
 vinnytska_st = State.new
 language = [:en, :uk, :ru]
 language.each do |l|
@@ -473,7 +474,8 @@ crimea_st.save
 									simferopol.state_id = crimea_st.id
 								end
 								simferopol.save
-=begin
+=end
+
 	require 'securerandom'
 	7.times do
 		user = User.new
@@ -487,5 +489,5 @@ crimea_st.save
 		user.avatar_id = Avatar.last.id
 		user.save!
 		user.plans.create(measure_id: 8, status: 'come')
+		user.friendships.create(:friend_id => 1, :status => 'friend')
 	end
-=end
