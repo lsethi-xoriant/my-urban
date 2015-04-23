@@ -54,7 +54,7 @@
               | /
               = number_format_people_count(@event.id)
             .ev-members-items
-              -@event.all_participations.each do |u|
+              -@event.all_participations[0..17].each do |u|
                 = link_to 'javascript:void(0);' do
                   - if u.avatar
                     = image_tag u.avatar.avatar_url(:small)
@@ -95,7 +95,8 @@
                   = image_tag "user-sm-5.jpg"
                 = link_to 'javascript:void(0);' do
                   = image_tag "user-sm-6.jpg"
-            = link_to 'Решта 12 учасники', 'javascript:void(0);'
+            - @event.all_participations.length
+            = link_to "Решта 12 учасники", 'javascript:void(0);'
 
         .medium-8.small-12.columns.ev-single-descr-info
           .ev-description

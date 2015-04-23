@@ -1,7 +1,8 @@
 .container-right.user-friends-list
   .ch-gr-gr
     = link_to t('Всі друзі'), user_friends_path(:status => 'all_friends', id: @user.id), remote: true, :class => 'active all_friends'
-    = link_to t('Спільні друзі'), user_friends_path(:status => 'common', id: @user.id), remote: true, :class => 'common'
+    - if user_signed_in?
+      = link_to t('Спільні друзі'), user_friends_path(:status => 'common', id: @user.id), remote: true, :class => 'common'
   h1 
     = t('friends.name')
     |  
