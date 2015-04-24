@@ -67,7 +67,7 @@
                 = f.text_area :description
               .field-data
                 = f.label :data, 'Дата *'
-                = f.date_select :data, :prompt => ' '
+                = f.date_select :data, :default => Date.today
               .field-start
                 = f.label :timeStart, t('events.start_time')
                 = f.time_select :timeStart, prompt: ' ', :minute_step => 5
@@ -76,7 +76,7 @@
                 = f.time_select :endTime, prompt: ' ', :minute_step => 5
               .field-count
                 = f.label :people_count, t('events.participants_group')
-                = f.select :people_count, Event.counts_of_people, :prompt => ' '
+                = f.select :people_count, Event.counts_of_people, :selected => 'little'
               .invite-fr
                 p Запросити друзів:
                 .invite-fr-links
