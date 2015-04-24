@@ -130,6 +130,8 @@ class EventsController < ApplicationController
     render 'index'#text: "#{@events.count}"#'filter'
   end
 
+
+
   def filter_blank_time
     if params[:event]['timeStart(4i)'].blank?
         params[:event]['timeStart(1i)'] = ""
@@ -146,6 +148,24 @@ class EventsController < ApplicationController
         params[:event]['endTime(5i)'] = ""
     end
 end
+
+
+
+  def upload_picture
+    @event = Event.find(params[:id])    
+    if params[:commit] == 'Picture'
+      # to handle multiple images upload on create    
+      if params[:pictures]
+        params[:pictures].each { |picture|
+          @event.pictures.create(picture: picture)
+        }
+      end
+    end
+    render "pictures/create"
+  end
+
+
+
 
   private
 
@@ -169,6 +189,7 @@ end
       :category_id,
       :event_type,
       :people_count,
-      :reg_type, :street_number, :street_name, :city_name, :state, :zip_code, :country, :avatar_id)
+      :reg_type, :street_number, :street_name, :city_name, :state, :zip_code, :country, :avatar_id, :picture)
   end
+
 end

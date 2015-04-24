@@ -22,6 +22,14 @@ class Event < ActiveRecord::Base
 
 
 
+
+  # Album has many photos
+  has_many :pictures, :dependent => :destroy
+  # enable nested attributes for photos through eventa class
+  accepts_nested_attributes_for :pictures, allow_destroy: true
+
+
+
   validates_presence_of :name, :category_id, :description, :adress, :data, :timeStart, :endTime, :people_count#, :reg_type
   #validates :data , allow_blank: true, format: { with: /\d{2}\.\d{2}\.\d{4}/,
    # message: "only allows data dd.mm.yyyy" }

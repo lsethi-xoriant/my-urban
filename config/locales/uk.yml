@@ -145,10 +145,12 @@ uk:
     participants: 'Оберіть групу'
     manually: 'Вручну'
     automatically: 'Автоматично'
+    show_event: 'Переглянути подію'
 
-    
+  
   users:
     view_event: "Переглянути подію"
+    photo_reports: "Фотозвіти"
 
   state_name: 
     ternopil: "Тернопільська"

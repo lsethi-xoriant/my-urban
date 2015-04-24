@@ -141,6 +141,7 @@ ru:
     participants: 'Выберите групу'
     manually: 'Вручную'
     automatically: 'Автоматически'
+    show_event: 'Посмотреть событие'
 
   user_info:
     info_label: "Информация"
@@ -148,8 +149,12 @@ ru:
     birthday_year: "года"
     about_user: "Информация обо мне:"
 
+  user_photo:
+    report_lable:  'Фотоотчеты'
+
   users:
     view_event: "Посмотреть событие"
+    photo_reports: "Фотоотчеты"
 
   state_name: 
     vinnytska: "Винницкая"

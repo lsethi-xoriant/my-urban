@@ -1,11 +1,12 @@
 .users
   - @users.each do |u|
-    - next if u == current_user
+    /- next if u == current_user
     .user
       %strong
         =link_to u.first_name, {:action => "user_info", :controller => "users", :id => u.id}
         - if u.avatar
           =image_tag u.avatar.avatar_url(:thumb)
+        =link_to "Show user events", {:action => "user_event", :controller => "users", :id => u.id}
       - if !current_user.confirm_friend(u.id)
         =link_to "Add Friend", friendships_path(:friend_id => u), :method => :post
       =link_to "Invite to Event", invite_path(:user_id => u.id), :method => :get
