@@ -45,6 +45,11 @@ uk:
     few: 'події'
     many: 'подій'
 
+  case_of_member:
+    one: 'учасник'
+    few: 'учасники'
+    many: 'учасників'
+
   city:
     choose_state: 'Оберіть область'
     vinnytsia: 'Вінниця'

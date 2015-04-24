@@ -477,7 +477,7 @@ crimea_st.save
 =end
 
 	require 'securerandom'
-	7.times do
+	18.times do
 		user = User.new
 		user.email = "test@example#{SecureRandom.hex(3)}.com"
 		user.urban = 'Івано-Франківськ'
@@ -488,6 +488,5 @@ crimea_st.save
 		user.gender = 'чоловіча'
 		user.avatar_id = Avatar.last.id
 		user.save!
-		user.plans.create(measure_id: 8, status: 'come')
-		user.friendships.create(:friend_id => 1, :status => 'friend')
+		user.plans.create(measure_id: 14, status: 'come')
 	end

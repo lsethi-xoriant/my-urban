@@ -42,15 +42,29 @@ class EventsController < ApplicationController
     else
       @p = Plan.where(reg_type: "nobody")
     end
+
     if user_signed_in? && @p.count == 0
       @plan = Plan.new 
     elsif user_signed_in? && @p.count == 1
       @plan = @p.first
     end
+
     @hash = Gmaps4rails.build_markers(@event) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
     end
+
+    @status = params[:status]
+
+    @participations = @event.all_participations if params[:status] == 'more_members'
+    @participations = @event.all_participations[0..17] if params[:status] == 'less_members'
+
+    @address = @event.street_number + ', ' + @event.street_name + ", " + @event.city_name
+
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end  
   end
 
   def new

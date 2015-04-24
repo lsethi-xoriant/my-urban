@@ -1,0 +1,52 @@
+| Учасників:
+span  
+  = @event.all_relationships.count
+  | /
+  = number_format_people_count(@event.id)
+.ev-members-items
+  -@participations.each do |u|
+    = link_to 'javascript:void(0);' do
+      - if u.avatar
+        = image_tag u.avatar.avatar_url(:small)
+      - else
+        = image_tag "user-sm-2.jpg"
+  /
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-2.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-3.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-4.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-5.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-6.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-1.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-2.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-3.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-4.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-5.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-6.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-1.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-2.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-3.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-4.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-5.jpg"
+    = link_to 'javascript:void(0);' do
+      = image_tag "user-sm-6.jpg"
+- if @status == 'less_members'
+  - count = @event.all_participations.length - 18
+  = link_to "Решта #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
+- else 
+  = link_to "Приховати решту учасників", event_path(id: @event.id, status: 'less_members'), remote: true, class: 'other_member'

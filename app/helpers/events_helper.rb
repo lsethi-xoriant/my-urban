@@ -16,6 +16,22 @@ module EventsHelper
     end
   end
 
+  def case_of_member(count)
+    if count == 1
+      t('case_of_member.one')
+    elsif count<=4&&count>1
+      t('case_of_member.few')
+    elsif count>=5&&count<21
+      t('case_of_member.many')
+    elsif count>=21&&count%10 == 1
+      t('case_of_member.one')
+    elsif count>=22&&(count%10 == 2 || count%10 == 3 || count%10 == 4)
+      t('case_of_member.few')    
+    else
+      t('case_of_member.many')
+    end
+  end
+
   def categories_collection
     Category.all.map {|c| ["#{c.title} #{Event.where(category_id: c.id).count}", c.id]}
   end
