@@ -7,7 +7,13 @@
           .user-backgr
             = image_tag "user-backgr-1.jpg"
           .user-img
-            = image_tag @user.avatar.avatar_url(:thumb) if @user.avatar_id
+            - if  @user.avatar_id && @user.avatar.avatar_url(:medium_image)
+              = image_tag @user.avatar.avatar_url(:medium_image)
+            - else
+              = image_tag "user-1.jpg"
+
+            
+
           h3 = @user.first_name + ' ' + @user.last_name
           h4 = City.find_by_id(@user.city_id).en_name
           .user-links
