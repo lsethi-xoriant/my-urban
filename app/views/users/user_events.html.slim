@@ -45,6 +45,8 @@
                 =render 'list_events'
               div style="display:none"
                 = will_paginate @events
+                -if @events.length == 0
+                  div class='pagination'
 
 
 
