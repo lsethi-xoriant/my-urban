@@ -73,6 +73,6 @@ class AvatarsController < ApplicationController
     end
 
     def avatar_params
-      params.require(:avatar).permit(:avatar,:avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h)
+      params.require(:avatar).permit(:name, :avatar,:avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h )
     end
 end

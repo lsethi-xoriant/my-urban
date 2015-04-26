@@ -15,6 +15,7 @@
             .upload-img
               = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
                 = hidden_field_tag :user_page, 'sign_up'
+                = f.hidden_field :name, value: 'user'
                 = f.file_field(:avatar, class:"ddd", 'data-reveal-id' => "firstModal")
                 .hide 
                   =f.submit

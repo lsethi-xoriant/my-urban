@@ -9,23 +9,35 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
 
-  version :jumbo do
-    resize_to_limit(800,800)
+  version :jumbo, if: :is_human? do
+    resize_to_limit(1000,1000)
   end
 
-  version :thumb do
-    process crop: [:avatar, 800, 800]  ## Crops this version based on original image
+  version :thumb, if: :is_human? do
+    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
     resize_to_limit(100,100)
   end
 
 
-  version :small do
-    process crop: [:avatar, 800, 800]  ## Crops this version based on original image
+  version :small, if: :is_human? do
+    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
     resize_to_limit(34,34)
   end
 
-  version :medium_image do
-    process crop: [:avatar, 800, 800]  ## Crops this version based on original image
+
+  version :base, if: :is_event? do
+    resize_to_limit(1500,1500)
+  end
+
+
+  version :large_image, if: :is_event? do
+    process crop: [:avatar, 1500, 1500]  ## Crops this version based on original image
+    resize_to_fill(1351,477)
+  end
+
+
+  version :medium_image, if: :is_event? do
+    process crop: [:avatar, 1400, 1400]  ## Crops this version based on original image
     resize_to_fill(194,153)
   end
   # storage :fog
@@ -36,6 +48,24 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  private 
+
+    def is_human? picture
+      if model.name == "user"
+        return true
+      else 
+        return false
+      end
+    end
+
+    def is_event? picture
+      if model.name == "event"
+        return true
+      else 
+        return false
+      end
+      
+    end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
