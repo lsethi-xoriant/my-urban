@@ -24,6 +24,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
     resize_to_limit(34,34)
   end
 
+  version :medium, if: :is_human? do
+    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
+    resize_to_limit(139,139)
+  end
+
 
   version :base, if: :is_event? do
     resize_to_limit(1500,1500)

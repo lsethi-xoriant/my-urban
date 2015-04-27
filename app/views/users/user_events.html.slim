@@ -3,41 +3,12 @@
     = render "partials/header"
     .content.user-p
       .row
-        .large-4.medium-4.small-12.columns.user-sidebar
-          .user-backgr
-            = image_tag "user-backgr-1.jpg"
-          .user-img
-            = image_tag "user-1.jpg"
-          h3 Оксана Іваненко
-          h4 Івано-Франківськ
-          .user-links
-            p
-              = link_to t('events.news'), 'javascript:void(0);'
-              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.info'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.message'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.friends'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.photo_reports'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.events'), 'javascript:void(0);'
-              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.settings'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-
+        = render 'partials/sidebar'
         .medium-8.small-12.columns.user-p-content
           .container-right
             .ch-gr-gr
-              = link_to t('Учасник'), user_events_path(:status => 'participation', id: current_user.id), remote: true, :class => 'active participation'
-              = link_to t('Організатор'), user_events_path(:status => 'organizer', id: current_user.id), remote: true, :class => 'organizer'
+              = link_to t('Учасник'), user_events_path(:status => 'participation', id: params[:id]), remote: true, :class => 'active participation'
+              = link_to t('Організатор'), user_events_path(:status => 'organizer', id: params[:id]), remote: true, :class => 'organizer'
             h1 
               | Події 
             .user-events
@@ -45,7 +16,7 @@
                 =render 'list_events'
               div style="display:none"
                 = will_paginate @events
-                -if @events.length == 0
+                -if @events.length <=5
                   div class='pagination'
 
 
