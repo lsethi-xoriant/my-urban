@@ -40,6 +40,8 @@
         .medium-4.small-12.columns.ev-single-main-info
           .ev-category.ev-list-type.ev-party
             = Category.find_by_id(@event.category_id).title
+          - if current_user.id == @event.user.id
+          = link_to 'Видалити подію', event_path(@event), :method => :delete, :data => { :confirm => 'Are you sure?' }
           .ev-address
             - if @event.street_name?
               span[id = "st_name"]

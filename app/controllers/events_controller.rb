@@ -111,7 +111,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    respond_with(@event)
+    redirect_to root_path
   end
 
   def authorize  

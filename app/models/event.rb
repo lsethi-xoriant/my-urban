@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   belongs_to :city
-  belongs_to :avatar
+  belongs_to :avatar, dependent: :destroy
   
   has_many :plans, :foreign_key => :measure_id
   has_many :members, through: :plans, source: :member 
