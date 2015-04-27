@@ -10,10 +10,10 @@ class UsersController < ApplicationController
   end
 
   def user_events
-    @events = @user.intent_measures.paginate(:page => params[:page], :per_page => 3)
+    @events = @user.intent_measures.paginate(:page => params[:page], :per_page => 5)
     @status = 'participation'
     if params[:status] == 'organizer'
-      @events = @user.events.paginate(:page => params[:page], :per_page => 3)
+      @events = @user.events.paginate(:page => params[:page], :per_page => 5)
       @status = 'organizer'
     end
     respond_to do |format|

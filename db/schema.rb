@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150416095359) do
-
+ActiveRecord::Schema.define(version: 20150426161957) do
 
   create_table "avatars", force: true do |t|
     t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "categories", force: true do |t|
@@ -102,6 +101,13 @@ ActiveRecord::Schema.define(version: 20150416095359) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+  create_table "pictures", force: true do |t|
+    t.integer  "event_id"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "plans", force: true do |t|
     t.string   "status"

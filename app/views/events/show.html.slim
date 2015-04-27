@@ -4,7 +4,10 @@
     .content.events.event-single
       .ev-img
         .ev-img-shadow
-        = image_tag "event-item-backgr.jpg"
+        - if @event.avatar && @event.avatar.avatar_url(:large_image)
+          = image_tag @event.avatar.avatar_url(:large_image)
+        -else
+          = image_tag "event-item-backgr.jpg"
       .row
         .ev-title
           .come-to-ev

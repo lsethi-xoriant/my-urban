@@ -1,11 +1,12 @@
 <%= form_for @avatar, remote: true  do |f| %>
   <%= hidden_field_tag :user_page, 'new_event'%>
-  <%= f.cropbox :avatar, version: :jumbo %>
+  <%= f.hidden_field :name, value: 'event'%>
+  <%= f.cropbox :avatar, version: :base %>
   <%= f.submit 'Crop', class:"avatar-crop-btn" %>
 <%end%>
 <script>
     $('#avatar_avatar_cropbox').Jcrop({
-      aspectRatio: 1.2,
+      aspectRatio: 2.83,
       setSelect: [0, 0, 194, 153],
       onSelect: this.update,
       onChange: this.update
