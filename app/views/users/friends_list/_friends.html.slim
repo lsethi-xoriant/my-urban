@@ -13,7 +13,7 @@
       -@friends.each do |f|
         .medium-4.columns
           = link_to 'javascript:void(0);' do
-            - if f.avatar
+            - if f.avatar && f.avatar.avatar.file.exists?
               = image_tag f.avatar.avatar_url(:small)
             - else
               = image_tag "user-sm-2.jpg"

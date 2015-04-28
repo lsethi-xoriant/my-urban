@@ -1,11 +1,21 @@
+.main-wrapper
+  .content-wrapper.not-main
+    = render "partials/header"
+    .content.create-events
+      .row
+        =render 'partials/sidebar'
+
+        
+        .medium-8.small-12.columns.new-ev-form-wr
           script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&language=en"
           .new-ev-form
             h1
               |  
-              =t('events.create_label')
-            = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
+              =t('events.edit_label')
+            - avatar = @event.avatar&&@event.avatar.avatar.file.exists? ? @event.avatar : Avatar.new
+            = form_for avatar, remote: true, :authenticity_token => true,  html: {class: 'new_avatar', id: 'new_avatar'} do |f|
               .field
-                = hidden_field_tag :user_page, 'new_event'
+                = hidden_field_tag :user_page, 'edit_event'
                 = f.hidden_field :name, value: 'event'
                 = link_to I18n.t('events.choose_event_image'), 'javascript:void(0);', class:"btn-4"
                 = f.file_field :avatar, 'data-reveal-id' => "secondModal"
@@ -82,21 +92,26 @@
                 p Запросити друзів:
                 .invite-fr-links
                   = link_to t('events.your_friends'), 'javascript:void(0);', :class => 'active'
-                  = link_to t('events.invite_from_facebook'), 'javascript:void(0);'
                 .invite-fr-list
                   -current_user.user_friends.each do |friend|
-                    .invite-fr-list-item
-                      = link_to 'javascript:void(0);' do
+                    - if friend.are_participation(params[:id])
+                      .invite-fr-list-item.invited
+                        = link_to 'javascript:void(0);' do
+                        - if friend.avatar&&friend.avatar.avatar.file.exists?
+                          = image_tag friend.avatar.avatar_url(:small)
+                        - else
+                          = image_tag "user-sm-2.jpg"                       
+                        = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);'
+                        = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
+                    -else 
+                      .invite-fr-list-item
+                        = link_to 'javascript:void(0);' do
                         - if friend.avatar&&friend.avatar.avatar.file.exists?
                           = image_tag friend.avatar.avatar_url(:small), class: 'user_for_invite'
                         - else
                           = image_tag "user-sm-2.jpg", class: 'user_for_invite'                       
-                      = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
-                      = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
-
-
-
-
+                        = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
+                        = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
 
                 .field.hide
                   = f.label :reg_type, t('events.reg_type')
@@ -106,4 +121,9 @@
 
                 = f.hidden_field :user_id, :value => current_user.id
                 .actions
-                  = f.submit t('header.create_event'), :class => 'btn-2 btn-3', id: 'inputId'
+                  = f.submit 'Редагувати', :class => 'btn-2 btn-3', id: 'inputId'
+
+
+    = render "partials/footer"
+
+

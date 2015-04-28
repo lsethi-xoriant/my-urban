@@ -1,10 +1,11 @@
-- user = User.find(params[:id])
-- if current_user && current_user.id == params[:id].to_i
+- id = params[:id]||current_user.id
+- user = User.find(id)
+- if current_user && current_user.id == id
   .large-4.medium-4.small-12.columns.user-sidebar
     .user-backgr
       = image_tag "user-backgr-1.jpg"
     .user-img
-      - if  user.avatar_id && user.avatar.avatar_url(:medium)
+      - if  user.avatar && user.avatar.avatar.file.exists? && user.avatar.avatar_url(:medium)
         = image_tag user.avatar.avatar_url(:medium)
       - else
         = image_tag "user-1.jpg"    
@@ -37,7 +38,7 @@
     .user-backgr
       = image_tag "user-backgr-1.jpg"
     .user-img
-      - if  user.avatar_id && user.avatar.avatar_url(:medium)
+      - if  user.avatar_id && user.avatar.avatar.file.exists? && user.avatar.avatar_url(:medium)
         = image_tag user.avatar.avatar_url(:medium)
       - else
         = image_tag "user-1.jpg"
