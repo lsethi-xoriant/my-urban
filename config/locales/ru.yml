@@ -205,7 +205,8 @@ ru:
         urban: 'Город'
         password: 'Пароль'
         email: 'Емейл'
-        password_confirmation: 'Проверка пароля'        
+        password_confirmation: 'Проверка пароля'
+                
   date:
     abbr_day_names:
     - Вс
