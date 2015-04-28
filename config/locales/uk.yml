@@ -113,6 +113,7 @@ uk:
     members: "Учасників:"
     organizer: "Організатор:"
     today: "Сьогодні"
+    events_today: "сьогодні"
     this_week: "цього тижня"
     find: "Пошук подій..."
     type: "Тип події"
@@ -154,6 +155,9 @@ uk:
     manually: 'Вручну'
     automatically: 'Автоматично'
     show_event: 'Переглянути подію'
+
+  event:
+    reg_at: 'Зареєструватись на подію'
 
   
   users:
