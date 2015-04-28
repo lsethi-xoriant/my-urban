@@ -128,6 +128,7 @@ ru:
     events: "События"
     settings: "Настройка"
     create_label: "Создать новое событие"
+    edit_label: "Редактировать событие"
     choose_category: "Выберите категорию"
     category: "Категория"
     name: "Название события *"

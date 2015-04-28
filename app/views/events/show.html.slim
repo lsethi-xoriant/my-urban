@@ -4,7 +4,7 @@
     .content.events.event-single
       .ev-img
         .ev-img-shadow
-        - if @event.avatar && @event.avatar.avatar_url(:large_image)
+        - if @event.avatar && @event.avatar.avatar.file.exists? && @event.avatar.avatar_url(:large_image)
           = image_tag @event.avatar.avatar_url(:large_image)
         -else
           = image_tag "event-item-backgr.jpg"
@@ -56,7 +56,7 @@
             = city_name(@event.id)
             /= @event.city_name
           h4.organizer
-            -if @event.user.avatar
+            -if @event.user.avatar && @event.user.avatar.avatar.file.exists?
               = image_tag "ev-list-user.jpg"
               /= image_tag @event.user.avatar.avatar_url(:small)
             -else
@@ -73,45 +73,11 @@
             .ev-members-items
               -@event.all_participations[0..17].each do |u|
                 = link_to 'javascript:void(0);' do
-                  - if u.avatar
+                  - if u.avatar && u.avatar.avatar.file.exists?
                     = image_tag u.avatar.avatar_url(:small)
                   - else
                     = image_tag "user-sm-2.jpg"
-              /
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-2.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-3.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-4.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-5.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-6.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-1.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-2.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-3.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-4.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-5.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-6.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-1.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-2.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-3.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-4.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-5.jpg"
-                = link_to 'javascript:void(0);' do
-                  = image_tag "user-sm-6.jpg"
+
             - if @event.all_participations.length > 18
               - count = @event.all_participations.length - 18
               = link_to "Решта #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'

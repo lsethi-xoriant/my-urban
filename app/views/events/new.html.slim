@@ -3,35 +3,7 @@
     = render "partials/header"
     .content.create-events
       .row
-        .large-4.medium-4.small-12.columns.user-sidebar
-          .user-backgr
-            = image_tag "user-backgr-1.jpg"
-          .user-img
-            = image_tag "user-1.jpg"
-          h3 Оксана Іваненко
-          h4 Івано-Франківськ
-          .user-links
-            p
-              = link_to t('events.news'), 'javascript:void(0);'
-              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.info'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.message'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.friends'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.photo_reports'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.events'), 'javascript:void(0);'
-              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.settings'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+        =render 'partials/sidebar'
 
         
         .medium-8.small-12.columns.new-ev-form-wr
@@ -41,7 +13,4 @@
 
 
 
-/ h1
-/   | Нова подія
-/ = render 'form'
-/ = link_to 'Back', events_path
+

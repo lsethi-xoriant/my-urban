@@ -132,6 +132,7 @@ uk:
     events: "Події"
     settings: "Налаштування"
     create_label: "Створити нову подію"
+    edit_label: "Редагувати подію"
     choose_category: "Оберіть категорію"
     category: "Категорія"
     name: 'Назва події *'
