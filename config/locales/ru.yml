@@ -109,6 +109,7 @@ ru:
     members: "Участников:"
     organizer: "Организатор:"
     today: "Сегодня"
+    events_today: "сегодня"
     this_week: "на этой неделе"
     find: "Поиск событий ..."
     type: "Тип события"
@@ -150,6 +151,9 @@ ru:
     manually: 'Вручную'
     automatically: 'Автоматически'
     show_event: 'Посмотреть событие'
+
+  event:
+    reg_at: 'Регистрация на событие'
 
   user_info:
     info_label: "Информация"
@@ -202,6 +206,7 @@ ru:
         password: 'Пароль'
         email: 'Емейл'
         password_confirmation: 'Проверка пароля'
+                
   date:
     abbr_day_names:
     - Вс

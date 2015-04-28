@@ -4,7 +4,7 @@
     h5 
       =Event.where("date(data) = ?", "#{event.data.to_date}").count 
       | 
-      =t('events.event_label')
+      =case_of_event(Event.where("date(data) = ?", "#{event.data.to_date}").count)
     h4 
       = I18n.l event.data.to_date, :format => :event
       /.strftime("%A, %d.%m.%Y")=t('events.event_label')
