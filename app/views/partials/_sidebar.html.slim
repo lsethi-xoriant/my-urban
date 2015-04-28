@@ -4,7 +4,7 @@
     .user-backgr
       = image_tag "user-backgr-1.jpg"
     .user-img
-      - if  user.avatar_id && user.avatar.avatar_url(:medium)
+      - if  user.avatar && user.avatar.avatar_url(:medium)
         = image_tag user.avatar.avatar_url(:medium)
       - else
         = image_tag "user-1.jpg"    
