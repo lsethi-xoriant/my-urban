@@ -1,0 +1,75 @@
+.main-wrapper
+  .video-wrapper
+    / <iframe frameborder="0" height="108%" width="100%" src="https://youtube.com/embed/WFD1zM2Exmw?autoplay=1&loop=1&controls=0&showinfo=0&playlist=WFD1zM2Exmw"></iframe>
+  .content-wrapper
+    = render "partials/header"
+    div class="content registration-wrapper"
+      .row
+        / = render "devise/shared/links"
+        = link_to 'Назад', users_path, class:"back"
+        .form-wrapper
+          h2
+            | 
+            =t('edit.label')
+          .upload
+            .upload-img
+              =image_tag @user.avatar.avatar_url(:thumb)
+              = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
+                = hidden_field_tag :user_page, 'sign_up'
+                = f.hidden_field :name, value: 'user'
+                = f.file_field(:avatar, class:"ddd", 'data-reveal-id' => "firstModal")
+                
+                .hide 
+                  =f.submit
+            
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+
+            div[id="AvatarModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
+              a [class="close-reveal-modal" aria-label="Close"] &#215;
+              h2 sssQQ
+              #avatar_edit
+            s            
+
+            .field           
+              = f.label :first_name, t('registration.name')
+              = f.text_field :first_name, :autofocus => true
+            .field
+              = f.label :last_name, t('registration.surname')
+              = f.text_field :last_name
+            .field
+              = f.label :urban, I18n.t('activerecord.attributes.user.urban') + '*'
+              = f.text_field :urban, id: 'user_city'
+            .field
+              = f.label :gender, t('registration.gender')
+              = f.select :gender, User.user_gender, :prompt => ' '
+            .field
+              = f.label :birthday, t('registration.birthday')
+              = f.date_select :birthday, :start_year => 1940, :end_year => Date.today.year, :prompt => ' '
+            .field
+              = f.label t('registration.email')
+              = f.email_field :email
+              = f.hidden_field :avatar_id
+            .field
+              = f.label :password, t('edit.new_password')
+              - if @validatable
+                em
+                  | (мін 
+                  = @minimum_password_length
+                  |  символів)
+              = f.password_field :password, autocomplete: "off"
+            .field
+              = f.label :password_confirmation, t('registration.password_confirmation')
+              = f.password_field :password_confirmation, autocomplete: "off"
+            .field
+              = f.label :about_user, t('registration.about_user')
+              = f.text_area :about_user, rows: 5
+            .field
+              = f.label :language, t('registration.lang')
+              = f.select :language, ['uk', 'ru']
+            .field
+              = f.label :password, t('edit.current_password')
+              = f.password_field :current_password, autocomplete: "off"
+            .actions
+              = f.submit t('edit.save_btn'), class:"btn-2"
+  

@@ -1,4 +1,5 @@
 .users
+  =link_to "edit profile current user", users_path + '/edit'
   - @users.each do |u|
     /- next if u == current_user
     .user

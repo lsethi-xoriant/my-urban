@@ -107,6 +107,14 @@ uk:
     about_user: "Коротко про себе"
     lang: "Мова"
     btn: "Зареєструватись"
+
+  edit:
+    label: "Редагування"
+    new_password: "Новий пароль(залиште поле порожнім, якщо не хочете змінювати пароль)"
+    new_password_confirmation: "Підтвердження нового паролю" 
+    current_password: "Поточний пароль, щоб зберегти зміни)"
+    save_btn: "Зберегти"
+
   events:
     event_label: "подій"
     time_start: "Час:"
