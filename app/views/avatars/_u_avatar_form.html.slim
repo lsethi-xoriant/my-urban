@@ -1,0 +1,5 @@
+= form_for @avatar, remote: true, :authenticity_token => true,  html: {class: 'new_avatar', id: 'new_avatar'} do |f|
+  .field
+    = hidden_field_tag :user_page, 'edit_user'
+    = f.hidden_field :name, value: 'user'
+    = f.file_field :avatar, 'data-reveal-id' => "secondModal"
