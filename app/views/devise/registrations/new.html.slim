@@ -13,12 +13,23 @@
             =t('registration.label')
           .upload
             .upload-img
-              = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
-                = hidden_field_tag :user_page, 'sign_up'
-                = f.hidden_field :name, value: 'user'
-                = f.file_field(:avatar, class:"ddd", 'data-reveal-id' => "firstModal")
-                .hide 
-                  =f.submit
+              - if params[:user] && params[:user][:avatar_id]
+                - p = params[:user][:avatar_id]
+                - a = Avatar.find(p)
+                = image_tag a.avatar_url(:medium)
+                = form_for a, remote: true, :authenticity_token => true do |f|
+                  = hidden_field_tag :user_page, 'edit_user'
+                  = f.hidden_field :name, value: 'user'
+                  = f.file_field(:avatar, class:"ddd", 'data-reveal-id' => "firstModal")
+                  .hide 
+                    =f.submit
+              - else
+                = form_for Avatar.new, remote: true, :authenticity_token => true do |f|
+                  = hidden_field_tag :user_page, 'sign_up'
+                  = f.hidden_field :name, value: 'user'
+                  = f.file_field(:avatar, class:"ddd", 'data-reveal-id' => "firstModal")
+                  .hide 
+                    =f.submit               
             p =t('registration.load_photo')
             p =t('registration.max_photo_size')
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|

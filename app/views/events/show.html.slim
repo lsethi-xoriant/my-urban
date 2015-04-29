@@ -57,7 +57,7 @@
             /= @event.city_name
           h4.organizer
             -if @event.user.avatar && @event.user.avatar.avatar.file.exists?
-              = image_tag "ev-list-user.jpg"
+              = image_tag @event.user.avatar.avatar_url(:small)
               /= image_tag @event.user.avatar.avatar_url(:small)
             -else
               = image_tag "ev-list-user.jpg"

@@ -10,7 +10,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
 
   version :jumbo, if: :is_human? do
-    resize_to_limit(1000,1000)
+    resize_to_fit(1000,1000)
   end
 
   version :thumb, if: :is_human? do
@@ -31,18 +31,18 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
 
   version :base, if: :is_event? do
-    resize_to_limit(1500,1500)
+    resize_to_limit(1000,1000)
   end
 
 
   version :large_image, if: :is_event? do
-    process crop: [:avatar, 1500, 1500]  ## Crops this version based on original image
+    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
     resize_to_fill(1351,477)
   end
 
 
   version :medium_image, if: :is_event? do
-    process crop: [:avatar, 1400, 1400]  ## Crops this version based on original image
+    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
     resize_to_fill(194,153)
   end
   # storage :fog

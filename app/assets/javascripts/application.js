@@ -24,6 +24,7 @@
 //= require jquery
 //= require jquery.jcrop
 //= require jquery.remotipart
+//= require lightbox
 //= require_tree .
 
 

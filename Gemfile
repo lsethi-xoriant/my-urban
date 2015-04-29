@@ -75,3 +75,5 @@ gem 'globalize', '~> 4.0.3'
 gem 'execjs'
 
 gem 'therubyracer'
+
+gem 'lightbox2-rails'

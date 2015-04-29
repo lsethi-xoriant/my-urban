@@ -18,7 +18,8 @@
                 h2 = e.name
                 -count_picture = 0 
                 - e.pictures.each do |p|
-                  = image_tag p.picture_url(:medium_picture) 
+                  a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
+                    = image_tag p.picture_url(:medium_picture) 
                   
                   -count_picture = count_picture + 1
                   -break if count_picture == 12 
@@ -29,23 +30,5 @@
                 br
                 br                      
               
-
-/            .ev-item-photos
-/              .date
-/                | 12 травня 2012
-/              h2 Вечірка в Парк Готелі - "Диско 80х"
-/              = image_tag "ev-photos/ev-ph-1.jpg"
-/              = image_tag "ev-photos/ev-ph-2.jpg"
-/              = image_tag "ev-photos/ev-ph-3.jpg"
-/              = image_tag "ev-photos/ev-ph-4.jpg"
-/              = image_tag "ev-photos/ev-ph-5.jpg"
-/              = image_tag "ev-photos/ev-ph-6.jpg"
-/              = image_tag "ev-photos/ev-ph-7.jpg"
-/              = image_tag "ev-photos/ev-ph-8.jpg"
-/              = image_tag "ev-photos/ev-ph-9.jpg"
-/              = image_tag "ev-photos/ev-ph-10.jpg"
-/              = image_tag "ev-photos/ev-ph-11.jpg"
-/              = image_tag "ev-photos/ev-ph-12.jpg"
-/              = link_to "Переглянути подію", 'javascript:void(0);', class:"view-more-btn"
 
     = render "partials/footer"
