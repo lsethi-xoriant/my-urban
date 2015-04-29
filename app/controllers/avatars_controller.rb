@@ -24,7 +24,7 @@ class AvatarsController < ApplicationController
     @avatar = Avatar.new(avatar_params)
     respond_to do |format|
       if @avatar.save
-        page = 'avatar.js.erb' if params[:user_page] == 'sign_up'
+        page = 'avatar.js.erb' if params[:user_page] == 'sign_up' || params[:user_page] ==  'edit_user'
         page = 'event_image.js.erb' if params[:user_page] == 'new_event' || params[:user_page] == 'edit_event'
         #binding.pry
         format.html {
@@ -45,7 +45,7 @@ class AvatarsController < ApplicationController
 
   def update
     @avatar.update(avatar_params)
-    page = 'crop_result.js.erb' if params[:user_page] == 'sign_up'
+    page = 'crop_result.js.erb' if params[:user_page] == 'sign_up' || params[:user_page] ==  'edit_user'
     page = 'image_crop.js.erb' if params[:user_page] == 'new_event' || params[:user_page] == 'edit_event'
     @user_page = params[:user_page]
     #page = 'event_image.js.erb' if params[:user_page] == 'new_event'
