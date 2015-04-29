@@ -13,6 +13,7 @@
  *= require fonts
  *= require 'styles'
  *= require jquery.jcrop
+ *= require lightbox
  *= require_self
  */
 
