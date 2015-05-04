@@ -79,7 +79,7 @@ class Event < ActiveRecord::Base
   def self.urban_filter(city_id)
     @city = City.where(en_name: city_id).first
     if @city.nil?
-      where(nil)
+      where(event_type: 'none')
     else
       where(city_id: @city.id)
     end

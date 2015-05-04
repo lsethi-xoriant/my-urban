@@ -54,7 +54,7 @@
             .ev-count
               h3 =t('events.choose_city')
               sel-wr
-                = text_field_tag :urban, nil, id: 'user_city', class: "filter_input" 
+                = text_field_tag :urban, params[:urban], id: 'user_city', class: "filter_input" 
               div style='display:none'
                 = submit_tag
 

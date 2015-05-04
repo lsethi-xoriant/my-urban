@@ -1,21 +1,22 @@
     header
       .row
         .menu
-          =I18n.locale
+          /=I18n.locale
           /= link_to 'Ru', "javascript:void(0);"
           = link_to "Ru",  params.merge({:locale => :ru})
           span |
           = link_to "Ua",  params.merge({:locale => :uk})
-          span |
-          = link_to "En",   params.merge({:locale => :en})
+          /
+            span |
+            = link_to "En",   params.merge({:locale => :en})
           /url_for(:locale => 'en', :state_id => params[:state_id])
           /= link_to 'Ua', "javascript:void(0);"
           - if user_signed_in?
-            span
-              | 
-              =t('header.greeting').to_s + ', ' 
-              = current_user.first_name.to_s + ' '
-              = current_user.last_name
+            = link_to "user_info/#{current_user.id}"
+              -if current_user.avatar && current_user.avatar.avatar.file.exists?
+                = image_tag current_user.avatar.avatar_url(:small), :style => "border-radius: 50%;"
+              -else 
+                = image_tag "ev-list-user.jpg"
             = link_to t('header.exit'), destroy_user_session_path, :method => :delete
           - else
             = link_to t('header.enter'), new_user_session_path, class: "enter-site"

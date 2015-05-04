@@ -16,7 +16,6 @@ class EventsController < ApplicationController
     filtering_params(params).each do |key, value|
       @events = @events.public_send(key+"_filter", value) if value.present?
     end
-    binding.pry
 
     @events = @events.where("name like ?", "%#{params[:search]}%") if params[:search]
 
