@@ -75,6 +75,25 @@ en:
     chernivtsi: 'Chernivtsi'
     simferopol: 'Simferopol'
 
+  category:
+    family: "family-children"
+    students: "students"
+    work: "work"
+    pet: "pets"
+    lang_science: "language/science"
+    technology: "technology"
+    sport: "sport"
+    art_craft: "arts and craft"
+    cooking: "cooking"
+    restaurant: "restaurants"
+    entertainment: "entertainment"
+    music: "music"
+    talk_meeting: "bla-bla zustrіchі (debate)"
+    travel: "travel"
+    for_gamer: "for gamers"
+    cult_exchange: "cultural exchange"
+    auto_moto_enthusiast: "auto/moto enthusiasts"
+
   my_errors: 
     messages: 
       incorrect_city: "вибрано неправильно"

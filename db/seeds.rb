@@ -475,7 +475,7 @@ crimea_st.save
 								end
 								simferopol.save
 =end
-
+=begin
 	require 'securerandom'
 	18.times do
 		user = User.new
@@ -490,3 +490,126 @@ crimea_st.save
 		user.save!
 		user.plans.create(measure_id: 14, status: 'come')
 	end
+=end
+language = [:en, :uk, :ru]
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.family')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.students')
+	end
+	cat.save
+
+	at = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.work')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.pet')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.lang_science')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.technology')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.sport')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.art_craft')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.cooking')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.restaurant')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.entertainment')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.music')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.talk_meeting')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.travel')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.for_gamer')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.cult_exchange')
+	end
+	cat.save
+
+	cat = Category.new	
+	language.each do |l|
+		I18n.locale = l
+		cat.title = I18n.t('category.auto_moto_enthusiast')
+	end
+	cat.save
+
+    

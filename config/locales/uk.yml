@@ -78,6 +78,25 @@ uk:
     chernivtsi: 'Чернівці'
     simferopol: 'Сімферополь'
 
+  category:
+    family: "сім\'я-діти"
+    students: "студенти"
+    work: "робота"
+    pet: "домашні улюбленці"
+    lang_science: "мови/наука"
+    technology: "технологія"
+    sport: "спорт"
+    art_craft: "мистецтво і ремесла"
+    cooking: "кулінарія"
+    restaurant: "ресторани"
+    entertainment: "розваги"
+    music: "музика"
+    talk_meeting: "bla-bla зустрічі (полеміка)"
+    travel: "подорожі"
+    for_gamer: "для геймерів"
+    cult_exchange: "культурний обмін"
+    auto_moto_enthusiast: "авто/мотолюбителі"
+
   user_info:
     info_label: "Інформація"
     birthday: "День народження:"
@@ -168,7 +187,6 @@ uk:
   event:
     reg_at: 'Зареєструватись на подію'
 
-  
   users:
     view_event: "Переглянути подію"
     photo_reports: "Фотозвіти"
