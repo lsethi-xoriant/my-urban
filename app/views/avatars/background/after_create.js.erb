@@ -1,0 +1,6 @@
+$('#background_edit').html("<%= escape_javascript render('avatars/background/crop_background') %>");
+$('#BackgroundModal').foundation('reveal', 'open');
+
+$('.avatar-crop-btn').click(function(){
+  $('#BackgroundModal').foundation('reveal', 'close');
+})

@@ -1,0 +1,11 @@
+= form_for @avatar, url: {controller: 'avatars', action:'background_update', id: @avatar.id}, remote: true, :authenticity_token => true,  html: {class: 'background_form', id: 'background_form'} do |f|
+  = hidden_field_tag :user_page, 'background_new'
+  = f.hidden_field :name, value: 'background'
+  = f.file_field :avatar, id: 'background_upload', style: 'position: absolute;'
+
+div[id="BackgroundModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
+  a [class="close-reveal-modal" aria-label="Close"] &#215;
+  h2 Image crop
+  #background_edit
+
+= image_tag @avatar.avatar_url(:background), class: 'background_user'

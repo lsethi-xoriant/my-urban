@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
 
   resources :avatars
+  post 'background_create' => 'avatars#background_create'
+  patch 'background_update/:id' => 'avatars#background_update'
 
   resources :cities
 

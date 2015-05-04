@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
-  before_action :set_avatar, only: [:show, :edit, :update, :destroy]
+  before_action :set_avatar, only: [:show, :edit, :update, :destroy, :background_update]
 
   respond_to :html
 
@@ -66,6 +66,36 @@ class AvatarsController < ApplicationController
   def destroy
     @avatar.destroy
     respond_with(@avatar)
+  end
+
+  def background_create
+    @avatar = Avatar.new(avatar_params)
+    @avatar.save
+    respond_to do |format|
+      format.html {
+        if params[:avatar][:avatar].present?
+          render :crop  ## Render the view for cropping
+        else
+          redirect_to @avatar, notice: 'User was successfully created.'
+        end
+        }
+      format.js {render 'avatars/background/after_create.js.erb'}
+    end
+  end
+
+  def background_update
+    @avatar.update(avatar_params)
+    @user_page = params[:user_page]
+    respond_to do |format|
+      format.html {
+        if params[:avatar][:avatar].present?
+          render :crop  ## Render the view for cropping
+        else
+          redirect_to @avatar, notice: 'User was successfully created.'
+        end
+        }
+      format.js {render 'avatars/background/after_crop.js.erb'}
+    end
   end
 
   private
