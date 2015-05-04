@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+  def after_sign_in_path_for(resource)
+    events_path(:state_id => resource.city.state.id, :urban => resource.city.en_name)
+  end
+
   protected
 
     def set_locale
