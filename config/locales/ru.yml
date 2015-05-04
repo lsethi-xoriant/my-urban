@@ -78,6 +78,25 @@ ru:
     chernivtsi: 'Черновцы'
     simferopol: 'Симферополь'
 
+  category:
+    family: "семья-дети"
+    students: "студенты"
+    work: "работа"
+    pet: "домашние животные"
+    lang_science: "языка/наука"
+    technology: "технология"
+    sport: "спорт"
+    art_craft: "искусство и ремесла"
+    cooking: "кулинария"
+    restaurant: "рестораны"
+    entertainment: "развлечения"
+    music: "музыка"
+    talk_meeting: "bla-bla встречи (полемика)"
+    travel: "путешествия"
+    for_gamer: "для геймеров"
+    cult_exchange: "культурный обмен"
+    auto_moto_enthusiast: "авто/мотолюбители"
+
   sessions:
     registration: "Регистрация"
     back: "Назад"
