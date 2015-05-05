@@ -1,6 +1,7 @@
 <%=image_tag @avatar.avatar_url(:medium)%>
 <%= form_for @avatar, remote: true, :authenticity_token => true,  html: {class: 'new_avatar', id: 'new_avatar'} do |f|%>
   <%= hidden_field_tag :user_page, 'edit_user'%>
+  <%= hidden_field_tag :image_name, 'create'%>
   <%= f.hidden_field :name, value: 'user' %>
   <%= f.file_field(:avatar)%>
 <%end%>

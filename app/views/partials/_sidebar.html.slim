@@ -10,6 +10,7 @@
         -@avatar_back = current_user.background
         = form_for @avatar_back, url: {controller: 'avatars', action:'background_update', id: @avatar_back.id}, remote: true, :authenticity_token => true,  html: {class: 'background_form', id: 'background_form'} do |f|
           = hidden_field_tag :user_page, 'background_new'
+          = hidden_field_tag :image_name, 'create'
           = f.hidden_field :name, value: 'background'
           = f.file_field :avatar, id: 'background_upload', style: 'position: absolute;'
         = image_tag @avatar_back.avatar_url(:background), class: 'background_user'

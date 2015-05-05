@@ -21,6 +21,8 @@ class AvatarsController < ApplicationController
   end
 
   def create
+    params[:avatar][:status] = Random.rand(20) 
+    @random = 'asf'
     @avatar = Avatar.new(avatar_params)
     respond_to do |format|
       if @avatar.save
@@ -44,6 +46,9 @@ class AvatarsController < ApplicationController
   end
 
   def update
+    @avatar.status = ''
+    params[:avatar][:status] = Random.rand(20) if params[:image_name] == 'create'
+
     @avatar.update(avatar_params)
     page = 'crop_result.js.erb' if params[:user_page] == 'sign_up' || params[:user_page] ==  'edit_user'
     page = 'image_crop.js.erb' if params[:user_page] == 'new_event' || params[:user_page] == 'edit_event'
@@ -69,6 +74,7 @@ class AvatarsController < ApplicationController
   end
 
   def background_create
+    params[:avatar][:status] = Random.rand(20)
     @avatar = Avatar.new(avatar_params)
     @avatar.save
     current_user.update_attribute(:background_id, @avatar.id)
@@ -85,6 +91,8 @@ class AvatarsController < ApplicationController
   end
 
   def background_update
+    @avatar.status = ''
+    params[:avatar][:status] = Random.rand(20) if params[:image_name] == 'create'
     @avatar.update(avatar_params)
     @user_page = params[:user_page]
     respond_to do |format|
@@ -105,6 +113,6 @@ class AvatarsController < ApplicationController
     end
 
     def avatar_params
-      params.require(:avatar).permit(:name, :avatar,:avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h )
+      params.require(:avatar).permit(:name, :status, :avatar,:avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h )
     end
 end

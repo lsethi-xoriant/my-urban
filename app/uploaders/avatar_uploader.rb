@@ -65,6 +65,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.name.to_s.underscore}/#{model.id}"
   end
 
+  def filename
+    "#{model.status}#{original_filename}" if original_filename
+  end
+
 
   private 
 
