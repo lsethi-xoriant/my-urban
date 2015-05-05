@@ -58,16 +58,6 @@ ActiveRecord::Schema.define(version: 20150505191859) do
   add_index "city_translations", ["city_id"], name: "index_city_translations_on_city_id", using: :btree
   add_index "city_translations", ["locale"], name: "index_city_translations_on_locale", using: :btree
 
-  create_table "conversations", force: true do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
-  add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
-
   create_table "events", force: true do |t|
     t.string   "name"
     t.string   "adress"
@@ -102,17 +92,6 @@ ActiveRecord::Schema.define(version: 20150505191859) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "messages", force: true do |t|
-    t.text     "body"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "pictures", force: true do |t|
     t.integer  "event_id"
