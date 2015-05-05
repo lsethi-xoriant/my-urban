@@ -6,17 +6,24 @@
 - if current_user && current_user.id == user.id
   .large-4.medium-4.small-12.columns.user-sidebar
     .user-backgr
-      = form_for Avatar.new, url: {controller: 'avatars', action:'background_create'}, remote: true, :authenticity_token => true,  html: {class: 'background_form', id: 'background_form'} do |f|
-        = hidden_field_tag :user_page, 'background_new'
-        = f.hidden_field :name, value: 'background'
-        = f.file_field :avatar, id: 'background_upload', style: 'position: absolute;'
-
+      -if current_user.background && current_user.background.avatar.file.exists? 
+        -@avatar_back = current_user.background
+        = form_for @avatar_back, url: {controller: 'avatars', action:'background_update', id: @avatar_back.id}, remote: true, :authenticity_token => true,  html: {class: 'background_form', id: 'background_form'} do |f|
+          = hidden_field_tag :user_page, 'background_new'
+          = f.hidden_field :name, value: 'background'
+          = f.file_field :avatar, id: 'background_upload', style: 'position: absolute;'
+        = image_tag @avatar_back.avatar_url(:background), class: 'background_user'
+      -else 
+        = form_for Avatar.new, url: {controller: 'avatars', action:'background_create'}, remote: true, :authenticity_token => true,  html: {class: 'background_form', id: 'background_form'} do |f|
+          = hidden_field_tag :user_page, 'background_new'
+          = f.hidden_field :name, value: 'background'
+          = f.file_field :avatar, id: 'background_upload', style: 'position: absolute;'
+        = image_tag "user-backgr-1.jpg", class: 'background_user'
       div[id="BackgroundModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
         a [class="close-reveal-modal" aria-label="Close"] &#215;
         h2 Image crop
         #background_edit
 
-      = image_tag "user-backgr-1.jpg", class: 'background_user'
     .user-img
       - if  user.avatar && user.avatar.avatar.file.exists? && user.avatar.avatar_url(:medium)
         = image_tag user.avatar.avatar_url(:medium)

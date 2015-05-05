@@ -7,5 +7,5 @@
   });
   //$('.upload-img').html("<%= escape_javascript render('image_crop_result') %>");
 <%elsif @user_page == 'crop_page'%>
-  $(".background_user").replaceWith("<%= escape_javascript render('avatars/background/image_result') %>")
+  $(".user-backgr").html("<%= escape_javascript render('avatars/background/image_result') %>")
 <%end%>

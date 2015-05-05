@@ -71,6 +71,7 @@ class AvatarsController < ApplicationController
   def background_create
     @avatar = Avatar.new(avatar_params)
     @avatar.save
+    current_user.update_attribute(:background_id, @avatar.id)
     respond_to do |format|
       format.html {
         if params[:avatar][:avatar].present?
