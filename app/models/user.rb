@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :avatar
+  belongs_to :background, :class_name => 'Avatar', :foreign_key => "background_id"
   has_many :events, dependent: :destroy
 
   has_many :plans, :foreign_key => :member_id

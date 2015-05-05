@@ -1,0 +1,11 @@
+<%if @user_page == 'background_new'%>
+  $('#background_edit').html("<%= escape_javascript render('avatars/background/crop_background') %>");
+  $('#BackgroundModal').foundation('reveal', 'open');
+
+  $('.avatar-crop-btn').click(function(){
+    $('#BackgroundModal').foundation('reveal', 'close');
+  });
+  //$('.upload-img').html("<%= escape_javascript render('image_crop_result') %>");
+<%elsif @user_page == 'crop_page'%>
+  $(".user-backgr").html("<%= escape_javascript render('avatars/background/image_result') %>")
+<%end%>

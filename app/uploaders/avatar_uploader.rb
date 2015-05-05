@@ -30,8 +30,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
 
+
   version :base, if: :is_event? do
-    resize_to_limit(1000,1000)
+    resize_to_fit(1000,1000)
   end
 
 
@@ -45,13 +46,25 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
     resize_to_fill(194,153)
   end
+
+
+
+  version :background_base, if: :is_background? do
+    resize_to_fit(1000,1000)
+  end
+
+  version :background, if: :is_background? do
+    process crop: [:avatar, 1000, 1000] 
+    resize_to_fill(360,175)
+  end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.name.to_s.underscore}/#{model.id}"
   end
+
 
   private 
 
@@ -70,6 +83,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
         return false
       end
       
+    end
+
+    def is_background? picture
+      if model.name == "background"
+        return true
+      else 
+        return false
+      end
     end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -99,8 +120,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+   #def filename
+     #original_filename if original_filename
+   #end
 
 end

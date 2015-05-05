@@ -3,7 +3,7 @@
   .ev-list-date
     h5 
       =Event.where("date(data) = ?", "#{event.data.to_date}").count 
-      | 
+      |  
       =case_of_event(Event.where("date(data) = ?", "#{event.data.to_date}").count)
     h4 
       = I18n.l event.data.to_date, :format => :event
