@@ -213,34 +213,34 @@ PLATFORMS
 DEPENDENCIES
   cancancan (= 1.9.2)
   capistrano (= 2.15.2)
-  carrierwave (~> 0.10.0)
-  carrierwave-crop
-  coffee-rails (~> 4.0.0)
+  carrierwave (= 0.10.0)
+  carrierwave-crop (= 0.1.2)
+  coffee-rails (= 4.0.1)
   devise (= 3.4.1)
-  execjs
-  geocoder
-  globalize (~> 4.0.3)
-  gmaps4rails
-  haml
-  haml-rails
-  html2haml
-  jbuilder (~> 2.0)
-  jquery-rails
-  lightbox2-rails
-  mini_magick
-  mysql2
-  pry
-  pry-nav
+  execjs (= 2.3.0)
+  geocoder (= 1.2.7)
+  globalize (= 4.0.3)
+  gmaps4rails (= 2.1.2)
+  haml (= 4.0.6)
+  haml-rails (= 0.8.2)
+  html2haml (= 2.0.0)
+  jbuilder (= 2.2.9)
+  jquery-rails (= 3.1.2)
+  lightbox2-rails (= 2.7.1)
+  mini_magick (= 3.8.0)
+  mysql2 (= 0.3.18)
+  pry (= 0.10.1)
+  pry-nav (= 0.2.4)
   rails (= 4.1.8)
-  remotipart (~> 1.0)
-  sass-rails (~> 5.0.0)
-  sdoc (~> 0.4.0)
-  simple_form
-  slim-rails
-  spring
-  therubyracer
-  turbolinks
-  uglifier (>= 1.3.0)
-  underscore-rails
-  unicorn
-  will_paginate (~> 3.0.7)
+  remotipart (= 1.2.1)
+  sass-rails (= 5.0.1)
+  sdoc (= 0.4.1)
+  simple_form (= 3.1.0)
+  slim-rails (= 3.0.1)
+  spring (= 1.3.3)
+  therubyracer (= 0.12.1)
+  turbolinks (= 2.5.3)
+  uglifier (= 2.7.1)
+  underscore-rails (= 1.8.2)
+  unicorn (= 4.8.3)
+  will_paginate (= 3.0.7)
