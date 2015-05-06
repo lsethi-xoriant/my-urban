@@ -18,6 +18,7 @@ div class=["ev-list-item", event.event_type]
   -else
     = image_tag "ev-list-img.jpg"
   div class="ev-list-type ev-party"
+    = category_icon(event.id)
   .ev-list-info
     h2 
       /= link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
