@@ -42,8 +42,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
 
-  version :medium_image, if: :is_event? do
-    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
+  version :medium_image, from_version: :large_image, if: :is_event? do
+    #process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
     resize_to_fill(194,153)
   end
 

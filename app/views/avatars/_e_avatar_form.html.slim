@@ -1,6 +1,7 @@
 = form_for @avatar, remote: true, :authenticity_token => true,  html: {class: 'new_avatar', id: 'new_avatar'} do |f|
   .field
     = hidden_field_tag :user_page, 'edit_event'
+    = hidden_field_tag :image_name, 'create'
     = f.hidden_field :name, value: 'event'
     = link_to I18n.t('events.choose_event_image'), 'javascript:void(0);', class:"btn-4"
     = f.file_field :avatar, 'data-reveal-id' => "secondModal"
