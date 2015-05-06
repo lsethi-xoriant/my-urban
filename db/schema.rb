@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504132455) do
+ActiveRecord::Schema.define(version: 20150505191859) do
 
   create_table "avatars", force: true do |t|
     t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "status"
   end
 
   create_table "categories", force: true do |t|

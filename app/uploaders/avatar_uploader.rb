@@ -42,8 +42,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
 
-  version :medium_image, if: :is_event? do
-    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
+  version :medium_image, from_version: :large_image, if: :is_event? do
+    #process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
     resize_to_fill(194,153)
   end
 
@@ -63,6 +63,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.name.to_s.underscore}/#{model.id}"
+  end
+
+  def filename
+    "#{model.status}#{original_filename}" if original_filename
   end
 
 
