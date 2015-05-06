@@ -107,6 +107,40 @@ class AvatarsController < ApplicationController
     end
   end
 
+  def medium_ev_create
+    params[:avatar][:status] = Random.rand(20)
+    @avatar = Avatar.new(avatar_params)
+    @avatar.save
+    current_user.update_attribute(:background_id, @avatar.id)
+    respond_to do |format|
+      format.html {
+        if params[:avatar][:avatar].present?
+          render :crop  ## Render the view for cropping
+        else
+          redirect_to @avatar, notice: 'User was successfully created.'
+        end
+        }
+      format.js {render 'avatars/background/after_create.js.erb'}
+    end
+  end
+
+  def medium_ev_update
+    @avatar.status = ''
+    params[:avatar][:status] = Random.rand(20) if params[:image_name] == 'create'
+    @avatar.update(avatar_params)
+    @user_page = params[:user_page]
+    respond_to do |format|
+      format.html {
+        if params[:avatar][:avatar].present?
+          render :crop  ## Render the view for cropping
+        else
+          redirect_to @avatar, notice: 'User was successfully created.'
+        end
+        }
+      format.js {render 'avatars/background/after_crop.js.erb'}
+    end
+  end
+
   private
     def set_avatar
       @avatar = Avatar.find(params[:id])

@@ -10,8 +10,13 @@ Rails.application.routes.draw do
 
 
   resources :avatars
-  post 'background_create' => 'avatars#background_create'
-  patch 'background_update/:id' => 'avatars#background_update'
+    post 'background_create' => 'avatars#background_create'
+    patch 'background_update/:id' => 'avatars#background_update'
+
+    post 'medium_ev_create' => 'avatars#medium_ev_create'
+    patch 'medium_ev_update/:id' => 'avatars#medium_ev_update'
+
+
 
   resources :cities
 
