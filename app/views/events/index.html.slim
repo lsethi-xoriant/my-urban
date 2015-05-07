@@ -76,6 +76,10 @@
       .row
         .reg-ev
           .reg-ev-title
+          -if (@state.name == 'Крим' || @state.name == 'Крым')
+            h3 
+              =@state.name
+          - else      
             h3 
               =@state.name
               |  область

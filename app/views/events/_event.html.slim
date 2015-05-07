@@ -38,7 +38,10 @@ div class=["ev-list-item", event.event_type]
         | /
         = number_format_people_count(event.id)
     h4.organizer
-      = image_tag "ev-list-user.jpg"
+      -if @event.user.avatar && @event.user.avatar.avatar.file.exists?
+        = image_tag @event.user.avatar.avatar_url(:small), :style => "border-radius: 50%;"
+      -else
+        = image_tag "ev-list-user.jpg"
       /= image_tag Avatar.last.avatar_url(:small)
       | 
       =t('events.organizer')
