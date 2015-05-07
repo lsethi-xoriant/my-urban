@@ -47,6 +47,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     resize_to_fill(194,153)
   end
 
+  version :medium_image_edit, if: :is_event_image_edit? do
+    process crop: [:avatar, 1000, 1000]  ## Crops this version based on original image
+    resize_to_fill(194,153)
+  end
 
 
   version :background_base, if: :is_background? do
@@ -62,7 +66,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.name.to_s.underscore}/#{model.id}"
+    if model.name == 'event_edit'
+      "uploads/event/#{model.id}"
+    else
+      "uploads/#{model.name.to_s.underscore}/#{model.id}"
+    end
   end
 
   def filename
@@ -91,6 +99,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
     def is_background? picture
       if model.name == "background"
+        return true
+      else 
+        return false
+      end
+    end
+
+    def is_event_image_edit? picture
+      if model.name == "event_edit"
         return true
       else 
         return false

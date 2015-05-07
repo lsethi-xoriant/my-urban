@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
-  before_action :set_avatar, only: [:show, :edit, :update, :destroy, :background_update]
+  before_action :set_avatar, only: [:show, :edit, :update, :destroy, :background_update, :medium_ev_update]
 
   respond_to :html
 
@@ -128,17 +128,10 @@ class AvatarsController < ApplicationController
     @avatar.status = ''
     params[:avatar][:status] = Random.rand(20) if params[:image_name] == 'create'
     @avatar.update(avatar_params)
+    @avatar.name = 'event'
+    @avatar.save
     @user_page = params[:user_page]
-    respond_to do |format|
-      format.html {
-        if params[:avatar][:avatar].present?
-          render :crop  ## Render the view for cropping
-        else
-          redirect_to @avatar, notice: 'User was successfully created.'
-        end
-        }
-      format.js {render 'avatars/background/after_crop.js.erb'}
-    end
+
   end
 
   private

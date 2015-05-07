@@ -186,6 +186,13 @@ function geolocate() {
 }
 
 
+/// events crop
+$(document).ready(function(){
+  $("body").on("click", "#event_index_crop", function(){
+    $('#EventMediumModal').foundation('reveal', 'open');
+   });
+});
+
 
 
 
