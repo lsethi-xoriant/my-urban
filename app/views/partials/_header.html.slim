@@ -28,25 +28,28 @@
               | My
             | Urban
         - if params[:controller] == 'events' && params[:action] == 'index'
-          .city-dr-dwn
-            = link_to @state.name + ' область', 'javascript:void(0);'
-            .city-dr-dwn-cont-wr
-              div class="city-dr-dwn-cont"
-                .row
-                  div class="city-dr-dwn-title medium-4 small-12 columns"
-                    h2 
-                      =@state.name 
-                      |  область
-                    p 
-                      span
-                        =@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
-                      |  
-                      = case_of_event(@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count)
-                      = t("header.week_events")
-                  div class="city-dr-dwn-cities medium-8 small-12 columns"
-                    -State.where.not(id: @state.id).each do |state|
-                      = link_to "/events?state_id=" + state.id.to_s do
-                        span 
-                          =state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
-                        =state.name
+          - if (@state.name == 'Крим' || @state.name == 'Крым')
+            .city-dr-dwn
+              = link_to @state.name, 'javascript:void(0);'              
+          -else
+            .city-dr-dwn
+              = link_to @state.name + ' область', 'javascript:void(0);'
+          .city-dr-dwn-cont-wr
+            div class="city-dr-dwn-cont"
+              .row
+                div class="city-dr-dwn-title medium-4 small-12 columns"
+                  h2 
+                    =@state.name                     
+                  p 
+                    span
+                      =@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+                    |  
+                    = case_of_event(@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count)
+                    = t("header.week_events")
+                div class="city-dr-dwn-cities medium-8 small-12 columns"
+                  -State.where.not(id: @state.id).each do |state|
+                    = link_to "/events?state_id=" + state.id.to_s do
+                      span 
+                        =state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+                      =state.name
 
