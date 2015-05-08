@@ -55,6 +55,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def own_user
+    @user = User.find(current_user)
+    @photo_report = @user.events
+    render 'index'
+  end
+
   private 
     def set_user
        @user = User.find(params[:id])

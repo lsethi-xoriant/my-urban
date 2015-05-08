@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-
+  get 'ownpage' => 'users#own_user'
   get 'users' => 'users#index'
   #get 'users_controller/index'
   get 'profile' => 'users#profile'
