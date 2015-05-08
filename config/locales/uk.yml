@@ -40,6 +40,20 @@ uk:
   friends:
     name: 'Друзі'
 
+  other_user:
+    private_page: 'Особиста сторінка'
+    city: 'Місто:'
+    gender: "Стать:"
+    man: 'чоловік'
+    woman: 'жінка'
+    knowing_more: 'Дізнатися більше'
+
+
+  case_of_age:
+    one: 'рік'
+    few: 'роки'
+    many: 'років'
+
   case_of_event:
     one: 'подія'
     few: 'події'

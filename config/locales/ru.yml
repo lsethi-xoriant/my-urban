@@ -31,6 +31,20 @@ ru:
     contacts: "Контакты"
     copyright: "Все права защищены"
 
+  other_user:
+    private_page: 'Личная страница'
+    city: 'Город:'
+    gender: "Пол:"
+    man: 'мужчина'
+    woman: 'женщина'
+    knowing_more: 'Узнать больше'
+
+
+  case_of_age:
+    one: 'год'
+    few: 'года'
+    many: 'лет'
+
   case_of_event:
     one: 'событие'
     few: 'события'

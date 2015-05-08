@@ -56,6 +56,8 @@ class UsersController < ApplicationController
   end
 
   def own_user
+    @user = User.find(current_user)
+    @photo_report = @user.events
     render 'index'
   end
 

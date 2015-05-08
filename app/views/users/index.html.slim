@@ -3,56 +3,30 @@
     = render "partials/header"
     .content.user-p
       .row
-        .large-4.medium-4.small-12.columns.user-sidebar
-          .user-backgr
-            = image_tag "user-backgr-1.jpg"
-          .user-img
-            = image_tag "user-1.jpg"
-          h3 Оксана Іваненко
-          h4 Івано-Франківськ
-          .user-links
-            p
-              = link_to t('events.news'), 'javascript:void(0);'
-              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.info'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.message'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.friends'), 'javascript:void(0);'
-              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.photo_reports'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.events'), 'javascript:void(0);'
-              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
-            p
-              = link_to t('events.settings'), 'javascript:void(0);'
-              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-
+        = render 'partials/sidebar'
+          
         .medium-8.small-12.columns.user-p-content
           .container-right
             h1 
-              | Особиста сторінка 
+              | 
+              = I18n.t('other_user.private_page') 
             .user-info-container
               .row
                 .medium-3.columns
-                  p Місто:
+                  p = I18n.t('other_user.city')
                 .medium-9.columns
-                  p Івано-Франківськ
+                  p = City.find_by_id(current_user.city_id).en_name
               .row
                 .medium-3.columns
                   p День Народження:
                 .medium-9.columns
-                  p 12,01,1989 року (25 років)
+                  /p 12,01,1989 року (25 років)
+                  p = @user.birthday.strftime("%d.%m.%Y") + ' (' + user_age(current_user.id).to_s + case_of_age(user_age(current_user.id)) + ')'                  
               .row
                 .medium-3.columns
-                  p Стать:
+                  p = I18n.t('other_user.gender')
                 .medium-9.columns
-                  p Чоловік
+                  p = user_gender(current_user.id)
               .row
                 .medium-3.columns
                   p Освіта:
@@ -80,7 +54,7 @@
                   p Місце роботи:
                 .medium-9.columns
                   p Студент
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
+              = link_to I18n.t('other_user.knowing_more'), {:action => "user_info", :controller => "users", :id => current_user.id}, class:"view-more-btn"
 
           .container-right.user-friends-list
             .ch-gr-gr
@@ -143,20 +117,28 @@
               = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
 
           .container-right
-            h1 Фотозвіти
+            h1 = I18n.t('users.photo_reports')
             .ev-item-photos
+              
               .date
-                | 12 травня 2012
-              h2 Вечірка в Парк Готелі - "Диско 80х"
-              = image_tag "ev-photos/ev-ph-1.jpg"
-              = image_tag "ev-photos/ev-ph-2.jpg"
-              = image_tag "ev-photos/ev-ph-3.jpg"
-              = image_tag "ev-photos/ev-ph-4.jpg"
-              = image_tag "ev-photos/ev-ph-5.jpg"
-              = image_tag "ev-photos/ev-ph-6.jpg"
-              = image_tag "ev-photos/ev-ph-7.jpg"
-              = image_tag "ev-photos/ev-ph-8.jpg"
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
+                | 
+                /for i18n to date format
+                = l(@photo_report.last.data, :format =>'%d %B %Y') 
+                
+              h2 = @photo_report.last.name
+              -count_picture = 0 
+              - @photo_report.last.pictures.each do |p|
+                a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
+                  = image_tag p.picture_url(:medium_picture) 
+                
+                -count_picture = count_picture + 1
+                -break if count_picture == 8 
+                /=count_picture            
+              br
+              /= e.pictures.count
+              = link_to I18n.t('other_user.knowing_more'), {:action => "user_photo", :controller => "users", :id => current_user.id}, class:"view-more-btn"
+              br
+              br                   
 
           .container-right
             .ch-gr-gr
