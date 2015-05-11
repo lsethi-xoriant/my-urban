@@ -61,6 +61,14 @@ class UsersController < ApplicationController
     render 'index'
   end
 
+  def open_modal
+    @avatar = Avatar.find(params[:id])
+    respond_to do |format|
+      format.html {}
+      format.js   {}
+    end 
+  end
+
   private 
     def set_user
        @user = User.find(params[:id])

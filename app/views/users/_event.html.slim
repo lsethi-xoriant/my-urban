@@ -14,9 +14,16 @@
           h6 =t('events.today') 
       end
 div class=["ev-list-item", event.event_type]
-  - if  event.avatar && event.avatar.avatar_url(:medium_image)
+  - if event.avatar&&event.avatar.avatar.file.exists? && current_user && (current_user.id == event.user.id) 
+    = link_to "Crop", open_modal_path(:id => event.avatar.id), remote: true, style: 'position: absolute;'
+  - elsif current_user && (current_user.id == event.user.id)  
+    = link_to "Edit_event", edit_event_path(:id => event.id), style: 'position: absolute;'
+    /, 'javascript:void(0);', :'data-reveal-id' => "EventMediumModal-#{event.id}", class: 'event_index_crop', style: 'position: absolute;' 
+  - if  event.avatar && event.avatar.avatar.file.exists? && event.avatar.name == 'event_edit'
+    = image_tag event.avatar.avatar_url(:medium_image_edit)
+  - elsif event.avatar && event.avatar.avatar.file.exists? && event.avatar.avatar_url(:medium_image)
     = image_tag event.avatar.avatar_url(:medium_image)
-  -else
+  - else
     = image_tag "ev-list-img.jpg"
   div class="ev-list-type ev-party"
   .ev-list-info

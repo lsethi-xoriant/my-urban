@@ -10,8 +10,13 @@ Rails.application.routes.draw do
 
 
   resources :avatars
-  post 'background_create' => 'avatars#background_create'
-  patch 'background_update/:id' => 'avatars#background_update'
+    post 'background_create' => 'avatars#background_create'
+    patch 'background_update/:id' => 'avatars#background_update'
+
+    post 'medium_ev_create' => 'avatars#medium_ev_create'
+    patch 'medium_ev_update/:id' => 'avatars#medium_ev_update'
+
+
 
   resources :cities
 
@@ -46,8 +51,8 @@ Rails.application.routes.draw do
   get 'user_info/:id' => 'users#user_info'
   get 'user_events/:id' => 'users#user_events', as: 'user_events'
   get 'user_photo/:id' => 'users#user_photo'
-
   get 'user_event' => 'users#user_event'
+  get 'user_modal' => 'users#open_modal', as: 'open_modal'
 
   devise_for :users
 

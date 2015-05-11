@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
-  before_action :set_avatar, only: [:show, :edit, :update, :destroy, :background_update]
+  before_action :set_avatar, only: [:show, :edit, :update, :destroy, :background_update, :medium_ev_update]
 
   respond_to :html
 
@@ -105,6 +105,33 @@ class AvatarsController < ApplicationController
         }
       format.js {render 'avatars/background/after_crop.js.erb'}
     end
+  end
+
+  def medium_ev_create
+    params[:avatar][:status] = Random.rand(20)
+    @avatar = Avatar.new(avatar_params)
+    @avatar.save
+    current_user.update_attribute(:background_id, @avatar.id)
+    respond_to do |format|
+      format.html {
+        if params[:avatar][:avatar].present?
+          render :crop  ## Render the view for cropping
+        else
+          redirect_to @avatar, notice: 'User was successfully created.'
+        end
+        }
+      format.js {render 'avatars/background/after_create.js.erb'}
+    end
+  end
+
+  def medium_ev_update
+    @avatar.status = ''
+    @avatar.name = 'edit_event'
+    params[:avatar][:status] = Random.rand(20) if params[:image_name] == 'create'
+    @avatar.update(avatar_params)
+    #@avatar.update_attribute(:name, 'event')    
+    @user_page = params[:user_page]
+    redirect_to user_events_path(:id => @avatar.event.user.id, :status => 'organizer')
   end
 
   private

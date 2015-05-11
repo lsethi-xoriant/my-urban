@@ -7,8 +7,8 @@
         .medium-8.small-12.columns.user-p-content
           .container-right
             .ch-gr-gr
-              = link_to t('Учасник'), user_events_path(:status => 'participation', id: params[:id]), remote: true, :class => 'active participation'
-              = link_to t('Організатор'), user_events_path(:status => 'organizer', id: params[:id]), remote: true, :class => 'organizer'
+              = link_to t('Учасник'), user_events_path(:status => 'participation', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'participation' : 'active participation')
+              = link_to t('Організатор'), user_events_path(:status => 'organizer', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'organizer active' : 'organizer') 
             h1 
               | Події 
             .user-events
@@ -18,7 +18,7 @@
                 = will_paginate @events
                 -if @events.length <=5
                   div class='pagination'
-
+            .modal_window_of_event
 
 
     = render "partials/footer"
