@@ -51,8 +51,8 @@ Rails.application.routes.draw do
   get 'user_info/:id' => 'users#user_info'
   get 'user_events/:id' => 'users#user_events', as: 'user_events'
   get 'user_photo/:id' => 'users#user_photo'
-
   get 'user_event' => 'users#user_event'
+  get 'user_modal' => 'users#open_modal', as: 'open_modal'
 
   devise_for :users
 

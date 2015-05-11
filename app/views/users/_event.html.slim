@@ -14,32 +14,16 @@
           h6 =t('events.today') 
       end
 div class=["ev-list-item", event.event_type]
-  - if event.avatar&&event.avatar.avatar.file.exists?
-    div[id="EventMediumModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
-      a [class="close-reveal-modal" aria-label="Close"] &#215;
-      - avatar = event.avatar 
-      = form_for avatar, url: {controller: 'avatars', action:'medium_ev_update', id: avatar.id}, :authenticity_token => true,  html: {class: 'medium_ev_form', id: 'medium_ev_form'} do |f|
-        = hidden_field_tag :user_page, 'crop_page'
-        = f.hidden_field :name, value: 'event_edit'
-        = f.cropbox :avatar, version: :base 
-        = f.submit 'Crop', class:"avatar-crop-btn" 
-      javascript:
-         $('#avatar_avatar_cropbox').Jcrop({
-            aspectRatio: 1.26,
-            setSelect: [0, 0, 360, 175],
-            onSelect: this.update,
-            onChange: this.update
-          });
-          function update (coords) {
-            $('#avatar_avatar_crop_x').val(coords.x);
-            $('#avatar_avatar_crop_y').val(coords.y);
-            $('#avatar_avatar_crop_w').val(coords.w);
-            $('#avatar_avatar_crop_h').val(coords.h);
-          };
-    = link_to "Helo", 'javascript:void(0);', :'data-reveal-id' => "EventMediumModal", id: 'event_index_crop', style: 'position: absolute;' 
-  - if  event.avatar && event.avatar.avatar_url(:medium_image)
+  - if event.avatar&&event.avatar.avatar.file.exists? && current_user && (current_user.id == event.user.id) 
+    = link_to "Crop", open_modal_path(:id => event.avatar.id), remote: true, style: 'position: absolute;'
+  - elsif current_user && (current_user.id == event.user.id)  
+    = link_to "Edit_event", edit_event_path(:id => event.id), style: 'position: absolute;'
+    /, 'javascript:void(0);', :'data-reveal-id' => "EventMediumModal-#{event.id}", class: 'event_index_crop', style: 'position: absolute;' 
+  - if  event.avatar && event.avatar.avatar.file.exists? && event.avatar.name == 'event_edit'
+    = image_tag event.avatar.avatar_url(:medium_image_edit)
+  - elsif event.avatar && event.avatar.avatar.file.exists? && event.avatar.avatar_url(:medium_image)
     = image_tag event.avatar.avatar_url(:medium_image)
-  -else
+  - else
     = image_tag "ev-list-img.jpg"
   div class="ev-list-type ev-party"
   .ev-list-info

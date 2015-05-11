@@ -126,13 +126,12 @@ class AvatarsController < ApplicationController
 
   def medium_ev_update
     @avatar.status = ''
-    binding.pry
     @avatar.name = 'edit_event'
     params[:avatar][:status] = Random.rand(20) if params[:image_name] == 'create'
     @avatar.update(avatar_params)
     #@avatar.update_attribute(:name, 'event')    
     @user_page = params[:user_page]
-
+    redirect_to user_events_path(:id => @avatar.event.user.id, :status => 'organizer')
   end
 
   private

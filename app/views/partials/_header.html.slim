@@ -12,7 +12,7 @@
           /url_for(:locale => 'en', :state_id => params[:state_id])
           /= link_to 'Ua', "javascript:void(0);"
           - if user_signed_in?
-            = link_to "user_info/#{current_user.id}"
+            = link_to "/user_info/#{current_user.id}"
               -if current_user.avatar && current_user.avatar.avatar.file.exists?
                 = image_tag current_user.avatar.avatar_url(:small), :style => "border-radius: 50%;"
               -else 

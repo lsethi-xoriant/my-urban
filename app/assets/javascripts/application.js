@@ -188,8 +188,9 @@ function geolocate() {
 
 /// events crop
 $(document).ready(function(){
-  $("body").on("click", "#event_index_crop", function(){
-    $('#EventMediumModal').foundation('reveal', 'open');
+  $("body").on("click", ".event_index_crop", function(){
+    id = "#" + $(this).attr('data-reveal-id');
+    $(id).foundation('reveal', 'open');
    });
 });
 

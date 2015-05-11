@@ -1,0 +1,21 @@
+div[id="EventMediumModal" class="reveal-modal event_modal_win" data-reveal aria-hidden="true" role="dialog"]
+  a [class="close-reveal-modal" aria-label="Close"] &#215;
+  - avatar = @avatar 
+  = form_for avatar, url: {controller: 'avatars', action:'medium_ev_update', id: avatar.id}, :authenticity_token => true,  html: {class: 'medium_ev_form', id: 'medium_ev_form'} do |f|
+    = hidden_field_tag :user_page, 'crop_page'
+    = f.hidden_field :name, value: 'event_edit'
+    = f.cropbox :avatar, version: :base 
+    = f.submit 'Crop', class:"avatar-crop-btn" 
+  javascript:
+     $('#avatar_avatar_cropbox').Jcrop({
+        aspectRatio: 1.26,
+        setSelect: [0, 0, 360, 175],
+        onSelect: this.update,
+        onChange: this.update
+      });
+      function update (coords) {
+        $('#avatar_avatar_crop_x').val(coords.x);
+        $('#avatar_avatar_crop_y').val(coords.y);
+        $('#avatar_avatar_crop_w').val(coords.w);
+        $('#avatar_avatar_crop_h').val(coords.h);
+      };
