@@ -1,13 +1,17 @@
 .container-right.user-friends-list
   .ch-gr-gr
-    = link_to t('Всі друзі'), user_friends_path(:status => 'all_friends', id: @user.id), remote: true, :class => 'active all_friends'
-    - if user_signed_in?
+    - if (params[:action] == 'own_user' || params[:action] == 'change_friend_tab') && user_signed_in? && current_user.id != @user.id
+      = link_to t('Всі друзі'), change_friend_path(:status => 'all_friends', id: @user.id), remote: true, :class => 'active all_friends'
+      = link_to t('Спільні друзі'), change_friend_path(:status => 'common', id: @user.id), remote: true, :class => 'common'
+    - elsif user_signed_in? && current_user.id != @user.id
+      = link_to t('Всі друзі'), user_friends_path(:status => 'all_friends', id: @user.id), remote: true, :class => 'active all_friends'
       = link_to t('Спільні друзі'), user_friends_path(:status => 'common', id: @user.id), remote: true, :class => 'common'
   h1 
     = t('friends.name')
     |  
     span 
-      ="(#{@friends.count})"
+      - count = (params[:action] == 'own_user' || (params[:action] == 'change_friend_tab' && @status == 'all_friends')) ? @user.user_friends.count : @friends.count
+      = "(#{count})"
   .user-friends-container
     .row
       -@friends.each do |f|
@@ -19,3 +23,5 @@
               = link_to(image_tag("user-sm-2.jpg"), {:action => "own_user", :controller => "users", :id => f.id})
           /= link_to t('Оксана Михайлів'), 'javascript:void(0);'
           = f.last_name + ' ' + f.first_name
+    = link_to "Дізнатись більше", user_friends_path(id: @user.id), class:"view-more-btn" if params[:action] == 'own_user' ||params[:action] == 'change_friend_tab'
+

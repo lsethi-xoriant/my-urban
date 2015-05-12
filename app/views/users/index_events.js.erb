@@ -1,0 +1,9 @@
+if ( ( $(".participation").hasClass('active') )&&(<%=@status == 'organizer'%>) ){ 
+  $('.event_on_personal').replaceWith("<%= escape_javascript render('index_events') %>");
+  $(".organizer").addClass('active');
+  $(".participation").removeClass('active');
+} else if ( ( $(".organizer").hasClass('active') )&&(<%=@status == 'participation'%>) ){ 
+  $('.event_on_personal').replaceWith("<%= escape_javascript render('index_events') %>");
+  $(".organizer").removeClass('active');
+  $(".participation").addClass('active');
+} 

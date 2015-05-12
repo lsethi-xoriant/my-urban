@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:user_events, :user_friends]
+  before_action :set_user, only: [:user_events, :user_friends, :change_friend_tab, :change_event_tab]
 	
   def index
     @users = User.all
@@ -57,7 +57,9 @@ class UsersController < ApplicationController
 
   def own_user
     @user = User.find(params[:id])
+    @friends = @user.user_friends[0..11]
     @photo_report = @user.events
+    @events = @user.intent_measures[0..2]
     render 'index'
   end
 
@@ -68,6 +70,39 @@ class UsersController < ApplicationController
       format.js   {}
     end 
   end
+
+  def change_friend_tab
+    @friends = @user.user_friends
+    @status = 'all_friends'
+    if params[:status] == 'common'
+      @u_friend = current_user.user_friends
+      arr = [];
+      @friends.map do |f|
+        arr.push f.id
+      end
+      @friends = @u_friend.select { |f| arr.include?(f.id) }
+      @status = 'common'
+    end
+    @friends = @friends[0..11] if @friends.count > 12
+    respond_to do |format|
+      format.html {}
+      format.js   {render 'user_friends.js.erb'}
+    end 
+  end
+
+  def change_event_tab
+    @events = @user.intent_measures[0..1]
+    @status = 'participation'
+    if params[:status] == 'organizer'
+      @events = @user.events[0..1]
+      @status = 'organizer'
+    end
+    respond_to do |format|
+      format.html {}
+      format.js   {render 'index_events.js.erb'}
+    end  
+  end
+
 
   private 
     def set_user

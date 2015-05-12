@@ -21,7 +21,8 @@
                   p День Народження:
                 .medium-9.columns
                   /p 12,01,1989 року (25 років)
-                  p = @user.birthday.strftime("%d.%m.%Y") + ' (' + user_age(@user.id).to_s + case_of_age(user_age(@user.id)) + ')'                  
+                  - if @user.birthday
+                    p = @user.birthday.strftime("%d.%m.%Y") + ' (' + user_age(@user.id).to_s + case_of_age(user_age(@user.id)) + ')'                  
               .row
                 .medium-3.columns
                   p = I18n.t('other_user.gender')
@@ -55,135 +56,35 @@
                 .medium-9.columns
                   p Студент
               = link_to I18n.t('other_user.knowing_more'), {:action => "user_info", :controller => "users", :id => @user.id}, class:"view-more-btn"
+          - if @user.user_friends.count > 0
+            = render 'users/friends_list/friends'
 
-          .container-right.user-friends-list
-            .ch-gr-gr
-              = link_to t('Всі друзі'), 'javascript:void(0);', :class => 'active'
-              = link_to t('Спільні друзі'), 'javascript:void(0);'
-            h1 
-              | Друзі 
-              span 
-                | (152)
-            .user-friends-container
-              .row
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-1.jpg"
-                  = link_to t('Оксана Михайлів'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-1.jpg"
-                  = link_to t('Оксана Михайлів'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-1.jpg"
-                  = link_to t('Оксана Михайлів'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-2.jpg"
-                  = link_to t('Василина Петренко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-2.jpg"
-                  = link_to t('Василина Петренко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-2.jpg"
-                  = link_to t('Василина Петренко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-3.jpg"
-                  = link_to t('Стефанія Франко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-3.jpg"
-                  = link_to t('Стефанія Франко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-3.jpg"
-                  = link_to t('Стефанія Франко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-4.jpg"
-                  = link_to t('Петрунеля Іваненко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-4.jpg"
-                  = link_to t('Петрунеля Іваненко'), 'javascript:void(0);'
-                .medium-4.columns
-                  = link_to 'javascript:void(0);' do
-                    = image_tag "user-sm-4.jpg"
-                  = link_to t('Петрунеля Іваненко'), 'javascript:void(0);'
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
-
-          .container-right
-            h1 = I18n.t('users.photo_reports')
-            .ev-item-photos
-              
-              .date
-                | 
-                /for i18n to date format
-                = l(@photo_report.last.data, :format =>'%d %B %Y') 
+          - if @user.events.count > 0
+            .container-right
+              h1 = I18n.t('users.photo_reports')
+              .ev-item-photos
                 
-              h2 = @photo_report.last.name
-              -count_picture = 0 
-              - @photo_report.last.pictures.each do |p|
-                a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
-                  = image_tag p.picture_url(:medium_picture) 
-                
-                -count_picture = count_picture + 1
-                -break if count_picture == 8 
-                /=count_picture            
-              br
-              /= e.pictures.count
-              = link_to I18n.t('other_user.knowing_more'), {:action => "user_photo", :controller => "users", :id => @user.id}, class:"view-more-btn"
-              br
-              br                   
+                .date
+                  | 
+                  /for i18n to date format
+                  = l(@photo_report.last.data, :format =>'%d %B %Y') 
+                  
+                h2 = @photo_report.last.name
+                -count_picture = 0 
+                - @photo_report.last.pictures.each do |p|
+                  a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
+                    = image_tag p.picture_url(:medium_picture) 
+                  
+                  -count_picture = count_picture + 1
+                  -break if count_picture == 8 
+                  /=count_picture            
+                br
+                /= e.pictures.count
+                = link_to I18n.t('other_user.knowing_more'), {:action => "user_photo", :controller => "users", :id => @user.id}, class:"view-more-btn"
+                br
+                br                   
 
-          .container-right
-            .ch-gr-gr
-              = link_to t('Учасник'), 'javascript:void(0);', :class => 'active'
-              = link_to t('Організатор'), 'javascript:void(0);'
-            h1 
-              | Події 
-            .user-events
-              div class=["ev-list-item", "event.event_type"]
-                = image_tag "ev-list-img.jpg"
-                div class="ev-list-type ev-party"
-                .ev-list-info
-                  h2 
-                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-                  h4 
-                    | Час
-                    span 
-                      | 12:20
-                  h4 
-                    | Учасників
-                    span 
-                      | 12 / 23
-                  h4.organizer
-                    = image_tag "ev-list-user.jpg"
-                    | Організатор
-                    span  Олексій Петренко
-              div class=["ev-list-item", "close"]
-                = image_tag "ev-list-img.jpg"
-                div class="ev-list-type ev-party"
-                .ev-list-info
-                  h2 
-                    = link_to "Вечірка в Парк Готелі - \"Диско 80х\"", "javascript:void(0);"
-                  h4 
-                    | Час
-                    span 
-                      | 12:20
-                  h4 
-                    | Учасників
-                    span 
-                      | 12 / 23
-                  h4.organizer
-                    = image_tag "ev-list-user.jpg"
-                    | Організатор
-                    span  Олексій Петренко
-              = link_to "Дізнатись більше", 'javascript:void(0);', class:"view-more-btn"
+          = render 'index_events'
 
 
     = render "partials/footer"
