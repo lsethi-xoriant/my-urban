@@ -27,9 +27,9 @@
 
     .user-img
       - if  user.avatar && user.avatar.avatar.file.exists? && user.avatar.avatar_url(:medium)
-        = image_tag user.avatar.avatar_url(:medium)
+        = link_to(image_tag(user.avatar.avatar_url(:medium)), users_path + '/edit')
       - else
-        = image_tag "user-1.jpg"    
+        = link_to(image_tag("user-1.jpg"), users_path + '/edit')
     h3 = user.first_name + ' ' + user.last_name
     h4 = City.find_by_id(user.city_id).en_name
     .user-links

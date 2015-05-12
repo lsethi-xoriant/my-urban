@@ -1,7 +1,7 @@
 .users
   =link_to "edit profile current user", users_path + '/edit'
   - @users.each do |u|
-    /- next if u == current_user
+    - next if u == current_user
     .user
       %strong
         =link_to u.first_name, {:action => "own_user", :controller => "users", :id => u.id}
