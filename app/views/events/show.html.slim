@@ -58,7 +58,7 @@
             /= @event.city_name
           h4.organizer
             -if @event.user.avatar && @event.user.avatar.avatar.file.exists?
-              = image_tag @event.user.avatar.avatar_url(:small)
+              = link_to(image_tag(@event.user.avatar.avatar_url(:small)), {:action => "own_user", :controller => "users", :id => @event.user.id})
               /= image_tag @event.user.avatar.avatar_url(:small)
             -else
               = image_tag "ev-list-user.jpg"
@@ -75,7 +75,7 @@
               -@event.all_participations[0..17].each do |u|
                 = link_to 'javascript:void(0);' do
                   - if u.avatar && u.avatar.avatar.file.exists?
-                    = image_tag u.avatar.avatar_url(:small)
+                    = link_to(image_tag(u.avatar.avatar_url(:small)), {:action => "own_user", :controller => "users", :id => u.id})
                   - else
                     = image_tag "user-sm-2.jpg"
 
