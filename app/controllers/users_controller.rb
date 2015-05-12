@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:user_events, :user_friends, :change_friend_tab]
+  before_action :set_user, only: [:user_events, :user_friends, :change_friend_tab, :change_event_tab]
 	
   def index
     @users = User.all
@@ -59,6 +59,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @friends = @user.user_friends[0..11]
     @photo_report = @user.events
+    @events = @user.intent_measures[0..2]
     render 'index'
   end
 
@@ -87,6 +88,19 @@ class UsersController < ApplicationController
       format.html {}
       format.js   {render 'user_friends.js.erb'}
     end 
+  end
+
+  def change_event_tab
+    @events = @user.intent_measures[0..1]
+    @status = 'participation'
+    if params[:status] == 'organizer'
+      @events = @user.events[0..1]
+      @status = 'organizer'
+    end
+    respond_to do |format|
+      format.html {}
+      format.js   {render 'index_events.js.erb'}
+    end  
   end
 
 

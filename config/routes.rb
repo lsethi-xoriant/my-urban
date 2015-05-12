@@ -54,8 +54,9 @@ Rails.application.routes.draw do
   get 'user_event' => 'users#user_event'
 
   #helper for user_page
-  get 'user_modal' => 'users#open_modal', as: 'open_modal'
-  get 'change_friend_tab/:id' => 'users#change_friend_tab', as: 'change_friend'
+    get 'user_modal' => 'users#open_modal', as: 'open_modal'
+    get 'change_friend_tab/:id' => 'users#change_friend_tab', as: 'change_friend'
+    get 'change_event_tab/:id' => 'users#change_event_tab', as: 'change_event'
 
   devise_for :users
 
