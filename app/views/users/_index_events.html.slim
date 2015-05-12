@@ -33,7 +33,7 @@
               | /
               = number_format_people_count(event.id)
           h4.organizer
-            = image_tag "ev-list-user.jpg"
+            = link_to(small_avatar(@event.user.id), {:action => "own_user", :controller => "users", :id => @event.user.id})
             /= image_tag Avatar.last.avatar_url(:small)
             | 
             =t('events.organizer')

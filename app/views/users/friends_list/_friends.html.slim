@@ -17,10 +17,7 @@
       -@friends.each do |f|
         .medium-4.columns
           = link_to 'javascript:void(0);' do
-            - if f.avatar && f.avatar.avatar.file.exists?
-              = link_to(image_tag(f.avatar.avatar_url(:small)), {:action => "own_user", :controller => "users", :id => f.id})
-            - else
-              = link_to(image_tag("user-sm-2.jpg"), {:action => "own_user", :controller => "users", :id => f.id})
+            = link_to(small_avatar(f.id), {:action => "own_user", :controller => "users", :id => f.id})
           /= link_to t('Оксана Михайлів'), 'javascript:void(0);'
           = f.last_name + ' ' + f.first_name
     = link_to "Дізнатись більше", user_friends_path(id: @user.id), class:"view-more-btn" if params[:action] == 'own_user' ||params[:action] == 'change_friend_tab'

@@ -36,6 +36,12 @@ module UsersHelper
   		t('other_user.man')
   	elsif user_gender == 'woman'
   		t('other_user.woman')
-	end
+	  end
+  end
+
+  def small_avatar(id)
+    u = User.find(id)
+    avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "user-sm-1.jpg"
+    return "#{image_tag avatar}".html_safe 
   end
 end
