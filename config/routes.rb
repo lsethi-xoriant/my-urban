@@ -58,8 +58,11 @@ Rails.application.routes.draw do
     get 'change_friend_tab/:id' => 'users#change_friend_tab', as: 'change_friend'
     get 'change_event_tab/:id' => 'users#change_event_tab', as: 'change_event'
 
-  devise_for :users
+  get 'user_friends_tabs' => 'users#user_friends_tabs'
 
+
+
+  devise_for :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.

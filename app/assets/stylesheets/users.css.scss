@@ -59,7 +59,7 @@
 		margin-bottom: 0;
 	}
 	.view-more-btn {
-	  margin-right: 20px;
+		margin-right: 20px;
 	}
 }
 
@@ -101,13 +101,13 @@
 	margin: 12px 0 0;
 
 	a {
-	  color: #8e8e8e;
-	  padding: 0;
-	  width: 116px;
-	  text-align: center;
-	  display: inline-block;
-	  font-size: 14px;
-	  line-height: 26px;
+		color: #8e8e8e;
+		padding: 0;
+		width: 116px;
+		text-align: center;
+		display: inline-block;
+		font-size: 14px;
+		line-height: 26px;
 	}
 	a:hover {
 		opacity: 0.8;
@@ -177,10 +177,10 @@
 
 span.tag {
 	border: 1px solid #b5b5b5;
-  border-radius: 5px;
-  display: inline-block;
-  margin: 0 4px 4px 0;
-  padding: 0 5px 0;
+	border-radius: 5px;
+	display: inline-block;
+	margin: 0 4px 4px 0;
+	padding: 0 5px 0;
 }
 
 // END of user info
@@ -188,27 +188,123 @@ span.tag {
 // END of user events
 
 .user-events {
-  padding: 25px 0 0;
+	padding: 25px 0 0;
 
 	.ev-list-item {
 		position: relative;
 	}
-  .ev-list-item h2, .ev-list-item a {
-	  color: #4f4f4f;
-	  font-size: 24px;
-	  line-height: 30px;
-	  font-weight: 400;
-	  clear: right;
-	  margin: 0 0 11px;
+	.ev-list-item h2, .ev-list-item a {
+		color: #4f4f4f;
+		font-size: 24px;
+		line-height: 30px;
+		font-weight: 400;
+		clear: right;
+		margin: 0 0 11px;
 	}
 	.ev-list-type {
-	  float: right;
-	  width: 22px;
-	  height: 22px;
-	  position: absolute;
-	  right: 0;
-	  margin: 0;
+		float: right;
+		width: 22px;
+		height: 22px;
+		position: absolute;
+		right: 0;
+		margin: 0;
 	}
 }
 
 // END of user events
+
+
+// BEGIN of user friends list with tabs
+
+.friends-tabs-wr {
+	display: block;
+	text-align: center;
+	margin: 0 auto 14px;
+}
+
+.friends-tabs {
+  float: none;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  max-width: 1000px;
+  width: 100%;
+
+	a {
+		background: #FFFFFF;
+		width: 33.333%;
+		display: inline-block;
+		margin: 0;
+		font-size: 14px;
+		line-height: 37px;
+		font-weight: 400;
+	}
+}
+
+.fr-online {
+	position: relative;
+
+	&:after {
+	  content: "";
+	  display: block;
+	  position: absolute;
+	  left: -3px;
+	  top: -9px;
+	  width: 10px;
+	  height: 10px;
+	  background: #95E459;
+	  border: 2px solid #FFFFFF;
+	  border-radius: 50%;
+	}
+}
+
+.friends-tabs-content {
+  padding: 10px 45px 20px 35px;
+
+	.user-friends-container {
+	  line-height: 53px;
+	  padding: 10px 0 0 0;
+	}
+	.row {
+		margin-bottom: 0;
+
+		& > div:not(:first-child) {
+			padding: 0;
+			a {
+				color: #bfbfbf;
+				font-size: 12px;
+				display: inline-block;
+  			padding: 1px 37px 0 0;
+  			&:hover {
+  				color: #414141;
+  			}
+			}
+		}
+	}
+}
+
+.fr-remove {
+	background: url(i-f-close.png) no-repeat right center;
+}
+
+.fr-invite {
+	background: url(i-f-add.png) no-repeat right center;
+}
+
+.fr-add {
+	background: url(i-f-add-2.png) no-repeat right center;
+}
+
+.fr-invite.active {
+	background: url(i-f-ok.png) no-repeat right center;
+}
+
+.right {
+	text-align: right;
+}
+
+.hidden {
+	display: none;
+}
+
+// END of user friends list with tabs

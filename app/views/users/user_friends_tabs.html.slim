@@ -1,0 +1,438 @@
+.main-wrapper
+  .content-wrapper.not-main
+    = render "partials/header"
+    .content.user-p
+      .row
+        .large-4.medium-4.small-12.columns.user-sidebar
+          .user-backgr
+            = image_tag "user-backgr-1.jpg"
+          .user-img
+            = image_tag "user-1.jpg"
+          h3 Оксана Іваненко
+          h4 Івано-Франківськ
+          .user-links
+            p
+              = link_to t('events.news'), 'javascript:void(0);'
+              = link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.info'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.message'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.friends'), 'javascript:void(0);'
+              = link_to '1', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.photo_reports'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.events'), 'javascript:void(0);'
+              = link_to '35', 'javascript:void(0);', class: "user-links-couner"
+            p
+              = link_to t('events.settings'), 'javascript:void(0);'
+              / = link_to '', 'javascript:void(0);', class: "user-links-couner"
+
+        .medium-8.small-12.columns
+          .friends-tabs-wr
+            .ch-gr-gr.friends-tabs
+              = link_to t('Друзі'), 'javascript:void(0);', "data-label"=>"0", :class => 'active'
+              = link_to t('Підписники'), 'javascript:void(0);', "data-label"=>"1"
+              = link_to t('Заявки'), 'javascript:void(0);', "data-label"=>"2"
+
+          .container-right.user-friends-list.friends-tabs-content
+
+            div [class="user-friends-container" data-target="0"]
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-2.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-5.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-5.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+
+
+
+            div [class="user-friends-container hidden" data-target="1"]
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-2.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-5.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-5.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запрошено', 'javascript:void(0);', class:"fr-invite active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Додати до друзів', 'javascript:void(0);', class:"fr-add"
+                .medium-3.columns.right
+                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+            / END of friends-list-item
+
+
+
+            div [class="user-friends-container hidden" data-target="2"]
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучено', 'javascript:void(0);', class:"fr-add active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-2.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучено', 'javascript:void(0);', class:"fr-add active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-5.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучено', 'javascript:void(0);', class:"fr-add active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучено', 'javascript:void(0);', class:"fr-add active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-3.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "" do
+                    = image_tag "user-sm-5.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-6.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-1.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучено', 'javascript:void(0);', class:"fr-add active"
+              .row
+                .medium-6.columns
+                  = link_to 'javascript:void(0);', class: "fr-online" do
+                    = image_tag "user-sm-4.jpg"
+                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                .medium-3.columns
+                  = link_to 'Відхилити заявку', 'javascript:void(0);', class:"fr-remove"
+                .medium-3.columns.right
+                  = link_to 'Долучити до друзів', 'javascript:void(0);', class:"fr-add"
+            / END of friends-list-item
+
+              = link_to "Показати більше", 'javascript:void(0);', class:"view-more-btn"
+
+
+    = render "partials/footer"
