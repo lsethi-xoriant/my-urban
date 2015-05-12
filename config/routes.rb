@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     get 'change_friend_tab/:id' => 'users#change_friend_tab', as: 'change_friend'
     get 'change_event_tab/:id' => 'users#change_event_tab', as: 'change_event'
 
-  get 'user_friends_tabs' => 'users#user_friends_tabs'
+  get 'friends' => 'users#friends', as: 'friends'
 
 
 

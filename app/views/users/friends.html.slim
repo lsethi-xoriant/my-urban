@@ -43,15 +43,16 @@
           .container-right.user-friends-list.friends-tabs-content
 
             div [class="user-friends-container" data-target="0"]
-              .row
-                .medium-6.columns
-                  = link_to 'javascript:void(0);', class: "fr-online" do
-                    = image_tag "user-sm-1.jpg"
-                  = link_to 'Оксана Михайлів', 'javascript:void(0);'
-                .medium-3.columns
-                  = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
-                .medium-3.columns.right
-                  = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
+              - @friends.each do |f|
+                .row
+                  .medium-6.columns
+                    = link_to 'javascript:void(0);', class: "fr-online" do
+                      = image_tag "user-sm-1.jpg"
+                    = link_to 'Оксана Михайлів', 'javascript:void(0);'
+                  .medium-3.columns
+                    = link_to 'Видалити з друзів', 'javascript:void(0);', class:"fr-remove"
+                  .medium-3.columns.right
+                    = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
               .row
                 .medium-6.columns
                   = link_to 'javascript:void(0);', class: "" do

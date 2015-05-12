@@ -63,6 +63,15 @@ class UsersController < ApplicationController
     render 'index'
   end
 
+
+
+  def friends
+    @u = current_user
+    @friends = @u.user_friends
+  end
+
+
+
   def open_modal
     @avatar = Avatar.find(params[:id])
     respond_to do |format|

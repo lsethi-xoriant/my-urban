@@ -40,10 +40,7 @@ div class=["ev-list-item", event.event_type]
         | /
         = number_format_people_count(event.id)
     h4.organizer
-      -if @event.user.avatar && @event.user.avatar.avatar.file.exists?
-        = link_to(image_tag(@event.user.avatar.avatar_url(:small), :style => "border-radius: 50%;"), {:action => "own_user", :controller => "users", :id => event.user.id})
-      -else
-        = link_to(image_tag("ev-list-user.jpg"), {:action => "own_user", :controller => "users", :id => event.user.id})
+      = link_to(small_avatar(event.user.id), {:action => "own_user", :controller => "users", :id => event.user.id})
       /= image_tag Avatar.last.avatar_url(:small)
       | 
       =t('events.organizer')
