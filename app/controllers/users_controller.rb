@@ -57,6 +57,7 @@ class UsersController < ApplicationController
 
   def own_user
     @user = User.find(params[:id])
+    @friends = @user.user_friends[0..11]
     @photo_report = @user.events
     render 'index'
   end
