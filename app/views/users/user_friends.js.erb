@@ -1,9 +1,9 @@
  if ( ( $(".all_friends").hasClass('active') )&&(<%=@status == 'common'%>) ){ 
-  $('.medium-8.small-12.columns.user-p-content').html("<%= escape_javascript render('users/friends_list/friends') %>");
+  $('.container-right.user-friends-list').replaceWith("<%= escape_javascript render('users/friends_list/friends') %>");
   $(".common").addClass('active');
   $(".all_friends").removeClass('active');
 } else if ( ( $(".common").hasClass('active') )&&(<%=@status == 'all_friends'%>) ){ 
-  $('.medium-8.small-12.columns.user-p-content').html("<%= escape_javascript render('users/friends_list/friends') %>");
+  $('.container-right.user-friends-list').replaceWith("<%= escape_javascript render('users/friends_list/friends') %>");
   $(".common").removeClass('active');
   $(".all_friends").addClass('active');
 } 

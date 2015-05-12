@@ -52,7 +52,10 @@ Rails.application.routes.draw do
   get 'user_events/:id' => 'users#user_events', as: 'user_events'
   get 'user_photo/:id' => 'users#user_photo'
   get 'user_event' => 'users#user_event'
+
+  #helper for user_page
   get 'user_modal' => 'users#open_modal', as: 'open_modal'
+  get 'change_friend_tab/:id' => 'users#change_friend_tab', as: 'change_friend'
 
   devise_for :users
 
