@@ -36,4 +36,15 @@ jQuery(document).ready(function() {
 		$(this).parents('.field_with_errors').removeClass('field_with_errors');
 	});
 
+	$('.friends-tabs a').click(function(){
+		var _index = $(this).data('label');
+		var _tabContentItem = $('.friends-tabs-content').find('[data-target="' + _index + '"]');
+		$('.friends-tabs a').removeClass('active');
+		$(this).addClass('active');
+		$('.user-friends-container').slideUp(0);
+		_tabContentItem.slideDown();
+
+
+	});
+
 });
