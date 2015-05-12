@@ -44,4 +44,11 @@ module UsersHelper
     avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "user-sm-1.jpg"
     return "#{image_tag avatar}".html_safe 
   end
+
+  def find_friendship(id)
+    u = current_user
+    friendship = u.friendships.where(status: 'friend', friend_id: id) if u.friendships.where(status: 'friend', friend_id: id).count > 0
+    friendship = u.inverse_friendships.where(status: 'friend', user_id: id) if u.inverse_friendships.where(status: 'friend', user_id: id).count > 0
+    return friendship.first
+  end
 end
