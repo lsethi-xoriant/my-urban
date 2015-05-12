@@ -17,4 +17,5 @@
               = image_tag f.avatar.avatar_url(:small)
             - else
               = image_tag "user-sm-2.jpg"
-          = link_to t('Оксана Михайлів'), 'javascript:void(0);'
+          /= link_to t('Оксана Михайлів'), 'javascript:void(0);'
+          = f.last_name + ' ' + f.first_name
