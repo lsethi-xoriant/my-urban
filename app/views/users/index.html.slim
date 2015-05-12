@@ -15,18 +15,18 @@
                 .medium-3.columns
                   p = I18n.t('other_user.city')
                 .medium-9.columns
-                  p = City.find_by_id(current_user.city_id).en_name
+                  p = City.find_by_id(@user.city_id).en_name
               .row
                 .medium-3.columns
                   p День Народження:
                 .medium-9.columns
                   /p 12,01,1989 року (25 років)
-                  p = @user.birthday.strftime("%d.%m.%Y") + ' (' + user_age(current_user.id).to_s + case_of_age(user_age(current_user.id)) + ')'                  
+                  p = @user.birthday.strftime("%d.%m.%Y") + ' (' + user_age(@user.id).to_s + case_of_age(user_age(@user.id)) + ')'                  
               .row
                 .medium-3.columns
                   p = I18n.t('other_user.gender')
                 .medium-9.columns
-                  p = user_gender(current_user.id)
+                  p = user_gender(@user.id)
               .row
                 .medium-3.columns
                   p Освіта:
@@ -54,7 +54,7 @@
                   p Місце роботи:
                 .medium-9.columns
                   p Студент
-              = link_to I18n.t('other_user.knowing_more'), {:action => "user_info", :controller => "users", :id => current_user.id}, class:"view-more-btn"
+              = link_to I18n.t('other_user.knowing_more'), {:action => "user_info", :controller => "users", :id => @user.id}, class:"view-more-btn"
 
           .container-right.user-friends-list
             .ch-gr-gr
@@ -136,7 +136,7 @@
                 /=count_picture            
               br
               /= e.pictures.count
-              = link_to I18n.t('other_user.knowing_more'), {:action => "user_photo", :controller => "users", :id => current_user.id}, class:"view-more-btn"
+              = link_to I18n.t('other_user.knowing_more'), {:action => "user_photo", :controller => "users", :id => @user.id}, class:"view-more-btn"
               br
               br                   
 
