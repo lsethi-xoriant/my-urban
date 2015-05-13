@@ -7,10 +7,11 @@
         .medium-8.small-12.columns.user-p-content
           .container-right
             .ch-gr-gr
-              = link_to t('Учасник'), user_events_path(:status => 'participation', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'participation' : 'active participation')
-              = link_to t('Організатор'), user_events_path(:status => 'organizer', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'organizer active' : 'organizer') 
+              = link_to t('index_events.event_participant'), user_events_path(:status => 'participation', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'participation' : 'active participation')
+              = link_to t('index_events.event_organizer'), user_events_path(:status => 'organizer', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'organizer active' : 'organizer') 
             h1 
-              | Події 
+              | 
+              = I18n.t('index_events.title')
             .user-events
               div id="posts"
                 =render 'list_events'

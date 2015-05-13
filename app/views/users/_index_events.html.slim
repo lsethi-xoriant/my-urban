@@ -1,9 +1,10 @@
 .container-right.event_on_personal
   .ch-gr-gr
-    = link_to t('Учасник'), change_event_path(:status => 'participation', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'participation' : 'active participation')
-    = link_to t('Організатор'), change_event_path(:status => 'organizer', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'organizer active' : 'organizer') 
+    = link_to t('index_events.event_participant'), change_event_path(:status => 'participation', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'participation' : 'active participation')
+    = link_to t('index_events.event_organizer'), change_event_path(:status => 'organizer', id: params[:id]), remote: true, :class => (@status == 'organizer' ? 'organizer active' : 'organizer') 
   h1 
-    | Події 
+    | 
+    = I18n.t('index_events.title') 
   .user-events
     -@events.each do |event|
       div class=["ev-list-item", "event.event_type"]
@@ -38,4 +39,4 @@
             | 
             =t('events.organizer')
             span  =event.user.first_name + ' ' + event.user.last_name
-    = link_to "Дізнатись більше", user_events_path(params[:id]), class:"view-more-btn"
+    = link_to I18n.t('other_user.knowing_more'), user_events_path(params[:id]), class:"view-more-btn"

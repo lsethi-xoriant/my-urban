@@ -63,6 +63,8 @@ ru:
 
   friends:
     name: 'Друзья'
+    all_friends: 'Все друзья'
+    mutual_friends: 'Общие друзья'
 
   city:
     choose_state: 'Выберите область'
@@ -195,6 +197,11 @@ ru:
 
   event:
     reg_at: 'Регистрация на событие'
+
+  index_events:
+    title: 'События'
+    event_organizer: 'Организатор'
+    event_participant: 'Участник'
 
   user_info:
     info_label: "Информация"
