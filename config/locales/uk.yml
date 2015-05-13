@@ -39,6 +39,8 @@ uk:
 
   friends:
     name: 'Друзі'
+    all_friends: 'Всі друзі'
+    mutual_friends: 'Спільні друзі'
 
   other_user:
     private_page: 'Особиста сторінка'
@@ -200,6 +202,11 @@ uk:
 
   event:
     reg_at: 'Зареєструватись на подію'
+
+  index_events:
+    title: 'Події'
+    event_organizer: 'Організатор'
+    event_participant: 'Учасник'
 
   users:
     view_event: "Переглянути подію"
