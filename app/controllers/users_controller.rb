@@ -76,6 +76,7 @@ class UsersController < ApplicationController
   def friends
     @u = current_user
     @friends = @u.user_friends
+    @requests = current_user.requests
   end
 
 

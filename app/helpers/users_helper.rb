@@ -51,4 +51,8 @@ module UsersHelper
     friendship = u.inverse_friendships.where(status: 'friend', user_id: id) if u.inverse_friendships.where(status: 'friend', user_id: id).count > 0
     return friendship.first
   end
+
+  def find_followship(id)
+    return current_user.follower_friendships.where(user_id: id).first
+  end
 end
