@@ -13,7 +13,7 @@
               = link_to t('Заявки'), 'javascript:void(0);', "data-label"=>"2"
 
           .container-right.user-friends-list.friends-tabs-content
-            div [class="user-friends-container" data-target="0"]
+            div [class="user-friends-container friend" data-target="0"]
               - @friends.each do |f|
                 .row
                   .medium-6.columns
@@ -21,7 +21,7 @@
                       =small_avatar(f.id)
                     = link_to f.first_name + ' ' + f.last_name, ownpage_path(f.id)
                   .medium-3.columns
-                    = link_to 'Видалити з друзів', find_friendship(f.id), :method => :delete, class:"fr-remove"
+                    = link_to 'Видалити з друзів', find_friendship(f.id), :method => :delete, class:"fr-remove delete_friend"
                   .medium-3.columns.right
                     = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
               .row
@@ -144,7 +144,7 @@
 
 
 
-            div [class="user-friends-container hidden" data-target="1"]
+            div [class="user-friends-container follower hidden" data-target="1"]
               -current_user.followers.each do |f|
                 .row
                   .medium-6.columns
@@ -152,7 +152,7 @@
                       =small_avatar(f.id)
                     = link_to f.first_name + ' ' + f.last_name, ownpage_path(f.id)
                   .medium-3.columns
-                    = link_to 'Додати до друзів', resolve_friendship_path(find_followship(f.id), :resolve => 'friend'), :method => :post, class:"fr-add"
+                    = link_to 'Додати до друзів', resolve_friendship_path(find_followship(f.id), :resolve => 'friend'), :method => :post, remote: true, class:"fr-add add_friend_link"
                   .medium-3.columns.right
                     = link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
               .row
@@ -285,9 +285,9 @@
                       =small_avatar(f.id)
                     = link_to f.first_name + ' ' + f.last_name, ownpage_path(f.id)
                   .medium-3.columns
-                    = link_to 'Відхилити заявку', resolve_friendship_path(r, :resolve => 'follower'), :method => :post, class:"fr-remove"
+                    = link_to 'Відхилити заявку', resolve_friendship_path(r, :resolve => 'follower'), :method => :post, remote: true,class:"fr-remove add_follower_link"
                   .medium-3.columns.right
-                    = link_to 'Долучити до друзів', resolve_friendship_path(r, :resolve => 'friend'), :method => :post, class:"fr-add"
+                    = link_to 'Долучити до друзів', resolve_friendship_path(r, :resolve => 'friend'), :method => :post, remote: true, class:"fr-add add_friend_link"
               .row
                 .medium-6.columns
                   = link_to 'javascript:void(0);', class: "fr-online" do

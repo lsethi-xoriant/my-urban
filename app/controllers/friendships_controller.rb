@@ -14,10 +14,15 @@ class FriendshipsController < ApplicationController
   def resolve
     @friendship = Friendship.find(params[:id])
     @friendship.status = params[:resolve]
-    @friendship.save
+    #@friendship.save
+    respond_to do |format|
+      format.html {}
+      format.js   { render '/users/friends/user_answer.js.erb'}
+    end 
   end
 
   def destroy
+=begin
     @friendship = Friendship.find(params[:id])
     if (current_user.id == @friendship.friend_id) && @friendship.status == 'follower'
       @friendship.destroy
@@ -31,4 +36,5 @@ class FriendshipsController < ApplicationController
     flash[:notice] = "Removed friendship."
     redirect_to profile_path
   end
+=end
 end
