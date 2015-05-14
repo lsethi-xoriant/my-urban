@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class UsersController < ApplicationController
   before_action :set_user, only: [:user_events, :user_friends, :change_friend_tab, :change_event_tab]
 	
@@ -10,7 +11,10 @@ class UsersController < ApplicationController
   end
 
   def user_events
-    @events = @user.intent_measures.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+    #@events = @user.intent_measures.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+    #@events = @user.intent_invites.paginate(:page => params[:page], :per_page => 5)
+     #binding.pry
+    @events = (@user.intent_invites.order(created_at: :asc) + @user.user_measures.order(created_at: :asc) + @user.user_turns.order(created_at: :asc)).paginate(:page => params[:page], :per_page => 5)
     @status = 'participation'
     if params[:status] == 'organizer'
       @events = @user.events.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
