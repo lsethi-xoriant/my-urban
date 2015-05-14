@@ -43,7 +43,7 @@
               .upload-img
               .field-category
                 = f.hidden_field :avatar_id
-                = f.label :category_id, t('events.choose_category')
+                = f.label :category_id, t('events.choose_category') + "*"
                 = f.collection_select :category_id , Category.all, :id, :title,  :prompt => ' '
               .field-name
                 = f.label :name, t('events.name')

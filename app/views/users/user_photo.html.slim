@@ -9,6 +9,7 @@
           .container-right
             h1 = I18n.t('users.photo_reports') 
             .ev-item-photos
+              -count_picture = 0 
               - @user.events.each do |e|
                 - if e.pictures.count > 0  
                   .date
@@ -17,7 +18,7 @@
                     = l(e.data, :format =>'%d %B %Y') 
                   
                   h2 = e.name
-                  -count_picture = 0 
+                
                   - e.pictures.each do |p|
                     a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
                       = image_tag p.picture_url(:medium_picture) 

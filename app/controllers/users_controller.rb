@@ -58,8 +58,16 @@ class UsersController < ApplicationController
   def own_user
     @user = User.find(params[:id])
     @friends = @user.user_friends[0..11]
-    @photo_report = @user.events
+    @id_event_photo = 0
     @events = @user.intent_measures[0..2]
+    @user.events.each do |e|
+      if e.pictures.count > 0  
+        @id_event_photo = e.id
+      end
+    end
+    if @user.events.count > 0 && @id_event_photo != 0
+      @photo_report = @user.events.find(@id_event_photo)
+    end
     render 'index'
   end
 
