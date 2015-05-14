@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class UsersController < ApplicationController
   before_action :set_user, only: [:user_events, :user_friends, :change_friend_tab, :change_event_tab]
 	
@@ -10,10 +11,13 @@ class UsersController < ApplicationController
   end
 
   def user_events
-    @events = @user.intent_measures.paginate(:page => params[:page], :per_page => 5)
+    #@events = @user.intent_measures.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+    #@events = @user.intent_invites.paginate(:page => params[:page], :per_page => 5)
+     #binding.pry
+    @events = (@user.intent_invites.order(created_at: :asc) + @user.user_measures.order(created_at: :asc) + @user.user_turns.order(created_at: :asc)).paginate(:page => params[:page], :per_page => 5)
     @status = 'participation'
     if params[:status] == 'organizer'
-      @events = @user.events.paginate(:page => params[:page], :per_page => 5)
+      @events = @user.events.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
       @status = 'organizer'
     end
     respond_to do |format|
@@ -59,7 +63,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @friends = @user.user_friends[0..11]
     @id_event_photo = 0
-    @events = @user.intent_measures[0..2]
+    @events = @user.intent_measures.order(created_at: :desc)[0..1]
     @user.events.each do |e|
       if e.pictures.count > 0  
         @id_event_photo = e.id
@@ -76,6 +80,7 @@ class UsersController < ApplicationController
   def friends
     @u = current_user
     @friends = @u.user_friends
+    @requests = current_user.requests
   end
 
 
@@ -108,10 +113,10 @@ class UsersController < ApplicationController
   end
 
   def change_event_tab
-    @events = @user.intent_measures[0..1]
+    @events = @user.intent_measures.order(created_at: :desc)[0..1]
     @status = 'participation'
     if params[:status] == 'organizer'
-      @events = @user.events[0..1]
+      @events = @user.events.order(created_at: :desc)[0..1]
       @status = 'organizer'
     end
     respond_to do |format|

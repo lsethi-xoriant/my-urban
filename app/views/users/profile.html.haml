@@ -17,8 +17,7 @@
   - for u in current_user.followers
     %li
       = h u.first_name
-      - @friendship = current_user.follower_friendships.where(user_id: u.id).first
-      =link_to 'Add to friend', resolve_friendship_path(@friendship, :resolve => 'friend'), :method => :post
+      =link_to 'Add to friend', resolve_friendship_path(find_followship(u.id), :resolve => 'friend'), :method => :post
       = link_to "Remove from followers", @friendship, :method => :delete
 %h2 Followed Users
 %ul

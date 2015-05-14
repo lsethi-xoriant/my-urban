@@ -92,7 +92,7 @@
                 p Запросити друзів:
                 .invite-fr-links
                   = link_to t('events.your_friends'), 'javascript:void(0);', :class => 'active'
-                  = link_to t('events.invite_from_facebook'), 'javascript:void(0);'
+                  /= link_to t('events.invite_from_facebook'), 'javascript:void(0);'
                 .invite-fr-list
                   -current_user.user_friends.each do |friend|
                     .invite-fr-list-item

@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   has_many :intents, -> { where('status =? OR status = ? OR status = ?', 'come', 'turn', 'invite') }, :class_name => "Plan", :foreign_key => :member_id
   has_many :intent_measures, through: :intents, source: :measure
+  has_many :user_measures, -> { where(plans: {status: 'come'}) }, through: :plans, source: :measure
+  has_many :user_turns, -> { where(plans: {status: 'turn'}) }, through: :plans, source: :measure
+  has_many :intent_invites, -> { where(plans: {status: 'invite'}) }, through: :plans, source: :measure
 
   has_many :friendships
   has_many :friends, :through => :friendships

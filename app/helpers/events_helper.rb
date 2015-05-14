@@ -124,4 +124,9 @@ module EventsHelper
       return nil
     end
   end
+
+  def find_plan(id)
+    u = current_user
+    return u.plans.where(measure_id: id).first
+  end
 end
