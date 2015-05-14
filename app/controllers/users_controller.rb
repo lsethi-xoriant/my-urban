@@ -10,10 +10,10 @@ class UsersController < ApplicationController
   end
 
   def user_events
-    @events = @user.intent_measures.paginate(:page => params[:page], :per_page => 5)
+    @events = @user.intent_measures.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
     @status = 'participation'
     if params[:status] == 'organizer'
-      @events = @user.events.paginate(:page => params[:page], :per_page => 5)
+      @events = @user.events.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
       @status = 'organizer'
     end
     respond_to do |format|
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @friends = @user.user_friends[0..11]
     @id_event_photo = 0
-    @events = @user.intent_measures[0..2]
+    @events = @user.intent_measures.order(created_at: :desc)[0..1]
     @user.events.each do |e|
       if e.pictures.count > 0  
         @id_event_photo = e.id
@@ -109,10 +109,10 @@ class UsersController < ApplicationController
   end
 
   def change_event_tab
-    @events = @user.intent_measures[0..1]
+    @events = @user.intent_measures.order(created_at: :desc)[0..1]
     @status = 'participation'
     if params[:status] == 'organizer'
-      @events = @user.events[0..1]
+      @events = @user.events.order(created_at: :desc)[0..1]
       @status = 'organizer'
     end
     respond_to do |format|

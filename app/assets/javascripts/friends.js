@@ -26,9 +26,10 @@ $(document).ready(function(){
   //delete friend 
   $("body").on("click", "a.delete_friend", function(){
     //$(this).removeClass('fr-add')
-    $(this).removeClass('add_follower_link')
+    $(this).removeClass('delete_friend')
     $(this).removeClass('fr-remove')
-    $(this).text('Відхилено')
+    $(this).text('Видалено')
+    //$(this).addClass('fr-add active')
     $(this).closest('.medium-3').next().fadeOut();
    });
 });

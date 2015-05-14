@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
 
   def resolve
     @friendship = Friendship.find(params[:id])
-    @friendship.status = params[:resolve]
+    #@friendship.status = params[:resolve]
     #@friendship.save
     respond_to do |format|
       format.html {}
@@ -35,6 +35,7 @@ class FriendshipsController < ApplicationController
     end
     flash[:notice] = "Removed friendship."
     redirect_to profile_path
-  end
 =end
+  end
+
 end
