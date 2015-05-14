@@ -59,7 +59,7 @@
           - if @user.user_friends.count > 0
             = render 'users/friends_list/friends'
 
-          - if @user.events.count > 0
+          - if @user.events.count > 0 && @id_event_photo > 0
             .container-right
               h1 = I18n.t('users.photo_reports')
               .ev-item-photos
@@ -67,11 +67,11 @@
                 .date
                   | 
                   /for i18n to date format
-                  = l(@photo_report.last.data, :format =>'%d %B %Y') 
+                  = l(@photo_report.data, :format =>'%d %B %Y') 
                   
-                h2 = @photo_report.last.name
+                h2 = @photo_report.name
                 -count_picture = 0 
-                - @photo_report.last.pictures.each do |p|
+                - @photo_report.pictures.each do |p|
                   a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
                     = image_tag p.picture_url(:medium_picture) 
                   
@@ -83,8 +83,8 @@
                 = link_to I18n.t('other_user.knowing_more'), {:action => "user_photo", :controller => "users", :id => @user.id}, class:"view-more-btn"
                 br
                 br                   
-
-          = render 'index_events'
+          -if @user.events.count > 0
+            = render 'index_events'
 
 
     = render "partials/footer"
