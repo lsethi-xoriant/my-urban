@@ -51,9 +51,9 @@ module EventsHelper
     
   
   def confirm_ability(event)
-    if (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&current_user.confirm_friend(event.user.id))))
+    if (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&current_user.confirm_friend(event.user.id)))) && event.user != current_user
       return 'can'
-    elsif (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&!current_user.confirm_friend(event.user.id))))
+    elsif (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&!current_user.confirm_friend(event.user.id)))) && event.user != current_user
       return 'not_friend'
     elsif !user_signed_in?
       return 'not_user'
