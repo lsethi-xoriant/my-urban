@@ -175,7 +175,7 @@ end
         }
       end
     end
-    render "pictures/create"
+    redirect_to :action => "user_photo", :controller => "users", :id => current_user.id 
   end
 
 

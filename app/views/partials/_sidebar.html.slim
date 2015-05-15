@@ -1,4 +1,4 @@
-- if ((params[:action] == 'edit' || params[:action] == 'new')  && params[:controller] == 'events')
+- if ((params[:action] == 'edit' || params[:action] == 'new' || params[:action] == 'upload_picture')  && params[:controller] == 'events')
   - id = current_user.id
 - else 
   - id = params[:id]||current_user.id
