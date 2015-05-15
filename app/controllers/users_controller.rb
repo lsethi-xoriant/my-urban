@@ -59,6 +59,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def user_event_photo
+    @user = User.find(params[:id])
+    @event = Event.find(params[:event_id])
+  end
+
   def own_user
     @user = User.find(params[:id])
     @friends = @user.user_friends[0..11]
