@@ -33,15 +33,17 @@
     h3 = user.first_name + ' ' + user.last_name
     h4 = City.find_by_id(user.city_id).en_name
     .user-links
-      p
-        = link_to t('events.news'), 'javascript:void(0);'
-        /= link_to '+99', 'javascript:void(0);', class: "user-links-couner"
+      /
+        p
+          = link_to t('events.news'), 'javascript:void(0);'
+          /= link_to '+99', 'javascript:void(0);', class: "user-links-couner"
       p
         = link_to I18n.t('events.info'), {:action => "user_info", :controller => "users", :id => user.id}
         / = link_to '', 'javascript:void(0);', class: "user-links-couner"
-      p
-        = link_to t('events.message'), 'javascript:void(0);'
-        /= link_to '1', 'javascript:void(0);', class: "user-links-couner"
+      /
+        p
+          = link_to t('events.message'), 'javascript:void(0);'
+          /= link_to '1', 'javascript:void(0);', class: "user-links-couner"
       p
         = link_to I18n.t('events.friends'), friends_path 
         = link_to "#{current_user.requests.count}", 'javascript:void(0);', class: "user-links-couner" if current_user.requests.count > 0
