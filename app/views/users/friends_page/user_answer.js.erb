@@ -3,4 +3,8 @@
 <%elsif @action == 'to_friends'%>
   render_tab= $('.friends-tabs-content').find('[data-target="0"]').html("<%= escape_javascript render('users/friends_page/friends') %>")
 <%end%>
-$('.f_counter').text("<%=current_user.requests.count%>")
+<%if current_user.requests.count == 1%>
+  $('.f_counter').fadeOut();
+<%else%>
+  $('.f_counter').text("<%=current_user.requests.count%>");
+<%end%>
