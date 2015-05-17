@@ -14,7 +14,7 @@
       = "(#{count})"
   .user-friends-container
     .row
-      -@friends.each do |f|
+      -@friends.reverse_each do |f|
         .medium-4.columns
           = link_to 'javascript:void(0);' do
             = link_to(small_avatar(f.id), {:action => "own_user", :controller => "users", :id => f.id})
