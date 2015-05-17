@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   def own_user
     @user = User.find(params[:id])
-    @friends = @user.user_friends[0..11]
+    @friends = @user.user_friends.reverse[0..11]
     @id_event_photo = 0
     @events = @user.intent_measures.order(created_at: :desc)[0..1]
     @user.events.each do |e|
