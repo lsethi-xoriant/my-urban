@@ -14,14 +14,18 @@ class FriendshipsController < ApplicationController
   def resolve
     @friendship = Friendship.find(params[:id])
     @friendship.status = params[:resolve]
+    @action = 'to_friends' if params[:resolve] == 'friend'
+    @action = 'to_followers' if params[:resolve] == 'follower'
     @friendship.save
+    @friends = current_user.user_friends
     respond_to do |format|
       format.html {}
-      format.js   { render '/users/friends/user_answer.js.erb'}
+      format.js   { render '/users/friends_page/user_answer.js.erb'}
     end 
   end
 
   def destroy
+    @action = 'to_followers'
     @friendship = Friendship.find(params[:id])
     if (current_user.id == @friendship.friend_id) && @friendship.status == 'follower'
       @friendship.destroy
@@ -33,7 +37,11 @@ class FriendshipsController < ApplicationController
       @friendship.save
     end
     flash[:notice] = "Removed friendship."
-    redirect_to profile_path
+
+    respond_to do |format|
+      format.html {}
+      format.js   { render '/users/friends_page/user_answer.js.erb'}
+    end 
   end
 
 end

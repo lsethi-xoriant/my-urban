@@ -46,7 +46,7 @@
           /= link_to '1', 'javascript:void(0);', class: "user-links-couner"
       p
         = link_to I18n.t('events.friends'), friends_path 
-        = link_to "#{current_user.requests.count}", 'javascript:void(0);', class: "user-links-couner" if current_user.requests.count > 0
+        = link_to "#{current_user.requests.count}", 'javascript:void(0);', class: "user-links-couner f_counter" if current_user.requests.count > 0
       p
         = link_to I18n.t('users.photo_reports'), {:action => "user_photo", :controller => "users", :id => user.id}
         / = link_to '', 'javascript:void(0);', class: "user-links-couner"

@@ -1,0 +1,10 @@
+<%if @action == 'to_followers'%>
+  render_tab= $('.friends-tabs-content').find('[data-target="1"]').html("<%= escape_javascript render('users/friends_page/followers') %>")
+<%elsif @action == 'to_friends'%>
+  render_tab= $('.friends-tabs-content').find('[data-target="0"]').html("<%= escape_javascript render('users/friends_page/friends') %>")
+<%end%>
+<%if current_user.requests.count == 0%>
+  $('.f_counter').fadeOut();
+<%else%>
+  $('.f_counter').text("<%=current_user.requests.count%>");
+<%end%>

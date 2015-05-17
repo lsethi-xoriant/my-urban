@@ -1,0 +1,11 @@
+- @friends.reverse_each do |f|
+  .row
+    .medium-6.columns
+      = link_to ownpage_path(f.id), class: "fr-online" do
+        =small_avatar(f.id)
+      = link_to f.first_name + ' ' + f.last_name, ownpage_path(f.id)
+    .medium-3.columns
+      /= link_to 'Видалити з друзів', find_friendship(f.id), :method => :delete, remote: true, class:"fr-remove delete_friend"
+    .medium-3.columns.right
+      = link_to 'Видалити з друзів', find_friendship(f.id), :method => :delete, remote: true, class:"fr-remove delete_friend"
+      /= link_to 'Запросити на подію', 'javascript:void(0);', class:"fr-invite"
