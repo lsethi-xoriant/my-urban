@@ -4,9 +4,4 @@ $(document).ready(function(){
     $(this).closest('form').submit();
    });
 
-  $(".background_user").hover(function(){
-    console.log('hello')
-  }, function(){
-    console.log('nie');
-  })
 });
