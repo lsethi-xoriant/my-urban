@@ -16,7 +16,7 @@ class FriendshipsController < ApplicationController
     @friendship.status = params[:resolve]
     @action = 'to_friends' if params[:resolve] == 'friend'
     @action = 'to_followers' if params[:resolve] == 'follower'
-    #@friendship.save
+    @friendship.save
     @friends = current_user.user_friends
     respond_to do |format|
       format.html {}
