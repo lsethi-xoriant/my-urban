@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :avatars
+  resources :avatars, except: [:index, :show]
     post 'background_create' => 'avatars#background_create'
     patch 'background_update/:id' => 'avatars#background_update'
 
