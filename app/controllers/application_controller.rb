@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  #TODO link for accept invite to event 
-  #TODO link to send invite to user on user_event page
-  #TODO set dependent to destroy for plans and events also between users and friendships
+  #TODO avatar crop bad when size is small
+  #TODO mashtab of the map 
+  #TODO add friends link on the sidebar
+  #TODO add comments to events and mail for usercreator
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
