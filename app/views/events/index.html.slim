@@ -34,7 +34,7 @@
             .ev-type 
               h3 =t('events.type')
               sel-wr
-                = select_tag :category_id, options_for_select( categories_collection), { :include_blank => t('events.all').to_s + " #{Event.all.count}", class: 'filter_select' } 
+                = select_tag :category_id, options_for_select( categories_collection), { :include_blank => t('events.all').to_s + " #{Event.where('data >= ?', Date.today).all.count}", class: 'filter_select' } 
             .reg-type
               h3 =t('events.reg_type')
               p
@@ -50,7 +50,7 @@
             .ev-count
               h3 =t('events.members_number')
               sel-wr
-                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Default', class: "filter_select" }
+                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Виберіть кількість', class: "filter_select" }
             .ev-count
               h3 =t('events.choose_city')
               sel-wr

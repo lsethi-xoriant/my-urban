@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :background, :class_name => 'Avatar', :foreign_key => "background_id"
   has_many :events, dependent: :destroy
 
-  has_many :plans, :foreign_key => :member_id
+  has_many :plans, :foreign_key => :member_id, dependent: :destroy
   has_many :measures, through: :plans, source: :measure
 
   has_many :intents, -> { where('status =? OR status = ? OR status = ?', 'come', 'turn', 'invite') }, :class_name => "Plan", :foreign_key => :member_id
