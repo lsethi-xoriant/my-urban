@@ -146,6 +146,8 @@ ru:
     save_btn: "Сохранить"
 
   events:
+    more_photos: 'Больше фото'
+    city_events: "События моего города"
     event_label: "событий"
     time_start: "Время:"
     members: "Участников:"
@@ -197,6 +199,9 @@ ru:
 
   event:
     reg_at: 'Регистрация на событие'
+    del_event: 'Удалить событие'
+    edit_event: 'Редактировать событие'
+    save: 'Сохранить'
 
   index_events:
     title: 'События'

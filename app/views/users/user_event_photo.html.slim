@@ -22,7 +22,9 @@
                   /-count_picture = 0 
                   - @event.pictures.each do |p|
                     a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
-                      = image_tag p.picture_url(:medium_picture)                
+                      = image_tag p.picture_url(:medium_picture)
+                      - if @user == current_user
+                        = link_to 'X', picture_path(p.id), :method => :delete, :data => { :confirm => 'Are you sure?' }                
                   br                      
                   = link_to I18n.t('events.show_event'), {:action=>"show", :controller=>"events", :id => @event.id}, class:"view-more-btn"
               
