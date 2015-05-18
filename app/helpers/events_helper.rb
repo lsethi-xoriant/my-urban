@@ -33,7 +33,7 @@ module EventsHelper
   end
 
   def categories_collection
-    Category.all.map {|c| ["#{c.title} #{Event.where(category_id: c.id).count}", c.id]}
+    Category.all.map {|c| ["#{c.title} #{Event.where(category_id: c.id).where('data >= ?', Date.today).count}", c.id]}
   end
 
   def number_format_people_count(event_id)

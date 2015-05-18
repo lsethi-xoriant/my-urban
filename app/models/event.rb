@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
   belongs_to :city
   belongs_to :avatar, dependent: :destroy
   
-  has_many :plans, :foreign_key => :measure_id
+  has_many :plans, :foreign_key => :measure_id, dependent: :destroy
   has_many :members, through: :plans, source: :member 
 
   has_many :relationships, -> { where("status like ?", 'come') }, :class_name => "Plan", :foreign_key => :measure_id
