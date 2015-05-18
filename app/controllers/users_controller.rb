@@ -64,6 +64,10 @@ class UsersController < ApplicationController
     @event = Event.find(params[:event_id])
   end
 
+  def del_photo
+    @event = Event.find(params[:event_id])
+  end
+
   def own_user
     @user = User.find(params[:id])
     @friends = @user.user_friends.reverse[0..11]

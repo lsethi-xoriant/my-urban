@@ -167,7 +167,7 @@ end
 
   def upload_picture
     @event = Event.find(params[:id])    
-    if params[:commit] == 'Picture'
+    if params[:picture] == "picture"
       # to handle multiple images upload on create    
       if params[:pictures]
         params[:pictures].each { |picture|
@@ -175,7 +175,7 @@ end
         }
       end
     end
-    redirect_to :action => "user_photo", :controller => "users", :id => current_user.id 
+    render :action => "user_photo", :controller => "users", :id => current_user.id 
   end
 
 

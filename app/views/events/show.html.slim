@@ -42,14 +42,15 @@
             = category_icon(@event.id)
             = Category.find_by_id(@event.category_id).title
           - if current_user && (current_user.id == @event.user.id)
-            = link_to 'Видалити подію', event_path(@event), :method => :delete, :data => { :confirm => 'Are you sure?' }
+            = link_to I18n.t('event.del_event'), event_path(@event), :method => :delete, :data => { :confirm => 'Are you sure?' }
             |  
-            = link_to 'Редагувати подію', edit_event_path(@event)
+            = link_to I18n.t('event.edit_event'), edit_event_path(@event)
             <br>
             = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
               = hidden_field_tag :id, @event.id
               = file_field_tag "pictures[]", type: :file, multiple: true
-              = f.submit "Picture"
+              = hidden_field_tag(:picture, 'picture')
+              = f.submit I18n.t("event.save")
           .ev-address
             - if @event.street_name?
               span[id = "st_name"]

@@ -151,6 +151,8 @@ uk:
     save_btn: "Зберегти"
 
   events:
+    more_photos: 'Більше фото'
+    city_events: "Події мого міста"
     event_label: "подій"
     time_start: "Час:"
     members: "Учасників:"
@@ -202,6 +204,9 @@ uk:
 
   event:
     reg_at: 'Зареєструватись на подію'
+    del_event: 'Видалити подію'
+    edit_event: 'Редагувати подію'
+    save: 'Зберегти'
 
   index_events:
     title: 'Події'
