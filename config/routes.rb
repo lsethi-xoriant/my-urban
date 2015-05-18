@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :avatars, except: [:index, :show]
+  resources :avatars, except: [:index, :show, :edit, :new]
     post 'background_create' => 'avatars#background_create'
     patch 'background_update/:id' => 'avatars#background_update'
 
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :states
 
-  resources :friendships do
+  resources :friendships, except: [:index, :show, :edit, :new] do
     member do
       post 'resolve'
     end
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   get 'invite' => 'plans#invite'
   post 'create_invite' => 'plans#create_invite'
   post 'user_answer' => 'plans#user_answer'
-  resources :plans
+  resources :plans, except: [:index, :show, :edit, :new]
 
   resources :categories
 

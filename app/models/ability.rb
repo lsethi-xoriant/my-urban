@@ -2,11 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.nil?
-        can :read, Event        
-    else
+    user ||= User.new
+    if user.has_role? :admin  
+        can [:create, :read, :update], City   
         can :manage, Event, user_id: user.id  
-        can :create, Event, user_id: user.id  
+    elsif user.has_role? :user
+        can :manage, Event, user_id: user.id  
         #can :create, Category 
         #can [:update, :destroy], Event, Event.user_id => current_user.id
     end    

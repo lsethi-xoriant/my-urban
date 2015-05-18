@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   belongs_to :avatar
   belongs_to :background, :class_name => 'Avatar', :foreign_key => "background_id"
   has_many :events, dependent: :destroy
@@ -39,12 +40,18 @@ class User < ActiveRecord::Base
   #validates_associated :city
 
   before_validation :ensure_than_city_exists
+
+  after_validation :assign_default_role
   
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def assign_default_role
+    add_role(:user)
+  end
 
   def self.user_gender
     [[I18n.t('registration.man'), 'man'], [I18n.t('registration.woman'), 'woman']]
