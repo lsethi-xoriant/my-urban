@@ -3,7 +3,7 @@
             h1
               |  
               =t('events.create_label')
-            - if params[:event] && params[:event][:avatar_id]
+            - if params[:event] && params[:event][:avatar_id].length > 0
               - p = params[:event][:avatar_id]
               - a = Avatar.find(p)
               = form_for a, remote: true, :authenticity_token => true,  html: {class: 'new_avatar', id: 'new_avatar'} do |f|

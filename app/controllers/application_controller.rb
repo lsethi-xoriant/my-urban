@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #TODO avatar crop bad when size is small
-  #TODO mashtab of the map 
-  #TODO add friends link on the sidebar
   #TODO add comments to events and mail for usercreator
   protect_from_forgery with: :exception
 

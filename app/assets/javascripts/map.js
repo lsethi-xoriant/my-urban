@@ -76,7 +76,7 @@ $(function(){
 			},
 			"Ivano-Frankivsk" : {
 				// text : {content : "Івано-Франківськ"}, 
-				href:"/events?state_id=1"
+				href:"/events?state_id=8"
 			},
 			"Sumy" : {
 				// text : {content : "Суми"}, 

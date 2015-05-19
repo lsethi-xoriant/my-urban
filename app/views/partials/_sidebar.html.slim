@@ -84,3 +84,6 @@
       p
         = link_to I18n.t('events.events'), user_events_path(user)
         /= link_to '35', 'javascript:void(0);', class: "user-links-couner"   
+      - if current_user && !current_user.confirm_friend(user.id) && current_user.friendships.where(status: 'request', friend_id: user.id).count == 0 && current_user.inverse_friendships.where(status: 'request', user_id: user.id).count == 0
+        p
+          =link_to "Додати до друзів", friendships_path(:friend_id => user), :method => :post, remote: true, class: 'sidebar_add_friend'

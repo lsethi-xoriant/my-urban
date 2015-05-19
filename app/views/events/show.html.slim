@@ -96,7 +96,7 @@
               #map[style="width: 100%; height: 300px;"]
             - content_for :scripts do
               script
-                |  handler = Gmaps.build('Google'); handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){ markers = handler.addMarkers(#{raw @hash.to_json}); handler.bounds.extendWith(markers); handler.fitMapToBounds(); }); 
+                |  handler = Gmaps.build('Google'); handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){ markers = handler.addMarkers(#{raw @hash.to_json}); handler.bounds.extendWith(markers); handler.fitMapToBounds(); handler.getMap().setZoom(17);}); 
                 |      var findResult = function(results, name){ var result =  _.find(results, function(obj){ return obj.types[0] == name && obj.types[1] == "political"; }); return result ? result.short_name : null;  };
 
                 | function getAddress(){ var latlng = new google.maps.LatLng(#{@event.latitude}, #{@event.longitude});  geocoder = new google.maps.Geocoder();  geocoder.geocode({'latLng': latlng}, function(results, status) { if (status == google.maps.GeocoderStatus.OK) { results = results[0].address_components;   var city = findResult(results, "locality");  var route = results[0].short_name; var street = results[1].short_name; $('#st_num').html(route + ", "); $('#st_name').html(street + " ");} }); };
