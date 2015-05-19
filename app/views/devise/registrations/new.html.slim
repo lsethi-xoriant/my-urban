@@ -13,7 +13,7 @@
             =t('registration.label')
           .upload
             .upload-img
-              - if params[:user] && params[:user][:avatar_id]
+              - if params[:user] && params[:user][:avatar_id].length > 0
                 - p = params[:user][:avatar_id]
                 - a = Avatar.find(p)
                 = image_tag a.avatar_url(:medium)

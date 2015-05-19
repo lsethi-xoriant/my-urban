@@ -41,4 +41,18 @@ $(document).ready(function(){
     $(this).closest('.medium-3').next().fadeOut();
     */
    });
+
+  $("body").on("click", "a.sidebar_add_friend", function(){
+    $(this).closest('p').fadeOut();
+    /*
+    //$(this).removeClass('fr-add')
+    $(this).removeClass('delete_friend')
+    $(this).removeClass('fr-remove')
+    $(this).text('Видалено')
+    //$(this).addClass('fr-add active')
+    $(this).closest('.medium-3').next().fadeOut();
+    */
+   });
+
+  
 });
