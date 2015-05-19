@@ -66,7 +66,7 @@
             = link_to(small_avatar(@event.user.id), {:action => "own_user", :controller => "users", :id => @event.user.id})
               /= image_tag @event.user.avatar.avatar_url(:small)
             =t('events.organizer')
-            span  =@event.user.first_name + ' ' + @event.user.last_name
+            span  = link_to(@event.user.first_name + " " + @event.user.last_name, {:action => "own_user", :controller => "users", :id => @event.user.id})
           .ev-members
             | 
             =I18n.t('events.members')
@@ -77,7 +77,7 @@
             .ev-members-items
               -@event.all_participations[0..17].each do |u|
                 = link_to 'javascript:void(0);' do
-                  = link_to(small_avatar(@event.user.id), {:action => "own_user", :controller => "users", :id => u.id})
+                  = link_to(small_avatar(u.id), {:action => "own_user", :controller => "users", :id => u.id})
 
             - if @event.all_participations.length > 18
               - count = @event.all_participations.length - 18
