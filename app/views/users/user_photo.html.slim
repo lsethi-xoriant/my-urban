@@ -27,7 +27,7 @@
                     -break if count_picture == 12 
                     /=count_picture            
                   br
-                  = link_to I18n.t('events.more_photos'), {:action => "user_event_photo", :controller => "users", :id => @user.id, :event_id => e.id}
+                  = link_to I18n.t('events.show_photos'), {:action => "user_event_photo", :controller => "users", :id => @user.id, :event_id => e.id}
                   /= e.pictures.count
                   = link_to I18n.t('events.show_event'), {:action=>"show", :controller=>"events", :id => e.id}, class:"view-more-btn"
                   br

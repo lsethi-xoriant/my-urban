@@ -12,6 +12,6 @@ class PicturesController < ApplicationController
   def destroy
   	@picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to :action => "user_photo", :controller => "users", :id => current_user.id
+    redirect_to :action => "user_event_photo", :controller => "users", :id => current_user.id, :event_id => @picture.event_id
   end
 end
