@@ -9,7 +9,7 @@
       -@events.each do |event|
         div class=["ev-list-item", "event.event_type"]
           - if  event.avatar && event.avatar.avatar.file.exists? && event.avatar.name == 'event_edit'
-            = link_to(image_tag(event.avatar.avatar_url(:medium_image_edit)), event_path(event))
+            = link_to(image_tag(event.avatar.avatar_url(:medium_image_edi)), event_path(event))
           - elsif event.avatar && event.avatar.avatar.file.exists? && event.avatar.avatar_url(:medium_image)
             = link_to(image_tag(event.avatar.avatar_url(:medium_image)), event_path(event))
           - else
@@ -38,5 +38,5 @@
               /= image_tag Avatar.last.avatar_url(:small)
               | 
               =t('events.organizer')
-              span  =event.user.first_name + ' ' + event.user.last_name
+              span  = link_to(event.user.first_name + " " + event.user.last_name, {:action => "own_user", :controller => "users", :id => @event.user.id})
       = link_to I18n.t('other_user.knowing_more'), user_events_path(params[:id]), class:"view-more-btn"
