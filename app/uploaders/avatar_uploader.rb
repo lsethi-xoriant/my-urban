@@ -10,7 +10,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
 
   version :jumbo, if: :is_human? do
-    resize_to_fit(1000,1000)
+    #was resize to fit
+    resize_to_limit(1000,1000)
   end
 
   version :thumb, if: :is_human? do
@@ -32,7 +33,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
 
   version :base, if: :is_event? do
-    resize_to_fit(1000,1000)
+    resize_to_limit(1000,1000)
   end
 
 
@@ -54,7 +55,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
 
   version :background_base, if: :is_background? do
-    resize_to_fit(1000,1000)
+    resize_to_limit(1000,1000)
   end
 
   version :background, if: :is_background? do
