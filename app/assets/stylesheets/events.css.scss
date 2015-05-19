@@ -181,15 +181,49 @@
 		float: left;
 		width: 194px;
 		margin: 0 40px 0 0;
+		transition: opacity 0.4s;
+		&:hover {
+			opacity: 0.7;
+		}	
 	}
 	
-	h2, a {
+	a {
+		font-size: 16px;
+		line-height: 17px;
+		color: #8fc731;
+		font-weight: 400;
+		margin: 0 2px 0 8px;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	
+	h2 a {
 		color: #4f4f4f;
 		font-size: 24px;
 		line-height: 30px;
 		font-weight: 400;
 		clear: right;
 		margin: 0 0 18px;
+	}
+
+	h2 {
+	  color: #4f4f4f;
+	  font-size: 24px;
+	  line-height: 30px;
+	  font-weight: 400;
+	  clear: right;
+	  margin: 0 0 11px;
+	}
+
+	& > a {
+		float: left;
+		display: inline-block;
+		background: #000000;
+		margin: 0 40px 0 0 !important;
+		img {
+			margin: 0;
+		}
 	}
 
 	h4 {
@@ -213,8 +247,43 @@
 			margin: 2px 9px 20px 16px;
 		}
 	}
-	.organizer {
+	.ev-list-info .organizer {
 		min-width: 200px;
+
+		a {
+			display: block;
+			color: #725784;
+			font-size: 14px;
+			line-height: 18px;
+			margin: 0;
+		}
+	}
+}
+
+#ev-crop-btn, #ev-edit-btn {
+	position: absolute;
+	z-index: 3;
+	display: inline-block;
+	left: 8px;
+	top: 8px;
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
+	background: url(i-crop.png) no-repeat center;
+	background-size: 28px;
+	opacity: 0;
+	transition: opacity 0.4s;
+}
+
+#ev-edit-btn {
+	background: url(i-settings.png) no-repeat center;
+	background-size: 28px;
+}
+
+.ev-list-item:hover #ev-crop-btn, .ev-list-item:hover #ev-edit-btn {
+	opacity: 0.9;
+	&:hover {
+		opacity: 1;
 	}
 }
 
@@ -317,7 +386,7 @@
 		position: relative;
 		z-index: 3;
 		height: 64px;
-		overflow: hidden;
+		// overflow: hidden;
 
 		h1 {
 			font-size: 35px;
@@ -391,8 +460,12 @@
 	  width: auto;
 	  height: auto;
 	  margin: 0 13px 0 0;
-	  padding: 0 0 0 30px;
+	  padding: 0;
 	  line-height: 25px;
+	  img {
+	  	border-radius: 50%;
+	  	margin: 0 10px 0 0;
+	  }
 	}
 	.ev-party {
 	  /* background: url("i-party.png") no-repeat left 1px; */
@@ -468,6 +541,30 @@
 	  height: 140%;
 	  margin: -10% 0 0 -10%;
   }
+}
+
+.ev-manage {
+	a, .btn-4 {
+		display: block;
+		float: none;
+		min-width: 170px;
+		text-align: center;
+		margin: 2px 0 0;
+		color: #FFFFFF;
+		&:hover {
+			opacity: 0.95;
+		}
+	}
+
+	.ev-menage-show {
+		opacity: 0;
+		transition: opacity 0.4s;
+	}
+	&:hover {
+		.ev-menage-show {
+			opacity: 1;
+		}
+	}
 }
 
 // END of styles for single event page

@@ -53,115 +53,115 @@ $(function(){
 		
 		// Customize some areas of the map
 		areas: {
-			// "Zhytomyr" : {
-			// 	text : {content : "Житомир", attrs : {"font-size" : 10}}, 
-			// 	tooltip: {content : "Zhytomyr"},
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Zaporizhia" : {
-			// 	text : {content : "Запоріжжя"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Zakarpattia" : {
-			// 	text : {content : "Закарпаття"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Volyn" : {
-			// 	text : {content : "Волинь"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Vinnytsia" : {
-			// 	text : {content : "Вінниця"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Ivano-Frankivsk" : {
-			// 	text : {content : "Івано-Франківськ"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Sumy" : {
-			// 	text : {content : "Суми"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Sevastopol" : {
-			// 	text : {content : "Севастополь"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Rivne" : {
-			// 	text : {content : "Рівне"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Ternopil" : {
-			// 	text : {content : "Тернопіль"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Poltava" : {
-			// 	text : {content : "Полтава"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Odessa" : {
-			// 	text : {content : "Одеса"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Mykolaiv" : {
-			// 	text : {content : "Миколаїв"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Lviv" : {
-			// 	text : {content : "Львів"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Luhansk" : {
-			// 	text : {content : "Луганськ"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Kirovohrad" : {
-			// 	text : {content : "Кіровоград"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Kiev" : {
-			// 	text : {content : "Київ"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Kiev City" : {
-			// 	text : {content : "Київ"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Khmelnytskyi" : {
-			// 	text : {content : "Хмельницьк"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Kherson" : {
-			// 	text : {content : "Херсон"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Kharkiv" : {
-			// 	text : {content : "Харків"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Donetsk" : {
-			// 	text : {content : "Донецьк"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Dnipropetrovsk" : {
-			// 	text : {content : "Дніпропетровськ"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Chernivtsi" : {
-			// 	text : {content : "Чернівці"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Chernihiv" : {
-			// 	text : {content : "Чернігів"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Cherkasy" : {
-			// 	text : {content : "Черкаси"}, 
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// },
-			// "Crimea" : {
-			// 	text : {content : "Крим", attrs : {transform : "t1,1"}},
-			// 	href:"http://en.wikipedia.org/wiki/Ukraine"
-			// }
+			"Zhytomyr" : {
+				// text : {content : "Житомир", attrs : {"font-size" : 10}}, 
+				// tooltip: {content : "Zhytomyr"},
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Zaporizhia" : {
+				// text : {content : "Запоріжжя"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Zakarpattia" : {
+				// text : {content : "Закарпаття"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Volyn" : {
+				// text : {content : "Волинь"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Vinnytsia" : {
+				// text : {content : "Вінниця"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Ivano-Frankivsk" : {
+				// text : {content : "Івано-Франківськ"}, 
+				href:"/events?state_id=1"
+			},
+			"Sumy" : {
+				// text : {content : "Суми"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Sevastopol" : {
+				// text : {content : "Севастополь"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Rivne" : {
+				// text : {content : "Рівне"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Ternopil" : {
+				// text : {content : "Тернопіль"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Poltava" : {
+				// text : {content : "Полтава"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Odessa" : {
+				// text : {content : "Одеса"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Mykolaiv" : {
+				// text : {content : "Миколаїв"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Lviv" : {
+				// text : {content : "Львів"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Luhansk" : {
+				// text : {content : "Луганськ"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Kirovohrad" : {
+				// text : {content : "Кіровоград"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Kiev" : {
+				// text : {content : "Київ"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Kiev City" : {
+				// text : {content : "Київ"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Khmelnytskyi" : {
+				// text : {content : "Хмельницьк"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Kherson" : {
+				// text : {content : "Херсон"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Kharkiv" : {
+				// text : {content : "Харків"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Donetsk" : {
+				// text : {content : "Донецьк"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Dnipropetrovsk" : {
+				// text : {content : "Дніпропетровськ"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Chernivtsi" : {
+				// text : {content : "Чернівці"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Chernihiv" : {
+				// text : {content : "Чернігів"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Cherkasy" : {
+				// text : {content : "Черкаси"}, 
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			},
+			"Crimea" : {
+				// text : {content : "Крим", attrs : {transform : "t1,1"}},
+				href:"http://en.wikipedia.org/wiki/Ukraine"
+			}
 		},
 
 		// Add some plots on the map
