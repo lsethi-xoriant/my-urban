@@ -28,6 +28,16 @@
 .user-p-content {
 	padding-left: 7px;
 	padding-right: 0;
+
+	a {
+		color: #ff8106;
+		font-size: 15px;
+		line-height: 22px;
+		font-weight: 400;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
 }
 
 .user-p-content-item {
@@ -193,13 +203,25 @@ span.tag {
 	.ev-list-item {
 		position: relative;
 	}
-	.ev-list-item h2, .ev-list-item a {
+	.ev-list-item h2 {
 		color: #4f4f4f;
 		font-size: 24px;
 		line-height: 30px;
 		font-weight: 400;
 		clear: right;
 		margin: 0 0 11px;
+	}
+	.ev-list-item h2 a {
+		color: #4f4f4f;
+		font-size: 24px;
+		line-height: 30px;
+		font-weight: 400;
+		clear: right;
+		margin: 0 0 11px;
+	}
+	.ev-list-item h2 a:hover {
+		color: #000000;
+		opacity: 1;
 	}
 	.ev-list-type {
 		float: right;

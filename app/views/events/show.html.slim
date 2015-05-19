@@ -11,6 +11,14 @@
       .row
         .ev-title
           .come-to-ev
+            - if current_user && (current_user.id == @event.user.id)
+            .ev-manage
+              = link_to 'Керувати подією', "javascript:void(0);", class:"btn-5"
+              .ev-menage-show
+                = link_to I18n.t('event.del_event'), event_path(@event), :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn-4"
+                |  
+                = link_to I18n.t('event.edit_event'), edit_event_path(@event), class:"btn-4"
+
             - if confirm_ability(@event) == 'can'
               = simple_form_for @plan do |f|
                 = f.hidden_field :measure_id,  value: @event.id
@@ -41,11 +49,6 @@
           .ev-category.ev-list-type.ev-party
             = category_icon(@event.id)
             = Category.find_by_id(@event.category_id).title
-          - if current_user && (current_user.id == @event.user.id)
-            = link_to I18n.t('event.del_event'), event_path(@event), :method => :delete, :data => { :confirm => 'Are you sure?' }
-            |  
-            = link_to I18n.t('event.edit_event'), edit_event_path(@event)
-            <br>
             = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
               = hidden_field_tag :id, @event.id
               = file_field_tag "pictures[]", type: :file, multiple: true

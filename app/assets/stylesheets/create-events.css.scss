@@ -18,16 +18,91 @@
 	color: #4f4f4f;
 	padding: 0;
 	width: 360px;
+	transition: opacity 0.4s;
 
 	.user-backgr {
-	  margin: 0 0 -80px;
+		margin: 0 0 -80px;
+		position: relative;
+		overflow: hidden;
+		background: #000000;
+		transition: opacity 0.4s;
+
+		input[type="file"] {
+			position: absolute;
+			z-index: 2;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			cursor: pointer;
+		}
+		img {
+			transition: opacity 0.4s;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.4) url(i-ph.png) no-repeat 8px 8px;
+			background-size: 28px;
+			opacity: 0;
+			transition: opacity 0.4s;
+		}
+		&:hover {
+			img {
+				// opacity: 0.7;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
 	}
 
 	.user-img {
+		position: relative;
+		transition: opacity 0.4s;
+
+		a {
+			display: inline-block;
+			border-radius: 50%;
+			overflow: hidden;
+			position: relative;
+			z-index: 5;
+			border: 5px solid #FFFFFF;
+			box-sizing: border-box;
+			background: transparent;
+			transition: opacity 0.4s;
+		}
+		a:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.4) url(i-settings.png) no-repeat center 10px;
+			background-size: 28px;
+			opacity: 0;
+			transition: opacity 0.4s;
+		}
+		a:hover {
+			background: #000000;
+			img {
+				// opacity: 0.8;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
 		img {
 			border-radius: 50%;
 			width: 139px;
-			border: 5px solid #FFFFFF;
+			transition: opacity 0.4s;
 		}
 	}
 
@@ -67,17 +142,17 @@
 		}
 
 		.user-links-couner {
-		  float: right;
-		  color: #8fc731;
-		  background: #F4F4F4;
-		  padding: 4px 0 0;
-		  text-align: center;
-		  width: 30px;
-		  height: 30px;
-		  box-sizing: border-box;
-		  border-radius: 50%;
-		  font-size: 12px;
-		  overflow: hidden;
+			float: right;
+			color: #8fc731;
+			background: #F4F4F4;
+			padding: 4px 0 0;
+			text-align: center;
+			width: 30px;
+			height: 30px;
+			box-sizing: border-box;
+			border-radius: 50%;
+			font-size: 12px;
+			overflow: hidden;
 		}
 	}
 }
@@ -86,7 +161,7 @@
 	padding: 25px 0 10px 7px;
 
 	h1 {
-		  padding: 0 0 20px;
+			padding: 0 0 20px;
 	}
 
 	input[type="text"], select, textarea {
@@ -148,28 +223,30 @@
 .new_avatar {
 	float: left;
 	position: relative;
-position: relative;
-padding: 3px 0 0;
+	position: relative;
+	padding: 3px 0 0;
+	cursor: pointer;
 
 	.btn-4 {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  color: #4d4d4d;
-  font-size: 14px;
-  height: auto;
-  line-height: 25px;
+		position: relative;
+		z-index: 1;
+		margin: 0;
+		color: #4d4d4d;
+		font-size: 14px;
+		height: auto;
+		line-height: 25px;
 	}
 
 	input {
-opacity: 0;
-  position: absolute;
-  z-index: 3;
-  left: 0;
-  top: 0;
-  width: 155px;
-  height: 37px;
-  margin: 0;
+		opacity: 0;
+		position: absolute;
+		z-index: 3;
+		left: 0;
+		top: 0;
+		width: 196px;
+		height: 37px;
+		margin: 0;
+		cursor: pointer;
 	}
 }
 
