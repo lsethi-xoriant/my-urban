@@ -9,7 +9,7 @@
       -@events.each do |event|
         div class=["ev-list-item", "event.event_type"]
           - if  event.avatar && event.avatar.avatar.file.exists? && event.avatar.name == 'event_edit'
-            = link_to(image_tag(event.avatar.avatar_url(:medium_image_edi)), event_path(event))
+            = link_to(image_tag(event.avatar.avatar_url(:medium_image_edit)), event_path(event))
           - elsif event.avatar && event.avatar.avatar.file.exists? && event.avatar.avatar_url(:medium_image)
             = link_to(image_tag(event.avatar.avatar_url(:medium_image)), event_path(event))
           - else
