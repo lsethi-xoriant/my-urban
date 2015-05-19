@@ -146,7 +146,7 @@ ru:
     save_btn: "Сохранить"
 
   events:
-    more_photos: 'Больше фото'
+    show_photos: 'Посмотреть фотоотчет'
     city_events: "События моего города"
     event_label: "событий"
     time_start: "Время:"

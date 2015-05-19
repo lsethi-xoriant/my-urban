@@ -175,7 +175,7 @@ end
         }
       end
     end
-    render :action => "user_photo", :controller => "users", :id => current_user.id 
+    redirect_to :action => "user_event_photo", :controller => "users", :id => current_user.id, :event_id => @event.id
   end
 
 
