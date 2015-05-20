@@ -198,6 +198,11 @@ ru:
     show_event: 'Посмотреть событие'
 
   event:
+    invate: 'приглашен'
+    accept_invate: "Принять"
+    decline_invates: "Отклонить"
+    turn: 'в очереди'
+    come: 'иду'
     reg_at: 'Регистрация на событие'
     del_event: 'Удалить событие'
     edit_event: 'Редактировать событие'

@@ -203,6 +203,11 @@ uk:
     show_event: 'Переглянути подію'
 
   event:
+    invate: 'запрошений'
+    accept_invate: 'Прийняти'
+    decline_invates: 'Відхилити'
+    turn: 'в черзі'
+    come: 'йду'
     reg_at: 'Зареєструватись на подію'
     del_event: 'Видалити подію'
     edit_event: 'Редагувати подію'
