@@ -125,6 +125,16 @@ module EventsHelper
     end
   end
 
+  def translate_status(status)
+    if status == 'invite'
+      return I18n.t('event.invate')
+    elsif status == 'turn'
+      return I18n.t('event.turn')
+    elsif status == 'come'
+      return I18n.t('event.come')
+    end
+  end
+
   def find_plan(id)
     u = current_user
     return u.plans.where(measure_id: id).first
