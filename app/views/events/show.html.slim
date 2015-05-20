@@ -101,6 +101,28 @@
 
                 | function getAddress(){ var latlng = new google.maps.LatLng(#{@event.latitude}, #{@event.longitude});  geocoder = new google.maps.Geocoder();  geocoder.geocode({'latLng': latlng}, function(results, status) { if (status == google.maps.GeocoderStatus.OK) { results = results[0].address_components;   var city = findResult(results, "locality");  var route = results[0].short_name; var street = results[1].short_name; $('#st_num').html(route + ", "); $('#st_name').html(street + " ");} }); };
                 | getAddress();
+
+      h2 Comments:
+      -@event.comments.each do |comment| 
+        p
+          strong 
+            | Commenter:
+            =comment.user.first_name  + " " + comment.user.last_name
+       
+        p
+          strong Comment:
+          = comment.body 
+
+
+      h2 Add a comment:
+      = form_for([@event, @event.comments.build]) do |f| 
+        p
+          = f.label :body 
+          br
+          = f.text_area :body 
+        p
+          = f.submit 
+        
     = render "partials/footer"
 
 

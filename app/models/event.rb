@@ -25,6 +25,7 @@ class Event < ActiveRecord::Base
 
   # Album has many photos
   has_many :pictures, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   # enable nested attributes for photos through eventa class
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
