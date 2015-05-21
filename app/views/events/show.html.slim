@@ -49,11 +49,11 @@
           .ev-category.ev-list-type.ev-party
             = category_icon(@event.id)
             = Category.find_by_id(@event.category_id).title
-            = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
-              = hidden_field_tag :id, @event.id
-              = file_field_tag "pictures[]", type: :file, multiple: true
-              = hidden_field_tag(:picture, 'picture')
-              = f.submit I18n.t("event.save")
+            / = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
+            /   = hidden_field_tag :id, @event.id
+            /   = file_field_tag "pictures[]", type: :file, multiple: true
+            /   = hidden_field_tag(:picture, 'picture')
+            /   = f.submit I18n.t("event.save")
           .ev-address
             - if @event.street_name?
               span[id = "st_name"]
@@ -102,6 +102,16 @@
                 | function getAddress(){ var latlng = new google.maps.LatLng(#{@event.latitude}, #{@event.longitude});  geocoder = new google.maps.Geocoder();  geocoder.geocode({'latLng': latlng}, function(results, status) { if (status == google.maps.GeocoderStatus.OK) { results = results[0].address_components;   var city = findResult(results, "locality");  var route = results[0].short_name; var street = results[1].short_name; $('#st_num').html(route + ", "); $('#st_name').html(street + " ");} }); };
                 | getAddress();
 
+          = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
+            = hidden_field_tag :id, @event.id
+            = file_field_tag "pictures[]", type: :file, multiple: true
+            = hidden_field_tag(:picture, 'picture')
+            .preview-area
+            = f.submit I18n.t("event.save")
+
+          h5 Виберіть фото для завантаження:
+          <form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+                  
       h2 Comments:
       -@event.comments.each do |comment| 
         p
