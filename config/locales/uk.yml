@@ -96,7 +96,7 @@ uk:
 
   category:
     family: "сім\'я-діти"
-    students: "студенти"
+    student: "студенти"
     work: "робота"
     pet: "домашні улюбленці"
     lang_science: "мови/наука"
@@ -203,6 +203,7 @@ uk:
     show_event: 'Переглянути подію'
 
   event:
+    control: 'Керувати подією'
     invate: 'запрошений'
     accept_invate: 'Прийняти'
     decline_invates: 'Відхилити'
