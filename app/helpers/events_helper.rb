@@ -89,37 +89,39 @@ module EventsHelper
     @event = Event.find(event_id)
     @cat = Category.find(@event.category_id)
     if  (@cat.title == 'семья-дети' || @cat.title == 'сім\'я-діти')      
-      return "#{image_tag('user-sm-3.jpg')}".html_safe    
+      return "#{image_tag('family-children.png')}".html_safe    
+    elsif (@cat.title == 'студенты' || @cat.title == 'студенти')      
+      return "#{image_tag('student.png')}".html_safe
     elsif (@cat.title == 'работа' || @cat.title == 'робота')      
-      return "#{image_tag('user-sm-1.jpg')}".html_safe
+      return "#{image_tag('business.png')}".html_safe
     elsif  (@cat.title == 'домашние животные' || @cat.title == 'домашні улюбленці')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('pets.png')}".html_safe
     elsif (@cat.title == 'мови/наука' || @cat.title == 'языка/наука')      
-      return "#{image_tag('user-sm-1.jpg')}".html_safe
+      return "#{image_tag('languages-science.png')}".html_safe
     elsif  (@cat.title == 'технология' || @cat.title == 'технологія')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('technologies.png')}".html_safe
     elsif  (@cat.title == 'спорт' || @cat.title == 'спорт')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('sport.png')}".html_safe
     elsif  (@cat.title == 'искусство и ремесла' || @cat.title == 'мистецтво і ремесла')      
-      return "#{image_tag('user-sm-4.jpg')}".html_safe
+      return "#{image_tag('arts-crafts.png')}".html_safe
     elsif  (@cat.title == 'кулинария' || @cat.title == 'кулінарія')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('cooking.png')}".html_safe
     elsif  (@cat.title == 'рестораны' || @cat.title == 'ресторани')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('restaurants.png')}".html_safe
     elsif  (@cat.title == 'развлечения' || @cat.title == 'розваги')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('entertainment.png')}".html_safe
     elsif  (@cat.title == 'музыка' || @cat.title == 'музика')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('music.png')}".html_safe
     elsif  (@cat.title == 'bla-bla встречи (полемика)' || @cat.title == 'bla-bla зустрічі (полеміка)')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('bla-bla_meetings.png')}".html_safe
     elsif  (@cat.title == 'путешествия' || @cat.title == 'подорожі')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('travels.png')}".html_safe
     elsif  (@cat.title == 'для геймеров' || @cat.title == 'для геймерів')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('for_gamers.png')}".html_safe
     elsif  (@cat.title == 'культурный обмен' || @cat.title == 'культурний обмін')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('cultural_exchange.png')}".html_safe
     elsif  (@cat.title == 'авто/мотолюбители' || @cat.title == 'авто/мотолюбителі')      
-      return "#{image_tag('user-sm-2.jpg')}".html_safe
+      return "#{image_tag('auto/moto.png')}".html_safe
     else
       return nil
     end

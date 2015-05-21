@@ -13,7 +13,7 @@
           .come-to-ev
             - if current_user && (current_user.id == @event.user.id)
               .ev-manage
-                = link_to 'Керувати подією', "javascript:void(0);", class:"btn-5"
+                = link_to I18n.t('event.control'), "javascript:void(0);", class:"btn-5"
                 .ev-menage-show
                   = link_to I18n.t('event.del_event'), event_path(@event), :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn-4"
                   |  

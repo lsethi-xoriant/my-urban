@@ -503,11 +503,11 @@ language = [:en, :uk, :ru]
 	cat = Category.new	
 	language.each do |l|
 		I18n.locale = l
-		cat.title = I18n.t('category.students')
+		cat.title = I18n.t('category.student')
 	end
 	cat.save
 
-	at = Category.new	
+	cat = Category.new	
 	language.each do |l|
 		I18n.locale = l
 		cat.title = I18n.t('category.work')

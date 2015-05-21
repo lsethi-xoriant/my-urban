@@ -96,7 +96,7 @@ ru:
 
   category:
     family: "семья-дети"
-    students: "студенты"
+    student: "студенты"
     work: "работа"
     pet: "домашние животные"
     lang_science: "языка/наука"
@@ -198,6 +198,7 @@ ru:
     show_event: 'Посмотреть событие'
 
   event:
+    control: 'Управлять событием'
     invate: 'приглашен'
     accept_invate: "Принять"
     decline_invates: "Отклонить"
