@@ -25,6 +25,8 @@
 //= require jquery.jcrop
 //= require jquery.remotipart
 //= require lightbox
+//= require spin
+//= require jquery.spin
 //= require_tree .
 
 
@@ -113,8 +115,20 @@ function inputDate(selected,evnt){
 // AVATAR&& EVENT_IMAGE
 $(document).ready(function(){
   $("body").on("change", "#avatar_avatar", function(){
+    $(".upload-img").spin();
     $(this).closest('form').submit();
    });
+
+  $("body").on("click", ".send_for_crop", function(){
+    $(".upload-img").spin();
+  });
+
+  $("body").on("click", ".background_for_crop", function(){
+    $(".user-backgr").spin({
+      top: '30%'
+    });
+  });
+
 });
 
 

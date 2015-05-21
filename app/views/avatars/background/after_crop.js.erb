@@ -1,5 +1,6 @@
 <%if @user_page == 'background_new'%>
   $('#background_edit').html("<%= escape_javascript render('avatars/background/crop_background') %>");
+  $(".user-backgr").spin(false);
   $('#BackgroundModal').foundation('reveal', 'open');
 
   $('.avatar-crop-btn').click(function(){

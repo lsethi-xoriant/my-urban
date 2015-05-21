@@ -82,3 +82,5 @@ gem 'therubyracer', '0.12.1'
 #Lightbox2 for Rails asset pipeline 
 #Modified for Turbolinks and Sprockets' asset digests compatibility https://github.com/gavinkflam/lightbox2-rails
 gem 'lightbox2-rails', '2.7.1'
+
+gem 'spinjs-rails', '1.4'

@@ -3,10 +3,12 @@
 
 <%if @user_page == 'sign_up'%>
   $('.upload-img').html("<%= escape_javascript render('crop_result') %>");
+  $(".upload-img").spin(false);
   $('#user_avatar_id').val("<%=@avatar.id%>")
   //$('.upload-img').html("<%= escape_javascript render('image_crop_result') %>");
 <%elsif @user_page == 'edit_user'%>
   $('#avatar_edit').html("<%= escape_javascript render('crop_avatar') %>");
+  $(".upload-img").spin(false);
   $('#AvatarModal').foundation('reveal', 'open');
 
   $('.avatar-crop-btn').click(function(){
