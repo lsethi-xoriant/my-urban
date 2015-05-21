@@ -38,7 +38,9 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :events
+  resources :events do 
+    resources :comments
+  end
 
   get 'home/index'
 
