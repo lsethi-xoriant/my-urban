@@ -2,9 +2,9 @@
   /=event.data.to_date
   .ev-list-date
     h5 
-      =Event.where("date(data) = ?", "#{event.data.to_date}").count 
+      =Event.where("date(data) = ? and city_id = ?", "#{event.data.to_date}", "#{event.city_id.to_i}").count       
       |  
-      =case_of_event(Event.where("date(data) = ?", "#{event.data.to_date}").count)
+      =case_of_event(Event.where("date(data) = ? and city_id = ?", "#{event.data.to_date}", "#{event.city_id.to_i}").count)
     h4 
       = I18n.l event.data.to_date, :format => :event
       /.strftime("%A, %d.%m.%Y")=t('events.event_label')
