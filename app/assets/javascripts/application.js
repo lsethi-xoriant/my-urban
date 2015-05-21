@@ -121,7 +121,14 @@ $(document).ready(function(){
 
   $("body").on("click", ".send_for_crop", function(){
     $(".upload-img").spin();
-   })
+  });
+
+  $("body").on("click", ".background_for_crop", function(){
+    $(".user-backgr").spin({
+      top: '30%'
+    });
+  });
+
 });
 
 
