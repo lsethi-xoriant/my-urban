@@ -205,6 +205,11 @@
 		font-weight: 400;
 		clear: right;
 		margin: 0 0 18px;
+
+		&:hover {
+			color: #000000;
+			opacity: 1;
+		}
 	}
 
 	h2 {
@@ -313,9 +318,9 @@
 
 .ev-list-type {
 	float: right;
-	width: 22px;
-	height: 22px;
-	margin: 8px 13px 0 0;
+	width: 32px;
+	height: 32px;
+	margin: 8px 10px 0 0;
 }
 
 .ev-party {
@@ -577,3 +582,48 @@
 }
 
 // END of styles for single event page
+
+.dropzone.dz-clickable {
+	// overflow-x: hidden;
+	background-color: #F4F4F4;
+	border: 1px solid #DEDEDE;
+	border-radius: 4px;
+	box-sizing: border-box;
+	box-shadow: none;
+	outline: none;
+}
+
+.preview-area img {
+	height: 100px;
+	display: inline-block;
+	margin: 10px;
+}
+.preview-area:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.ev-ph-item {
+	display: inline-block;
+	margin: 0 10px 10px 0;
+	position: relative;
+
+	&:hover {
+		.del-img {
+			opacity: 1;
+		}
+	}
+}
+
+.del-img {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	text-indent: -9999px;
+	width: 22px;
+	height: 22px;
+	background: url(i-f-close.png) no-repeat center;
+	background-size: contain;
+	opacity: 0;
+}

@@ -14,6 +14,7 @@
  *= require 'styles'
  *= require jquery.jcrop
  *= require lightbox
+ *= require dropzone
  *= require_self
  */
 

@@ -47,4 +47,22 @@ jQuery(document).ready(function() {
 
 	});
 
+
+// var inputLocalFont = document.getElementById("pictures_");
+// inputLocalFont.addEventListener("change",previewImages,false);
+
+// function previewImages(){
+// 	var fileList = this.files;
+
+// 	var anyWindow = window.URL || window.webkitURL;
+
+// 	for(var i = 0; i < fileList.length; i++){
+// 		var objectUrl = anyWindow.createObjectURL(fileList[i]);
+// 		$('.preview-area').append('<img src="' + objectUrl + '" />');
+// 		window.URL.revokeObjectURL(fileList[i]);
+// 	}
+// }
+
+
+
 });
