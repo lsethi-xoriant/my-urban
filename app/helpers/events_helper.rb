@@ -130,10 +130,40 @@ module EventsHelper
   def small_event_image(event_id)
     @event = Event.find(event_id)
     @cat = Category.find(@event.category_id)
-    if  (@cat.title == 'музыка' || @cat.title == 'музика')
-      return "#{image_tag('defalt_music_event.png')}".html_safe
-    elsif  (@cat.title == 'спорт' || @cat.title == 'спорт')
+    if  (@cat.title == 'семья-дети' || @cat.title == 'сім\'я-діти')      
+      return "#{image_tag('default_family-children_event.png')}".html_safe    
+    elsif (@cat.title == 'студенты' || @cat.title == 'студенти')      
+      return "#{image_tag('default_student_event.png')}".html_safe
+    elsif (@cat.title == 'работа' || @cat.title == 'робота')      
+      return "#{image_tag('default_business_event.png')}".html_safe
+    elsif  (@cat.title == 'домашние животные' || @cat.title == 'домашні улюбленці')      
+      return "#{image_tag('default_pets_event.png')}".html_safe
+    elsif (@cat.title == 'мови/наука' || @cat.title == 'языка/наука')      
+      return "#{image_tag('default_languages-science_event.png')}".html_safe
+    elsif  (@cat.title == 'технология' || @cat.title == 'технологія')      
+      return "#{image_tag('default_technologies_event.png')}".html_safe
+    elsif  (@cat.title == 'спорт' || @cat.title == 'спорт')      
       return "#{image_tag('default_sport_event.png')}".html_safe
+    elsif  (@cat.title == 'искусство и ремесла' || @cat.title == 'мистецтво і ремесла')      
+      return "#{image_tag('default_arts-crafts_event.png')}".html_safe
+    elsif  (@cat.title == 'кулинария' || @cat.title == 'кулінарія')      
+      return "#{image_tag('default_cooking_event.png')}".html_safe
+    elsif  (@cat.title == 'рестораны' || @cat.title == 'ресторани')      
+      return "#{image_tag('default_restaurants_event.png')}".html_safe
+    elsif  (@cat.title == 'развлечения' || @cat.title == 'розваги')      
+      return "#{image_tag('default_entertainment_event.png')}".html_safe
+    elsif  (@cat.title == 'музыка' || @cat.title == 'музика')      
+      return "#{image_tag('default_music_event.png')}".html_safe
+    elsif  (@cat.title == 'bla-bla встречи (полемика)' || @cat.title == 'bla-bla зустрічі (полеміка)')      
+      return "#{image_tag('default_bla-bla_meetings_event.png')}".html_safe
+    elsif  (@cat.title == 'путешествия' || @cat.title == 'подорожі')      
+      return "#{image_tag('default_travels_event.png')}".html_safe
+    elsif  (@cat.title == 'для геймеров' || @cat.title == 'для геймерів')      
+      return "#{image_tag('default_for_gamers_event.png')}".html_safe
+    elsif  (@cat.title == 'культурный обмен' || @cat.title == 'культурний обмін')      
+      return "#{image_tag('default_cultural_exchange_event.png')}".html_safe
+    elsif  (@cat.title == 'авто/мотолюбители' || @cat.title == 'авто/мотолюбителі')      
+      return "#{image_tag('default_auto/moto_event.png')}".html_safe
     end
   end
 
