@@ -50,10 +50,8 @@ test:
 production:
   <<: *default
   adapter: mysql2 
-  #database: myurban_production
+  database: myurban_production
   host: localhost
-  #username: myurban
-  #password: "tort563pursed"
-  database: myurban_development
-  username: root
-  password: 
+  username: myurban
+  password: "tort563pursed"
+  
