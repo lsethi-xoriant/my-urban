@@ -60,6 +60,7 @@
 		display: inline-block;
 		width: 156px;
 		height: 125px;
+		margin: 0 10px 13px 0;
 	}
 	h2 {
 		padding: 0 0 15px;
@@ -69,6 +70,22 @@
 	}
 	.view-more-btn {
 		margin-right: 20px;
+	}
+}
+
+.ev-ph-item {
+	display: inline-block;
+	margin: 0 10px 13px 0;
+	position: relative;
+
+	img {
+		margin: 0;
+	}
+
+	&:hover {
+		.del-img {
+			opacity: 1;
+		}
 	}
 }
 
@@ -237,12 +254,12 @@ span.tag {
 }
 
 .friends-tabs {
-  float: none;
-  display: inline-block;
-  text-align: center;
-  margin: 0;
-  max-width: 1000px;
-  width: 100%;
+	float: none;
+	display: inline-block;
+	text-align: center;
+	margin: 0;
+	max-width: 1000px;
+	width: 100%;
 
 	a {
 		background: #FFFFFF;
@@ -259,25 +276,25 @@ span.tag {
 	position: relative;
 
 	&:after {
-	  content: "";
-	  display: block;
-	  position: absolute;
-	  left: -3px;
-	  top: -9px;
-	  width: 10px;
-	  height: 10px;
-	  background: #95E459;
-	  border: 2px solid #FFFFFF;
-	  border-radius: 50%;
+		content: "";
+		display: block;
+		position: absolute;
+		left: -3px;
+		top: -9px;
+		width: 10px;
+		height: 10px;
+		background: #95E459;
+		border: 2px solid #FFFFFF;
+		border-radius: 50%;
 	}
 }
 
 .friends-tabs-content {
-  padding: 10px 45px 20px 35px;
+	padding: 10px 45px 20px 35px;
 
 	.user-friends-container {
-	  line-height: 53px;
-	  padding: 10px 0 0 0;
+		line-height: 53px;
+		padding: 10px 0 0 0;
 	}
 	.row {
 		margin-bottom: 0;
@@ -288,10 +305,10 @@ span.tag {
 				color: #bfbfbf;
 				font-size: 12px;
 				display: inline-block;
-  			padding: 1px 37px 0 0;
-  			&:hover {
-  				color: #414141;
-  			}
+				padding: 1px 37px 0 0;
+				&:hover {
+					color: #414141;
+				}
 			}
 		}
 	}
@@ -326,3 +343,42 @@ span.tag {
 }
 
 // END of user friends list with tabs
+
+a.accept_invate {
+  background: #95E459;
+  color: #6d893d;
+  padding: 0;
+  width: 88px;
+  border-radius: 40px;
+  text-align: center;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 26px;
+  float: right;
+  margin: 0 0 0 3px;
+}
+
+a.decline_invate {
+  background: #F4F4F4;
+	color: #8e8e8e;
+  padding: 0;
+  width: 88px;
+  border-radius: 40px;
+  text-align: center;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 26px;
+  float: right;
+}
+
+span.status {
+  margin: 0 0 0 20px;
+  float: right;
+  line-height: 26px;
+  img {
+  	display: inline-block;
+  	max-width: 22px;
+  	margin: 0 10px 0 0;
+  }
+}
+
