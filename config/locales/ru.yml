@@ -199,7 +199,7 @@ ru:
 
   event:
     control: 'Управлять событием'
-    invate: 'приглашен'
+    invate: 'приглашение'
     accept_invate: "Принять"
     decline_invates: "Отклонить"
     turn: 'в очереди'

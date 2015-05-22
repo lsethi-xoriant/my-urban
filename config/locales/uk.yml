@@ -204,7 +204,7 @@ uk:
 
   event:
     control: 'Керувати подією'
-    invate: 'запрошений'
+    invate: 'запрошення'
     accept_invate: 'Прийняти'
     decline_invates: 'Відхилити'
     turn: 'в черзі'

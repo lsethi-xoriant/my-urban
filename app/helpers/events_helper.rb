@@ -127,13 +127,23 @@ module EventsHelper
     end
   end
 
+  def small_event_image(event_id)
+    @event = Event.find(event_id)
+    @cat = Category.find(@event.category_id)
+    if  (@cat.title == 'музыка' || @cat.title == 'музика')
+      return "#{image_tag('defalt_music_event.png')}".html_safe
+    elsif  (@cat.title == 'спорт' || @cat.title == 'спорт')
+      return "#{image_tag('default_sport_event.png')}".html_safe
+    end
+  end
+
   def translate_status(status)
     if status == 'invite'
-      return I18n.t('event.invate')
+      return "#{image_tag('invite.png')}".html_safe + I18n.t('event.invate')
     elsif status == 'turn'
-      return I18n.t('event.turn')
+      return "#{image_tag('turn.png')}".html_safe + I18n.t('event.turn')
     elsif status == 'come'
-      return I18n.t('event.come')
+      return "#{image_tag('come.png')}".html_safe + I18n.t('event.come')
     end
   end
 
