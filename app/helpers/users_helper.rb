@@ -41,7 +41,21 @@ module UsersHelper
 
   def small_avatar(id)
     u = User.find(id)
-    avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "user-sm-1.jpg"
+    if u.gender == 'man'
+      avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "boy_default_small.png"
+    else
+      avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "girl_default_small.png"
+    end
+    return "#{image_tag avatar}".html_safe 
+  end
+
+  def big_avatar(id)
+    u = User.find(id)
+    if u.gender == 'man'
+      avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "boy_default_big.png"
+    else
+      avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "girl_default_big.png"
+    end
     return "#{image_tag avatar}".html_safe 
   end
 

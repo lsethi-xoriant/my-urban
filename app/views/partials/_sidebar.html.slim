@@ -19,7 +19,7 @@
           = hidden_field_tag :user_page, 'background_new'
           = f.hidden_field :name, value: 'background'
           = f.file_field :avatar, id: 'background_upload', style: 'position: absolute;'
-        = image_tag "user-backgr-1.jpg", class: 'background_user'
+        = image_tag "back_user_default.png", class: 'background_user'
       div[id="BackgroundModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
         a [class="close-reveal-modal" aria-label="Close"] &#215;
         h2 Image crop
@@ -29,7 +29,7 @@
       - if  user.avatar && user.avatar.avatar.file.exists? && user.avatar.avatar_url(:medium)
         = link_to(image_tag(user.avatar.avatar_url(:medium)), users_path + '/edit')
       - else
-        = link_to(image_tag("user-1.jpg"), users_path + '/edit')
+        = link_to(big_avatar(user.id), users_path + '/edit')
     h3 = link_to(user.first_name + " " + user.last_name, users_path + '/edit')
     h4 = City.find_by_id(user.city_id).en_name
     .user-links
@@ -61,12 +61,12 @@
 - else 
   .large-4.medium-4.small-12.columns.user-sidebar
     .user-backgr
-      = image_tag "user-backgr-1.jpg"
+      = image_tag "back_user_default.png"
     .user-img
       - if  user.avatar && user.avatar.avatar.file.exists? && user.avatar.avatar_url(:medium)
         = image_tag user.avatar.avatar_url(:medium)
       - else
-        = image_tag "user-1.jpg"
+        = big_avatar(user.id)
 
       
 
