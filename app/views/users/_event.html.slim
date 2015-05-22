@@ -51,9 +51,9 @@ div class=["ev-list-item", event.event_type]
       span  = link_to(event.user.first_name + " " + event.user.last_name, {:action => "own_user", :controller => "users", :id => @event.user.id})
 
     - p = find_plan(event.id)
-    
-    = translate_status(p.status) unless p.nil?
+    span.status
+      = translate_status(p.status) unless p.nil?
     - if !p.nil? && p.status == 'invite'
-      =link_to I18n.t('event.accept_invate'), user_answer_path(:answer => 'come', :plan_id => p.id), :method => :post, remote: true
+      =link_to I18n.t('event.accept_invate'), user_answer_path(:answer => 'come', :plan_id => p.id), :method => :post, remote: true, class:"accept_invate"
       |  
-      =link_to I18n.t('event.decline_invates'), user_answer_path(:answer => 'decline', :plan_id => p.id), :method => :post, remote: true
+      =link_to I18n.t('event.decline_invates'), user_answer_path(:answer => 'decline', :plan_id => p.id), :method => :post, remote: true, class:"decline_invate"
