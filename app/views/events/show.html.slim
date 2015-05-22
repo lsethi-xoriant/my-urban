@@ -86,31 +86,94 @@
               - count = @event.all_participations.length - 18
               = link_to "Решта #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
 
-        .medium-8.small-12.columns.ev-single-descr-info
-          .ev-description
-            p = @event.description
-          .map-wr
-            script[src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry&language=#{I18n.locale.to_s}" type="text/javascript"]
-            script[src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript"]
-            div[style="width: 100%;"]
-              #map[style="width: 100%; height: 300px;"]
-            - content_for :scripts do
-              script
-                |  handler = Gmaps.build('Google'); handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){ markers = handler.addMarkers(#{raw @hash.to_json}); handler.bounds.extendWith(markers); handler.fitMapToBounds(); handler.getMap().setZoom(17);}); 
-                |      var findResult = function(results, name){ var result =  _.find(results, function(obj){ return obj.types[0] == name && obj.types[1] == "political"; }); return result ? result.short_name : null;  };
+        .medium-8.small-12.columns
+          .ev-single-descr-info
+            .ev-description
+              p = @event.description
+            .map-wr
+              script[src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry&language=#{I18n.locale.to_s}" type="text/javascript"]
+              script[src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript"]
+              div[style="width: 100%;"]
+                #map[style="width: 100%; height: 300px;"]
+              - content_for :scripts do
+                script
+                  |  handler = Gmaps.build('Google'); handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){ markers = handler.addMarkers(#{raw @hash.to_json}); handler.bounds.extendWith(markers); handler.fitMapToBounds(); handler.getMap().setZoom(17);}); 
+                  |      var findResult = function(results, name){ var result =  _.find(results, function(obj){ return obj.types[0] == name && obj.types[1] == "political"; }); return result ? result.short_name : null;  };
 
-                | function getAddress(){ var latlng = new google.maps.LatLng(#{@event.latitude}, #{@event.longitude});  geocoder = new google.maps.Geocoder();  geocoder.geocode({'latLng': latlng}, function(results, status) { if (status == google.maps.GeocoderStatus.OK) { results = results[0].address_components;   var city = findResult(results, "locality");  var route = results[0].short_name; var street = results[1].short_name; $('#st_num').html(route + ", "); $('#st_name').html(street + " ");} }); };
-                | getAddress();
+                  | function getAddress(){ var latlng = new google.maps.LatLng(#{@event.latitude}, #{@event.longitude});  geocoder = new google.maps.Geocoder();  geocoder.geocode({'latLng': latlng}, function(results, status) { if (status == google.maps.GeocoderStatus.OK) { results = results[0].address_components;   var city = findResult(results, "locality");  var route = results[0].short_name; var street = results[1].short_name; $('#st_num').html(route + ", "); $('#st_name').html(street + " ");} }); };
+                  | getAddress();
 
-          = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
-            = hidden_field_tag :id, @event.id
-            = file_field_tag "pictures[]", type: :file, multiple: true
-            = hidden_field_tag(:picture, 'picture')
-            .preview-area
-            = f.submit I18n.t("event.save")
+            = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
+              = hidden_field_tag :id, @event.id
+              = file_field_tag "pictures[]", type: :file, multiple: true
+              = hidden_field_tag(:picture, 'picture')
+              .preview-area
+              = f.submit I18n.t("event.save")
 
-          h5 Виберіть фото для завантаження:
-          <form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+            h5 Виберіть фото для завантаження:
+            <form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+
+          .comments-wr
+            form.send-comment
+              textarea placeholder="Написати коментар"
+              input type="submit" value="Надіслати" class="btn-6"/
+              input type="button" value="Скасувати" class="btn-7"/
+              .comment-access
+                p Тільки зареєстровані користувачі можуть залишати коментарі
+                = link_to "Зареєструватись", "/"
+                span
+                  | |
+                = link_to "Вхід", "/"
+            .comment-item
+              .comment-info
+                span
+                  | 4 години тому
+                = link_to(image_tag("i-edit-3.png"), "/")
+                = link_to(image_tag("i-close-3.png"), "/")
+              .user-info
+                = link_to(image_tag("user-sm-6.jpg"), "/")
+                = link_to "Олеся Петренко", "/"
+              .comment-text 
+                p
+                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня. Про це заявив журналістам заступник мера Харкова з питань розвитку та забезпечення життєдіяльності міста Ігор Терехов, повідомляють "Українські новини".
+            .comment-item
+              .comment-info
+                span
+                  | 4 години тому
+                = link_to(image_tag("i-edit-3.png"), "/")
+                = link_to(image_tag("i-close-3.png"), "/")
+              .user-info
+                = link_to(image_tag("user-sm-2.jpg"), "/")
+                = link_to "Андрій Скоропатський", "/"
+              .comment-text 
+                p
+                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня.
+            .comment-item
+              .comment-info
+                span
+                  | 4 години тому
+                = link_to(image_tag("i-edit-3.png"), "/")
+                = link_to(image_tag("i-close-3.png"), "/")
+              .user-info
+                = link_to(image_tag("user-sm-5.jpg"), "/")
+                = link_to "Олеся Петренко", "/"
+              .comment-text 
+                p
+                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня. Про це заявив журналістам заступник мера Харкова з питань розвитку та забезпечення життєдіяльності міста Ігор Терехов, повідомляють "Українські новини".
+            .comment-item
+              .comment-info
+                span
+                  | 4 години тому
+                = link_to(image_tag("i-edit-3.png"), "/")
+                = link_to(image_tag("i-close-3.png"), "/")
+              .user-info
+                = link_to(image_tag("user-sm-1.jpg"), "/")
+                = link_to "Андрій Скоропатський", "/"
+              .comment-text 
+                p
+                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня.
+
+
                   
       h2 Comments:
       -@event.comments.each do |comment| 
