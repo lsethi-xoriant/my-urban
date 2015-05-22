@@ -318,8 +318,8 @@
 
 .ev-list-type {
 	float: right;
-	width: 32px;
-	height: 32px;
+	width: 34px;
+	height: 34px;
 	margin: 8px 10px 0 0;
 }
 
@@ -558,6 +558,7 @@
 }
 
 .ev-manage {
+	max-width: 200px;
 	a, .btn-4 {
 		display: block;
 		float: none;
@@ -602,18 +603,6 @@
 	content: "";
 	display: block;
 	clear: both;
-}
-
-.ev-ph-item {
-	display: inline-block;
-	margin: 0 10px 10px 0;
-	position: relative;
-
-	&:hover {
-		.del-img {
-			opacity: 1;
-		}
-	}
 }
 
 .del-img {
