@@ -167,6 +167,46 @@ module EventsHelper
     end
   end
 
+  def default_background_event(event_id)
+    @event = Event.find(event_id)
+    @cat = Category.find(@event.category_id)
+    if  (@cat.title == 'семья-дети' || @cat.title == 'сім\'я-діти')      
+      return "#{image_tag('default_background_family-children_event.jpg')}".html_safe    
+    elsif (@cat.title == 'студенты' || @cat.title == 'студенти')      
+      return "#{image_tag('default_background_student_event.jpg')}".html_safe
+    elsif (@cat.title == 'работа' || @cat.title == 'робота')      
+      return "#{image_tag('default_background_business_event.jpg')}".html_safe
+    elsif  (@cat.title == 'домашние животные' || @cat.title == 'домашні улюбленці')      
+      return "#{image_tag('default_background_pets_event.jpg')}".html_safe
+    elsif (@cat.title == 'мови/наука' || @cat.title == 'языка/наука')      
+      return "#{image_tag('default_background_languages-science_event.jpg')}".html_safe
+    elsif  (@cat.title == 'технология' || @cat.title == 'технологія')      
+      return "#{image_tag('default_background_technologies_event.jpg')}".html_safe
+    elsif  (@cat.title == 'спорт' || @cat.title == 'спорт')      
+      return "#{image_tag('default_background_sport_event_event.jpg')}".html_safe
+    elsif  (@cat.title == 'искусство и ремесла' || @cat.title == 'мистецтво і ремесла')      
+      return "#{image_tag('default_background_arts-crafts_event.jpg')}".html_safe
+    elsif  (@cat.title == 'кулинария' || @cat.title == 'кулінарія')      
+      return "#{image_tag('default_background_cooking_event.jpg')}".html_safe
+    elsif  (@cat.title == 'рестораны' || @cat.title == 'ресторани')      
+      return "#{image_tag('default_background_restaurants_event.jpg')}".html_safe
+    elsif  (@cat.title == 'развлечения' || @cat.title == 'розваги')      
+      return "#{image_tag('default_background_entertainment_event.jpg')}".html_safe
+    elsif  (@cat.title == 'музыка' || @cat.title == 'музика')      
+      return "#{image_tag('defalt_background_music_event_event.jpg')}".html_safe
+    elsif  (@cat.title == 'bla-bla встречи (полемика)' || @cat.title == 'bla-bla зустрічі (полеміка)')      
+      return "#{image_tag('default_background_bla-bla_meetings_event.jpg')}".html_safe
+    elsif  (@cat.title == 'путешествия' || @cat.title == 'подорожі')      
+      return "#{image_tag('default_background_travels_event.jpg')}".html_safe
+    elsif  (@cat.title == 'для геймеров' || @cat.title == 'для геймерів')      
+      return "#{image_tag('default_background_for_gamers_event.jpg')}".html_safe
+    elsif  (@cat.title == 'культурный обмен' || @cat.title == 'культурний обмін')      
+      return "#{image_tag('default_background_cultural_exchange_event.jpg')}".html_safe
+    elsif  (@cat.title == 'авто/мотолюбители' || @cat.title == 'авто/мотолюбителі')      
+      return "#{image_tag('default_background_auto/moto_event.jpg')}".html_safe
+    end    
+  end
+
   def translate_status(status)
     if status == 'invite'
       return "#{image_tag('invite.png')}".html_safe + I18n.t('event.invate')
