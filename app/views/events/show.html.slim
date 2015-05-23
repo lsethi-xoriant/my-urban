@@ -7,7 +7,7 @@
         - if @event.avatar && @event.avatar.avatar.file.exists? && @event.avatar.avatar_url(:large_image)
           = image_tag @event.avatar.avatar_url(:large_image)
         -else
-          = image_tag "event-item-backgr.jpg"
+          = default_background_event(@event.id)
       .row
         .ev-title
           .come-to-ev
