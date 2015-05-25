@@ -38,7 +38,7 @@ ru:
     man: 'мужчина'
     woman: 'женщина'
     knowing_more: 'Узнать больше'
-
+  ago: 'назад'
 
   case_of_age:
     one: 'год'

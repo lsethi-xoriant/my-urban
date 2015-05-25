@@ -124,18 +124,21 @@
                 span
                   | |
                 = link_to "Вхід", "/"
-            .comment-item
-              .comment-info
-                span
-                  | 4 години тому
-                = link_to(image_tag("i-edit-3.png"), "/")
-                = link_to(image_tag("i-close-3.png"), "/")
-              .user-info
-                = link_to(image_tag("user-sm-6.jpg"), "/")
-                = link_to "Олеся Петренко", "/"
-              .comment-text 
-                p
-                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня. Про це заявив журналістам заступник мера Харкова з питань розвитку та забезпечення життєдіяльності міста Ігор Терехов, повідомляють "Українські новини".
+            -@event.comments.each do |comment| 
+              -u = comment.user
+              .comment-item
+                .comment-info
+                  span
+                    = to_pretty(comment.updated_at.to_time)
+                    |   
+                    =t ('ago')
+                  /= link_to(image_tag("i-edit-3.png"), "/")
+                  = link_to(image_tag("i-close-3.png"), "/")
+                .user-info
+                  = link_to(small_avatar(u.id), {:action => "own_user", :controller => "users", :id => u.id})
+                  = link_to(u.first_name + " " + u.last_name, {:action => "own_user", :controller => "users", :id => u.id})
+                .comment-text 
+                  p = comment.body 
             .comment-item
               .comment-info
                 span
