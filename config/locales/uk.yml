@@ -151,6 +151,7 @@ uk:
     save_btn: "Зберегти"
 
   events:
+    members_count: 'Виберіть кількість'
     show_photos: 'Переглянути фотозвіт'
     city_events: "Події мого міста"
     event_label: "подій"

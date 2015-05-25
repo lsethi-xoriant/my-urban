@@ -18,8 +18,7 @@ div class=["ev-list-item", event.event_type]
   - elsif event.avatar && event.avatar.avatar.file.exists? && event.avatar.avatar_url(:medium_image)
     = link_to(image_tag(event.avatar.avatar_url(:medium_image)), event_path(event))
   - else
-    = link_to(small_event_image(event.id), event_path(event))
-    = event.data.to_date - 1.day
+    = link_to(small_event_image(event.id), event_path(event))    
   div class="ev-list-type ev-party"
     = category_icon(event.id)
   .ev-list-info
