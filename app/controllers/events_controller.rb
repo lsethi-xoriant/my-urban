@@ -19,7 +19,7 @@ class EventsController < ApplicationController
 
     @events = @events.where("name like ?", "%#{params[:search]}%") if params[:search]
 
-    @events = @events.where("date(data) >= ?", "#{1.day.ago.to_date}") unless params[:data]
+    @events = @events.where("date(data) >= ?", "#{Date.today.to_date}") unless params[:data]
 
     @all_events = @events
     @events = @events.order(:data, :timeStart).paginate(:page => params[:page], :per_page => 5)

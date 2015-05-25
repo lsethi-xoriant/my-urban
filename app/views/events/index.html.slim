@@ -50,7 +50,7 @@
             .ev-count
               h3 =t('events.members_number')
               sel-wr
-                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => 'Виберіть кількість', class: "filter_select" }
+                = select_tag :people_count, options_for_select(Event.counts_of_people), { :include_blank => t('events.members_count'), class: "filter_select" }
             .ev-count
               h3 =t('events.choose_city')
               sel-wr

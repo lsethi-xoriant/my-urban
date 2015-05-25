@@ -146,6 +146,7 @@ ru:
     save_btn: "Сохранить"
 
   events:
+    members_count: 'Выберите количество'
     show_photos: 'Посмотреть фотоотчет'
     city_events: "События моего города"
     event_label: "событий"
