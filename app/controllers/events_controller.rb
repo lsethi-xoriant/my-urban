@@ -166,7 +166,7 @@ end
 
 
   def upload_picture
-    @event = Event.find(params[:id])    
+    @event = Event.find(params[:id])  
     if params[:picture] == "picture"
       # to handle multiple images upload on create    
       if params[:pictures]

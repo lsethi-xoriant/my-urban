@@ -105,7 +105,7 @@
 
             = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
               = hidden_field_tag :id, @event.id
-              = file_field_tag "pictures[]", type: :file, multiple: true
+              = file_field_tag "pictures[]", type: :file, multiple: true, class: 'picturesPre pictures1'
               = hidden_field_tag(:picture, 'picture')
               .preview-area
               = f.submit I18n.t("event.save")
@@ -133,23 +133,6 @@
               - next if comment.new_record?
               = render 'events/comments/comment', comment: comment
 
-    script
-      | jQuery(document).ready(function() {
-      |   var inputLocalFont = document.getElementById("pictures_");
-      |   inputLocalFont.addEventListener("change",previewImages,false);
-
-      |   function previewImages(){
-      |   var fileList = this.files;
-
-      |   var anyWindow = window.URL || window.webkitURL;
-
-      |   for(var i = 0; i < fileList.length; i++){
-      |     var objectUrl = anyWindow.createObjectURL(fileList[i]);
-      |     $('.preview-area').append('<img src="' + objectUrl + '" />');
-      |     window.URL.revokeObjectURL(fileList[i]);
-      |   }
-      |   }
-      | });
 
     = render "partials/footer"
 
