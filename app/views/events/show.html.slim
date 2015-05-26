@@ -115,8 +115,8 @@
 
           .comments-wr
             - if current_user && (@event.event_type == 'open' || ( @event.event_type == 'close' && @event.user.confirm_friend(current_user.id) ) || current_user.id == @event.user.id )
-              = form_for([@event, @event.comments.build], html: {class: 'send-comment'}) do |f| 
-                = f.text_area :body, :placeholder => "Написати коментар"
+              = simple_form_for([@event, @event.comments.build], remote: true, html: {class: 'send-comment'}) do |f| 
+                = f.text_area :body, :placeholder => "Написати коментар", required: true
                 = f.submit 'Надіслати', class:"btn-6"
                 = button_tag "Скасувати", type: :reset, class: "btn-7"
             - elsif current_user && ( @event.event_type == 'close' && !@event.user.confirm_friend(current_user.id)  && current_user.id != @event.user.id )
@@ -131,20 +131,7 @@
                 = link_to t('header.enter'), new_user_session_path
             -@event.comments.reverse_each do |comment| 
               - next if comment.new_record?
-              -u = comment.user
-              div class=("comment-item comment_id_#{comment.id}")
-                .comment-info
-                  span
-                    = to_pretty(comment.updated_at.to_time)
-                    |   
-                    =t ('ago')
-                  /= link_to(image_tag("i-edit-3.png"), "/")
-                  = link_to(image_tag("i-close-3.png"), event_comment_path(@event, comment.id), :method => :delete, remote: true, :data => { :confirm => 'Are you sure?' })
-                .user-info
-                  = link_to(small_avatar(u.id), {:action => "own_user", :controller => "users", :id => u.id})
-                  = link_to(u.first_name + " " + u.last_name, {:action => "own_user", :controller => "users", :id => u.id})
-                .comment-text 
-                  p = comment.body 
+              = render 'events/comments/comment', comment: comment
 
     script
       | jQuery(document).ready(function() {

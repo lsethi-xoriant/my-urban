@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
+    @last_comment = @event.comments.last
     @comment = @event.comments.create(comment_params)
     name = current_user.first_name + " " + current_user.last_name
     CommentsMailer.comment_to_event(name, @event.user.email, @comment.body, current_user.email).deliver if @comment.valid? 
