@@ -114,90 +114,25 @@
             <form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
 
           .comments-wr
-            form.send-comment
-              textarea placeholder="Написати коментар"
-              input type="submit" value="Надіслати" class="btn-6"/
-              input type="button" value="Скасувати" class="btn-7"/
+            - if current_user && (@event.event_type == 'open' || ( @event.event_type == 'close' && @event.user.confirm_friend(current_user.id) ) || current_user.id == @event.user.id )
+              = simple_form_for([@event, @event.comments.build], remote: true, html: {class: 'send-comment'}) do |f| 
+                = f.text_area :body, :placeholder => "Написати коментар", required: true
+                = f.submit 'Надіслати', class:"btn-6"
+                = button_tag "Скасувати", type: :reset, class: "btn-7"
+            - elsif current_user && ( @event.event_type == 'close' && !@event.user.confirm_friend(current_user.id)  && current_user.id != @event.user.id )
+              .comment-access
+                p Тільки друзі можуть лишати коментарі до цієї події
+            - else
               .comment-access
                 p Тільки зареєстровані користувачі можуть залишати коментарі
-                = link_to "Зареєструватись", "/"
+                = link_to t('sessions.registration'), new_user_registration_path
                 span
                   | |
-                = link_to "Вхід", "/"
-            -@event.comments.each do |comment| 
-              -u = comment.user
-              .comment-item
-                .comment-info
-                  span
-                    = to_pretty(comment.updated_at.to_time)
-                    |   
-                    =t ('ago')
-                  /= link_to(image_tag("i-edit-3.png"), "/")
-                  = link_to(image_tag("i-close-3.png"), "/")
-                .user-info
-                  = link_to(small_avatar(u.id), {:action => "own_user", :controller => "users", :id => u.id})
-                  = link_to(u.first_name + " " + u.last_name, {:action => "own_user", :controller => "users", :id => u.id})
-                .comment-text 
-                  p = comment.body 
-            .comment-item
-              .comment-info
-                span
-                  | 4 години тому
-                = link_to(image_tag("i-edit-3.png"), "/")
-                = link_to(image_tag("i-close-3.png"), "/")
-              .user-info
-                = link_to(image_tag("user-sm-2.jpg"), "/")
-                = link_to "Андрій Скоропатський", "/"
-              .comment-text 
-                p
-                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня.
-            .comment-item
-              .comment-info
-                span
-                  | 4 години тому
-                = link_to(image_tag("i-edit-3.png"), "/")
-                = link_to(image_tag("i-close-3.png"), "/")
-              .user-info
-                = link_to(image_tag("user-sm-5.jpg"), "/")
-                = link_to "Олеся Петренко", "/"
-              .comment-text 
-                p
-                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня. Про це заявив журналістам заступник мера Харкова з питань розвитку та забезпечення життєдіяльності міста Ігор Терехов, повідомляють "Українські новини".
-            .comment-item
-              .comment-info
-                span
-                  | 4 години тому
-                = link_to(image_tag("i-edit-3.png"), "/")
-                = link_to(image_tag("i-close-3.png"), "/")
-              .user-info
-                = link_to(image_tag("user-sm-1.jpg"), "/")
-                = link_to "Андрій Скоропатський", "/"
-              .comment-text 
-                p
-                  | Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня.
+                = link_to t('header.enter'), new_user_session_path
+            -@event.comments.reverse_each do |comment| 
+              - next if comment.new_record?
+              = render 'events/comments/comment', comment: comment
 
-
-                  
-      h2 Comments:
-      -@event.comments.each do |comment| 
-        p
-          strong 
-            | Commenter:
-            =comment.user.first_name  + " " + comment.user.last_name
-       
-        p
-          strong Comment:
-          = comment.body 
-
-      - if current_user && (@event.event_type == 'open' || ( @event.event_type == 'close' && @event.user.confirm_friend(current_user.id) ) || current_user.id == @event.user.id )
-        h2 Add a comment:
-        = form_for([@event, @event.comments.build]) do |f| 
-          p
-            = f.label :body 
-            br
-            = f.text_area :body 
-          p
-            = f.submit 
     script
       | jQuery(document).ready(function() {
       |   var inputLocalFont = document.getElementById("pictures_");
