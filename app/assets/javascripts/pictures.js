@@ -11,20 +11,21 @@
     $('input.picturesPre').addClass('hide');
     
     var anyWindow = window.URL || window.webkitURL;
+    $('.preview-area').append('<div>');
 
     for(var i = 0; i < fileList.length; i++){
        var objectUrl = anyWindow.createObjectURL(fileList[i]);
-       $('.preview-area').append('<img src="' + objectUrl + '" class="picturesPre pictures'+ count + '" />');
+       $('.preview-area > div:last-child').append('<img src="' + objectUrl + '" class="picturesPre pictures'+ count + '" />');
        window.URL.revokeObjectURL(fileList[i]);  
     }
 
-    $('.preview-area').append('<a href="javascript:void(0)" rel="nofollow" class="picturesPre pictures'+ count +'">X</a>')
+    $('.preview-area > div:last-child').append('<a href="javascript:void(0)" rel="nofollow" class="picturesPre pictures'+ count +'">X</a>')
     count = count + 1;
     addInput(count);
   }
 
   function addInput(countImage){
-    $('.edit_event').prepend('<input class="pictures' + countImage + ' picturesPre" id="pictures_" multiple="multiple" name="pictures[]" type="file">');
+    $('.edit_event .ph-drag-drop').prepend('<input class="pictures' + countImage + ' picturesPre" id="pictures_" multiple="multiple" name="pictures[]" type="file">');
   }
 
 

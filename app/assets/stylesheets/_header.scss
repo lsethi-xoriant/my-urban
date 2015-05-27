@@ -62,12 +62,18 @@ header {
 body .not-main {
 	background: #F4F4F4;
 	color: #121212;
+  margin-top: 70px;
 
 	header {
 		background: #784A83;
 		padding: 20px 0 0;
 		height: 70px;
 		box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
 	}
 
 	.logo a {

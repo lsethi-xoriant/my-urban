@@ -104,14 +104,31 @@
                   | getAddress();
 
             = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
-              = hidden_field_tag :id, @event.id
-              = file_field_tag "pictures[]", type: :file, multiple: true, class: 'picturesPre pictures1'
-              = hidden_field_tag(:picture, 'picture')
-              .preview-area
-              = f.submit I18n.t("event.save")
+              .ph-drag-drop
+                p
+                  | Перетягніть сюди зображення
+                p
+                  | або натисність кнопку
+                  = link_to 'Завантажити', 'javascript:void(0);', class: "btn-4" 
+                = hidden_field_tag :id, @event.id
+                = file_field_tag "pictures[]", type: :file, multiple: true, class: 'picturesPre pictures1'
+                = hidden_field_tag(:picture, 'picture')
+              .preview-area.with-scroll
+              = f.submit I18n.t("event.save"), class: "btn-5"
 
-            h5 Виберіть фото для завантаження:
-            <form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+          .ev-single-descr-info.ev-photos
+            .date
+              | 18 травня 2012
+            h2
+              | Фотозвіт
+            .with-scroll
+              /-count_picture = 0 
+              - @event.pictures.each do |p|
+                .ev-ph-item
+                  a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
+                    = image_tag p.picture_url(:medium_picture)
+                    - if @user == current_user
+                      = link_to 'X', picture_path(p.id), class: "del-img", :method => :delete, :data => { :confirm => 'Are you sure?' }
 
           .comments-wr
             - if current_user && (@event.event_type == 'open' || ( @event.event_type == 'close' && @event.user.confirm_friend(current_user.id) ) || current_user.id == @event.user.id )
