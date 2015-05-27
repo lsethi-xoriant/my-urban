@@ -1,7 +1,7 @@
 <%if @user_page == 'new_event'%>
   $(".new_avatar").replaceWith("<%= escape_javascript render('e_avatar_form') %>")
   $('#event_avatar_id').val("<%=@avatar.id%>");
-  //$('.upload-img').html("<%= escape_javascript render('image_crop_result') %>");
+  $('.upload-img').html("<%= escape_javascript render('image_crop_result') %>");
 <%elsif @user_page == 'edit_event'%>
   $('#image_edit').html("<%= escape_javascript render('crop_image') %>");
   $('#ImageModal').foundation('reveal', 'open');
