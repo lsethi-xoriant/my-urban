@@ -115,7 +115,9 @@ function inputDate(selected,evnt){
 // AVATAR&& EVENT_IMAGE
 $(document).ready(function(){
   $("body").on("change", "#avatar_avatar", function(){
-    $(".upload-img").spin();
+    if (!$(this).hasClass('image_for_event')){
+      $(".upload-img").spin();
+    }
     $(this).closest('form').submit();
    });
 

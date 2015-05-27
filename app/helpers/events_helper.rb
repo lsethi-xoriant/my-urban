@@ -209,11 +209,21 @@ module EventsHelper
 
   def translate_status(status)
     if status == 'invite'
-      return "#{image_tag('invite.png')}".html_safe + I18n.t('event.invate')
+      return I18n.t('event.invate') 
     elsif status == 'turn'
-      return "#{image_tag('turn.png')}".html_safe + I18n.t('event.turn')
+      return I18n.t('event.turn') 
     elsif status == 'come'
-      return "#{image_tag('come.png')}".html_safe + I18n.t('event.come')
+      return I18n.t('event.come') 
+    end
+  end
+
+  def icon_of_status(status)
+    if status == 'invite'
+      return  "#{image_tag('invite.png')}".html_safe  
+    elsif status == 'turn'
+      return  "#{image_tag('turn.png')}".html_safe 
+    elsif status == 'come'
+      return  "#{image_tag('come.png')}".html_safe 
     end
   end
 

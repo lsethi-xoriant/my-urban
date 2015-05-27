@@ -51,7 +51,11 @@ class PlansController < ApplicationController
     @plan.status = 'come' if params[:answer] == 'come'
     @plan.status = 'decline' if params[:answer] == 'decline'
     @plan.save
-    render text: "#{@plan.inspect}"
+    @event = @plan.measure
+    respond_to do |format|
+      format.html {}
+      format.js   {render 'users/user_answer.js.erb'}
+    end  
   end
 
   def sent_invites
