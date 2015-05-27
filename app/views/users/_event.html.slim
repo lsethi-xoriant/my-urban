@@ -13,7 +13,7 @@
       - if event.data == Date.today
           h6 =t('events.today') 
       end
-div class=["ev-list-item", event.event_type]
+div class=["ev-list-item", event.event_type, "event_class#{event.id}"]
   - if event.avatar&&event.avatar.avatar.file.exists? && current_user && (current_user.id == event.user.id) 
     = link_to "Crop", open_modal_path(:id => event.avatar.id), remote: true, style: 'position: absolute;', id: 'ev-crop-btn'
   - elsif current_user && (current_user.id == event.user.id)  
@@ -54,6 +54,7 @@ div class=["ev-list-item", event.event_type]
   div
     span.status
       = translate_status(p.status) unless p.nil?
+      = icon_of_status(p.status) unless p.nil?
     - if !p.nil? && p.status == 'invite'
       =link_to I18n.t('event.decline_invates'), user_answer_path(:answer => 'decline', :plan_id => p.id), :method => :post, remote: true, class:"decline_invate"
       |  
