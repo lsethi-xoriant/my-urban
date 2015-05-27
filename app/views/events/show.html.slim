@@ -146,9 +146,10 @@
                 span
                   | |
                 = link_to t('header.enter'), new_user_session_path
-            -@event.comments.reverse_each do |comment| 
-              - next if comment.new_record?
-              = render 'events/comments/comment', comment: comment
+            .comments_block
+              -@event.comments.reverse_each do |comment| 
+                - next if comment.new_record?
+                = render 'events/comments/comment', comment: comment
 
 
     = render "partials/footer"
