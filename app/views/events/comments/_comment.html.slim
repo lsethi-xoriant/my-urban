@@ -2,9 +2,12 @@ div class=("comment-item") id=("comment_id_#{comment.id}")
   -u = comment.user
   .comment-info
     span
-      = to_pretty(comment.updated_at.to_time)
-      |   
-      =t ('ago')
+      -if (Time.now-comment.updated_at.to_time).to_i == 0
+        = to_pretty_time_ago(comment.updated_at.to_time)
+      -else
+        = to_pretty_time_ago(comment.updated_at.to_time)
+        |   
+        =t ('ago')
     /= link_to(image_tag("i-edit-3.png"), "/")
     = link_to(image_tag("i-close-3.png"), event_comment_path(@event, comment.id), :method => :delete, remote: true, :data => { :confirm => 'Are you sure?' })
   .user-info

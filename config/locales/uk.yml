@@ -48,9 +48,7 @@ uk:
     gender: "Стать:"
     man: 'чоловік'
     woman: 'жінка'
-    knowing_more: 'Дізнатися більше'
-
-  ago: 'тому'
+    knowing_more: 'Дізнатися більше'  
 
   case_of_age:
     one: 'рік'
@@ -66,6 +64,44 @@ uk:
     one: 'учасник'
     few: 'учасники'
     many: 'учасників'
+
+  ago: 'тому'
+  
+  just_now: 'щойно'
+
+  case_of_second:
+    one: 'секунду'
+    few: 'секунди'
+    many: 'секунд'
+
+  case_of_minute:
+    one: 'хвилину'
+    few: 'хвилини'
+    many: 'хвилин'
+
+  case_of_hour:
+    one: 'годину'
+    few: 'години'
+    many: 'годин'
+
+  case_of_day:
+   one: 'день'
+   few: 'дні'
+   many: 'днів'
+
+  case_of_week:
+    one: 'тиждень'
+    few: 'тижні'
+
+  case_of_month:
+    one: 'місяць'
+    few: 'місяці'
+    many: 'місяців'
+
+  case_of_year:
+    one: 'рік'
+    few: 'роки'
+    many: 'років'
 
   city:
     choose_state: 'Оберіть область'
