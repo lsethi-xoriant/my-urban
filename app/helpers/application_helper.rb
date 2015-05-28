@@ -1,4 +1,5 @@
 module ApplicationHelper
-  #TODO user verify before votozvit upload
-  #TODO image preload for image of event
+  #TODO make redirect after ckick button 'uncomming'
+  #TODO fix bug with send invite from edit event
+  #TODO fix google autocomplete 
 end

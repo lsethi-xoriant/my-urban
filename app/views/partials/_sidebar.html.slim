@@ -54,7 +54,7 @@
         / = link_to '', 'javascript:void(0);', class: "user-links-couner"
       p
         = link_to I18n.t('events.events'), user_events_path(user)
-        = link_to "#{current_user.intent_invites.count}", 'javascript:void(0);', class: "user-links-couner" if current_user.intent_invites.count > 0
+        = link_to "#{current_user.intent_invites.count}", 'javascript:void(0);', class: "user-links-couner e_counter" if current_user.intent_invites.count > 0
       p
         = link_to t('events.settings'), 'javascript:void(0);'
         / = link_to '', 'javascript:void(0);', class: "user-links-couner"
