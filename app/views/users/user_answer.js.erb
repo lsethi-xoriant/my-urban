@@ -1,1 +1,6 @@
  $(".event_class<%=@event.id%>").replaceWith("<%= escape_javascript render('users/event', event: @event) %>");
+ <%if current_user.intent_invites.count == 0%>
+  $('.e_counter').fadeOut();
+<%else%>
+  $('.e_counter').text("<%=current_user.intent_invites.count%>");
+<%end%>
