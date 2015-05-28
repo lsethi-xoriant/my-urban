@@ -34,9 +34,9 @@
                     ' All the places are occupied. Go in
                     = f.submit 'Turn', name: 'turn'
             - elsif confirm_ability(@event) == 'not_friend'
-              p This event are close, you aren't friend
+              p = I18n.t('event.you_are_not_friend')
             - elsif confirm_ability(@event) == 'not_user'
-              p Sign in or Sign up
+              p =I18n.t('event.sing_in_up')
           h1 = @event.name
           p.ev-start
             =t('header.begin')
@@ -103,45 +103,46 @@
                   | function getAddress(){ var latlng = new google.maps.LatLng(#{@event.latitude}, #{@event.longitude});  geocoder = new google.maps.Geocoder();  geocoder.geocode({'latLng': latlng}, function(results, status) { if (status == google.maps.GeocoderStatus.OK) { results = results[0].address_components;   var city = findResult(results, "locality");  var route = results[0].short_name; var street = results[1].short_name; $('#st_num').html(route + ", "); $('#st_name').html(street + " ");} }); };
                   | getAddress();
 
-            = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
-              .ph-drag-drop
-                p
-                  | Перетягніть сюди зображення
-                p
-                  | або натисність кнопку
-                  = link_to 'Завантажити', 'javascript:void(0);', class: "btn-4" 
-                = hidden_field_tag :id, @event.id
-                = file_field_tag "pictures[]", type: :file, multiple: true, class: 'picturesPre pictures1'
-                = hidden_field_tag(:picture, 'picture')
-              .preview-area.with-scroll
-              = f.submit I18n.t("event.save"), class: "btn-5"
-
-          .ev-single-descr-info.ev-photos
-            .date
-              | 18 травня 2012
-            h2
-              | Фотозвіт
-            .with-scroll
-              /-count_picture = 0 
-              - @event.pictures.each do |p|
-                .ev-ph-item
-                  a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
-                    = image_tag p.picture_url(:medium_picture)
-                    - if @user == current_user
-                      = link_to 'X', picture_path(p.id), class: "del-img", :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if !current_user.nil? && current_user.id == @event.user_id
+              = form_for @event, :html => {:multipart => true}, :method => 'post', url: {:controller => 'events', :action => 'upload_picture'} do |f|
+                .ph-drag-drop
+                  p
+                    =I18n.t('event.drag_image')
+                  p
+                    =t('event.or_push_button')
+                    = link_to I18n.t('event.btn_download'), "javascript:void(0);", class: "btn-4" 
+                  = hidden_field_tag :id, @event.id
+                  = file_field_tag "pictures[]", type: :file, multiple: true, class: 'picturesPre pictures1'
+                  = hidden_field_tag(:picture, 'picture')
+                .preview-area.with-scroll
+                = f.submit I18n.t("event.save"), class: "btn-5"
+            -if @event.pictures.count > 0
+              .ev-single-descr-info.ev-photos
+                .date
+                  /| 18 травня 2012
+                h2
+                  = I18n.t('event.photo_report')
+                .with-scroll
+                  /-count_picture = 0 
+                  - @event.pictures.each do |p|
+                    .ev-ph-item
+                      a href="#{p.picture_url(:large_picture) }" data-lightbox="image-1" data-title="My caption"
+                        = image_tag p.picture_url(:medium_picture)
+                        - if !current_user.nil? && current_user.id == @event.user_id
+                          = link_to 'X', picture_path(p.id), class: "del-img", :method => :delete, :data => { :confirm => I18n.t('event.destroy_photo') }
 
           .comments-wr
             - if current_user && (@event.event_type == 'open' || ( @event.event_type == 'close' && @event.user.confirm_friend(current_user.id) ) || current_user.id == @event.user.id )
               = simple_form_for([@event, @event.comments.build], remote: true, html: {class: 'send-comment'}) do |f| 
-                = f.text_area :body, :placeholder => "Написати коментар", required: true
-                = f.submit 'Надіслати', class:"btn-6"
-                = button_tag "Скасувати", type: :reset, class: "btn-7"
+                = f.text_area :body, :placeholder => I18n.t('event.write_comment'), required: true
+                = f.submit I18n.t('event.btn_send'), class:"btn-6"
+                = button_tag I18n.t('event.btn_cansel'), type: :reset, class: "btn-7"
             - elsif current_user && ( @event.event_type == 'close' && !@event.user.confirm_friend(current_user.id)  && current_user.id != @event.user.id )
               .comment-access
-                p Тільки друзі можуть лишати коментарі до цієї події
+                p = I18n.t('event.only_friends')
             - else
               .comment-access
-                p Тільки зареєстровані користувачі можуть залишати коментарі
+                p = I18n.t('event.only_reg_users')
                 = link_to t('sessions.registration'), new_user_registration_path
                 span
                   | |
