@@ -276,6 +276,7 @@ ru:
   users:
     view_event: "Посмотреть событие"
     photo_reports: "Фотоотчеты"
+    photo_report: "Фотоотчет"
 
   state_name: 
     vinnytska: "Винницкая"

@@ -272,6 +272,7 @@ uk:
   users:
     view_event: "Переглянути подію"
     photo_reports: "Фотозвіти"
+    photo_report: "Фотозвіт"
 
   state_name: 
     ternopil: "Тернопільська"

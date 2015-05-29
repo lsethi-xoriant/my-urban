@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    #@event = Event.find(params[:id])
+    #@event = Event.find(params[:id])    
     if user_signed_in?
       @p = Plan.where(member_id: current_user.id, measure_id: @event.id)
     else
