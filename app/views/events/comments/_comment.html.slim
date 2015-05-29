@@ -10,7 +10,7 @@ div class=("comment-item") id=("comment_id_#{comment.id}")
         =t ('ago')
     /= link_to(image_tag("i-edit-3.png"), "/")
     - if current_user.id == @event.user_id || (current_user.id == u.id)
-      = link_to(image_tag("i-close-3.png"), event_comment_path(@event, comment.id), :method => :delete, remote: true, :data => { :confirm => 'Are you sure?' })
+      = link_to(image_tag("i-close-3.png"), event_comment_path(@event, comment.id), :method => :delete, remote: true, :data => { :confirm => I18n.t('event.destroy_comment') })
   .user-info    
     = link_to(small_avatar(u.id), {:action => "own_user", :controller => "users", :id => u.id})
     = link_to(u.first_name + " " + u.last_name, {:action => "own_user", :controller => "users", :id => u.id})
