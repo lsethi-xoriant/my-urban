@@ -48,7 +48,7 @@
               .field-name
                 = f.label :name, t('events.name')
                 = f.text_field :name
-              .field-address
+              .field-address.locationField
                 = f.label :adress, t('events.address')
                 = f.text_field :adress, :placeholder => '', id: 'autocomplete'
                 table#address.hide

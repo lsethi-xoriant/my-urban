@@ -134,6 +134,10 @@ $(document).ready(function(){
 });
 
 
+
+///////////////////
+
+
 var placeSearch, autocomplete;
 var componentForm = {
   street_number: 'short_name',
@@ -200,6 +204,8 @@ function geolocate() {
     });
   }
 }
+
+/////////////////
 
 
 
