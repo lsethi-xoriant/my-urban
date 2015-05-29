@@ -1,4 +1,3 @@
-script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&language=en"
 .main-wrapper
   .content-wrapper.not-main
     = render "partials/header"
@@ -99,19 +98,13 @@ script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libra
                     - if friend.are_participation(params[:id])
                       .invite-fr-list-item.invited
                         = link_to 'javascript:void(0);' do
-                        - if friend.avatar&&friend.avatar.avatar.file.exists?
-                          = image_tag friend.avatar.avatar_url(:small)
-                        - else
-                          = image_tag "user-sm-2.jpg"                       
+                          =small_avatar(friend.id)                      
                         = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);'
                         = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
                     -else 
                       .invite-fr-list-item
                         = link_to 'javascript:void(0);' do
-                        - if friend.avatar&&friend.avatar.avatar.file.exists?
-                          = image_tag friend.avatar.avatar_url(:small), class: 'user_for_invite'
-                        - else
-                          = image_tag "user-sm-2.jpg", class: 'user_for_invite'                       
+                          =small_avatar(friend.id, 'new_edit')                 
                         = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
                         = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
 

@@ -99,7 +99,7 @@ class PlansController < ApplicationController
     end
     @plan.destroy
     #@plan.destroy
-    respond_with(@plan)
+    respond_with(@event)
   end
 
   private

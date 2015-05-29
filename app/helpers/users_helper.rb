@@ -39,14 +39,18 @@ module UsersHelper
 	  end
   end
 
-  def small_avatar(id)
+  def small_avatar(id, *page)
     u = User.find(id)
     if u.gender == 'man'
       avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "boy_default_small.png"
     else
       avatar = (u.avatar && u.avatar.avatar.file.exists?) ? u.avatar.avatar_url(:small) : "girl_default_small.png"
     end
-    return "#{image_tag avatar}".html_safe 
+    if page[0] == 'new_edit'
+      return "#{image_tag avatar, class: 'user_for_invite', :style => "border-radius: 50%;" }".html_safe
+    else
+      return "#{image_tag avatar}".html_safe 
+    end
   end
 
   def big_avatar(id)
