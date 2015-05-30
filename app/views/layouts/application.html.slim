@@ -9,7 +9,7 @@ html
     = csrf_meta_tags
     /- flash.each do |name, msg|
      /= content_tag :div, msg, id: "flash_#{name}"
-  - if params[:controller] == 'events' && (params[:action] == 'new'||params[:action] == 'create'||params[:action] == 'edit')
+  - if params[:controller] == 'events' && (params[:action] == 'new'||params[:action] == 'create'||params[:action] == 'edit'||params[:action] == 'update')
     body onload="initialize()"
       = yield
       = yield :scripts

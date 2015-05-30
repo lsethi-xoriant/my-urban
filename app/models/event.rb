@@ -20,6 +20,8 @@ class Event < ActiveRecord::Base
   has_many :all_relationships, -> { where("status like ? OR status like ?", 'come', 'invite') }, :class_name => "Plan", :foreign_key => :measure_id
   has_many :all_participations, through: :all_relationships, source: :member 
 
+  has_many :invite_relationships, -> { where("status like ?", 'invite') }, :class_name => "Plan", :foreign_key => :measure_id
+  has_many :invite_participations, through: :invite_relationships, source: :member 
 
 
 

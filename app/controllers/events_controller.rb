@@ -105,9 +105,11 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @event.city_name = nil if params[:event][:city_name].nil?
     @users = User.find(params[:invites]) if params[:invites]
-    @event.update_attributes(event_params)
+    @event.assign_attributes(event_params)
     if @event.valid? 
+      @event.update_attributes(event_params)
       unless @users.blank? 
         @users.each do |u|
           u.plans.create(measure_id: @event.id, status: 'invite')

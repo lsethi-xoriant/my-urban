@@ -29,7 +29,7 @@ class PlansController < ApplicationController
     elsif params[:turn]
       @plan.status = 'turn'
       @plan.turn_number = 1
-      @plan.turn_number = Plan.where(status: 'turn').maximum(:turn_number) + 1 if Plan.where(status: 'turn').exists?
+      @plan.turn_number = Plan.where(status: 'turn', measure_id: @event.id).maximum(:turn_number) + 1 if Plan.where(status: 'turn', measure_id: @event.id).exists?
     end
     @plan.save
     redirect_to @event
@@ -81,7 +81,7 @@ class PlansController < ApplicationController
       @plan.status = 'come'
      elsif params[:turn]
       @plan.status = 'turn'
-      @plan.turn_number = Plan.where(status: 'turn').maximum(:turn_number) + 1
+      @plan.turn_number = Plan.where(status: 'turn',measure_id: @event.id).maximum(:turn_number) + 1
     end
     @plan.save
     redirect_to @event
@@ -95,7 +95,6 @@ class PlansController < ApplicationController
       @turn_plan.status = 'come'
       @turn_plan.turn_number = nil
       @turn_plan.save
-      binding.pry
     end
     @plan.destroy
     #@plan.destroy

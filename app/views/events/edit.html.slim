@@ -94,19 +94,24 @@
                 .invite-fr-links
                   = link_to t('events.your_friends'), 'javascript:void(0);', :class => 'active'
                 .invite-fr-list
-                  -current_user.user_friends.each do |friend|
-                    - if friend.are_participation(params[:id])
-                      .invite-fr-list-item.invited
-                        = link_to 'javascript:void(0);' do
-                          =small_avatar(friend.id)                      
-                        = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);'
-                        = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
-                    -else 
-                      .invite-fr-list-item
-                        = link_to 'javascript:void(0);' do
-                          =small_avatar(friend.id, 'new_edit')                 
-                        = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
-                        = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
+                  - if check_for_availability(@event.id)
+                    | Кількість учасників на даний момент  
+                    = @event.all_participations.length 
+                    -current_user.user_friends.each do |friend|
+                      - if friend.are_participation(params[:id])
+                        .invite-fr-list-item.invited
+                          = link_to 'javascript:void(0);' do
+                            =small_avatar(friend.id)                      
+                          = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);'
+                          = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
+                      -else 
+                        .invite-fr-list-item
+                          = link_to 'javascript:void(0);' do
+                            =small_avatar(friend.id, 'new_edit')                 
+                          = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
+                          = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
+                  - else
+                    | Всі місця для даної кількості учасників зайняті
 
                 .field.hide
                   = f.label :reg_type, t('events.reg_type')
@@ -118,7 +123,19 @@
                 .actions
                   = f.submit 'Редагувати', :class => 'btn-2 btn-3', id: 'inputId'
 
-
     = render "partials/footer"
 
-
+javascript:
+  $(document).ready(function(){
+    $(".user_for_invite").click(function(){
+      //alert($(this).hasClass('invited'));
+      if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
+        $(this).closest('.invite-fr-list-item').removeClass('invited');
+        $(this).closest('.invite-fr-list-item').children().last().prop("checked", false);
+      }
+      else{
+        $(this).closest('.invite-fr-list-item').addClass('invited');
+        $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
+      }
+    })
+  })
