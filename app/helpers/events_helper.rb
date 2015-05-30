@@ -1,4 +1,13 @@
 module EventsHelper
+    def include_i18n_calendar_javascript
+      content_for :head do
+        javascript_include_tag case I18n.locale
+          when :ru then "jquery.ui.datepicker-ru.js"
+          when :uk then "jquery.ui.datepicker-uk.js"
+          else raise ArgumentError, "Locale error"
+        end
+      end
+    end
 
   def case_of_event(count)
     if count == 1

@@ -4,6 +4,8 @@
 Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( lightbox/* )
+Rails.application.config.assets.precompile += %w( jquery.ui.datepicker-uk.js )
+Rails.application.config.assets.precompile += %w( jquery.ui.datepicker-ru.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
