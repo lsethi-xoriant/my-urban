@@ -51,7 +51,7 @@
                 = f.text_field :name
               .field-address
                 = f.label :adress, t('events.address')
-                = f.text_field :adress, :placeholder => '', id: 'autocomplete'
+                = f.text_field :adress, :placeholder => '', id: 'autocomplete', class: 'edit_autocomplete'
                 table#address.hide
                   tr
                     td.label Street address

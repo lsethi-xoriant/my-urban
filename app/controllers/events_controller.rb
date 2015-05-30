@@ -105,7 +105,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.city_name = nil if params[:event][:city_name].nil?
+    #@event.city_name = nil if params[:event][:city_name].nil?
     @users = User.find(params[:invites]) if params[:invites]
     @event.assign_attributes(event_params)
     if @event.valid? 
