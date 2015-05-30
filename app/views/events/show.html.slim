@@ -85,6 +85,10 @@
             - if @event.all_participations.length > 18
               - count = @event.all_participations.length - 18
               = link_to "Решта #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
+            /
+              - if @event.invite_participations.count > 0
+                | Запрошених користувачів  
+                = @event.invite_participations.count
 
         .medium-8.small-12.columns
           .ev-single-descr-info
