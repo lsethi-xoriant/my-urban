@@ -49,8 +49,8 @@ div class=["ev-list-item", event.event_type, "event_class#{event.id}"]
       | 
       =t('events.organizer')
       span  = link_to(event.user.first_name + " " + event.user.last_name, {:action => "own_user", :controller => "users", :id => @event.user.id})
-
-    - p = find_plan(event.id)
+    - if current_user
+      - p = find_plan(current_user.id, event.id)
   div
     span.status
       = translate_status(p.status) unless p.nil?

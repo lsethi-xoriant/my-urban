@@ -236,8 +236,8 @@ module EventsHelper
     end
   end
 
-  def find_plan(id)
-    u = current_user
-    return u.plans.where(measure_id: id).first
+  def find_plan(user_id, plan_id)
+    u = User.find(user_id)
+    return u.plans.where(measure_id: plan_id).first
   end
 end
