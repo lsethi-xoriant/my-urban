@@ -134,9 +134,15 @@ var componentForm = {
 };
 
 function initialize() {
-  $('#autocomplete').val('');
+  //$('#autocomplete').val('');
   // Create the autocomplete object, restricting the search
   // to geographical location types.
+  if ($('#autocomplete').hasClass('new_autocomplete')){
+    $('#autocomplete').val('');
+  }
+  $('.edit_autocomplete').change(function(){
+    $('#inputId').attr('disabled', true);
+  })
   $(window).keydown(function(event){
 
     if(event.keyCode == 13) {
@@ -157,6 +163,7 @@ function initialize() {
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
+  $('#inputId').attr('disabled', false);
 
   for (var component in componentForm) {
     document.getElementById(component).value = '';
