@@ -142,6 +142,7 @@ function initialize() {
   }
   $('.edit_autocomplete').change(function(){
     $('#inputId').attr('disabled', true);
+    $('.actions').prepend('<p class="select_city">Виберіть адресу</p>');
   })
   $(window).keydown(function(event){
 
@@ -164,6 +165,7 @@ function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
   $('#inputId').attr('disabled', false);
+  $('.select_city').remove();
 
   for (var component in componentForm) {
     document.getElementById(component).value = '';
