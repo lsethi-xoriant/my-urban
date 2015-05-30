@@ -31,7 +31,10 @@ class ApplicationController < ActionController::Base
         I18n.locale = current_user.language
       elsif params[:locale].present? && (params[:locale] == 'uk' || params[:locale] == 'ru')
         I18n.locale = params[:locale]
-      end      
+        cookies[:locale] = params[:locale]
+      elsif cookies[:locale] && (cookies[:locale] == 'uk' || cookies[:locale] == 'ru')
+        I18n.locale = cookies[:locale]
+      end   
     end
 
     #def default_url_options(options={})
