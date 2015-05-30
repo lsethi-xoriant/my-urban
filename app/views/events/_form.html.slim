@@ -117,3 +117,17 @@
                 = f.hidden_field :user_id, :value => current_user.id
                 .actions
                   = f.submit t('header.create_event'), :class => 'btn-2 btn-3', id: 'inputId'
+          javascript:
+            $(document).ready(function(){
+              $(".user_for_invite").click(function(){
+                //alert($(this).hasClass('invited'));
+                if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
+                  $(this).closest('.invite-fr-list-item').removeClass('invited');
+                  $(this).closest('.invite-fr-list-item').children().last().prop("checked", false);
+                }
+                else{
+                  $(this).closest('.invite-fr-list-item').addClass('invited');
+                  $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
+                }
+              })
+            })
