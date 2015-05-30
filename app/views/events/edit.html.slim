@@ -52,7 +52,7 @@
               .field-address
                 = f.label :adress, t('events.address')
                 = f.text_field :adress, :placeholder => '', id: 'autocomplete'
-                table#address
+                table#address.hide
                   tr
                     td.label Street address
                     td.slimField
@@ -121,7 +121,7 @@
 
                 = f.hidden_field :user_id, :value => current_user.id
                 .actions
-                  = f.submit 'Редагувати', :class => 'btn-2 btn-3 u_event', id: 'inputId'
+                  = f.submit 'Редагувати', :class => 'btn-2 btn-3', id: 'inputId'
 
     = render "partials/footer"
 
