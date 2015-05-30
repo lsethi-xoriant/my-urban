@@ -108,7 +108,6 @@ class EventsController < ApplicationController
     @event.city_name = nil if params[:event][:city_name].nil?
     @users = User.find(params[:invites]) if params[:invites]
     @event.assign_attributes(event_params)
-    binding.pry
     if @event.valid? 
       @event.update_attributes(event_params)
       unless @users.blank? 
