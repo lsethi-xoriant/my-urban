@@ -1,4 +1,4 @@
 module ApplicationHelper
   #TODO fix google autocomplete 
-  #suggestion save changing locale only in option 
+  #TODO change count of small group
 end
