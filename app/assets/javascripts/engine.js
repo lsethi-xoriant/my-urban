@@ -18,6 +18,7 @@ jQuery(document).ready(function() {
 	});
 
 	$( "#datepicker" ).datepicker({dateFormat: 'dd-mm-yy', onSelect: inputDate});
+	//$( "#datepicker" ).datepicker(  );
 
 	$('.city-dr-dwn > a').hover(function(){
 		$('.city-dr-dwn-cont-wr').slideDown(300);
