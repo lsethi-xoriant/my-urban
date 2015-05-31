@@ -119,6 +119,14 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+  $("body").on("change", "#event_people_count", function(){
+      $('.invite_check').prop("checked", false);
+      $('.invite-fr-list-item').removeClass('invited');
+   });
+
+});
+
 
 ///////////////////
 

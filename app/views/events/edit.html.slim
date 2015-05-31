@@ -126,16 +126,35 @@
     = render "partials/footer"
 
 javascript:
+  function people(){
+    var val = $('#event_people_count').val()
+    if (val == 'little'){
+      return 2
+    } else if(val == 'middle'){
+      return 25
+    } else if(val == 'great') {
+      return 50
+    }
+  }
   $(document).ready(function(){
+    var in_count =  parseInt("#{@event.all_participations.length}")
     $(".user_for_invite").click(function(){
       //alert($(this).hasClass('invited'));
       if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
         $(this).closest('.invite-fr-list-item').removeClass('invited');
         $(this).closest('.invite-fr-list-item').children().last().prop("checked", false);
-      }
-      else{
-        $(this).closest('.invite-fr-list-item').addClass('invited');
-        $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
+        in_count -=1;
+        console.log(in_count)
+      } else{
+        var max_count = people(); 
+        if (in_count < max_count) {
+          in_count +=1;
+          $(this).closest('.invite-fr-list-item').addClass('invited');
+          $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
+        }
+        else{
+          alert('Кількість учасників для даної групи перевищена')
+        }
       }
     })
   })
