@@ -95,7 +95,7 @@
                   /= link_to t('events.invite_from_facebook'), 'javascript:void(0);'
                 .invite-fr-list
                   -current_user.user_friends.each do |friend|
-                    .invite-fr-list-item
+                    .invite-fr-list-item.new_invite
                       = link_to 'javascript:void(0);' do
                         - if friend.avatar&&friend.avatar.avatar.file.exists?
                           = image_tag friend.avatar.avatar_url(:small), class: 'user_for_invite', :style => "border-radius: 50%;"
@@ -130,6 +130,13 @@
               }
             $(document).ready(function(){
               var in_count = 0;
+
+              $("body").on("change", "#event_people_count", function(){
+                  in_count = 0;
+                  $('.invite_check').prop("checked", false);
+                  $('.new_invite').removeClass('invited');
+              });
+
               $(".user_for_invite").click(function(){
                 //alert($(this).hasClass('invited'));
                 if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
@@ -148,6 +155,5 @@
                     alert('Кількість учасників для даної групи перевищена')
                   }
                 }
-                console.log(in_count);
               })
             })

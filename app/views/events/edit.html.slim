@@ -105,7 +105,7 @@
                           = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);'
                           = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
                       -else 
-                        .invite-fr-list-item
+                        .invite-fr-list-item.new_invite
                           = link_to 'javascript:void(0);' do
                             =small_avatar(friend.id, 'new_edit')                 
                           = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
@@ -137,7 +137,14 @@ javascript:
     }
   }
   $(document).ready(function(){
-    var in_count =  parseInt("#{@event.all_participations.length}")
+    var in_count =  parseInt("#{@event.all_participations.length}");
+
+    $("body").on("change", "#event_people_count", function(){
+      in_count = parseInt("#{@event.all_participations.length}");;
+      $('.invite_check').prop("checked", false);
+      $('.new_invite').removeClass('invited');
+    });
+
     $(".user_for_invite").click(function(){
       //alert($(this).hasClass('invited'));
       if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
