@@ -31,6 +31,10 @@ ru:
     contacts: "Контакты"
     copyright: "Все права защищены"
 
+  interface_language: 
+    ua: "украинский"
+    ru: "русский"
+
   other_user:
     private_page: 'Личная страница'
     city: 'Город:'
@@ -57,6 +61,8 @@ ru:
   ago: 'назад'
 
   just_now: 'только что'
+
+  user_background: 'Выбор фона для пользователя'
 
   case_of_second:
     one: 'секунду'
@@ -159,6 +165,8 @@ ru:
     entrance: "Вход"
 
   registration:
+    avatar_crop: 'Обрезать'
+    avatar_choosing: 'Выбор аватарки для пользователя'
     gender: "Пол*"
     man: "Мужчина"
     woman: "Женщина"

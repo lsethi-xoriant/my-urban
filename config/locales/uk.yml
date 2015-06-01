@@ -37,6 +37,10 @@ uk:
     description: "Це місце де ви можете знайти чим зайнятись у вашому місті сьогодні, на вихідних, будь коли!"
     find_city: "Знайти своє місто"
 
+  interface_language: 
+    ua: "українська"
+    ru: "російска"
+
   friends:
     name: 'Друзі'
     all_friends: 'Всі друзі'
@@ -68,6 +72,8 @@ uk:
   ago: 'тому'
   
   just_now: 'щойно'
+
+  user_background: 'Вибір фону для користувача'
 
   case_of_second:
     one: 'секунду'
@@ -163,7 +169,10 @@ uk:
     forgot_password: "Забули пароль?"
     remember_me: "Запамятати мене"
     entrance: "Вхід"
+
   registration:
+    avatar_crop: 'Обрізати'
+    avatar_choosing: 'Вибір аватарки для користувача'
     gender: "Стать*"
     man: "Чоловік"
     woman: "Жінка"
