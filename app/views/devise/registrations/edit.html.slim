@@ -38,7 +38,7 @@
 
             div[id="AvatarModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
               a [class="close-reveal-modal" aria-label="Close"] &#215;
-              h2 sssQQ
+              h2 =I18n.t('registration.avatar_choosing')
               #avatar_edit
             s            
 
@@ -77,7 +77,7 @@
               = f.text_area :about_user, rows: 5
             .field
               = f.label :language, t('registration.lang')
-              = f.select :language, ['uk', 'ru']
+              = f.select :language, [[I18n.t('interface_language.ua'), 'uk'], [I18n.t('interface_language.ru'), 'ru']]
             .field
               = f.label :password, t('edit.current_password')
               = f.password_field :current_password, autocomplete: "off"
