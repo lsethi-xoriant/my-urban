@@ -227,12 +227,12 @@ uk:
     edit_label: "Редагувати подію"
     choose_category: "Оберіть категорію"
     category: "Категорія"
-    name: 'Назва події *'
-    address: 'Адреса *'
-    description: 'Опис *'
-    start_time: 'Час початку *'
-    end_time: 'Час закінчення *'
-    participants_group: 'Кількість учасників *'
+    name: 'Назва події'
+    address: 'Адреса'
+    description: 'Опис'
+    start_time: 'Час початку'
+    end_time: 'Час закінчення'
+    participants_group: 'Кількість учасників'
     your_friends: 'Ваші друзі'
     invite_from_facebook: 'Запросити з Facebook'
     little_group: 'Маленька(8-15 чол)'
@@ -250,8 +250,14 @@ uk:
     show_event: 'Переглянути подію'
 
   event:
+    image_choosing: 'Вибір картинки події'
     sing_in_up: 'Увійдіть або зареєструйтесь'
     you_are_not_friend: 'Ця подія відкрита тільки для друзів, а ви не є другом'
+    btn_dont_go: 'Не йтиму'
+    places_occupied: 'Всі місця зайняті. '
+    btn_turn: 'Черга'
+    you_are_in_turn: 'Ви в черзі на подію'
+    btn_uncoming_turn: 'Вийти з черги'
     only_friends: 'Тільки друзі можуть лишати коментарі до цієї події'
     only_reg_users: 'Тільки зареєстровані користувачі можуть залишати коментарі'
     destroy_photo: 'Ви впевнені, що хочете видалити цю фотографію'

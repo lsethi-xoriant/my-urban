@@ -221,12 +221,12 @@ ru:
     edit_label: "Редактировать событие"
     choose_category: "Выберите категорию"
     category: "Категория"
-    name: "Название события *"
-    address: "Адрес *"
-    description: 'Описание *'
-    start_time: 'Время начала *'
-    end_time: "Время окончания *"
-    participants_group: 'Количество участников *'
+    name: "Название события"
+    address: "Адрес"
+    description: 'Описание'
+    start_time: 'Время начала'
+    end_time: "Время окончания"
+    participants_group: 'Количество участников'
     your_friends: "Ваши друзья"
     invite_from_facebook: 'Пригласить с Facebook'
     little_group: 'Маленькая(8-15 чел)'
@@ -244,8 +244,14 @@ ru:
     show_event: 'Посмотреть событие'
 
   event:
+    image_choosing: 'Выбор картинки события'
     sing_in_up: 'Войдите или зарегистрируйтесь'
     you_are_not_friend: 'Это событие открытое только для друзей, а вы не являетесь другом'
+    btn_dont_go: 'Не пойду'
+    places_occupied: 'Все места заняты. '
+    btn_turn: 'Очередь'
+    you_are_in_turn: 'Вы в очереди на событие'
+    btn_uncoming_turn: 'Выйти из очереди'
     only_friends: 'Только друзья могут оставлять комментарии к этому событию'
     only_reg_users: 'Только зарегистрированные пользователи могут оставлять комментарии'
     destroy_photo: 'Вы уверены, что хотите удалить эту фотографию'
