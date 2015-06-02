@@ -2,7 +2,7 @@
   <%= hidden_field_tag :user_page, 'new_event'%>
   <%= f.hidden_field :name, value: 'event'%>
   <%= f.cropbox :avatar, version: :base %>
-  <%= f.submit 'Crop', class:"avatar-crop-btn" %>
+  <%= f.submit I18n.t('registration.avatar_crop'), class:"avatar-crop-btn" %>
 <%end%>
 <script>
     $('#avatar_avatar_cropbox').Jcrop({

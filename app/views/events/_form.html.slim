@@ -21,7 +21,7 @@
                   = f.file_field :avatar, 'data-reveal-id' => "secondModal", class: 'image_for_event'
             div[id="ImageModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
                 a [class="close-reveal-modal" aria-label="Close"] &#215;
-                h2 Image crop
+                h2 =I18n.t('event.image_choosing')
                 #image_edit
             = form_for(@event) do |f|
               - if @event.errors.any?
@@ -46,10 +46,10 @@
                 = f.label :category_id, t('events.choose_category') + "*"
                 = f.collection_select :category_id , Category.all, :id, :title,  :prompt => ' '
               .field-name
-                = f.label :name, t('events.name')
+                = f.label :name, t('events.name') + "*"
                 = f.text_field :name
               .field-address.locationField
-                = f.label :adress, t('events.address')
+                = f.label :adress, t('events.address') + "*"
                 = f.text_field :adress, :placeholder => '', id: 'autocomplete', class: 'new_autocomplete'
                 table#address.hide
                   tr
@@ -74,19 +74,19 @@
                     td.wideField colspan="3" 
                       input#country.field name='event[country]' disabled="true" /
               .field
-                = f.label :description, t('events.description')
+                = f.label :description, t('events.description') + "*"
                 = f.text_area :description
               .field-data
                 = f.label :data, 'Дата *'
                 = f.date_select :data, :default => Date.today
               .field-start
-                = f.label :timeStart, t('events.start_time')
+                = f.label :timeStart, t('events.start_time') + "*"
                 = f.time_select :timeStart, prompt: ' ', :minute_step => 5
               .field-end
-                = f.label :endTime, t('events.end_time')
+                = f.label :endTime, t('events.end_time') + "*"
                 = f.time_select :endTime, prompt: ' ', :minute_step => 5
               .field-count
-                = f.label :people_count, t('events.participants_group')
+                = f.label :people_count, t('events.participants_group') + "*"
                 = f.select :people_count, Event.counts_of_people, :selected => 'little'
               .invite-fr
                 p Запросити друзів:

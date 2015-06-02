@@ -491,6 +491,7 @@ crimea_st.save
 		user.plans.create(measure_id: 14, status: 'come')
 	end
 =end
+=begin
 language = [:en, :uk, :ru]
 
 	cat = Category.new	
@@ -611,5 +612,20 @@ language = [:en, :uk, :ru]
 		cat.title = I18n.t('category.auto_moto_enthusiast')
 	end
 	cat.save
+=end
+	require 'securerandom'
+	13.times do
+		user = User.new
+		user.email = "proba#{SecureRandom.hex(3)}@gmail.com"
+		user.urban = 'Івано-Франківськ'
+		user.password = '12345678'
+		user.password_confirmation = '12345678'
+		user.first_name = 'proba'
+		user.last_name = 'proba'
+		user.gender = 'man'
+		user.birthday = '1990-01-01 00:00:00'
+		user.save!
+		user.plans.create(measure_id: 6, status: 'come')
+	end
 
     
