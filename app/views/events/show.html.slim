@@ -15,7 +15,7 @@
               .ev-manage
                 = link_to I18n.t('event.control'), "javascript:void(0);", class:"btn-5"
                 .ev-menage-show
-                  = link_to I18n.t('event.del_event'), event_path(@event), :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn-4"
+                  = link_to I18n.t('event.del_event'), event_path(@event), :method => :delete, :data => { :confirm => I18n.t('event.destroy_event') }, class:"btn-4"
                   |  
                   = link_to I18n.t('event.edit_event'), edit_event_path(@event), class:"btn-4"
 
@@ -84,7 +84,7 @@
 
             - if @event.all_participations.length > 18
               - count = @event.all_participations.length - 18
-              = link_to "Решта #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
+              = link_to "#{I18n.t('event.more_members')} #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
             /
               - if @event.invite_participations.count > 0
                 | Запрошених користувачів  

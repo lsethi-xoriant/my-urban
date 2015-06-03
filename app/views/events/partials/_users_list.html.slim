@@ -1,4 +1,5 @@
-| Учасників:
+
+=I18n.t('events.members')
 span  
   = @event.all_relationships.count
   | /
@@ -6,10 +7,7 @@ span
 .ev-members-items
   -@participations.each do |u|
     = link_to 'javascript:void(0);' do
-      - if u.avatar
-        = image_tag u.avatar.avatar_url(:small)
-      - else
-        = image_tag "user-sm-2.jpg"
+      = link_to(small_avatar(u.id), {:action => "own_user", :controller => "users", :id => u.id})
   /
     = link_to 'javascript:void(0);' do
       = image_tag "user-sm-2.jpg"
@@ -47,6 +45,6 @@ span
       = image_tag "user-sm-6.jpg"
 - if @status == 'less_members'
   - count = @event.all_participations.length - 18
-  = link_to "Решта #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
+  = link_to "#{I18n.t('event.more_members')} #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
 - else 
-  = link_to "Приховати решту учасників", event_path(id: @event.id, status: 'less_members'), remote: true, class: 'other_member'
+  = link_to I18n.t('event.hide_other_memders'), event_path(id: @event.id, status: 'less_members'), remote: true, class: 'other_member'
