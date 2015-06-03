@@ -614,18 +614,19 @@ language = [:en, :uk, :ru]
 	cat.save
 =end
 	require 'securerandom'
-	13.times do
+	7.times do
 		user = User.new
-		user.email = "proba#{SecureRandom.hex(3)}@gmail.com"
+		user.email = "proba#{SecureRandom.hex(3)}@mail.ru"
 		user.urban = 'Івано-Франківськ'
 		user.password = '12345678'
 		user.password_confirmation = '12345678'
-		user.first_name = 'proba'
-		user.last_name = 'proba'
+		user.first_name = 'probmountains'
+		user.last_name = 'probmountains'
 		user.gender = 'man'
 		user.birthday = '1990-01-01 00:00:00'
+		user.avatar_id = '26'
 		user.save!
-		user.plans.create(measure_id: 6, status: 'come')
+		user.plans.create(measure_id: 12, status: 'come')
 	end
 
     
