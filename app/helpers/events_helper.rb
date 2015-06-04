@@ -60,7 +60,9 @@ module EventsHelper
     
   
   def confirm_ability(event)
-    if (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&current_user.confirm_friend(event.user.id)))) && event.user != current_user
+    if user_signed_in?&& current_user.are_invited(event.id)
+      return 'already_invited'
+    elsif (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&current_user.confirm_friend(event.user.id)))) && event.user != current_user
       return 'can'
     elsif (user_signed_in?&&(event.event_type == 'open'||(event.event_type=='close'&&!current_user.confirm_friend(event.user.id)))) && event.user != current_user
       return 'not_friend'
@@ -72,13 +74,13 @@ module EventsHelper
   def check_for_availability(event_id)
     @event = Event.find(event_id)
     if @event.reg_type == 'automatically'
-      if (@event.people_count == 'little' && @event.participations.count <2)||(@event.people_count == 'middle' && @event.participations.count <50)||(@event.people_count == 'great' && @event.participations.count <100)
+      if (@event.people_count == 'little' && @event.participations.count <15)||(@event.people_count == 'middle' && @event.participations.count <50)||(@event.people_count == 'great' && @event.participations.count <100)
         return true 
       else
         return false 
       end
     elsif @event.reg_type == 'manually'
-      if ((@event.people_count == 'little' && @event.participations.count <2)||(@event.people_count == 'middle' && @event.participations.count <50)||(@event.people_count == 'great' && @event.participations.count <100)) && @event.plans.where(status: 'turn').count < 1
+      if ((@event.people_count == 'little' && @event.participations.count <15)||(@event.people_count == 'middle' && @event.participations.count <50)||(@event.people_count == 'great' && @event.participations.count <100)) && @event.plans.where(status: 'turn').count < 1
         return true 
       else
         return false 
@@ -87,7 +89,7 @@ module EventsHelper
   end
 
   def user_check_for_availability(event_id)
-    if (@event.people_count == 'little' && @event.participations.count <2)||(@event.people_count == 'middle' && @event.participations.count <50)||(@event.people_count == 'great' && @event.participations.count <100)
+    if (@event.people_count == 'little' && @event.participations.count <15)||(@event.people_count == 'middle' && @event.participations.count <50)||(@event.people_count == 'great' && @event.participations.count <100)
       return true 
     else
       return false 

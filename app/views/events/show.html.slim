@@ -37,6 +37,9 @@
               p = I18n.t('event.you_are_not_friend')
             - elsif confirm_ability(@event) == 'not_user'
               p =I18n.t('event.sing_in_up')
+            - elsif confirm_ability(@event) == 'already_invited'
+              p Ви вже запрошені на цю подію
+              = link_to 'Мої події', user_events_path(current_user.id)
           h1 = @event.name
           p.ev-start
             =t('header.begin')
@@ -74,7 +77,7 @@
             | 
             =I18n.t('events.members')
             span  
-              = @event.all_relationships.count
+              = @event.participations.count
               | /
               = number_format_people_count(@event.id)
             .ev-members-items

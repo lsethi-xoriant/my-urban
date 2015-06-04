@@ -50,8 +50,13 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:plan_id])
     @plan.status = 'come' if params[:answer] == 'come'
     @plan.status = 'decline' if params[:answer] == 'decline'
-    @plan.save
     @event = @plan.measure
+    if params[:answer] == 'turn'
+      @plan.status = 'turn'
+      @plan.turn_number = 1
+      @plan.turn_number = Plan.where(status: 'turn', measure_id: @event.id).maximum(:turn_number) + 1 if Plan.where(status: 'turn', measure_id: @event.id).exists?
+    end
+    @plan.save
     respond_to do |format|
       format.html {}
       format.js   {render 'users/user_answer.js.erb'}

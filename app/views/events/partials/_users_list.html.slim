@@ -1,7 +1,7 @@
 
 =I18n.t('events.members')
 span  
-  = @event.all_relationships.count
+  = @event.relationships.count
   | /
   = number_format_people_count(@event.id)
 .ev-members-items
