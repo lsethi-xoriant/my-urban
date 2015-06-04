@@ -137,10 +137,10 @@ javascript:
     }
   }
   $(document).ready(function(){
-    var in_count =  parseInt("#{@event.all_participations.length}");
+    var in_count =  parseInt("#{@event.participations.length}");
 
     $("body").on("change", "#event_people_count", function(){
-      in_count = parseInt("#{@event.all_participations.length}");;
+      in_count = parseInt("#{@event.participations.length}");;
       $('.invite_check').prop("checked", false);
       $('.new_invite').removeClass('invited');
     });

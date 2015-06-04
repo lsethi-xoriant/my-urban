@@ -56,8 +56,8 @@ class EventsController < ApplicationController
 
     @status = params[:status]
 
-    @participations = @event.all_participations if params[:status] == 'more_members'
-    @participations = @event.all_participations[0..17] if params[:status] == 'less_members'
+    @participations = @event.participations if params[:status] == 'more_members'
+    @participations = @event.participations[0..17] if params[:status] == 'less_members'
 
     @address = @event.street_number + ', ' + @event.street_name + ", " + @event.city_name
 
