@@ -121,7 +121,7 @@
               function people(){
                 var val = $('#event_people_count').val()
                 if (val == 'little'){
-                  return 2
+                  return 15
                 } else if(val == 'middle'){
                   return 25
                 } else if(val == 'great') {
@@ -152,7 +152,7 @@
                     $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
                   }
                   else{
-                    alert('Кількість учасників для даної групи перевищена')
+                    alert('#{I18n.t('event.all_places_occupated')}')
                   }
                 }
               })

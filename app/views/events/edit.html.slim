@@ -44,13 +44,13 @@
               .upload-img
               .field-category
                 = f.hidden_field :avatar_id
-                = f.label :category_id, t('events.choose_category')
+                = f.label :category_id, t('events.choose_category') + "*"
                 = f.collection_select :category_id , Category.all, :id, :title,  :prompt => ' '
               .field-name
-                = f.label :name, t('events.name')
+                = f.label :name, t('events.name') + "*"
                 = f.text_field :name
               .field-address
-                = f.label :adress, t('events.address')
+                = f.label :adress, t('events.address') + "*"
                 = f.text_field :adress, :placeholder => '', id: 'autocomplete', class: 'edit_autocomplete'
                 table#address.hide
                   tr
@@ -75,27 +75,27 @@
                     td.wideField colspan="3" 
                       input#country.field name='event[country]' disabled="true" /
               .field
-                = f.label :description, t('events.description')
+                = f.label :description, t('events.description') + "*"
                 = f.text_area :description
               .field-data
                 = f.label :data, 'Дата *'
                 = f.date_select :data, :default => Date.today
               .field-start
-                = f.label :timeStart, t('events.start_time')
+                = f.label :timeStart, t('events.start_time') + "*"
                 = f.time_select :timeStart, prompt: ' ', :minute_step => 5
               .field-end
-                = f.label :endTime, t('events.end_time')
+                = f.label :endTime, t('events.end_time') + "*"
                 = f.time_select :endTime, prompt: ' ', :minute_step => 5
               .field-count
-                = f.label :people_count, t('events.participants_group')
-                = f.select :people_count, Event.counts_of_people, :selected => 'little'
+                = f.label :people_count, t('events.participants_group') + "*"
+                = f.select :people_count, Event.counts_of_people
               .invite-fr
-                p Запросити друзів:
+                p =I18n.t('event.invite_friends') + ":"
                 .invite-fr-links
                   = link_to t('events.your_friends'), 'javascript:void(0);', :class => 'active'
                 .invite-fr-list
                   - if check_for_availability(@event.id)
-                    | Кількість учасників на даний момент  
+                    =I18n.t('event.number_participants') + " "
                     = @event.all_participations.length 
                     -current_user.user_friends.each do |friend|
                       - if friend.are_participation(params[:id])
@@ -111,7 +111,7 @@
                           = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
                           = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
                   - else
-                    | Всі місця для даної кількості учасників зайняті
+                    =I18n.t('event.no_free_space')
 
                 .field.hide
                   = f.label :reg_type, t('events.reg_type')
@@ -121,7 +121,7 @@
 
                 = f.hidden_field :user_id, :value => current_user.id
                 .actions
-                  = f.submit 'Редагувати', :class => 'btn-2 btn-3', id: 'inputId'
+                  = f.submit I18n.t('event.btn_edit'), :class => 'btn-2 btn-3', id: 'inputId'
 
     = render "partials/footer"
 
@@ -129,7 +129,7 @@ javascript:
   function people(){
     var val = $('#event_people_count').val()
     if (val == 'little'){
-      return 2
+      return 15
     } else if(val == 'middle'){
       return 25
     } else if(val == 'great') {
@@ -160,7 +160,7 @@ javascript:
           $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
         }
         else{
-          alert('Кількість учасників для даної групи перевищена')
+          alert('#{I18n.t('event.all_places_occupated')}')
         }
       }
     })

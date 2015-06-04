@@ -196,7 +196,7 @@ uk:
     current_password: "Поточний пароль, щоб зберегти зміни)"
     save_btn: "Зберегти"
 
-  events:
+  events:    
     members_count: 'Виберіть кількість'
     show_photos: 'Переглянути фотозвіт'
     city_events: "Події мого міста"
@@ -250,6 +250,11 @@ uk:
     show_event: 'Переглянути подію'
 
   event:
+    all_places_occupated: 'Всі місця участі в події зайняті'
+    btn_edit: 'Редагувати'
+    no_free_space: 'Всі місця для участі в події зайняті'
+    number_participants: 'Кількість учасників події на даний момент'
+    invite_friends: 'Запросити друзів'
     more_members: 'Решта'
     hide_other_memders: 'Приховати решту учасників'
     destroy_event: 'Ви впевнені, що хочете видалити подію'

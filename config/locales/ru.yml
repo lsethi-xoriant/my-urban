@@ -244,6 +244,11 @@ ru:
     show_event: 'Посмотреть событие'
 
   event:
+    all_places_occupated: 'Все места участия в событии заняты'
+    btn_edit: 'Редактировать'
+    no_free_space: 'Все места для участия в событии заняты'
+    number_participants: 'Количество участников события на данный момент'
+    invite_friends: 'Пригласить друзей'
     more_members: 'Остальные'
     hide_other_memders: 'Скрыть остальных участников'
     destroy_event: 'Вы уверены, что хотите удалить событие'
