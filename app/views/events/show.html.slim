@@ -37,6 +37,9 @@
               p = I18n.t('event.you_are_not_friend')
             - elsif confirm_ability(@event) == 'not_user'
               p =I18n.t('event.sing_in_up')
+            - elsif confirm_ability(@event) == 'already_invited'
+              p Ви вже запрошені на цю подію
+              = link_to 'Мої події', user_events_path(current_user.id)
           h1 = @event.name
           p.ev-start
             =t('header.begin')
@@ -74,16 +77,16 @@
             | 
             =I18n.t('events.members')
             span  
-              = @event.all_relationships.count
+              = @event.participations.count
               | /
               = number_format_people_count(@event.id)
             .ev-members-items
-              -@event.all_participations[0..17].each do |u|
+              -@event.participations[0..17].each do |u|
                 = link_to 'javascript:void(0);' do
                   = link_to(small_avatar(u.id), {:action => "own_user", :controller => "users", :id => u.id})
 
-            - if @event.all_participations.length > 18
-              - count = @event.all_participations.length - 18
+            - if @event.participations.length > 18
+              - count = @event.participations.length - 18
               = link_to "#{I18n.t('event.more_members')} #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
             /
               - if @event.invite_participations.count > 0

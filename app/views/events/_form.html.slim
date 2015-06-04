@@ -129,6 +129,7 @@
                 }
               }
             $(document).ready(function(){
+              /*
               var in_count = 0;
 
               $("body").on("change", "#event_people_count", function(){
@@ -136,24 +137,27 @@
                   $('.invite_check').prop("checked", false);
                   $('.new_invite').removeClass('invited');
               });
+              */
 
               $(".user_for_invite").click(function(){
                 //alert($(this).hasClass('invited'));
                 if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
                   $(this).closest('.invite-fr-list-item').removeClass('invited');
                   $(this).closest('.invite-fr-list-item').children().last().prop("checked", false);
-                  in_count -=1;
+                  //in_count -=1;
                 }
                 else{
-                  var max_count = people(); 
-                  if (in_count < max_count) {
-                      in_count +=1;
+                  //var max_count = people(); 
+                  //if (in_count < max_count) {
+                      //in_count +=1;
                     $(this).closest('.invite-fr-list-item').addClass('invited');
                     $(this).closest('.invite-fr-list-item').children().last().prop("checked", true);
+                  /*
                   }
                   else{
                     alert('#{I18n.t('event.all_places_occupated')}')
                   }
+                  */
                 }
               })
             })

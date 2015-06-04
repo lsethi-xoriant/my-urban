@@ -30,7 +30,7 @@
               =t('events.members')
               span 
                 /12 / 23
-                = event.all_relationships.count
+                = event.relationships.count
                 | /
                 = number_format_people_count(event.id)
             h4.organizer

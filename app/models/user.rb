@@ -119,4 +119,8 @@ class User < ActiveRecord::Base
   def are_participation(event_id)
     plans.where('measure_id = ? AND (status =? OR status = ? OR status = ?)', event_id, 'come', 'turn', 'invite').exists?  ? true : false 
   end
+
+  def are_invited(event_id)
+    plans.where('measure_id = ? AND status =? ', event_id, 'invite').exists?  ? true : false 
+  end
 end

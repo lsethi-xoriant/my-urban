@@ -1,7 +1,7 @@
 
 =I18n.t('events.members')
 span  
-  = @event.all_relationships.count
+  = @event.relationships.count
   | /
   = number_format_people_count(@event.id)
 .ev-members-items
@@ -44,7 +44,7 @@ span
     = link_to 'javascript:void(0);' do
       = image_tag "user-sm-6.jpg"
 - if @status == 'less_members'
-  - count = @event.all_participations.length - 18
+  - count = @event.participations.length - 18
   = link_to "#{I18n.t('event.more_members')} #{count} #{case_of_member(count)}", event_path(id: @event.id, status: 'more_members'), remote: true, class: 'other_member'
 - else 
   = link_to I18n.t('event.hide_other_memders'), event_path(id: @event.id, status: 'less_members'), remote: true, class: 'other_member'
