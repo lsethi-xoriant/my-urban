@@ -244,6 +244,8 @@ ru:
     show_event: 'Посмотреть событие'
 
   event:
+    btn_my_events: 'Мои события'
+    already_invited: 'Вы уже приглашены на это событие'
     all_places_occupated: 'Все места участия в событии заняты'
     btn_edit: 'Редактировать'
     no_free_space: 'Все места для участия в событии заняты'

@@ -250,6 +250,8 @@ uk:
     show_event: 'Переглянути подію'
 
   event:
+    btn_my_events: 'Мої події'
+    already_invited: 'Ви вже запрошені на цю подію'
     all_places_occupated: 'Всі місця участі в події зайняті'
     btn_edit: 'Редагувати'
     no_free_space: 'Всі місця для участі в події зайняті'

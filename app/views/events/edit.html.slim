@@ -101,7 +101,7 @@
                       - if friend.are_participation(params[:id])
                         .invite-fr-list-item.invited
                           = link_to 'javascript:void(0);' do
-                            =small_avatar(friend.id)                      
+                            =small_avatar(friend.id)
                           = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);'
                           = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
                       -else 

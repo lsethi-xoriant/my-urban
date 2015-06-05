@@ -38,8 +38,8 @@
             - elsif confirm_ability(@event) == 'not_user'
               p =I18n.t('event.sing_in_up')
             - elsif confirm_ability(@event) == 'already_invited'
-              p Ви вже запрошені на цю подію
-              = link_to 'Мої події', user_events_path(current_user.id)
+              p =I18n.t('event.already_invited')
+              = link_to I18n.t('event.btn_my_events'), user_events_path(current_user.id)
           h1 = @event.name
           p.ev-start
             =t('header.begin')
