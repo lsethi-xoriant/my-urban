@@ -100,7 +100,7 @@
                         - if friend.avatar&&friend.avatar.avatar.file.exists?
                           = image_tag friend.avatar.avatar_url(:small), class: 'user_for_invite', :style => "border-radius: 50%;"
                         - else
-                          = image_tag "user-sm-2.jpg", class: 'user_for_invite'                       
+                          = link_to(small_avatar(friend.id), class: 'user_for_invite')                       
                       = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
                       = check_box_tag 'invites[]', friend.id, false, {class: 'invite_check invisible'}
 
