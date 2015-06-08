@@ -58,7 +58,7 @@
               = link_to I18n.t('other_user.knowing_more'), {:action => "user_info", :controller => "users", :id => @user.id}, class:"view-more-btn"
           - if @user.user_friends.count > 0
             = render 'users/friends_list/friends'
-
+            
           - if @user.events.count > 0 && @id_event_photo > 0
             .container-right
               h1 = I18n.t('users.photo_reports')
@@ -83,7 +83,7 @@
                 = link_to I18n.t('other_user.knowing_more'), {:action => "user_photo", :controller => "users", :id => @user.id}, class:"view-more-btn"
                 br
                 br                   
-          -if @user.events.count > 0
+          -if @user.events.count > 0 || @user.plans.where(:status => 'come').count > 0
             = render 'index_events'
 
 
