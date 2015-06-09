@@ -1,55 +1,55 @@
-    header
-      .row
-        .menu
-          /=I18n.locale
-          /= link_to 'Ru', "javascript:void(0);"
-          = link_to "Ru",  params.merge({:locale => :ru})
-          span |
-          = link_to "Ua",  params.merge({:locale => :uk})
-          /
-            span |
-            = link_to "En",   params.merge({:locale => :en})
-          /url_for(:locale => 'en', :state_id => params[:state_id])
-          /= link_to 'Ua', "javascript:void(0);"
-          - if user_signed_in?
-            = link_to "/ownpage/#{current_user.id}"
-              -if current_user.avatar && current_user.avatar.avatar.file.exists?
-                = image_tag current_user.avatar.avatar_url(:small), :style => "border-radius: 50%;"
-              -else 
-                = small_avatar(current_user.id)
-            = link_to t('header.exit'), destroy_user_session_path, :method => :delete
-          - else
-            = link_to t('header.enter'), new_user_session_path, class: "enter-site"
-          - if can? :create, Event
-            = link_to t('header.create_event'), new_event_path, class: "btn-4"
-        .logo
-          = link_to root_path do
-            span 
-              | My
-            | Urban
-        - if params[:controller] == 'events' && params[:action] == 'index'
-          - if (@state.name == 'Крим' || @state.name == 'Крым')
-            .city-dr-dwn
-              = link_to @state.name, 'javascript:void(0);'              
-          -else
-            .city-dr-dwn
-              = link_to @state.name + ' область', 'javascript:void(0);'
-          .city-dr-dwn-cont-wr
-            div class="city-dr-dwn-cont"
-              .row
-                div class="city-dr-dwn-title medium-4 small-12 columns"
-                  h2 
-                    =@state.name                     
-                  p 
-                    span
-                      =@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
-                    |  
-                    = case_of_event(@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count)
-                    = t("header.week_events")
-                div class="city-dr-dwn-cities medium-8 small-12 columns"
-                  -State.where.not(id: @state.id).each do |state|
-                    = link_to "/events?state_id=" + state.id.to_s do
-                      span 
-                        =state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
-                      =state.name
+header
+  .row
+    .menu
+      /=I18n.locale
+      /= link_to 'Ru', "javascript:void(0);"
+      = link_to "Ru",  params.merge({:locale => :ru})
+      span |
+      = link_to "Ua",  params.merge({:locale => :uk})
+      /
+        span |
+        = link_to "En",   params.merge({:locale => :en})
+      /url_for(:locale => 'en', :state_id => params[:state_id])
+      /= link_to 'Ua', "javascript:void(0);"
+      - if user_signed_in?
+        = link_to "/ownpage/#{current_user.id}"
+          -if current_user.avatar && current_user.avatar.avatar.file.exists?
+            = image_tag current_user.avatar.avatar_url(:small), :style => "border-radius: 50%;"
+          -else 
+            = small_avatar(current_user.id)
+        = link_to t('header.exit'), destroy_user_session_path, :method => :delete
+      - else
+        = link_to t('header.enter'), new_user_session_path, class: "enter-site"
+      - if can? :create, Event
+        = link_to t('header.create_event'), new_event_path, class: "btn-4"
+    .logo
+      = link_to root_path do
+        span 
+          | My
+        | Urban
+    - if params[:controller] == 'events' && params[:action] == 'index'
+      - if (@state.name == 'Крим' || @state.name == 'Крым')
+        .city-dr-dwn
+          = link_to @state.name, 'javascript:void(0);'              
+      -else
+        .city-dr-dwn
+          = link_to @state.name + ' область', 'javascript:void(0);'
+      .city-dr-dwn-cont-wr
+        div class="city-dr-dwn-cont"
+          .row
+            div class="city-dr-dwn-title medium-4 small-12 columns"
+              h2 
+                =@state.name                     
+              p 
+                span
+                  =@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+                |  
+                = case_of_event(@state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count)
+                = t("header.week_events")
+            div class="city-dr-dwn-cities medium-8 small-12 columns"
+              -State.where.not(id: @state.id).each do |state|
+                = link_to "/events?state_id=" + state.id.to_s do
+                  span 
+                    =state.events.where('data >= ? and data < ?', Date.today, Date.today.at_end_of_week).count 
+                  =state.name
 

@@ -1,4 +1,4 @@
-=begin
+
 vinnytska_st = State.new
 language = [:en, :uk, :ru]
 language.each do |l|
@@ -474,7 +474,7 @@ crimea_st.save
 									simferopol.state_id = crimea_st.id
 								end
 								simferopol.save
-=end
+
 =begin
 	require 'securerandom'
 	18.times do

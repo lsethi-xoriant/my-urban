@@ -43,7 +43,8 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
-
+  get '/about' => 'home#about', as: 'about'
+  get '/contact' => 'home#contact', as: 'contact'
   get 'ownpage/:id' => 'users#own_user', as: 'ownpage'
   get 'users' => 'users#index'
   #get 'users_controller/index'
@@ -55,6 +56,7 @@ Rails.application.routes.draw do
   get 'user_photo/:id' => 'users#user_photo'
   get 'user_event' => 'users#user_event'
   get 'user_event_photo/:id' => 'users#user_event_photo'
+
 
   #helper for user_page
     get 'user_modal' => 'users#open_modal', as: 'open_modal'

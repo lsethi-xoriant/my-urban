@@ -15,6 +15,8 @@
  *= require jquery.jcrop
  *= require lightbox
  *= require dropzone
+ *= require datepicker_restyle
+ *= require about
  *= require_self
  */
 

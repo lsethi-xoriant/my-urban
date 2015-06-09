@@ -27,10 +27,7 @@
                 = select_tag :state_id, options_from_collection_for_select(State.all, :id, :name, :selected => params[:state_id]) 
               div class="actions"
                 = submit_tag
-          = form_tag(events_path, method: "get", remote: true) do |f| 
-            #datepicker
-            =hidden_field_tag :data, Date.today, class: 'filter_date filter_input'
-            =hidden_field_tag :state_id, params[:state_id]
+          = form_tag(events_path, method: "get", remote: true) do |f|            
             .ev-type 
               h3 =t('events.type')
               sel-wr
@@ -57,6 +54,9 @@
                 = text_field_tag :urban, params[:urban], id: 'user_city', class: "filter_input" 
               div style='display:none'
                 = submit_tag
+            #datepicker
+            =hidden_field_tag :data, Date.today, class: 'filter_date filter_input'
+            =hidden_field_tag :state_id, params[:state_id]
 
         div class="large-8 medium-8 small-12 columns ev-list"
           /

@@ -1,0 +1,57 @@
+.main-wrapper
+  .content-wrapper.not-main
+  	
+		= render "partials/header"
+
+		.contact_all
+			.row
+				div class="large-4 medium-5 small-12 columns padding_l"
+					.bg_about
+						.text_pd
+							h4 Контакти
+							p Влада Харкова заперечує свою причетність до вибуху магазину в ніч на 25 грудня. 
+							p Про це заявив журналістам заступник мера Харкова з питань розвитку та забезпечення життєдіяльності міста Ігор Терехов, повідомляють "Українські новини".
+							br/
+							p "Звичайно, можна звинувачувати всіх у всьому. Але я впевнений на 100%, що ніхто з міськради до цього відношення не має, знаючи позицію цих людей", – заявив Терехов.
+							br/
+							p Раніше власник підірваного магазину В'ячеслав Дуда заявив журналістам на місці події, що вважає вибух помстою влади Харкова за його участь в акції активістів біля міськради 24 грудня.
+				div class="large-8 medium-7 small-12 columns padding_r"
+					.bg_about
+						form
+							.label_input_l
+								label
+									| Прізвище
+									span * 
+								.clear_b
+								input type="text" placeholder="" name=""
+							.label_input_r
+								label 
+									| Ім'я
+									span * 
+								input.f_r type="text" placeholder="" name=""
+							.label_input_l
+								label 
+									| Email
+									span * 
+								input type="email" placeholder="" name=""
+							.label_input_r
+								label 
+									| Телефон
+									span * 
+								input type="tel" placeholder="" name=""
+							label 
+								| Повідомлення
+								span * 
+							textarea
+							.clear_b
+							.copy_w 
+								| Всі дані є конфіденційними 
+								img src="/assets/contact_z.png"/
+							input type="submit" value="Надіслати" name=""
+							.clear_b
+
+							 
+
+
+
+		= render "partials/footer"

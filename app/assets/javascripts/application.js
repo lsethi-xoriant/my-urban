@@ -92,7 +92,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function(){
-  $(".user_for_invite").click(function(){
+  $(".invite-fr-list-item").click(function(){
     //alert($(this).hasClass('invited'));
     if ($(this).closest('.invite-fr-list-item').hasClass('invited')){
       $(this).closest('.invite-fr-list-item').removeClass('invited');

@@ -1,0 +1,322 @@
+script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&language=en"
+
+.new-ev-form
+  h1 Створити нову подію
+  .clear_b
+  .my_form_edit_img_1
+    form accept-charset="UTF-8" action="/events/upload_picture" class="edit_event my_edit_img_1" enctype="multipart/form-data" id="edit_event_7" method="post"
+
+      label for=""
+        | Зображення події
+        span *
+        i data-tooltip="I am img1"
+          img  src="/assets/inform.png" alt=""/
+      div style="display:none"
+        input name="utf8" type="hidden" value="✓"
+        input name="authenticity_token" type="hidden" value="lmR+zc2nE1bOkgeOrkx2pL4XMC6R+Batl8rWY2Ug7E0="
+      
+      div class="ph-drag-drop my_drag"
+        p 
+          | Перетягніть сюди зображення
+        p 
+          | або натисність кнопку
+          a class="btn-4" href="javascript:void(0);" Завантажити
+        input id="id" name="id" type="hidden" value="7"
+        input class="picturesPre pictures1" id="pictures_" multiple="multiple" name="pictures[]" type="file"
+        input id="picture" name="picture" type="hidden" value="picture"
+  
+  .my_form_edit_img_2
+    form accept-charset="UTF-8" action="/events/upload_picture" class="edit_event my_edit_img_2" enctype="multipart/form-data" id="edit_event_7" method="post"
+
+      label for=""
+        | Фонове зображення події
+        span *
+        i data-tooltip="I am img2"
+          img  src="/assets/inform.png" alt=""/
+    	div style="display:none"
+    		input name="utf8" type="hidden" value="✓"
+    		input name="authenticity_token" type="hidden" value="lmR+zc2nE1bOkgeOrkx2pL4XMC6R+Batl8rWY2Ug7E0="
+  		
+    	div class="ph-drag-drop my_drag"
+    		p 
+    			| Перетягніть сюди зображення
+    		p 
+    			| або натисність кнопку
+    			a class="btn-4" href="javascript:void(0);" Завантажити
+    		input id="id" name="id" type="hidden" value="7"
+    		input class="picturesPre pictures1" id="pictures_" multiple="multiple" name="pictures[]" type="file"
+    		input id="picture" name="picture" type="hidden" value="picture"
+  .clear_b
+
+    form accept-charset="UTF-8" action="/events" class="new_event" id="new_event" method="post"
+      div style="display:none"
+        input name="utf8" type="hidden" value="✓"
+        input name="authenticity_token" type="hidden" value="lmR+zc2nE1bOkgeOrkx2pL4XMC6R+Batl8rWY2Ug7E0="
+      div class="radio_event_type my_radio"
+        input checked="checked" class="no_displaying" id="event_event_type_open" name="event[event_type]" type="radio" value="open"        
+        label data-tooltip="I am a tooltipфівввввввввв" class="radio_type right_radio_type active" for="event_event_type_open" 
+          | Відкрита
+        input class="no_displaying" id="event_event_type_close" name="event[event_type]" type="radio" value="close"
+        label data-tooltip="I am a tooltipфіввв" class="radio_type left_radio_type" for="event_event_type_close" 
+          | Закрита
+
+      div class="my_event_name"
+        label for="event_name"
+          | Назва події
+          span *
+        input id="event_name" name="event[name]" type="text"
+      
+      div class="my_event_category"
+        label for="event_name"
+          | Оберіть категорію
+          span *
+        select id="event_category_id" name="event[category_id]"
+          option value=""
+          option value="1"
+            | Відпочинок у місті
+          option value="2"
+            | сім'я-діти
+          option value="3"
+            | робота
+          option value="4"
+            | домашні улюбленці
+          option value="5"
+            | мови/наука
+          option value="6"
+            | технологія
+          option value="7"
+            | спорт
+          option value="8"
+            | мистецтво і ремесла
+          option value="9"
+            | кулінарія
+          option value="10"
+            | ресторани
+          option value="11"
+            | розваги
+          option value="12"
+            | музика
+          option value="13"
+            | bla-bla зустрічі (полеміка)
+          option value="14"
+            | подорожі
+          option value="15"для геймерів
+          option value="16"
+            | культурний обмін
+          option value="17"
+            | авто/мотолюбителі
+      .clear_b
+
+      div class="my_event_address"
+        label for="event_name"
+          | Адреса
+          span *
+        input class="new_autocomplete" id="autocomplete" name="event[adress]" placeholder="" type="text" autocomplete="off"
+
+      div class="my_event_people_count"
+        label for="event_people_count"
+          | Кількість учасників
+          span *
+        select id="event_people_count" name="event[people_count]"
+          option selected="selected" value="little"
+            | Маленька(8-15 чол)
+          option value="middle"
+            | Середня(16-25 чол)
+          option value="great"
+            | Велика(26-50 чол)
+      .clear_b
+
+      div class="field"
+        label for="event_description"
+          | Опис
+          span *
+        textarea id="event_description" name="event[description]"
+      .clear_b
+
+      div class="field-data"
+        label for="event_data"
+          | Дата 
+          span *
+        select id="event_data_3i" name="event[data(3i)]"
+          option value="1"1
+          option value="2"2
+          option value="3"3
+          option value="4"4
+          option value="5"5
+          option value="6"6
+          option value="7"7
+          option value="8"8
+          option selected="selected" value="9"9
+          option value="10"10
+          option value="11"11
+          option value="12"12
+          option value="13"13
+          option value="14"14
+          option value="15"15
+          option value="16"16
+          option value="17"17
+          option value="18"18
+          option value="19"19
+          option value="20"20
+          option value="21"21
+          option value="22"22
+          option value="23"23
+          option value="24"24
+          option value="25"25
+          option value="26"26
+          option value="27"27
+          option value="28"28
+          option value="29"29
+          option value="30"30
+          option value="31"31
+
+        select id="event_data_2i" name="event[data(2i)]"
+          option value="1"Січня
+          option value="2"Лютого
+          option value="3"Березня
+          option value="4"Квітня
+          option value="5"Травня
+          option selected="selected" value="6"Червня
+          option value="7"Липня
+          option value="8"Серпня
+          option value="9"Вересня
+          option value="10"Жовтня
+          option value="11"Листопада
+          option value="12"Грудня
+   
+        select id="event_data_1i" name="event[data(1i)]"
+          option value="2010"2010
+          option value="2011"2011
+          option value="2012"2012
+          option value="2013"2013
+          option value="2014"2014
+          option selected="selected" value="2015"2015
+          option value="2016"2016
+          option value="2017"2017
+          option value="2018"2018
+          option value="2019"2019
+          option value="2020"2020
+
+      div class="field-start"
+        label for="event_timeStart"
+          | Час початку
+          span *
+        input id="event_timeStart_1i" name="event[timeStart(1i)]" type="hidden" value="1"
+        input id="event_timeStart_2i" name="event[timeStart(2i)]" type="hidden" value="1"
+        input id="event_timeStart_3i" name="event[timeStart(3i)]" type="hidden" value="1"
+        select id="event_timeStart_4i" name="event[timeStart(4i)]"
+          option value=""
+          option value="00"00
+          option value="01"01
+          option value="02"02
+          option value="03"03
+          option value="04"04
+          option value="05"05
+          option value="06"06
+          option value="07"07
+          option value="08"08
+          option value="09"09
+          option value="10"10
+          option value="11"11
+          option value="12"12
+          option value="13"13
+          option value="14"14
+          option value="15"15
+          option value="16"16
+          option value="17"17
+          option value="18"18
+          option value="19"19
+          option value="20"20
+          option value="21"21
+          option value="22"22
+          option value="23"23
+          
+        | : 
+        select id="event_timeStart_5i" name="event[timeStart(5i)]"
+          option value=""
+          option value="00"00
+          option value="05"05
+          option value="10"10
+          option value="15"15
+          option value="20"20
+          option value="25"25
+          option value="30"30
+          option value="35"35
+          option value="40"40
+          option value="45"45
+          option value="50"50
+          option value="55"55
+          
+      div class="field-end"
+        label for="event_endTime"
+          | Час закінчення
+          span *
+        input id="event_endTime_1i" name="event[endTime(1i)]" type="hidden" value="1"
+        input id="event_endTime_2i" name="event[endTime(2i)]" type="hidden" value="1"
+        input id="event_endTime_3i" name="event[endTime(3i)]" type="hidden" value="1"
+        select id="event_endTime_4i" name="event[endTime(4i)]"
+          option value=""
+          option value="00"00
+          option value="01"01
+          option value="02"02
+          option value="03"03
+          option value="04"04
+          option value="05"05
+          option value="06"06
+          option value="07"07
+          option value="08"08
+          option value="09"09
+          option value="10"10
+          option value="11"11
+          option value="12"12
+          option value="13"13
+          option value="14"14
+          option value="15"15
+          option value="16"16
+          option value="17"17
+          option value="18"18
+          option value="19"19
+          option value="20"20
+          option value="21"21
+          option value="22"22
+          option value="23"23
+        
+        | : 
+        select id="event_endTime_5i" name="event[endTime(5i)]"
+          option value=""
+          option value="00"00
+          option value="05"05
+          option value="10"10
+          option value="15"15
+          option value="20"20
+          option value="25"25
+          option value="30"30
+          option value="35"35
+          option value="40"40
+          option value="45"45
+          option value="50"50
+          option value="55"55
+      .clear_b
+
+      div class="invite-fr-list"
+        div class="invite-fr-list-item new_invite"
+          a href="javascript:void(0);"
+            img alt="Small 3image 1" class="user_for_invite" src="/assets/create-events1.png" style="border-radius: 50%;"
+          a class="user_for_invite" href="javascript:void(0);"taras gogol
+          input class="invite_check invisible" id="invites_" name="invites[]" type="checkbox" value="1"
+
+        div class="invite-fr-list-item new_invite"
+          a href="javascript:void(0);"
+            img alt="Small 16p1136876" class="user_for_invite" src="/assets/create-events1.png" style="border-radius: 50%;"
+          a class="user_for_invite" href="javascript:void(0);"Олег Федорко
+          input class="invite_check invisible" id="invites_" name="invites[]" type="checkbox" value="3"
+       
+        div class="invite-fr-list-item new_invite"
+          a href="javascript:void(0);"
+            img alt="Small 13aa" class="user_for_invite" src="/assets/create-events1.png" style="border-radius: 50%;"
+          a class="user_for_invite" href="javascript:void(0);"Timaa Chee
+          input class="invite_check invisible" id="invites_" name="invites[]" type="checkbox" value="7"
+
+      div class="actions"
+        input class="btn-2 btn-3" id="inputId" name="commit" type="submit" value="Створити подію"
+
