@@ -116,6 +116,14 @@ class Event < ActiveRecord::Base
     I18n.locale = :en
     I18n.locale = 'en'
     self.city_name = 'Ivano-Frankivsk' if self.city_name == 'Ivano-Frankivs\'k'
+    self.city_name = 'Lviv' if self.city_name == 'L\'viv'
+    self.city_name = 'Lutsk' if self.city_name == 'Luts\'k'
+    self.city_name = 'Dnepropetrovsk' if self.city_name == 'Dnipropetrovs\'k'
+    self.city_name = 'Zaporizhia' if self.city_name == 'Zaporizhzhia'
+    self.city_name = 'Luhansk' if self.city_name == 'Luhans\'k'
+    self.city_name = 'Odessa' if self.city_name == 'Odesa'
+    self.city_name = 'Khmelnytskyi' if self.city_name == 'Khmel\'nyts\'kyi'
+    self.city_name = 'Simferopol' if self.city_name == 'Simferopol\''
     unless City.where(en_name: self.city_name).exists?
       self.errors[:adress] << I18n.t('my_errors.messages.incorrect_city')
     else

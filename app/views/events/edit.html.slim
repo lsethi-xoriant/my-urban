@@ -22,7 +22,7 @@
                 = f.file_field :avatar, 'data-reveal-id' => "secondModal", class: 'image_for_event'
             div[id="ImageModal" class="reveal-modal" data-reveal aria-hidden="true" role="dialog"]
                 a [class="close-reveal-modal" aria-label="Close"] &#215;
-                h2 Image crop
+                h2 =I18n.t('event.image_choosing')
                 #image_edit
             = form_for(@event,  html: {class: 'new_event', id: 'new_event'}) do |f|
               - if @event.errors.any?

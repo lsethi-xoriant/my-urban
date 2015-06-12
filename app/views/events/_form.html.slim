@@ -98,7 +98,7 @@
                     .invite-fr-list-item.new_invite
                       = link_to 'javascript:void(0);' do
                         - if friend.avatar&&friend.avatar.avatar.file.exists?
-                          = image_tag friend.avatar.avatar_url(:small), class: 'user_for_invite', :style => "border-radius: 50%;"
+                          = image_tag friend.avatar.avatar_url(:small), class: 'user_for_invite', :style => "border-radius: 50%; margin-left:10px"
                         - else
                           = link_to(small_avatar(friend.id), class: 'user_for_invite')                       
                       = link_to friend.first_name + " " + friend.last_name, 'javascript:void(0);', class: 'user_for_invite'
