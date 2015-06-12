@@ -49,7 +49,7 @@ module UsersHelper
     if page[0] == 'new_edit'
       return "#{image_tag avatar, class: 'user_for_invite', :style => "border-radius: 50%;" }".html_safe
     else
-      return "#{image_tag avatar}".html_safe 
+      return "#{image_tag avatar, :style => "border-radius: 50%;" }".html_safe 
     end
   end
 
